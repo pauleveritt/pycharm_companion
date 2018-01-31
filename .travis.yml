@@ -1,0 +1,25 @@
+# Doctr requires python >=3.5
+language: python
+python:
+  - 3.6
+
+# This gives Doctr the key we've generated
+sudo: false
+env:
+  global:
+    secure: "<your secure key from Doctr here>"
+
+# This is the script to build the docs on travis, then deploy
+script:
+  - set -e
+  - pip install doctr
+  - cd docs
+  - make html
+  - cd ..
+  - doctr deploy . --built-docs docs/
+
+env:
+  global:
+    # Doctr deploy key for pauleveritt/pycharm_companion
+    - secure: "L6ZOqZB9+uM9hT3ANgumGkBaqwh+k/TRi19eajEZQIf7nJIYuaM5jop6leOVMQa7IX5E0BA8wdnXCJ92mQH54ndf6rnSc/+elmqP10//N5JeeR4G3jB5lW9qi4e3h79JgKhqz4TMHvfdTQ3/3rRVgv63zS5qU3WLzuXw2+lKM0VL1jpgMmC2KiSOVzeQCnWDCvouSpvbR/D2cHebT4/q4BfEfnHQL/lphwen7ne9UvMf1ofF6jWamE+apoZF3GKf2VgFDjCbFkIL5UK2nBsQpbCKhxT7Ex1Ho0tCpBkruCt6u3/vCZd+ujTCKOIlF5sgkwwl/C9nZpm/TnS6PMdwxuPJH3rYYNN+dwO3NyTqUBKxa8Yzd4XEeB+jKMcx/w4SDXtKUKtBarU2yYu5I/6fXPfMTcXcb85EoR4mj1zX3EObJtpzFFEmVKpTT72E3CLCZYcSux0S7jufXkGtIspGuLLKnq/J/EzjhlFGDSDtou008icwnwTUsz8oWFWitsxdOq4jTyEw4EacHeYqJO2JKJm0w0DdNJgnBLtzPyh7x/xkD3ZSG5KhXSpMqp5UoiHBLP8coH0vkh2KxVnCRBTYbLkxXLe4I6IKmcnMmsJMaDGnxVMCmO/YxeDeu+DZZWWL9tC0DpR/xXei8cyrYa8dsHwKMBsWoKwUHGxEhtPr5Es="
+
