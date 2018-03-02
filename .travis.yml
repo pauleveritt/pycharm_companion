@@ -5,9 +5,8 @@ python:
 
 # This gives Doctr the key we've generated
 sudo: false
-env:
-  global:
-    secure: "<your secure key from Doctr here>"
+install:
+  - pip install -r requirements.txt
 
 # This is the script to build the docs on travis, then deploy
 script:
@@ -16,7 +15,6 @@ script:
   - cd docs
   - make html
   - cd ..
-  - ls -l docs/_build
   - doctr deploy . --built-docs docs/_build/html
 
 env:
