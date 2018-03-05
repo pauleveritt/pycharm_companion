@@ -1,20 +1,25 @@
-.. PyCharm Companion documentation master file, created by
-   sphinx-quickstart on Wed Jan 31 17:55:45 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. homepage::
+    published: 2018-02-02 12:23
+    heading: PyCharm Companion
+    subheading: Guide to Resource for Mastering PyCharm
+    style: dark
 
-Welcome to PyCharm Companion's documentation!
-=============================================
+
+=================
+PyCharm Companion
+=================
+
+.. sectionbox::
+    name: sbhero
+    style: splash
+
+    PyCharm is a powerful, productive environment for Python development.
+    It can help in lots of ways. How? Let the PyCharm Companion be your
+    guide to resources for mastering PyCharm.
+
+    The PyCharm Companion collects lots of PyCharm resources -- blog posts,
+    videos, tip tweets, articles, and more -- from inside and outside of
+    JetBrains, into a convenient, interlinked guide.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+    :hidden:

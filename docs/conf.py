@@ -1,23 +1,13 @@
-# -*- coding: utf-8 -*-
-#
-# Configuration file for the Sphinx documentation builder.
-#
-# This file does only contain a selection of the most common options. For a
-# full list see the documentation:
-# http://www.sphinx-doc.org/en/stable/config
+from kaybee_bulma import SiteConfig
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
-
-# -- Project information -----------------------------------------------------
+kaybee_bulma_siteconfig = SiteConfig(
+    logo=dict(
+        img_file='PyCharm_Logo.svg.png',
+        alt='PyCharm Logo Alt'
+    ),
+    copyright='2018, All Rights Reserved',
+    favicon='jetbrains_favicon.ico'
+)
 
 project = 'PyCharm Companion'
 copyright = '2018, Paul Everitt'
@@ -40,7 +30,8 @@ release = '0.1'
 # ones.
 extensions = [
     'sphinx.ext.intersphinx',
-    'sphinx.ext.githubpages',
+    'kaybee',
+    'kaybee_bulma'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -76,7 +67,7 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'kaybee_bulma'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
