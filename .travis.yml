@@ -12,6 +12,6 @@ script:
 - sphinx-build -E -b html . _build
 - cd ..
 - doctr deploy . --built-docs docs/_build
-deploy:
-  password:
+env:
+  global:
     secure: YTEfuWLwPVwfTvZmOeBBl9iFJgJXrv6IZ2d+it5hV7+4zV3IJ31EJR6izCCZfXzh94pWEvMnyEHbK97Wfompo21LMcC/qn/raYM5La5zF7iC7yRj7UZ67pVmZpIljEUx524hhJnUCyUD3KNa4/zxbs1++0W6WJ5lYFgUpwCTA8MwItxIV5gMnSRNTZpEp+0CFR5DdE0BQsBgbAGqFoQHycohyyQNqUe0n8tllncjYbj05Fz9U1Iy3t/KVBRBuSejaculWB1NHUzUMeUXKu3LPH5nosK/mcikHW9mu9Jzw+I8m8vHs93wER+g70HH3iNmf8XmB9RlNj8KXsh1MwcITxiw3L+iup9Hy+boUPVxDw12hUyUQz0l8kDo/U2AReXi5EqLqSeT6weFkUANJGKdqcDMqzjxnEMbGURDWq2JP51so3uXLQQk3cFLRKKTyUij7GfaUmTOq9nIGh/6Bxu5No3jmEa39f+6F2yc3PWXjUIapyzkRIDFa9yCVc63cZ/f67aypsybpC98vTsXDCbS2cIhnalg+dAe5RrB+cAfm2x7XpBN5t0Dmlp0r9RNFPOy+qHSXwxRNqc2fdaDFg7LU40aTqhPWpH+cewmCkK0Ls2mn7XDjogmBUOoZlfT7oRMXYAQ6ZaGjxK/zQnNd858BK+Vywo7Y0GMNhdlkl8ToMI=
