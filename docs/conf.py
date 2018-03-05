@@ -1,12 +1,19 @@
-from kaybee_bulma import SiteConfig
+import kaybee
+import kaybee_bulma
 
-kaybee_bulma_siteconfig = SiteConfig(
+kaybee_bulma_siteconfig = kaybee_bulma.SiteConfig(
     logo=dict(
         img_file='PyCharm_Logo.svg.png',
         alt='PyCharm Logo Alt'
     ),
     copyright='2018, All Rights Reserved',
     favicon='jetbrains_favicon.ico'
+)
+
+kaybee_settings = kaybee.KaybeeSettings(
+    articles=dict(
+        use_toctree=True
+    )
 )
 
 project = 'PyCharm Companion'
@@ -17,7 +24,6 @@ author = 'Paul Everitt'
 version = ''
 # The full version, including alpha/beta/rc tags
 release = '0.1'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -30,8 +36,8 @@ release = '0.1'
 # ones.
 extensions = [
     'sphinx.ext.intersphinx',
-    'kaybee',
-    'kaybee_bulma'
+    kaybee.__title__,
+    kaybee_bulma.__title__
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,7 +66,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -96,7 +101,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'PyCharmCompaniondoc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -125,7 +129,6 @@ latex_documents = [
      'Paul Everitt', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -134,7 +137,6 @@ man_pages = [
     (master_doc, 'pycharmcompanion', 'PyCharm Companion Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -146,7 +148,6 @@ texinfo_documents = [
      author, 'PyCharmCompanion', 'One line description of project.',
      'Miscellaneous'),
 ]
-
 
 # -- Extension configuration -------------------------------------------------
 

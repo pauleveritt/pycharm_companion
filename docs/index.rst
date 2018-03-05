@@ -2,7 +2,7 @@
     published: 2018-02-02 12:23
     heading: PyCharm Companion
     subheading: Guide to Resource for Mastering PyCharm
-    style: dark
+    style: primary
 
 
 =================
@@ -23,3 +23,6 @@ PyCharm Companion
 
 .. toctree::
     :hidden:
+
+    tips/index
+    topics/index

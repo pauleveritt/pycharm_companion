@@ -1,6 +1,6 @@
 doctr
 sphinx
-kaybee
-kaybee_bulma
+kaybee>=0.1.8
+kaybee_bulma>=0.2.9
 livereload
 travis-encrypt
