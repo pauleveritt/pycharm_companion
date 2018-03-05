@@ -3,3 +3,4 @@ sphinx
 kaybee
 kaybee_bulma
 livereload
+travis-encrypt
