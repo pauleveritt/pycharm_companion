@@ -1,17 +1,24 @@
+# Doctr requires python >=3.5
 language: python
 python:
-- '3.6'
-pip: cache
+  - 3.6
+
+# This gives Doctr the key we've generated
 sudo: false
 install:
-- pip install -r requirements.txt
+  - pip install -r requirements.txt
+
+# This is the script to build the docs on travis, then deploy
 script:
-- set -e
-- pip install doctr
-- cd docs
-- sphinx-build -E -b html . _build
-- cd ..
-- doctr deploy . --built-docs docs/_build
+  - set -e
+  - pip install doctr
+  - cd docs
+  - make html
+  - cd ..
+  - doctr deploy . --built-docs docs/_build/html
+
 env:
   global:
-    secure: YTEfuWLwPVwfTvZmOeBBl9iFJgJXrv6IZ2d+it5hV7+4zV3IJ31EJR6izCCZfXzh94pWEvMnyEHbK97Wfompo21LMcC/qn/raYM5La5zF7iC7yRj7UZ67pVmZpIljEUx524hhJnUCyUD3KNa4/zxbs1++0W6WJ5lYFgUpwCTA8MwItxIV5gMnSRNTZpEp+0CFR5DdE0BQsBgbAGqFoQHycohyyQNqUe0n8tllncjYbj05Fz9U1Iy3t/KVBRBuSejaculWB1NHUzUMeUXKu3LPH5nosK/mcikHW9mu9Jzw+I8m8vHs93wER+g70HH3iNmf8XmB9RlNj8KXsh1MwcITxiw3L+iup9Hy+boUPVxDw12hUyUQz0l8kDo/U2AReXi5EqLqSeT6weFkUANJGKdqcDMqzjxnEMbGURDWq2JP51so3uXLQQk3cFLRKKTyUij7GfaUmTOq9nIGh/6Bxu5No3jmEa39f+6F2yc3PWXjUIapyzkRIDFa9yCVc63cZ/f67aypsybpC98vTsXDCbS2cIhnalg+dAe5RrB+cAfm2x7XpBN5t0Dmlp0r9RNFPOy+qHSXwxRNqc2fdaDFg7LU40aTqhPWpH+cewmCkK0Ls2mn7XDjogmBUOoZlfT7oRMXYAQ6ZaGjxK/zQnNd858BK+Vywo7Y0GMNhdlkl8ToMI=
+    # Doctr deploy key for pauleveritt/pycharm_companion
+    - secure: "L6ZOqZB9+uM9hT3ANgumGkBaqwh+k/TRi19eajEZQIf7nJIYuaM5jop6leOVMQa7IX5E0BA8wdnXCJ92mQH54ndf6rnSc/+elmqP10//N5JeeR4G3jB5lW9qi4e3h79JgKhqz4TMHvfdTQ3/3rRVgv63zS5qU3WLzuXw2+lKM0VL1jpgMmC2KiSOVzeQCnWDCvouSpvbR/D2cHebT4/q4BfEfnHQL/lphwen7ne9UvMf1ofF6jWamE+apoZF3GKf2VgFDjCbFkIL5UK2nBsQpbCKhxT7Ex1Ho0tCpBkruCt6u3/vCZd+ujTCKOIlF5sgkwwl/C9nZpm/TnS6PMdwxuPJH3rYYNN+dwO3NyTqUBKxa8Yzd4XEeB+jKMcx/w4SDXtKUKtBarU2yYu5I/6fXPfMTcXcb85EoR4mj1zX3EObJtpzFFEmVKpTT72E3CLCZYcSux0S7jufXkGtIspGuLLKnq/J/EzjhlFGDSDtou008icwnwTUsz8oWFWitsxdOq4jTyEw4EacHeYqJO2JKJm0w0DdNJgnBLtzPyh7x/xkD3ZSG5KhXSpMqp5UoiHBLP8coH0vkh2KxVnCRBTYbLkxXLe4I6IKmcnMmsJMaDGnxVMCmO/YxeDeu+DZZWWL9tC0DpR/xXei8cyrYa8dsHwKMBsWoKwUHGxEhtPr5Es="
+
