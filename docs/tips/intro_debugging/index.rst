@@ -16,4 +16,5 @@ this tips series we show how PyCharm can be your imports janitor.
 
 .. toctree::
 
-    conditional_breakpoints/index
+    conditional_breakpoints
+    exception_breakpoints

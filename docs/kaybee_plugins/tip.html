@@ -12,7 +12,17 @@
                 <img src="{{ image.filename }}"/>
                 {% endif %}
                 {% endfor %}
+                {% if resource.props.twitter_dates %}
+                <p style="margin-top: 1rem">
+                    On Twitter:
+                    {% for td in resource.props.twitter_dates %}
+                    <a href="https://twitter.com/pycharm/status/{{td.tweet_id}}">{{td.date}}</a>
+                    {{ "|" if not loop.last }}
+                    {% endfor %}
+                </p>
+                {% endif %}
             </div>
+
 
             <h2>In Depth</h2>
             <div id="kbb-sphinx-body">{{ body }}</div>
@@ -46,8 +56,7 @@
                 {% set is_active = r.docname == resource.docname %}
                 <div class="kbb-listing-item{{ ' kbb-listing-active' if is_active }}">
                     <div class="kb-listing-title">
-                        <a href="{{ pathto(r.docname) + '.html' }}">{{ r.title
-                            }}</a>
+                        <a href="{{ pathto(r.docname) }}">{{ r.title }}</a>
                     </div>
                     {% if r.excerpt %}
                     <div class="kb-listing-excerpt">

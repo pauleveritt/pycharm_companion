@@ -1,6 +1,11 @@
 .. tip::
     published: 2018-01-02 12:01
     excerpt: Stop "sometimes" with conditional breakpoints.
+    twitter_dates:
+        - tweet_id: 929064877154623490
+          date: 2017-11-10
+        - tweet_id: 855442383202287616
+          date: 2017-04-21
     images:
         - usage: tweet_movie
           filename: conditional_breakpoints.gif
@@ -28,4 +33,4 @@ breakpoint.
 See Also
 ========
 
-- `PyCharm Help on breakpoints <https://www.jetbrains.com/help/pycharm/configuring-breakpoints.html>`_
+- `PyCharm Help on conditional breakpoints <https://www.jetbrains.com/help/pycharm/configuring-breakpoints.html>`_

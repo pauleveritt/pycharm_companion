@@ -1,13 +1,19 @@
-from datetime import datetime
+from datetime import date
 from typing import List
 
 from kaybee.app import kb
 from kaybee.plugins.articles.base_article import BaseArticleModel, BaseArticle
 from kaybee.plugins.articles.videoplayer import VideoPlayerModel
+from pydantic import BaseModel
+
+
+class TwitterDateModel(BaseModel):
+    tweet_id: str
+    date: date
 
 
 class TipModel(BaseArticleModel):
-    dates: List[datetime] = None
+    twitter_dates: List[TwitterDateModel] = None
     full_movie: VideoPlayerModel = None
 
 
