@@ -1,6 +1,6 @@
 doctr
 sphinx
 kaybee>=0.1.9
-kaybee_bulma>=0.2.10
+-e git+git://github.com/pauleveritt/kaybee_bulma.git#egg=kaybee_bulma
 livereload
 travis-encrypt
