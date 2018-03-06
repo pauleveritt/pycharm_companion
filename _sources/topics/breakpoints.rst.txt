@@ -1,0 +1,20 @@
+.. topic::
+    label: breakpoints
+    published: 2018-01-02 12:01
+    excerpt: Halt execution during debugging by setting a breakpoint on a line
+    references:
+        topic:
+            - debugging
+
+===========
+Breakpoints
+===========
+
+When :ref:`debugging <topic-debugging>`, setting breakpoints makes execution
+stop on a certain line.
+
+See Also
+========
+
+- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
+
