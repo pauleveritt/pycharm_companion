@@ -1,11 +1,11 @@
 .. topic::
-    label: debugging
-    excerpt: Interactively walk through the execution of your Python code
+    label: run_configuration
+    excerpt: Settings for running a particular program under the IDE
     published: 2018-01-02 12:01
 
-=========
-Debugging
-=========
+=================
+Run Configuration
+=================
 
 Debugging is an essential skill for Python developers. Using the debugger
 is far more productive than print statements. But learning the debugger

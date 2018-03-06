@@ -1,11 +1,12 @@
 .. topic::
-    label: debugging
-    excerpt: Interactively walk through the execution of your Python code
+    label: vcs
+    excerpt: JetBrains IDE clients and UI for working with different version
+             control systems
     published: 2018-01-02 12:01
 
-=========
-Debugging
-=========
+===
+VCS
+===
 
 Debugging is an essential skill for Python developers. Using the debugger
 is far more productive than print statements. But learning the debugger

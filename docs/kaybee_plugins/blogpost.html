@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
+    {% set wp_prefix = 'https://blog.jetbrains.com/pycharm/' %}
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
@@ -8,38 +9,13 @@
                         <em>(Pro Only)</em>
                     {% endif %}{{ resource.title }}
                 </div>
-
-                <p>{{ resource.props.excerpt }}</p>
-                <div>
-                    {% for image in resource.props.images %}
-                        {% if image.usage == 'tweet_movie' %}
-                            <img src="{{ image.filename }}"/>
-                        {% endif %}
-                    {% endfor %}
-                    {% if resource.props.twitter_dates %}
-                        <p style="margin-top: 1rem">
-                            On Twitter:
-                            {% for td in resource.props.twitter_dates %}
-                                <a href="https://twitter.com/pycharm/status/{{ td.tweet_id }}">{{ td.date }}</a>
-                                {{ "|" if not loop.last }}
-                            {% endfor %}
-                        </p>
-                    {% endif %}
-                </div>
+                <div class="subtitle">{{ resource.props.excerpt }}</div>
 
 
-                <h2>In Depth</h2>
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
-                {% if resource.props.full_movie %}
-                    <h2>Full Video</h2>
-                    <iframe
-                            width="{{ resource.props.full_movie.width }}"
-                            height="{{ resource.props.full_movie.height }}"
-                            src="{{ resource.props.full_movie.src }}"
-                            frameborder="{{ resource.props.full_movie.frameborder }}"
-                            allowfullscreen="{{ resource.props.full_movie.allowfullscreen }}"></iframe>
-                {% endif %}
+                <p><a href="{{ wp_prefix + resource.props.wp_url }}">Read this article
+                    on the PyCharm Blog</a></p>
 
                 {% set series = resource.series(resources) %}
                 {% if series %}

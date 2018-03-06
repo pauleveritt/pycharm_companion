@@ -1,11 +1,12 @@
 .. topic::
-    label: debugging
-    excerpt: Interactively walk through the execution of your Python code
+    label: http_client
+    excerpt: JetBrains IDE tool for automating HTTP requests through
+             statements in a file
     published: 2018-01-02 12:01
 
-=========
-Debugging
-=========
+===========
+HTTP Client
+===========
 
 Debugging is an essential skill for Python developers. Using the debugger
 is far more productive than print statements. But learning the debugger

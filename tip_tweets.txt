@@ -1,0 +1,142 @@
+Create and run scratch buffers
+2017-11-10, 928970506782507009
+2017-05-10, 862276039162179585
+
+Drag-and-drop CSS into HTML and auto-generate link (PRO)
+2017-11-09, 928702488437501953
+2017-01-19, 822028587536617474
+
+Use IPython for your Python Console
+2017-11-09, 928608120863186944
+2017-01-23, 823628880565170179
+
+Open Python Console during Run/Debug
+2017-11-13, 930057668563218432
+2017-01-20, 822431236387991555
+
+
+Use Evaluate Expression to figure out more complex situations during debugging
+2018-01-03, 948633819762102272
+2017-06-05, 871698125701865472
+
+Automatically pause at errors with exception breakpoints
+2018-01-04, 948901853521203200
+2017-06-06, 872060512921694208
+
+
+Use the navigation bar to open a file
+2017-02-05, 828368608959090688
+
+Easily find a file in a long navigation bar popup by using speed search
+2017-04-13, https://twitter.com/intellijidea/status/852492817532198912
+
+Add a new file in navigation bar item or popup
+2017-02-19, 833262861384351744
+
+Find in Path using navigation bar item as starting point
+2017-02-19, 833569400859029504
+
+Browse different directory path in navigation bar
+2017-02-18, 832950300931715073
+
+
+
+
+Use Recent Files to quickly jump to last-visited file
+2018-01-04, 948996207271178240
+2017-01-25, 824512951457579009
+
+Speed search in Recent Files to quickly jump to target
+2017-02-17, 832799055520550915
+
+Quickly jump to a recently edited file
+2017-02-01, 827049415743508480
+
+Navigate to the last edit using Shift+Cmd+Backspace/Shift+Ctrl+Backspace
+2018-01-05, 949264226429947905
+2017-05-22, 866624694178508800
+
+
+
+Easily spot symbols in your code using "semantic highlighting" per-variable colors
+2018-01-05, 949358596436918272
+2017-01-21, 822827347082616833
+
+Select a symbol and see its usage emphasized
+2018-01-08, 950351389628170240
+2017-01-18, 821765855256182785
+
+
+Slim-downed UI with Distraction Free Mode
+2017-11-01, 925713045195771904
+2016-10-11, 785843883213193221
+
+Wrap code with frequent Python blocks using Surround With
+2017-11-02, 926071402284929026
+2016-11-14, 798233223172124672
+
+Create a new Live Template for Python
+2017-11-02, 926165780143714309
+2016-11-09, 796437740393009152
+
+List and edit Live Templates
+2017-11-03, 926433798065152002
+2016-11-07, 795636667008905216
+
+Insert frequently-used, parameterized code with Live Templates
+2017-11-03, 926528198791303169
+2016-11-02, 793911205224218624
+
+View all the installed Postfix completions
+2017-11-06, 927520954351345666
+2016-10-31, 793142809016537088
+
+Code faster with Postfix completion
+2017-11-06, 927615325834829824
+2016-10-28, 792050017532076033
+
+Use autocomplete to add type information to variables
+2016-11-18, 799584267558916096
+
+
+Let code intention help transition to new variable type annotation
+2018-01-08, 950445757328445441
+2016-11-22, 801004874653724673
+
+Autocomplete f-strings for newest-style string formatting
+2018-01-08, 950713779314221057
+2016-24-22, 801740967393030144
+
+Use code intention to convert % and .format to new f-strings
+2018-01-09, 950808147140268032
+2016-11-26, 802523672124751873
+
+Multi-line Python blocks in console with auto-indent
+2018-01-10, 951076165317545984
+2016-11-25, 802150418436526080
+
+Simplified variables view in debugger
+2018-01-10, 951170536306085888
+2016-11-28, 803218227618807812
+
+Support Python 3.6 numeric literals
+2018-01-11, 951438565715660800
+2016-12-06, 806087103855656960
+
+View pandas/numpy arrays from link in debugger variables
+2018-01-12, 951800944496402432
+2016-12-08, 806964161708257280
+
+Virtual environment activation in terminal
+2018-01-12, 951895311227785217
+2016-12-07, 806541384945639424
+
+Navigate file structure with Cmd-F12 Navigate File Structure, plus speed search
+2016-10-24, 790641535394148353
+
+Quickly find and open a class using Cmd-O
+2018-01-15, 952888104767180800
+
+Live-grading your IDE productivity with Help -> Productivity Guide
+2017-06-01, 870357887457087489
+

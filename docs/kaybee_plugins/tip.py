@@ -15,6 +15,7 @@ class TwitterDateModel(BaseModel):
 class TipModel(BaseArticleModel):
     twitter_dates: List[TwitterDateModel] = None
     full_movie: VideoPlayerModel = None
+    is_pro: bool = False
 
 
 @kb.resource('tip')

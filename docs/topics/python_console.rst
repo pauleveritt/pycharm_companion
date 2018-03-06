@@ -1,14 +1,11 @@
 .. topic::
-    label: breakpoints
+    label: python_console
+    excerpt: An in-the-IDE Python interpeter
     published: 2018-01-02 12:01
-    excerpt: Halt execution during debugging by setting a breakpoint on a line
-    references:
-        topic:
-            - debugging
 
-===========
-Breakpoints
-===========
+==============
+Python Console
+==============
 
 When :ref:`debugging <topic-debugging>`, setting breakpoints makes execution
 stop on a certain line.

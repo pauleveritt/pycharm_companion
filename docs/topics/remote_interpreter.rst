@@ -1,11 +1,11 @@
 .. topic::
-    label: debugging
-    excerpt: Interactively walk through the execution of your Python code
+    label: remote_interpreter
+    excerpt: Project interpeters that are executed in a local or remote VM
     published: 2018-01-02 12:01
 
-=========
-Debugging
-=========
+==================
+Remote Interpreter
+==================
 
 Debugging is an essential skill for Python developers. Using the debugger
 is far more productive than print statements. But learning the debugger
