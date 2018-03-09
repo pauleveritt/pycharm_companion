@@ -26,8 +26,6 @@ series moves to mixing in Flask-RESTful talking to PostgreSQL (and pgmigrate.)
 To ensure that we get the right responses during development, we show the
 use of PyCharm's HTTP Client.
 
-topic: vcs, remote_interpreter, http_client,
-
 See Also
 ========
 

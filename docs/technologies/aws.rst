@@ -2,6 +2,7 @@
     label: aws
     excerpt: The leading facility for cloud computing
     published: 2018-01-02 12:01
+    website: https://aws.amazon.com
 
 ===
 AWS

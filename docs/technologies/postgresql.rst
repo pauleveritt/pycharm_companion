@@ -2,6 +2,7 @@
     label: postgresql
     excerpt: Leading open source RDBMS
     published: 2018-01-02 12:01
+    website: https://ipython.org
 
 ==========
 PostgreSQL

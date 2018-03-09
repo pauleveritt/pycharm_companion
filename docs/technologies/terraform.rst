@@ -1,14 +1,17 @@
 .. technology::
     label: terraform
-    excerpt: System for managing AWS rollouts
+    excerpt: Write, plan, and create infrastructure as code
     published: 2018-01-02 12:01
+    website: https://www.terraform.io
 
 =========
 Terraform
 =========
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+Terraform, an open source tool from HashiCorp, enables you to safely and
+predictably create, change, and improve infrastructure. It is an open source
+tool that codifies APIs into declarative configuration files that can be
+shared amongst team members, treated as code, edited, reviewed, and versioned.
 
 See Also
 ========

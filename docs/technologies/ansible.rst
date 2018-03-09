@@ -2,6 +2,7 @@
     label: ansible
     excerpt: Software automation
     published: 2018-01-02 12:01
+    website: https://www.ansible.com
 
 =======
 Ansible

@@ -2,6 +2,7 @@
     label: flask_restful
     excerpt: Popular REST framework for Flask
     published: 2018-01-02 12:01
+    website: https://flask-restful.readthedocs.io/en/latest/
 
 =============
 flask_restful

@@ -2,6 +2,7 @@
     label: vagrant
     excerpt: Open source virtual machine technology
     published: 2018-01-02 12:01
+    website: https://www.vagrantup.com
 
 =======
 Vagrant
