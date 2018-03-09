@@ -10,21 +10,21 @@
 2017-11-09, 928608120863186944
 2017-01-23, 823628880565170179
 
-Open Python Console during Run/Debug
+// Open Python Console during Run/Debug
 2017-11-13, 930057668563218432
 2017-01-20, 822431236387991555
 
 
-Use Evaluate Expression to figure out more complex situations during debugging
+// Use Evaluate Expression to figure out more complex situations during debugging
 2018-01-03, 948633819762102272
 2017-06-05, 871698125701865472
 
-Automatically pause at errors with exception breakpoints
+// Automatically pause at errors with exception breakpoints
 2018-01-04, 948901853521203200
 2017-06-06, 872060512921694208
 
 
-Use the navigation bar to open a file
+// Use the navigation bar to open a file
 2017-02-05, 828368608959090688
 
 Easily find a file in a long navigation bar popup by using speed search
