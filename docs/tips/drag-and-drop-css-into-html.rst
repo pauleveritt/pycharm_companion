@@ -16,8 +16,7 @@
     is_pro: True
     references:
         topic:
-            - debugging
-            - breakpoints
+            - web
         author:
             - pauleveritt
 
@@ -32,8 +31,3 @@ Let PyCharm do it for you. In PyCharm's Project file listing, select the
 files you want inserted, then drag and drop them into the editor.
 PyCharm will generate new markup in the head that links to the
 relative path for those resources.
-
-See Also
-========
-
-- `PyCharm Help on exception breakpoints <https://www.jetbrains.com/help/pycharm/creating-exception-breakpoints.html>`_

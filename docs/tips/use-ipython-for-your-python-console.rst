@@ -35,4 +35,8 @@ It also supports being replaced with IPython.
 See Also
 ========
 
-- `PyCharm Help on exception breakpoints <https://www.jetbrains.com/help/pycharm/creating-exception-breakpoints.html>`_
+- `Configuring Consoles <https://www.jetbrains.com/help/pycharm/console-2.html#d34850e28>`_
+  in PyCharm Help
+
+- `IPython Magic Commands <https://www.jetbrains.com/help/pycharm/ipython-magic-commands.html>`_
+  in PyCharm Help

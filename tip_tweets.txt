@@ -1,12 +1,12 @@
-Create and run scratch buffers
+// Create and run scratch buffers
 2017-11-10, 928970506782507009
 2017-05-10, 862276039162179585
 
-Drag-and-drop CSS into HTML and auto-generate link (PRO)
+// Drag-and-drop CSS into HTML and auto-generate link (PRO)
 2017-11-09, 928702488437501953
 2017-01-19, 822028587536617474
 
-Use IPython for your Python Console
+// Use IPython for your Python Console
 2017-11-09, 928608120863186944
 2017-01-23, 823628880565170179
 
