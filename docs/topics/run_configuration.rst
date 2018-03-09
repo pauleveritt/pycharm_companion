@@ -7,14 +7,17 @@
 Run Configuration
 =================
 
-Debugging is an essential skill for Python developers. Using the debugger
-is far more productive than print statements. But learning the debugger
-is daunting.
+During development you need to run programs. Sometimes you need to run them
+in different ways, with different settings.
 
-PyCharm makes this easier by putting a visual face on the debugger.
+PyCharm uses "run configurations" to define how to run something. You can
+just run something and let PyCharm do the settings for you, or create/edit
+a run configuration from specially-defined configuration types. These
+run configurations are used not just for running, but also for debugging,
+profiling, coverage, and more.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+- `Working with Run/Debug Configurations <https://www.jetbrains.com/help/pycharm/working-with-run-debug-configurations.html>`_
+  in the PyCharm help

@@ -10,7 +10,9 @@
 
 - Put some Rect Tips etc. querylist tiles on home page
 
-- Add field for Pro-only
+- Add icon/badge for Pro-only
+
+- Some system for mapping action shortcuts to browser OS
 
 # Later
 

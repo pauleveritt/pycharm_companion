@@ -16,5 +16,7 @@ stop on a certain line.
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
+- `PyCharm Help concepts page for breakpoints <https://www.jetbrains.com/help/pycharm/breakpoints-2.html>`_
+
+- `PyCharm Help reference page for breakpoints <https://www.jetbrains.com/help/pycharm/breakpoints.html>`_
 

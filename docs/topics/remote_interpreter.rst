@@ -7,14 +7,15 @@
 Remote Interpreter
 ==================
 
-Debugging is an essential skill for Python developers. Using the debugger
-is far more productive than print statements. But learning the debugger
-is daunting.
+Modern Python development involves sophisticated environments, sometimes
+managed remotely over SSH or locally in systems such as
+:ref:`technology-vagrant` or :ref:`technology-docker`.
 
-PyCharm makes this easier by putting a visual face on the debugger.
+PyCharm Professional supports defining remote interpreters in Vagrant, Docker,
+Docker, Compose, WSL, and SSH.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+- `Configuring Remote Python Interpreters <https://www.jetbrains.com/help/pycharm/configuring-remote-python-interpreters.html>`_
+  in the PyCharm Help
