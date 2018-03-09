@@ -8,11 +8,14 @@
 Vagrant
 =======
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+HashiCorp's Vagrant is a popular, cross-platform, open source system for
+managing virtual machines.
+
+PyCharm Professional has long had productive support for remote interpreters
+in Vagrant.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
+- `PyCharm Help for Vagrant <https://www.jetbrains.com/help/pycharm/vagrant.html>`_
 

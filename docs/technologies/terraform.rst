@@ -12,9 +12,3 @@ Terraform, an open source tool from HashiCorp, enables you to safely and
 predictably create, change, and improve infrastructure. It is an open source
 tool that codifies APIs into declarative configuration files that can be
 shared amongst team members, treated as code, edited, reviewed, and versioned.
-
-See Also
-========
-
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-

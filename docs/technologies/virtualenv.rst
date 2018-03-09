@@ -8,11 +8,16 @@
 virtualenv
 ==========
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+Python developers are encouraged to develop their projects in isolation, so
+that packages (and versions) in one project don't pollute another. Virtual
+environments (or ``virtualenvs``) are Python's system for providing this
+isolation.
+
+PyCharm has very good support for working with virtualenvs.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
+- `PyCharm Help for configuring virtualenvs <https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html#configuring-venv>`_
 
+- `Python Packaging Authority page on virtualenv <https://virtualenv.pypa.io/en/stable/>`_

@@ -2,17 +2,22 @@
     label: postgresql
     excerpt: Leading open source RDBMS
     published: 2018-01-02 12:01
-    website: https://ipython.org
+    website: https://postgresql.org
+    references:
+        technology: [postgresql, ]
 
 ==========
 PostgreSQL
 ==========
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+Relational databases are the king of data storage and PostgreSQL is the king
+of open source relational databases.
+
+PyCharm Professional includes :ref:`technology-datagrip`, our IDE for
+SQL databases, thus providing very strong PostgreSQL support.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
+- `PyCharm Help for connecting to a PostgreSQL database <https://www.jetbrains.com/help/pycharm/connecting-to-a-database.html#postgres>`_
 

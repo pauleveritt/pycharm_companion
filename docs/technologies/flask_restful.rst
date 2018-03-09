@@ -8,11 +8,10 @@
 flask_restful
 =============
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+Flask-RESTful is an extension for Flask that adds support for quickly
+building REST APIs. It is a lightweight abstraction that works with your
+existing ORM/libraries. Flask-RESTful encourages best practices with minimal
+setup. If you are familiar with Flask, Flask-RESTful should be easy to pick
+up.
 
-See Also
-========
-
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+We use it in a number of our demos to quickly make a REST API.

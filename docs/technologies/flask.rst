@@ -8,11 +8,11 @@
 Flask
 =====
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+Flask is the most popular microframework for Python web applications. PyCharm
+Professional provides extended support for Flask development.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+- The `PyCharm Help topic for Flask <https://www.jetbrains.com/help/pycharm/flask.html>`_
+  provides an overview of our Flask support

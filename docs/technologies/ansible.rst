@@ -8,11 +8,9 @@
 Ansible
 =======
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+Devops is complicated. Ansible is a configuration management system that
+lets you encode depolyments as repeatable configuration, with the
+configuration stored as version-controlled text files.
 
-See Also
-========
-
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+With Ansible, you write "playbooks" in YAML that talk to extensions in
+languages like Python.

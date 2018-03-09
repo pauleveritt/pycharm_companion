@@ -28,3 +28,4 @@ technologies in Python, web, data science, and more.
     terraform
     vagrant
     virtualenv
+    datagrip
