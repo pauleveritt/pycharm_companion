@@ -39,3 +39,20 @@ related resources, and arranging a number of tips into a series.
 .. toctree::
 
     developing-cloud-applications/index
+    analyzing-data-in-amazon-redshift
+    developing-django-under-the-debugger
+    how-to-publish-to-pypi
+    life-without-project-explorer
+    ssh-agent-simplify-keys
+    three-quick-git-videos
+    using-docker-compose-on-windows
+    announcing-micropython-plugin
+    hacking-reddit-with-pycharm
+    make-sense-of-your-variables
+    template-debugging
+    upgrade-your-testing-with-bdd
+    using-sets-to-compare-keymaps
+    docker-compose-flask-db/index
+    raspberry-pi/index
+
+

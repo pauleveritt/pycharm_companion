@@ -43,3 +43,7 @@ related resources, and arranging a number of tips into a series.
     create-and-run-scratch-buffers
     drag-and-drop-css-into-html
     use-ipython-for-your-python-console
+    open-python-console-during-run
+    use-evaluate-expression-to-figure
+    automatically-pause-at-errors
+    use-the-navigation-bar-to-open

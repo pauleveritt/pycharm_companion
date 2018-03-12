@@ -25,8 +25,3 @@ In this final part of the series, we want to get our application running
 - The project configuration
 
 - Setting up the instances
-
-See Also
-========
-
-- `PyCharm Help on conditional breakpoints <https://www.jetbrains.com/help/pycharm/configuring-breakpoints.html>`_

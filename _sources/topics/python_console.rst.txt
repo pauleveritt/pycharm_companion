@@ -13,5 +13,5 @@ stop on a certain line.
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+- `Working with Consoles <https://www.jetbrains.com/help/pycharm/working-with-consoles.html>`_
+  from the PyCharm Help

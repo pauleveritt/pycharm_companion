@@ -17,5 +17,5 @@ PyCharm makes this easier by putting a visual face on the debugger.
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
+- `PyCharm Help overview on the HTTP client <https://www.jetbrains.com/help/pycharm/rest-client-in-pycharm-code-editor.html>`_
 

@@ -18,3 +18,4 @@ Authors are resources that act as references, just like categories etc.
     pauleveritt
     ernsthaagsman
     dmitryfilippov
+    andreyvlasovskikh

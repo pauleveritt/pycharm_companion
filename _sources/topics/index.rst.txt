@@ -17,11 +17,6 @@ PyCharm Companion resources organized by the PyCharm topic they relate to:
 debugging, imports, etc.
 
 .. toctree::
+    :glob:
 
-    breakpoints
-    debugging
-    python_console
-    http_client
-    remote_interpreter
-    run_configuration
-    vcs
+    *

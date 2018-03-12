@@ -8,14 +8,12 @@
 VCS
 ===
 
-Debugging is an essential skill for Python developers. Using the debugger
-is far more productive than print statements. But learning the debugger
-is daunting.
-
-PyCharm makes this easier by putting a visual face on the debugger.
+Working with version control systems is an essential part of development.
+PyCharm makes this easier and more productive with a friendly, visual face
+atop your versioning operations.
 
 See Also
 ========
 
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+- `Version Control Reference <https://www.jetbrains.com/help/pycharm/version-control-reference.html>`_
+  in the PyCharm Help

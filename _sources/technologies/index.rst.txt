@@ -17,14 +17,6 @@ PyCharm Companion resources organized by the the ever-growing world of
 technologies in Python, web, data science, and more.
 
 .. toctree::
+    :glob:
 
-    ipython
-    ansible
-    aws
-    flask
-    flask_restful
-    postgresql
-    rest
-    terraform
-    vagrant
-    virtualenv
+    *

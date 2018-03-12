@@ -25,10 +25,3 @@ using Ansible.
 
 Along the way we use PyCharm Professional facilities, both to use the
 VM as a remote interpreter, but also let PyCharm run the VM.
-
-topic: remote_interpreter, run_configuration
-
-See Also
-========
-
-- `PyCharm Help on conditional breakpoints <https://www.jetbrains.com/help/pycharm/configuring-breakpoints.html>`_

@@ -2,16 +2,18 @@
     label: rest
     excerpt: Architectural pattern for data services on the web
     published: 2018-01-02 12:01
+    website: https://en.wikipedia.org/wiki/Representational_state_transfer
+    references:
+        topic: [http_client, ]
 
 ====
 REST
 ====
 
-IPython is an interactive console meant as a replacement to the standard
-Python interpreter prompt. It has many convenient features.
+REST (*Representational State Transfer*) is a popular way of doing data on
+the web, in which data are represented in a format called
+`JSON <https://www.json.org/>`_. This is most useful when using JavaScript
+in a browser to make dynamic web pages.
 
-See Also
-========
-
-- `PyCharm Help overview on the debugger <https://www.jetbrains.com/help/pycharm/debugger.html>`_
-
+Python has rich support for REST with many packages and frameworks. PyCharm
+Professional provides support for REST with its :ref:`topic-http_client`.

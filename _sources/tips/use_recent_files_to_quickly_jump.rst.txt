@@ -15,8 +15,7 @@
           date: 2017-01-25
     references:
         topic:
-            - debugging
-            - breakpoints
+            - navigation
         author:
             - pauleveritt
 
@@ -39,4 +38,8 @@ simple: Cmd-E (Mac) then enter.
 See Also
 ========
 
-- `PyCharm Help on exception breakpoints <https://www.jetbrains.com/help/pycharm/creating-exception-breakpoints.html>`_
+- `Navigating to Recent File <https://www.jetbrains.com/help/pycharm/navigating-to-recent-file.html>`_
+  in PyCharm Help
+
+- The `Navigating to the UI Elements <https://www.jetbrains.com/help/pycharm/part-5-navigating-to-the-ui-elements.html>`_
+  tutorial in PyCharm Help

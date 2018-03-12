@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Remote Development on Raspberry Pi: Checking Internet Quality (Part 1)</title>
+    
+        <link rel="icon"
+              href="../../_static/jetbrains_favicon.ico"/>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
+    <script src="../../_static/kaybee_bulma.bundle.js"></script>
+    <script src="../../_static/app.bundle.js"></script>
+</head>
+<body>
+
+<section>
+    <nav id="kbb-navbar" class="navbar is-primary"
+     role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../index.html">
+            
+            <img src="../../_static/PyCharm_Logo.svg.png"
+                 alt="PyCharm Logo Alt">
+        </a>
+        <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                <a class="navbar-item"
+                   href="../../tips/index.html">
+                    Tips
+                </a>
+            
+                <a class="navbar-item is-active"
+                   href="../index.html">
+                    Blog Posts
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../webinar/index.html">
+                    Webinars
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../technologies/index.html">
+                    Technologies
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../topics/index.html">
+                    Topics
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../authors/index.html">
+                    Authors
+                </a>
+            
+
+        </div>
+
+        <div class="navbar-end">
+            
+            
+        </div>
+    </div>
+</nav>
+</section>
+<section
+        class="hero is-primary"
+        style="">
+    <div class="hero-head">
+    </div>
+    
+</section>
+
+<section class="section content blogpost"
+         id="kbb-sphinx-body">
+    
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column sb_body">
+                <div class="title is-1">
+                    
+                        <em>(Pro Only)</em>
+                    Remote Development on Raspberry Pi: Checking Internet Quality (Part 1)
+                </div>
+                <div class="subtitle">(First of two parts) Use a Rasberry Pi to check internet quality by collecting and storing ping times</div>
+
+
+                <div id="kbb-sphinx-body"><div class="section" id="remote-development-on-raspberry-pi-checking-internet-quality-part-1">
+<h1>Remote Development on Raspberry Pi: Checking Internet Quality (Part 1)<a class="headerlink" href="#remote-development-on-raspberry-pi-checking-internet-quality-part-1" title="Permalink to this headline">¶</a></h1>
+<p>We all know that ISPs have a habit of overselling their connections, and this
+sometimes leads our connections to not be as good as we’d like them to be.
+Also, many of us have Raspberry Pi’s laying around waiting for cool projects.
+So let’s put that Pi to use to check on our internet connection!</p>
+<p>This blog post covers:</p>
+<ul class="simple">
+<li>Raspberry Ping</li>
+<li>Preparing the Pi</li>
+<li>Capturing the Pings</li>
+<li>Storing the Pings</li>
+<li>Cron</li>
+</ul>
+</div>
+</div>
+
+                <p><a href="https://blog.jetbrains.com/pycharm/2017/07/raspberry-ping-1/">Read this article
+                    on the PyCharm Blog</a></p>
+
+                
+                
+            </div>
+
+            <div class="column is-3">
+                <aside id="sidebarCollapseTarget" class="menu kbb-sidenav">
+
+    <div id="kb-sidenav-published-heading">
+        
+        
+            <p class="menu-label">
+                Published
+            </p>
+            <ul class="menu-list">
+                <li>
+                    Published on
+                    2017-07-04
+                    at
+                    12:00
+                    
+                        by:
+                        
+                            <a href="../../authors/ernsthaagsman.html">Ernst Haagsman</a>
+                        
+                    
+                </li>
+            </ul>
+        
+    </div>
+
+    
+    
+        <p class="menu-label">
+            Breadcrumbs
+        </p>
+        <ul class="menu-list">
+                <li>
+                    <a href="../index.html">
+                        
+                            <span class="kb-breadcrumb-separator">></span>
+                        
+                        Blog Posts
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        
+                            <span class="kb-breadcrumb-separator">></span>
+                        
+                            <span class="kb-breadcrumb-separator">></span>
+                        
+                        Raspberry Pi
+                    </a>
+                </li>
+
+        </ul>
+    
+
+    
+        <p class="menu-label">
+            Previous
+        </p>
+        <ul class="menu-list">
+            <a href="index.html"
+               title="previous chapter">Raspberry Pi</a>
+        </ul>
+    
+
+    
+        <p class="menu-label">
+            Next
+        </p>
+        <ul class="menu-list">
+            <a href="analyzing-ping-times.html"
+               title="next chapter">Remote Development on Raspberry Pi: Analyzing Ping Times (Part 2)</a>
+        </ul>
+    
+
+    
+    
+
+    
+        
+            <div>
+                <p class="menu-label">
+                    <span style="text-transform: uppercase">technology</span>
+                </p>
+                <p>
+                    
+                        <a href="../../technologies/flask.html">
+                            <span class="tag">flask</span>
+                        </a>
+                    
+                        <a href="../../technologies/flask_restful.html">
+                            <span class="tag">flask_restful</span>
+                        </a>
+                    
+                        <a href="../../technologies/postgresql.html">
+                            <span class="tag">postgresql</span>
+                        </a>
+                    
+                        <a href="../../technologies/rest.html">
+                            <span class="tag">rest</span>
+                        </a>
+                    
+                </p>
+            </div>
+        
+    
+        
+            <div>
+                <p class="menu-label">
+                    <span style="text-transform: uppercase">topic</span>
+                </p>
+                <p>
+                    
+                        <a href="../../topics/debugging.html">
+                            <span class="tag">debugging</span>
+                        </a>
+                    
+                        <a href="../../topics/breakpoints.html">
+                            <span class="tag">breakpoints</span>
+                        </a>
+                    
+                </p>
+            </div>
+        
+    
+        
+    
+</aside>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer is-primary">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Powered by Kaybee, which uses
+                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
+                <a href="http://bulma.io">Bulma</a>,
+                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
+                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
+                and more.
+            </p>
+            <p id="kb-config-copyright">
+                &copy; 2018, All Rights Reserved
+            </p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+
+</body>
+</html>
