@@ -14,6 +14,8 @@
 
 - Some system for mapping action shortcuts to browser OS
 
+- Icons for resource types (with annotation for series)
+
 # Later
 
 - Unfork the category template by designing it to either 
