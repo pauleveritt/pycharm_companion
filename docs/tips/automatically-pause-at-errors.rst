@@ -7,7 +7,7 @@
     full_movie:
         name: v1
         src: https://www.youtube.com/embed/yzC2TwhER0c
-        width: 900
+        width: 700
     twitter_dates:
         - tweet_id: 948901853521203200
           date: 2018-01-04
