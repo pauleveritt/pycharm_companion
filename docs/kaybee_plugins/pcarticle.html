@@ -4,9 +4,8 @@
         <div class="columns">
             <div class="column sb_body">
                 <div class="title is-1">
-                    {% if resource.props.is_pro %}
-                        <em>(Pro Only)</em>
-                    {% endif %}{{ resource.title }}
+                    {{ resource.title }}
+                    {% include 'pro_only.html' %}
                 </div>
 
                 <div class="subtitle is-4">{{ resource.props.excerpt }}</div>
