@@ -1,7 +1,6 @@
 .. pcarticle::
     published: 2018-02-26 12:00
     excerpt: Importing JavaScript modules using the ES6 import syntax
-    is_pro: True
     references:
         author:
             - pauleveritt

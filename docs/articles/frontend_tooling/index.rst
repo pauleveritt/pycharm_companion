@@ -1,6 +1,9 @@
 .. section::
     subheading: Individual articles introducing frontend tools
     published: 2018-01-04 12:23
+    acquireds:
+        all:
+            is_pro: True
 
 ================
 Frontend Tooling

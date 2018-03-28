@@ -1,4 +1,4 @@
-{% if resource.props.is_pro %}
+{% if resource.acquire(resources, 'is_pro') %}
     <span style="background-color: orange; color: white; font-weight: bold;
     font-size: x-small; padding: 0.5em; vertical-align: middle;
     border-radius: 25px">PRO ONLY</span>
