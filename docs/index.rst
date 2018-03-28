@@ -29,3 +29,5 @@ PyCharm Companion
     topics/index
     technologies/index
     authors/index
+    webinars/index
+    articles/index

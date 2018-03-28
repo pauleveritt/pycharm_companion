@@ -4,7 +4,7 @@
 
 - Enter more tip tweets
 
-- Better text
+- Better text in some of the pages
 
 # Next
 
@@ -15,6 +15,12 @@
 - Some system for mapping action shortcuts to browser OS
 
 - Icons for resource types (with annotation for series)
+
+- Make author pages more interesting with headshots
+
+- Presenter information on webinars (headshot, job title and company)
+
+- Project icons on technology pages
 
 # Later
 
