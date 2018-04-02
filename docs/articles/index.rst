@@ -39,3 +39,4 @@ articles are both standalone and in series.
     :glob:
 
     frontend_tooling/index
+    react_typescript/index
