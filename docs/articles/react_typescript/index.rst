@@ -22,14 +22,36 @@ React+TypeScript, with PyCharm? That three-part combination is the topic
 of this series. We'll show a little about a lot. Meaning, the key steps
 to getting productive, in PyCharm, for React projects using TypeScript.
 
+The material in this series provides:
+
+- Text with an explanation and links
+to supporting material
+
+- A repo with working code, where you can ask questions (or file pull
+  requests for improvements)
+
+- Updated videos, with captions for the transcript
+
+- Mostly standalone
+
+- Links to pre-requisite courses, to keep these courses lean-and-mean
+
+- IDE productivity features sprinkled into each lesson
+
+- Perhaps a forum like Disqus
+
+- Useful search
+
 .. toctree::
     :hidden:
 
     project_setup/index
+    styling/index
     testing/index
     debugging/index
     jsx_es6/index
     components/index
-    props_state/index
+    props/index
+    state/index
     routing/index
     mui/index

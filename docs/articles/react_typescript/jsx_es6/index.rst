@@ -9,3 +9,45 @@
 ===========
 JSX and ES6
 ===========
+
+Prequisites
+===========
+
+- ES6
+
+- JSX
+
+    - Syntax highlighting, JSX/component/method completion, navigation,
+      linting, auto-import, quick-fixes (e.g. missing method)
+
+- Project Setup
+
+Steps
+=====
+
+- Languages & Frameworks -> JavaScript sets the project to React JSX which
+  implies ES6 and JSX
+
+- .tsx
+
+- className
+
+- ES6 to make a new Hello component with arrow functions
+
+    -
+
+- JSX in TS
+
+    - Navigation
+
+    - Type checking
+
+    - Multi-line attribute tslint style issues
+
+
+What Happened
+=============
+
+See Also
+========
+
