@@ -71,6 +71,7 @@ The material in this series provides:
     :hidden:
 
     project_setup/index
+    project_cleanup/index
     styling/index
     testing/index
     debugging/index

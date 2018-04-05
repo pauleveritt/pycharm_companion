@@ -18,9 +18,11 @@ Pre-requisites
 Steps
 =====
 
+#. Make sure NodeJS and create-react-app are installed on your system.
+
 #. Open PyCharm Professional
 
-#. React App
+#. In the New Project dialog, select React App with:
 
     - Location
 
@@ -30,29 +32,63 @@ Steps
 
     - Open in new window
 
+#. As a note, it will choose yarn if it is installed
+
 #. It's generating and indexing. Why? Explain
 
-#. Git init
+#. Close the run window and expand the root folder
+
+#. VCS -> Enable VCS Integration, choose Git
+
+#. Select public, src, everything in root except .gitignore,
+   then git add, git commit
+
+#. Note: node_modules is marked as "library root" and is "Excluded"
+
+
 
 Running
-=======
+-------
 
-#. Open package.json and look at the run icons for scripts
+#. Click the npm tool window (or open package.json and look at the run
+   icons for scripts)
 
 #. Run start, click on link in the window to open in browser
 
-#. Note that it chose npm/yarn, look at the preference
+   .. note::
+
+        Why the warnings about baseUrl? That's something from stuff
+        that react-scripts-ts generated
 
 #. Open src/App.tsx, make a small change, see update in window
 
-#. Back to package.json with Cmd-E
-
-#. Click green triangle beside build, choose run, read output window
+#. In npm tool window, click ``build``, read output window
    for bundle size, look at build directory, mark build directory as
    Excluded
 
-#. Open src/App.test.tsx, make a small change, see the update, point out
-   that we'll be doing this smarter in (make a reference to other lesson)
+#. In tool window, click ``test``
+
+#. Open src/App.test.tsx, make a small change adding
+   ``expect(1).toBe(2);`` to the last line of the test, ignore the
+   indentation warning, save
+
+    .. note::
+
+        Explain saving and difference for Jest watcher
+
+#. see the update, point out that we'll be doing this smarter in (make a
+   reference to other lesson)
+
+Cleanup
+-------
+
+- baseUrl
+
+- Change markup
+
+- Remove import of logo
+
+- Remove .svg and .css files
 
 IDE Features
 ============
@@ -78,3 +114,8 @@ See Also
 ========
 
 - https://basarat.gitbooks.io/typescript/content/
+
+TODO In PyCharm, new React App projects:
+    - Don't get git init
+    - Don't have the package manager chooser in prefs
+    - Seem to reformat TS code with double quotes instead of single
