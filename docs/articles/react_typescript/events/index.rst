@@ -1,14 +1,14 @@
 .. pcarticle::
     published: 2018-02-26 12:00
-    excerpt: Make a stateful component and model state using an interface.
+    excerpt: Add event handling to a stateful class component.
     is_pro: True
     references:
         author:
             - pauleveritt
 
-=====
-State
-=====
+======
+Events
+======
 
 Prerequisites
 =============
@@ -20,15 +20,11 @@ We want to build a counter component which keeps track of clicks.
 
 #. Start writing the HTML inline::
 
-     <div onClick={() => alert('Clicked!')}>
-        <span>10</span>
-     </div>
+     <div onClick={() => alert('Clicked!')}><span>10</span></div>
 
 #. Click in browser
 
 #. Highlight and cut, then::
-
-   .. code-block:: javascript
 
       class Counter extends React.Component {
         render() {
@@ -91,6 +87,7 @@ We want to build a counter component which keeps track of clicks.
 #. Extract to a separate file
 
 #. Write a test...requires changing private
+
 
 What Happened
 =============

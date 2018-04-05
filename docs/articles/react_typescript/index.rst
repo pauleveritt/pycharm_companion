@@ -24,23 +24,48 @@ to getting productive, in PyCharm, for React projects using TypeScript.
 
 The material in this series provides:
 
-- Text with an explanation and links
-to supporting material
+- Features
 
-- A repo with working code, where you can ask questions (or file pull
-  requests for improvements)
+    - Updated
 
-- Updated videos, with captions for the transcript
+    - Visual
 
-- Mostly standalone
+        - Updated videos, with captions for the transcript
 
-- Links to pre-requisite courses, to keep these courses lean-and-mean
+    - Gradual
 
-- IDE productivity features sprinkled into each lesson
+        - Mostly standalone
 
-- Perhaps a forum like Disqus
+        - Care put into not packing too much into one step
 
-- Useful search
+    - Supported
+
+        - Perhaps a forum like Disqus
+
+    - Explained
+
+        - Written instructions for each step
+
+        - Text with deeper explanation and links to supporting material
+
+    - Organized (interlinking, external resources)
+
+        - Useful search
+
+        - Links to pre-requisite courses, to keep these courses lean-and-mean
+
+    - Open
+
+    - Working code
+
+        - A repo with working code, where you can ask questions (or file
+          pull requests for improvements)
+
+    - IDE
+
+        - Nothing requires the IDE
+
+        - IDE productivity features sprinkled into each lesson
 
 .. toctree::
     :hidden:
@@ -50,8 +75,10 @@ to supporting material
     testing/index
     debugging/index
     jsx_es6/index
-    components/index
+    functional_components/index
     props/index
+    class_component/index
     state/index
+    events/index
     routing/index
     mui/index

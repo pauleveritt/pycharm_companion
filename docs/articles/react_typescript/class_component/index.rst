@@ -1,14 +1,14 @@
 .. pcarticle::
     published: 2018-02-26 12:00
-    excerpt: Make a stateful component and model state using an interface.
+    excerpt: Make a simple class component with a single prop.
     is_pro: True
     references:
         author:
             - pauleveritt
 
-=====
-State
-=====
+===============
+Class Component
+===============
 
 Prerequisites
 =============
@@ -26,7 +26,7 @@ We want to build a counter component which keeps track of clicks.
 
 #. Click in browser
 
-#. Highlight and cut, then::
+#. Highlight and cut, then:
 
    .. code-block:: javascript
 
@@ -50,14 +50,18 @@ We want to build a counter component which keeps track of clicks.
 #. Replace the onClick handler with::
 
        <div onClick={() => this.setState({count: this.state.count + 1})}>
+          Hello
+       </div>
 
 #. Why is the arrow function needed? Try without it.
 
-#. Use refactor to make the method::
+#. Use refactor to make the method:
 
-    private increment() {
-        this.setState({count: this.state.count + 1});
-    }
+   .. code-block:: javascript
+
+        private increment() {
+            this.setState({count: this.state.count + 1});
+        }
 
 #. Use a prop as the starting value....add starter?: number to the props
 

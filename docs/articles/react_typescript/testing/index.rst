@@ -6,9 +6,9 @@
         author:
             - pauleveritt
 
-=============
-Running Tests
-=============
+=================================
+Unit Testing with Jest and Enzyme
+=================================
 
 Let's take a look at Jest testing in the context of a cra-ts project.
 Meaning, testing React components (stateful, stateless) that are written in
@@ -43,6 +43,8 @@ Steps
 #. Install Enzyme npm install -D enzyme enzyme-adapter-react-16
    @types/enzyme @types/enzyme-adapter-react-16
 
+#. Or: npm install -D enzyme @types/enzyme react-addons-test-utils
+
 #. Add a bootstrap file for Enzyme at src/setupTests.js:
 
    .. code-block:: javascript
@@ -57,7 +59,7 @@ Steps
 
 #. Add a test:
 
-    .. code-block:: javascript
+    .. code-block:: jsx
 
         it('renders', () => {
             const wrapper = shallow(<div>
@@ -93,3 +95,11 @@ See Also
 - https://www.jetbrains.com/help/webstorm/run-debug-configuration-jest.html
 
 - https://blog.jetbrains.com/webstorm/tag/jest/
+
+- https://medium.com/kevin-salters-blog/testing-react-with-enzyme-fbfc30190e70
+
+- https://javascriptplayground.com/introduction-to-react-tests-enzyme/
+
+- https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
+
+- https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter

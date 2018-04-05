@@ -4,3 +4,4 @@ kaybee>=0.1.9
 -e git+git://github.com/pauleveritt/kaybee_bulma.git#egg=kaybee_bulma
 livereload
 travis-encrypt
+jsx-lexer

@@ -73,3 +73,8 @@ What Happened
 - Point to pre-requisites: npm, webpack and dev server
 
 - The cra toolchain
+
+See Also
+========
+
+- https://basarat.gitbooks.io/typescript/content/
