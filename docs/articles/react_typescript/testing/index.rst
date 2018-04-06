@@ -27,29 +27,34 @@ Prerequisites
 Steps
 =====
 
-#. Edit package.json and install enzyme, we'll need it for later
-
 #. Make a Jest run config with the args
 
 #. Run tests, single, etc.
 
-#. Edit in a failure, watch the re-run, show red colored gutter icon
+#. Add to the code::
 
-#. Fix failure
+    const a = 1;
+    const b = 2;
+    expect(a).toBe(b);
 
-#. Jump between test and source with Shift-Command-T (Go To | Test and
-   Go To | Test Subject)
+
+#. Reformat code, watch the re-run, show red colored gutter icon
+
+#. I wanted ``e`` (expected) instead of b, use Refactor -> Rename.
+
+#. Fix failure, show test passes.
+
+#. Jump between test and source with Shift-Command-T
+
+#. Terminal
 
 #. Install Enzyme npm install -D enzyme enzyme-adapter-react-16
-   @types/enzyme @types/enzyme-adapter-react-16
-
-#. Or: npm install -D enzyme @types/enzyme react-addons-test-utils
+   react-addons-test-utils @types/enzyme @types/enzyme-adapter-react-16
 
 #. Add a bootstrap file for Enzyme at src/setupTests.js:
 
    .. code-block:: javascript
 
-        // src/setupTests.ts
         import * as Enzyme from 'enzyme'
         import * as Adapter from 'enzyme-adapter-react-16'
 
@@ -61,18 +66,17 @@ Steps
 
     .. code-block:: jsx
 
-        it('renders', () => {
-            const wrapper = shallow(<div>
-              <h1>Hello, Enzyme!</h1>
-            </div>)
-            expect(wrapper.find('h1').html()).toMatch(/Hello, Enzyme/)
-          })
+        it('renders the provided text', () => {
+            const wrapper = shallow(<App/>);
+            expect(wrapper.find('div').text()).toBe('Hello React');
+        });
 
-- Side-by-side mode
+#. Let the IDE generate the shallow import, but with missing spacing
 
-- Snapshot testing
+#. Preferences, search for ES6 import braces (Code Style -> TypeScript ->
+   Spaces -> Within -> ES6 import/export braces)
 
-- Typing helps the source/test contract
+#. TDD mode step one: source and test side-by-side mode
 
 What Happened
 =============
@@ -86,6 +90,8 @@ What Happened
 - Why not the WS watch?
 
 - Code coverage is not...covered
+
+- Snapshot testing
 
 See Also
 ========

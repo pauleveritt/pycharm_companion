@@ -42,6 +42,9 @@ Steps
 
 #. Discuss whether it is worth it to do const logo: string
 
+- Typing helps the source/test contract
+
+
 What Happened
 =============
 
@@ -50,3 +53,5 @@ What Happened
 
 See Also
 ========
+
+- https://mikebridge.github.io/articles/getting-started-typescript-react-2/

@@ -89,6 +89,9 @@ We want to build a counter component which keeps track of clicks.
 #. Write a test...requires changing private
 
 
+- Can also do passed-in functions that become part of interface (and take
+  arguments)
+
 What Happened
 =============
 
