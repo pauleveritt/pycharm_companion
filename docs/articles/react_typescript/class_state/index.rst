@@ -41,6 +41,8 @@ We want to build a counter component which keeps track of clicks.
 
     The tests still pass, so we're in good shape.
 
+#. View in browser.
+
 What Happened
 =============
 
