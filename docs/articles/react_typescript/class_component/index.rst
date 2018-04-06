@@ -18,23 +18,83 @@ Steps
 
 We want to build a counter component which keeps track of clicks.
 
+#. Start with a test in ``Counter.test.tsx``:
+
+    .. code-block:: javascript
+
+        it('should render a counter', () => {
+            const wrapper = shallow(<Counter/>);
+            expect(wrapper.find('.counter span').text())
+                .toBe('1');
+        });
+
+#. Auto-complete ``shallow`` to auto-import it.
+
+#. Make a component, for now, in the test file. We're not yet committed::
+
+    class Counter extends React.Component {
+        render() {
+            return (
+                <div className="counter">
+                    <span>1</span>
+                </div>
+            );
+        }
+    }
+
+   The test should now pass.
+
+#. To show the class-based equivalent of the previous section, let's make an
+   optional prop that has a label for the counter. First, add a failing
+   test::
+
+    it('should have a default label', () => {
+        const wrapper = shallow(<Counter/>);
+        expect(wrapper.find('.counter label').text())
+            .toBe('Count');
+    });
+
+#. Now add a static implementation::
+
+            <div className="counter">
+                <label>Count</label>
+                <span>1</span>
+            </div>
+
+
+#. The test passes. Classes handle props with defaults a little differently::
+
+    class Counter extends React.Component<{ label?: string }> {
+        static defaultProps = {
+            label: 'Count'
+        };
+
+   Remember the ``?`` means optional.
+
+#. Now make the ``<label>`` dynamic::
+
+    <label>{this.props.label}</label>
+
+#. Since we now have a prop, write a test which confirms passing one in:
+
+    it('should have a custom label', () => {
+        const wrapper = shallow(<Counter label="Custom"/>);
+        expect(wrapper.find('.counter label').text())
+            .toBe('Custom');
+    });
+
+
+#.
+
+
+#. ----------------
 #. Start writing the HTML inline::
 
-     <div onClick={() => alert('Clicked!')}>
+     <div className="counter" onClick={() => alert('Clicked!')}>
         <span>10</span>
      </div>
 
 #. Click in browser
-
-#. Highlight and cut, then:
-
-   .. code-block:: javascript
-
-      class Counter extends React.Component {
-        render() {
-            return (
-
-#. Show it working in the browser.
 
 #. Add a prop for a label to show the count, make it optional with ? and
    put || 'Count: ' in the span
@@ -98,6 +158,10 @@ We want to build a counter component which keeps track of clicks.
 
 - Do the moral equivalent of destructuring (in the render), and with a
   default value
+
+- Have App return a <div> wrapping Hello.
+
+
 
 What Happened
 =============
