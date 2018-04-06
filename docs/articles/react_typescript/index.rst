@@ -82,5 +82,6 @@ The material in this series provides:
     class_state/index
     state/index
     events/index
+    presentation_components/index
     routing/index
     mui/index

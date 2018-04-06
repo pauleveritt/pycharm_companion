@@ -164,27 +164,12 @@ Steps
 
     <div onClick={(event: React.MouseEvent<HTMLElement>) => this.increment(event.shiftKey)}>
 
-#. In fact, with ES6 object destructuring, we can vastly simplify this:
-
-
-#. -------------
-#. Make the interface less browser-y by moving the event unpacking to the
-   onClick handler, thus passing only event.shiftKey::
-
-    <div onClick={(event: React.MouseEvent<HTMLElement>) => this.increment(event.shiftKey)}>
-
-#. Even simpler, spread operator::
+#. In fact, with ES6 object destructuring, we can vastly simplify this::
 
     <div onClick={({shiftKey}) => this.increment(shiftKey)}>
 
 #. The tests still pass, do things still work in the browser? Click and
    shift-click to see.
-
-
-
-
-- Can also do passed-in functions that become part of interface (and take
-  arguments)
 
 What Happened
 =============
