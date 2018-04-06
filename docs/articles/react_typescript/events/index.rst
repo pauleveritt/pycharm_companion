@@ -16,38 +16,26 @@ Prerequisites
 Steps
 =====
 
-We want to build a counter component which keeps track of clicks.
+#. Let's start with a failing test that clicks on the div and checks if the
+   number is updated. Clone the first test and change it as follows::
 
-#. Start writing the HTML inline::
+    it('should increment the count by one', () => {
+        const wrapper = shallow(<Counter/>);
+        expect(wrapper.find('.counter span').text())
+            .toBe('1');
+        wrapper.find('.counter').simulate('click');
+        expect(wrapper.find('.counter span').text())
+            .toBe('2');
+    });
 
-     <div onClick={() => alert('Clicked!')}><span>10</span></div>
+#. Add an onClick hander to the div, one attribute per line to keep tslint
+   happy::
 
-#. Click in browser
+    <div
+        className="counter"
+        onClick={() => this.setState({count: this.state.count + 1})}
+    >
 
-#. Highlight and cut, then::
-
-      class Counter extends React.Component {
-        render() {
-            return (
-
-#. Show it working in the browser.
-
-#. Add a prop for a label to show the count, make it optional with ? and
-   put || 'Count: ' in the span
-
-#. Extract to an interface for props
-
-#. Make an interface for CounterState and add to generic
-
-#. Make a constructor to setup the state
-
-#. Replace the <span> value with this.state.count
-
-#. Replace the onClick handler with::
-
-       <div onClick={() => this.setState({count: this.state.count + 1})}>
-
-#. Why is the arrow function needed? Try without it.
 
 #. Use refactor to make the method::
 
@@ -94,6 +82,8 @@ We want to build a counter component which keeps track of clicks.
 
 What Happened
 =============
+
+- Why is the arrow function needed in the onClick handler?
 
 See Also
 ========
