@@ -6,9 +6,9 @@
         author:
             - pauleveritt
 
-===============
-Class Component
-===============
+================
+Class Components
+================
 
 Prerequisites
 =============
@@ -83,84 +83,17 @@ We want to build a counter component which keeps track of clicks.
             .toBe('Custom');
     });
 
+    Note the use of autocomplete on the ``label`` property.
 
-#.
+#. Extract to its own file.
 
+#. Update tests.
 
-#. ----------------
-#. Start writing the HTML inline::
+#. Refactor into an interface.
 
-     <div className="counter" onClick={() => alert('Clicked!')}>
-        <span>10</span>
-     </div>
+#. Wire into UI.
 
-#. Click in browser
-
-#. Add a prop for a label to show the count, make it optional with ? and
-   put || 'Count: ' in the span
-
-#. Extract to an interface for props
-
-#. Make an interface for CounterState and add to generic
-
-#. Make a constructor to setup the state
-
-#. Replace the <span> value with this.state.count
-
-#. Replace the onClick handler with::
-
-       <div onClick={() => this.setState({count: this.state.count + 1})}>
-          Hello
-       </div>
-
-#. Why is the arrow function needed? Try without it.
-
-#. Use refactor to make the method:
-
-   .. code-block:: javascript
-
-        private increment() {
-            this.setState({count: this.state.count + 1});
-        }
-
-#. Use a prop as the starting value....add starter?: number to the props
-
-#. Set initial state with count: this.props.starter || 0
-
-#. Show autocomplete on <Counter>
-
-#. Show mistakenly doing <Counter starter="10"/>
-
-#. Shift click to increment by 10
-
-#. onClick={(event) => this.increment(event)}
-
-#. increment(event: React.MouseEvent<HTMLElement>)
-
-#. Mistake for const inc = 10 ? event.shiftKey : 1;
-
-#. Partial correction: const inc: number = 10 ? event.shiftKey : 1;
-
-#. Full correction: const inc: number = event.shiftKey ? 10 : 1;
-
-#. Make the interface less browser-y by moving the event unpacking to the
-   onClick handler, thus passing only event.shiftKey::
-
-    <div onClick={(event: React.MouseEvent<HTMLElement>) => this.increment(event.shiftKey)}>
-
-#. Even simpler, spread operator::
-
-    <div onClick={({shiftKey}) => this.increment(shiftKey)}>
-
-#. Extract to a separate file
-
-#. Write a test...requires changing private
-
-- Do the moral equivalent of destructuring (in the render), and with a
-  default value
-
-- Have App return a <div> wrapping Hello.
-
+#. View in browser.
 
 
 What Happened

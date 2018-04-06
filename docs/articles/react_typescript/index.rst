@@ -78,7 +78,8 @@ The material in this series provides:
     jsx_es6/index
     functional_components/index
     props/index
-    class_component/index
+    class_props/index
+    class_state/index
     state/index
     events/index
     routing/index
