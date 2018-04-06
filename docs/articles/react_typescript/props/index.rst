@@ -18,38 +18,55 @@ Prerequisites
 Steps
 =====
 
-#. Header loads the logo itself. Let's pass it in as a prop.
+#. Let's have the recipient of the greeting passed in with props. The most
+   obvious::
 
-#. {logo} and move const logo to App.tsx, explain spread operator in ES6,
-   do it the long way also.
+    export const Hello = (props) => <h1>Hello {props.recipient}</h1>;
 
-#. Fix <Header> to use it, with autocomplete
+#. ES6 destructuring is nice. It unpacks one or more values from an object::
 
-#. Typing: make const logo a number. Succeeds. But fails.
+    export const Hello = ({recipient}) => <h1>Hello React</h1>;
 
-#. const Header: React.SFC<{ logo: string }> = ({logo})
+#. TypeScript's compiler settings are, by default, very conservative. Let's
+   relax this in tsconfig.json with ``"noImplicitAny": false"```
 
-#. Now the caller complains about the number.
+#. Back in our file, that error now disappears. But we have a new error.
+   ``<Hello>`` doesn't pass a prop, e.g. ``<Hello recipient="React"/>``.
+   Instead of changing the App and the test, let's give a default value and
+   use in the ``<h1>``::
 
-#. What if the logo was optional? We can wrap {logo &&} but the typing breaks
-   when logo={logo} is removed from the caller
+    export const Hello = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
 
-#. logo? and then comment out const logo
 
-#. Use Refactor to extract to HeaderProps interface
+   Note that autocomplete worked for the variable. Our tests now pass again.
 
-#. Testing along the way.
+#. Write a test that provides a non-default value. Notice autocomplete.
 
-#. Discuss whether it is worth it to do const logo: string
+#. We still don't have typing and in fact have allowed ``any`` anywhere in
+   the project. Let's change this by using ``React.SFC``::
 
-- Typing helps the source/test contract
+     export const Hello: React.SFC<{recipient: string}> = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
 
+#. We now have an error in contract between component and usage. Make
+   recipient optional::
+
+     export const Hello: React.SFC<{recipient?: string}> = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
+
+#. Back in our test, we now see that test writing now got more "contract-y".
+   Try passing in a number.
+
+#. That's a long line. Let's extract the property type information to an
+   interface. Use Refactor -> Interface.
+
+#. Finally, put a proper return with ``{}`` instead of a long line.
 
 What Happened
 =============
 
 - SFCs are good for leaves, with no state or children (as they re-render a
   lot)
+
+- Destructuring is good, moves the contract enforcement further out
 
 See Also
 ========

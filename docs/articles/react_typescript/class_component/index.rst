@@ -96,6 +96,9 @@ We want to build a counter component which keeps track of clicks.
 
 #. Write a test...requires changing private
 
+- Do the moral equivalent of destructuring (in the render), and with a
+  default value
+
 What Happened
 =============
 

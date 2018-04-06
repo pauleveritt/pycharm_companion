@@ -16,19 +16,17 @@ Prerequisites
 Steps
 =====
 
-#. Extract header to Header
+#. Clean out the const in first test.
 
-#. Change tsconfig.json to allow no implicit any (notice type checking in
-   .json file)
+#. Extract ``<h1>`` to export const Hello = () => <h1>Hello React</h1>;
 
-#. No more warning
+#. Duplicate the second test and change it to Hello
 
-#. Show navigation to/from component, autocomplete of logo, find usages,
-   rename component
+#. Fix the second test to find <Hello> and .toBeTruthy()
 
-#. Change to React.SFC<{}>
+#. Show navigation to/from component, find usages, rename component
 
-#. Move it to Header.tsx, move the logo import (we'll fix that later)
+#. Move it to Hello.tsx, move the logo import (we'll fix that later)
 
 #. Back in App.tsx, quick fix the import, undo, show autocomplete then
    quick fix
@@ -36,8 +34,6 @@ Steps
 #. Leave the logo in place for now
 
 #. View in browser
-
-#. Write a test for <Header> and run it
 
 What Happened
 =============
