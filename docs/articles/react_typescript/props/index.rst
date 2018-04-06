@@ -58,7 +58,13 @@ Steps
 #. That's a long line. Let's extract the property type information to an
    interface. Use Refactor -> Interface.
 
-#. Finally, put a proper return with ``{}`` instead of a long line.
+#. Still a long line. Put a proper return with ``{}`` instead of a long line.
+
+#. Finally, move the component to its own file ``Hello.tsx`` as a default
+   export.
+
+#. Notice something? We never looked at our browser. We used TDD the
+   entire time. Let's make sure the browser still works ok.
 
 What Happened
 =============
