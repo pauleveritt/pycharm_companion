@@ -142,6 +142,8 @@ Let's now turn to our container component, ``App``.
 What Happened
 =============
 
+- Would be good to test more of App, but that would mean deeper testing.
+
 See Also
 ========
 
