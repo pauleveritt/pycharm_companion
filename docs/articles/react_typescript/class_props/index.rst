@@ -75,7 +75,7 @@ We want to build a counter component which keeps track of clicks.
 
     <label>{this.props.label}</label>
 
-#. Since we now have a prop, write a test which confirms passing one in:
+#. Since we now have a prop, write a test which confirms passing one in::
 
     it('should have a custom label', () => {
         const wrapper = shallow(<Counter label="Custom"/>);
@@ -83,7 +83,7 @@ We want to build a counter component which keeps track of clicks.
             .toBe('Custom');
     });
 
-    Note the use of autocomplete on the ``label`` property.
+   Note the use of autocomplete on the ``label`` property.
 
 #. Extract to its own file.
 

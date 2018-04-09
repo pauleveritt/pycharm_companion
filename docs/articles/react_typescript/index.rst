@@ -67,6 +67,12 @@ The material in this series provides:
 
         - IDE productivity features sprinkled into each lesson
 
+- Mention link to source code
+
+- https://basarat.gitbooks.io/typescript/content/
+
+
+
 .. toctree::
     :hidden:
 
