@@ -1,5 +1,4 @@
-.. section::
-    template: jh
+.. tutorialsection::
     subheading: Quick introduction to writing React applications in TypeScript,
         using the features of the IDE
     published: 2018-01-04 12:23

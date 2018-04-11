@@ -1,0 +1,114 @@
+{%- extends "layout.html" %}
+{% import "icons.html" as icons %}
+
+{% block hero %}
+    <div class="container">
+        <div class="hero-body">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <p class="title">
+                        {{ resource.title }}
+                    </p>
+                    {% if resource.props.subheading %}
+                        <p class="subtitle">
+                            {{ resource.props.subheading }}
+                        </p>
+                    {% endif %}
+                </div>
+                {% set feature = resource.featured_resource(resources) %}
+                {% if feature %}
+                    <div class="column is-one-third is-hidden-mobile">
+                        <div class="card kb-featured">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Featured
+                                </p>
+                            </header>
+
+                            <div class="card-content">
+                                <div class="content">
+                                    <a href="{{ pathto(feature.docname, 1) }}">{{ feature.title }}</a>
+                                </div>
+                                <div class="content is-small">
+                                    {{ feature.excerpt }}
+                                    <div>
+                                        <a href="{{ pathto(feature.docname, 1) }}">read...</a>
+                                        <small>{{ feature.props.published | datetime_fmt('short') }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-10 kb-body">
+                <div id="kbb-sphinx-body">{{ body }}</div>
+
+                {% set items = resource.items %}
+
+                {% for item in resource.steps(resources, references) %}
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                {{ icons['react'](64) }}
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="{{ pathto(item.docname) }}">
+                                            <strong>{{ item.title }}</strong>
+                                        </a>
+                                        <br>
+                                        <span>{{ item.excerpt }}</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="{{ pathto(item.author.docname) }}">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="{{ pathto(item.headshot, 1) }}">
+                                            </figure>
+                                            <span>{{ item.author.title }}</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                {% for reference in item.references %}
+                                                    <span class="tag">
+                                                        <a href="{{ pathto(reference.docname, 1) + '.html' }}">
+                                                            {{ reference.label }}
+                                                        </a>
+                                                </span>
+                                                {% endfor %}
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>{{ item.duration }}</span>
+                                        </span>
+                                        <span class="level-item">
+                                            {{ item.published }}
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+{% endblock %}

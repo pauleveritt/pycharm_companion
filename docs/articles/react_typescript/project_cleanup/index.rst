@@ -6,9 +6,9 @@
         author:
             - pauleveritt
 
-=============
-Project Setup
-=============
+===============
+Project Cleanup
+===============
 
 Pre-requisites
 ==============

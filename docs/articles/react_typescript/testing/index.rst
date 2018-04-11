@@ -31,12 +31,13 @@ Steps
 
 #. Run tests, single, etc.
 
-#. Add to the code::
+#. Add to the code:
 
-    const a = 1;
-    const b = 2;
-    expect(a).toBe(b);
+   .. code-block:: javascript
 
+        const a = 1;
+        const b = 2;
+        expect(a).toBe(b);
 
 #. Reformat code, watch the re-run, show red colored gutter icon
 
