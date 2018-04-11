@@ -1,4 +1,4 @@
-.. pcarticle::
+.. tutorialstep::
     published: 2018-02-26 12:00
     excerpt: Add event handling to a stateful class component.
     is_pro: True

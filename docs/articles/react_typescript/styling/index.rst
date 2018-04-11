@@ -1,4 +1,4 @@
-.. pcarticle::
+.. tutorialstep::
     published: 2018-02-26 12:00
     excerpt: Use the TypeScript linter tslint to manage styling with the IDE
     is_pro: True

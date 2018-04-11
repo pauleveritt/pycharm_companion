@@ -1,4 +1,4 @@
-.. pcarticle::
+.. tutorialstep::
     published: 2018-02-26 12:00
     excerpt: Make a stateful component and model state using an interface.
     is_pro: True

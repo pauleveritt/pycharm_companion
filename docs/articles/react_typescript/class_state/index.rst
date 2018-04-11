@@ -1,4 +1,4 @@
-.. pcarticle::
+.. tutorialstep::
     published: 2018-02-26 12:00
     excerpt: Make a simple class component with local counter state.
     is_pro: True

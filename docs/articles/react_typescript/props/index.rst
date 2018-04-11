@@ -1,4 +1,4 @@
-.. pcarticle::
+.. tutorialstep::
     published: 2018-02-26 12:00
     excerpt: Use type information to make using properties into a productive workflow.
     is_pro: True

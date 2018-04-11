@@ -1,10 +1,27 @@
 from kaybee.app import kb
+from kaybee.plugins.articles.base_article import BaseArticle, BaseArticleModel
 
-from kaybee.plugins.articles.base_section import BaseSection
+from kaybee.plugins.articles.base_section import BaseSection, BaseSectionModel
+from kaybee.plugins.articles.videoplayer import VideoPlayerModel
 
 
-@kb.resource('tutorialsection')
-class Tutorialsection(BaseSection):
+class TutorialstepModel(BaseArticleModel):
+    full_movie: VideoPlayerModel = None
+    is_pro: bool = False
+
+
+@kb.resource('tutorialstep')
+class Tutorialstep(BaseArticle):
+    props: TutorialstepModel
+
+
+class TutorialModel(BaseSectionModel):
+    is_pro: bool = False
+
+
+@kb.resource('tutorial')
+class Tutorial(BaseSection):
+    props: TutorialModel
 
     def featured_resource(self, resources):
         fd = self.props.featured_resource
@@ -21,7 +38,8 @@ class Tutorialsection(BaseSection):
             these_references = []
             for reference_label in resource.props.references.keys():
                 if reference_label != 'author':
-                    for reference in references.resource_references(resource)[reference_label]:
+                    for reference in references.resource_references(resource)[
+                        reference_label]:
                         these_references.append(
                             dict(
                                 docname=reference.docname,

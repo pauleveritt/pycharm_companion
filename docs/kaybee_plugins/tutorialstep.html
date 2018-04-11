@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="container">
+        <div class="columns">
+            <div class="column sb_body">
+                <div class="title is-1">
+                    {{ resource.title }}
+                    {% include 'pro_only.html' %}
+                </div>
+
+                <div class="subtitle is-4">{{ resource.props.excerpt }}</div>
+
+                <div id="kbb-sphinx-body" class="content">{{ body }}</div>
+
+                {% if resource.props.full_movie %}
+                    <h2>Full Video</h2>
+                    <iframe
+                            width="{{ resource.props.full_movie.width }}"
+                            height="{{ resource.props.full_movie.height }}"
+                            src="{{ resource.props.full_movie.src }}"
+                            frameborder="{{ resource.props.full_movie.frameborder }}"
+                            allowfullscreen="{{ resource.props.full_movie.allowfullscreen }}"></iframe>
+                {% endif %}
+
+                {% set series = resource.series(resources) %}
+                {% if series %}
+                    <section class="section kbb-listing">
+                        <h2 class="title kbb-listing-heading">This Series</h2>
+                        {% for r in resource.series(resources) %}
+                            {% set is_active = r.docname == resource.docname %}
+                            <div class="kbb-listing-item{{ ' kbb-listing-active' if is_active }}">
+                                <div class="kb-listing-title">
+                                    <a href="{{ pathto(r.docname) }}">{{ r.title }}</a>
+                                </div>
+                                {% if r.excerpt %}
+                                    <div class="kb-listing-excerpt">
+                                        {{ r.excerpt }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </section>
+                {% endif %}
+            </div>
+
+            <div class="column is-3">
+                {% include "sidenav.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
