@@ -82,13 +82,6 @@ Steps
 
 #. TDD mode step one: source and test side-by-side mode
 
-
-- TODO It seems this has been a no-op all along::
-
-    expect(wrapper.find('Hello'))
-        .toBeTruthy();
-
-
 What Happened
 =============
 

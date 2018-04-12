@@ -91,4 +91,7 @@ What Happened
 See Also
 ========
 
-- TODO WebStorm doesn't like setting breakpoints in JSX
+TODO
+====
+
+- WebStorm doesn't like setting breakpoints in JSX

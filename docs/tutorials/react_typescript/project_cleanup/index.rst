@@ -63,6 +63,9 @@ See Also
 
 - https://basarat.gitbooks.io/typescript/content/
 
-TODO In PyCharm, new React App projects:
-    - Don't have the package manager chooser in prefs
-    - Seem to reformat TS code with double quotes instead of single
+TODO
+====
+
+- Don't have the package manager chooser in prefs
+
+- Seem to reformat TS code with double quotes instead of single

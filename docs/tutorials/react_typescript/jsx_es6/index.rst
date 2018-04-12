@@ -123,9 +123,3 @@ See Also
 ========
 
 - MS TypeScript pages for ES6 and React/JSX
-
-TODO Change previous steps to only return <h1> instead of (<div>
-
-TODO Would be nice: Quick-fix for multi-line surround with paren and
-(or at least, reformat code automatically does ``(`` and ``<div> and ``</div>``
-and ``)`` on different lines.

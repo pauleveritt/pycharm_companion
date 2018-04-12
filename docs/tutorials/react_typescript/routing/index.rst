@@ -29,7 +29,9 @@ Steps
 
     - Delete Hello.tsx and Hello.test.tsx
 
-#. Simplify App.tsx down to::
+#. Simplify App.tsx down to:
+
+   .. code-block:: jsx
 
     import * as React from 'react';
 
@@ -44,7 +46,9 @@ Steps
     export default App;
 
 #. Each "page" is a component. Let's make a couple of "stateless functional
-   components" (SFCs) for each page::
+   components" (SFCs) for each page:
+
+   .. code-block:: jsx
 
     const Home = () => <h1>Hello</h1>;
     const About = () => <h1>About</h1>;
@@ -58,7 +62,9 @@ Steps
    Click on ``createBrowserHistory`` and use Alt-Enter to auto-generate the
    import.
 
-#. Now comes the magic. Change the ``render`` to use routes::
+#. Now comes the magic. Change the ``render`` to use routes:
+
+   .. code-block:: jsx
 
     render() {
         return (
@@ -90,7 +96,9 @@ Steps
     );
 
 
-#. Now extend the interface to extract route information::
+#. Now extend the interface to extract route information:
+
+   .. code-block:: jsx
 
     interface HomeProps extends RouteComponentProps<{}> {
 
@@ -149,7 +157,9 @@ Steps
     <Route exact={true} path="/about/:shoe_size" component={About}/>
 
 #. Already our page stops working. It doesn't match. Let's fix our link in
-   the ``Home`` component::
+   the ``Home`` component:
+
+   .. code-block:: jsx
 
     <Link to="/about/42">About</Link>
 
@@ -169,7 +179,7 @@ Steps
     interface AboutProps extends RouteComponentProps<AboutMatch> {
     }
 
-#. Finally, show this match information (and the URL hash) in the UI::
+#. Finally, show this match information (and the URL hash) in the UI:
 
    .. code-block:: jsx
 

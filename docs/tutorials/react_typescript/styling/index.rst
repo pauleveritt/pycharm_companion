@@ -65,6 +65,3 @@ See Also
 
 - https://www.jetbrains.com/help/webstorm/using-tslint-code-quality-tool.html
 
-
-TODO Q: What WS machinery is driving validation of tslint.conf?
-

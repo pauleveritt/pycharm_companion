@@ -197,8 +197,6 @@ Steps
 #. The tests still pass, do things still work in the browser? Click and
    shift-click to see.
 
-- TODO add a mount-type test for event testing https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
-
 What Happened
 =============
 
@@ -211,3 +209,8 @@ See Also
 ========
 
 - Definite assignment assertion in TypeScript 2.7 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html
+
+TODO
+====
+
+- Add a mount-type test for event testing https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
