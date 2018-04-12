@@ -25,6 +25,7 @@ PyCharm Companion
     :hidden:
 
     tips/index
+    tutorials/index
     blogposts/index
     topics/index
     technologies/index

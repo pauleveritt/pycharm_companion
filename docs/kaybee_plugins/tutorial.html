@@ -51,37 +51,37 @@
             <div class="column is-10 kb-body">
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
-                {% set items = resource.items %}
-
-                {% for item in resource.steps(resources, references) %}
+                {% for step in resource.steps(resources, references) %}
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
-                                {{ icons['react'](64) }}
+                                {% if icons[step.icon] %}
+                                {{ icons[step.icon](64) }}
+                                {% endif %}
                             </div>
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        <a href="{{ pathto(item.docname) }}">
-                                            <strong>{{ item.title }}</strong>
+                                        <a href="{{ pathto(step.docname) }}">
+                                            <strong>{{ step.title }}</strong>
                                         </a>
                                         <br>
-                                        <span>{{ item.excerpt }}</span>
+                                        <span>{{ step.excerpt }}</span>
                                     </p>
                                 </div>
                                 <nav class="level is-mobile">
                                     <div class="level-left">
                                         <a class="level-item kbb-author"
-                                           href="{{ pathto(item.author.docname) }}">
+                                           href="{{ pathto(step.author_info['docname']) }}">
                                             <figure class="image is-rounded is-24x24"
                                                     style="margin: 0">
-                                                <img src="{{ pathto(item.headshot, 1) }}">
+                                                <img src="{{ pathto(step.author_info['headshot'], 1) }}">
                                             </figure>
-                                            <span>{{ item.author.title }}</span>
+                                            <span>{{ step.author_info['title'] }}</span>
                                         </a>
                                         <span class="level-item">
                                             <div class="tags">
-                                                {% for reference in item.references %}
+                                                {% for reference in step.references %}
                                                     <span class="tag">
                                                         <a href="{{ pathto(reference.docname, 1) + '.html' }}">
                                                             {{ reference.label }}
@@ -92,14 +92,16 @@
                                         </span>
                                     </div>
                                     <div class="level-right is-size-7 has-text-grey">
-                                        <span class="level-item">
+                                        {% if step.duration %}
+                                            <span class="level-item">
                                             <span class="icon">
                                               <i class="fas fa-video"></i>
                                             </span>
-                                            <span>{{ item.duration }}</span>
+                                            <span>{{ step.duration }}</span>
                                         </span>
+                                        {% endif %}
                                         <span class="level-item">
-                                            {{ item.published }}
+                                            {{ step.published }}
                                         </span>
                                     </div>
                                 </nav>

@@ -1,13 +1,17 @@
 .. technology::
-    label: typescript
-    excerpt: A typed superset of JavaScript which compiles to plain JavaScript
+    label: react
+    excerpt: A JavaScript library for building user interfaces
     published: 2018-01-02 12:01
-    website: https://www.typescriptlang.org
+    website: https://reactjs.org
 
-==========
-TypeScript
-==========
+=====
+React
+=====
 
-TypeScript starts from the same syntax and semantics that millions of
-JavaScript developers know today. Use existing JavaScript code, incorporate
-popular JavaScript libraries, and call TypeScript code from JavaScript.
+React makes it painless to create interactive UIs. Design simple views for
+each state in your application, and React will efficiently update and
+render just the right components when your data changes.
+
+PyCharm Professional, by including the WebStorm IDE, has long had top-quality
+React support.
+
