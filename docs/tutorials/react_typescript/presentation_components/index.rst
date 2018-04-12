@@ -31,7 +31,9 @@ Steps
    ``Counter.test.tsx``, so comment out all but the first test.
 
 #. Change the props interface to contain, for now, just the optional label
-   and a value passed in from the container::
+   and a value passed in from the container:
+
+   .. code-block:: typescript
 
     interface CounterProps {
         label?: string;
@@ -57,12 +59,15 @@ Steps
     };
 
 #. Fix the first test, as this component now needs a (starting) count passed
-   in::
+   in:
+   .. code-block:: typescript
 
     const wrapper = shallow(<Counter count={1}/>);
 
 #. We now need event handlers. As explained below, these are arrow functions
-   passed in as props. First, we change the interface to allow this::
+   passed in as props. First, we change the interface to allow this:
+
+   .. code-block:: typescript
 
     interface CounterProps {
         label?: string;
@@ -76,7 +81,9 @@ Steps
 
 #. The first test passes but has a compiler warning. We're missing
    ``onCounterIncrease``, a mandatory prop. It's easy to shut up this test,
-   as it doesn't test clicking::
+   as it doesn't test clicking:
+
+   .. code-block:: typescript
 
     const handler = jest.fn();
     const wrapper = shallow(<Counter count={1} onCounterIncrease={handler}/>);
@@ -90,7 +97,9 @@ Steps
 #. Event handling is a bit trickier. We need a "spy" that tells whether our
    passed-in handler gets called, and called the right way. Also, we don't
    test whether the value updates, since the container is responsible for
-   that::
+   that:
+
+   .. code-block:: typescript
 
     it('should increment the count by one', () => {
         const handler = jest.fn();
@@ -107,7 +116,9 @@ Container Component
 Let's now turn to our container component, ``App``.
 
 #. This component will now have some state. Add the interface and change
-   the class setup::
+   the class setup:
+
+   .. code-block:: typescript
 
     interface CounterState {
         count: number;
@@ -122,7 +133,9 @@ Let's now turn to our container component, ``App``.
         }
 
 #. It will also need the increment method exactly as was on the previous
-   lesson, but under ``Counter``::
+   lesson, but under ``Counter``:
+
+   .. code-block:: typescript
 
     increment(isShift: boolean) {
         const inc: number = isShift ? 10 : 1;

@@ -29,9 +29,9 @@ We want to build a counter component which keeps track of clicks.
 
 #. Click in browser
 
-#. Highlight and cut, then::
+#. Highlight and cut, then:
 
-   .. code-block:: javascript
+   .. code-block:: typescript
 
       class Counter extends React.Component {
         render() {
@@ -56,7 +56,9 @@ We want to build a counter component which keeps track of clicks.
 
 #. Why is the arrow function needed? Try without it.
 
-#. Use refactor to make the method::
+#. Use refactor to make the method:
+
+   .. code-block:: typescript
 
     private increment() {
         this.setState({count: this.state.count + 1});

@@ -49,7 +49,9 @@ Steps
     const Home = () => <h1>Hello</h1>;
     const About = () => <h1>About</h1>;
 
-#. The router needs an object to use as its "history"::
+#. The router needs an object to use as its "history":
+
+   .. code-block:: typescript
 
     const h = createBrowserHistory();
 
@@ -76,7 +78,9 @@ Steps
    between ``/`` and ``/about``.
 
 #. The router can provide route information as props. Let's give a props
-   interface as a starting point::
+   interface as a starting point:
+
+   .. code-block:: jsx
 
     interface HomeProps {
     }
@@ -91,7 +95,9 @@ Steps
     interface HomeProps extends RouteComponentProps<{}> {
 
 #. And, as if by magic, we now have extra variables we can destructure from
-   props::
+   props:
+
+   .. code-block:: jsx
 
     const Home: React.SFC<HomeProps> = ({location, match, history}) => (
         <div>
@@ -102,7 +108,9 @@ Steps
     Note the autocompletion, not just in the h1, but actually in the
     destructuring.
 
-#. Let's do the same for About::
+#. Let's do the same for About:
+
+   .. code-block:: jsx
 
     interface AboutProps extends RouteComponentProps<{}> {
     }
@@ -114,7 +122,9 @@ Steps
     );
 
 #. Let's make it convenient to navigate between the two views using the
-   ``Link`` component from the router::
+   ``Link`` component from the router:
+
+   .. code-block:: jsx
 
     <div>
         <h1>Hello at path: {location.pathname}</h1>
@@ -132,7 +142,9 @@ Steps
    etc. That's called ``match`` information. We'll say the number is
    ``shoe_size``.
 
-#. First, we change the route definition to have the ``shoe_size`` parameter::
+#. First, we change the route definition to have the ``shoe_size`` parameter:
+
+   .. code-block:: jsx
 
     <Route exact={true} path="/about/:shoe_size" component={About}/>
 
@@ -142,18 +154,24 @@ Steps
     <Link to="/about/42">About</Link>
 
 #. Navigation works, but we want the ``shoe_size`` variable. Make an
-   interface as a contract for the data in the match::
+   interface as a contract for the data in the match:
+
+   .. code-block:: typescript
 
     interface AboutMatch {
         shoe_size: string;
     }
 
-#. Add that interface to the "generic" for the ``AboutProps`` interface::
+#. Add that interface to the "generic" for the ``AboutProps`` interface:
+
+   .. code-block:: typescript
 
     interface AboutProps extends RouteComponentProps<AboutMatch> {
     }
 
 #. Finally, show this match information (and the URL hash) in the UI::
+
+   .. code-block:: jsx
 
     <div>Shoe Size: {match.params.shoe_size}</div>
     <div>Hash: {history.location.hash || 'None'}</div>

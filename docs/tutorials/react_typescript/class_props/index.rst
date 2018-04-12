@@ -23,7 +23,7 @@ We want to build a counter component which keeps track of clicks.
 
 #. Start with a test in ``Counter.test.tsx``:
 
-    .. code-block:: javascript
+   .. code-block:: javascript
 
         it('should render a counter', () => {
             const wrapper = shallow(<Counter/>);
@@ -33,7 +33,9 @@ We want to build a counter component which keeps track of clicks.
 
 #. Auto-complete ``shallow`` to auto-import it.
 
-#. Make a component, for now, in the test file. We're not yet committed::
+#. Make a component, for now, in the test file. We're not yet committed:
+
+   .. code-block:: jsx
 
     class Counter extends React.Component {
         render() {
@@ -49,23 +51,29 @@ We want to build a counter component which keeps track of clicks.
 
 #. To show the class-based equivalent of the previous section, let's make an
    optional prop that has a label for the counter. First, add a failing
-   test::
+   test:
 
-    it('should have a default label', () => {
-        const wrapper = shallow(<Counter/>);
-        expect(wrapper.find('.counter label').text())
-            .toBe('Count');
-    });
+   .. code-block:: javascript
 
-#. Now add a static implementation::
+        it('should have a default label', () => {
+            const wrapper = shallow(<Counter/>);
+            expect(wrapper.find('.counter label').text())
+                .toBe('Count');
+        });
 
-            <div className="counter">
-                <label>Count</label>
-                <span>1</span>
-            </div>
+#. Now add a static implementation:
+
+   .. code-block:: jsx
+
+        <div className="counter">
+            <label>Count</label>
+            <span>1</span>
+        </div>
 
 
-#. The test passes. Classes handle props with defaults a little differently::
+#. The test passes. Classes handle props with defaults a little differently:
+
+   .. code-block:: javascript
 
     class Counter extends React.Component<{ label?: string }> {
         static defaultProps = {
@@ -74,11 +82,15 @@ We want to build a counter component which keeps track of clicks.
 
    Remember the ``?`` means optional.
 
-#. Now make the ``<label>`` dynamic::
+#. Now make the ``<label>`` dynamic:
 
-    <label>{this.props.label}</label>
+   .. code-block:: jsx
 
-#. Since we now have a prop, write a test which confirms passing one in::
+     <label>{this.props.label}</label>
+
+#. Since we now have a prop, write a test which confirms passing one in:
+
+   .. code-block:: javascript
 
     it('should have a custom label', () => {
         const wrapper = shallow(<Counter label="Custom"/>);

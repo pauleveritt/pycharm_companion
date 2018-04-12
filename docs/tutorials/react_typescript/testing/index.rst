@@ -68,7 +68,7 @@ Steps
 
 #. Add a test:
 
-    .. code-block:: jsx
+   .. code-block:: jsx
 
         it('renders the provided text', () => {
             const wrapper = shallow(<App/>);

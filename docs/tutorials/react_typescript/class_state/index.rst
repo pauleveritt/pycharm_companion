@@ -22,13 +22,17 @@ Steps
 We want to build a counter component which keeps track of clicks.
 
 #. The Counter needs some component state. Let's write the interface first
-   this time::
+   this time:
+
+   .. code-block:: typescript
 
     interface CounterState {
         count: number;
     }
 
-#. Now the class definition and constructor can setup state::
+#. Now the class definition and constructor can setup state:
+
+   .. code-block:: typescript
 
     class Counter extends React.Component<CounterProps, CounterState> {
         constructor(props: CounterProps) {
@@ -38,7 +42,9 @@ We want to build a counter component which keeps track of clicks.
             };
         }
 
-#. Have the span now use this state::
+#. Have the span now use this state:
+
+   .. code-block:: html
 
     <span>{this.state.count}</span>
 

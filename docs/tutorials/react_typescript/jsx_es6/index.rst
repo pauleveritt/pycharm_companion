@@ -57,7 +57,10 @@ Steps
    and change the value to a number.
 
 #. ES6 arrow functions let you do a lot of work in a small space. Let's
-   uppercase the label. Change the render::
+   uppercase the label. Change the render:
+
+   .. code-block:: jsx
+
 
     render() {
         const label = this.label.toUpperCase();
@@ -80,7 +83,7 @@ Steps
 #. JSX can have onclick handlers that are inline JavaScript. Let's make an
    alert that shows the label::
 
-     <h1 onClick={() => alert(this.label)}>
+       <h1 onClick={() => alert(this.label)}>Something</h1>
 
 #. As you see with ``onClick``, JSX maps some HTML attributes to special
    names to which it applies special handling. ``className`` is another.
@@ -107,7 +110,7 @@ Steps
 #. Multiline JSX generates an error. For example::
 
         return <div>
-            <h1 onClick={() => alert(this.heading)}>{label}ss</h1>
+            <h1 onClick={() => alert(this.heading)}>{label}</h1>
         </div>;
 
 #. Select the ``<div>`` and type ``(``. Presumes SmartQuote setting. Move the

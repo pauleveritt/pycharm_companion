@@ -22,13 +22,17 @@ Steps
 =====
 
 #. Let's have the recipient of the greeting passed in with props. The most
-   obvious::
+   obvious:
 
-    export const Hello = (props) => <h1>Hello {props.recipient}</h1>;
+   .. code-block:: jsx
 
-#. ES6 destructuring is nice. It unpacks one or more values from an object::
+        export const Hello = (props) => <h1>Hello {props.recipient}</h1>;
 
-    export const Hello = ({recipient}) => <h1>Hello React</h1>;
+#. ES6 destructuring is nice. It unpacks one or more values from an object:
+
+   .. code-block:: jsx
+
+        export const Hello = ({recipient}) => <h1>Hello React</h1>;
 
 #. TypeScript's compiler settings are, by default, very conservative. Let's
    relax this in tsconfig.json with ``"noImplicitAny": false"```
@@ -36,22 +40,27 @@ Steps
 #. Back in our file, that error now disappears. But we have a new error.
    ``<Hello>`` doesn't pass a prop, e.g. ``<Hello recipient="React"/>``.
    Instead of changing the App and the test, let's give a default value and
-   use in the ``<h1>``::
+   use in the ``<h1>``:
+
+   .. code-block:: jsx
 
     export const Hello = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
-
 
    Note that autocomplete worked for the variable. Our tests now pass again.
 
 #. Write a test that provides a non-default value. Notice autocomplete.
 
 #. We still don't have typing and in fact have allowed ``any`` anywhere in
-   the project. Let's change this by using ``React.SFC``::
+   the project. Let's change this by using ``React.SFC``:
+
+   .. code-block:: jsx
 
      export const Hello: React.SFC<{recipient: string}> = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
 
 #. We now have an error in contract between component and usage. Make
-   recipient optional::
+   recipient optional:
+
+   .. code-block:: jsx
 
      export const Hello: React.SFC<{recipient?: string}> = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
 

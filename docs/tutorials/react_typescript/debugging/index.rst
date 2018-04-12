@@ -30,11 +30,13 @@ Steps
 #. Let's make the displayed label into something that can be overridden in
    subclasses (primitive alternative to props)
 
-#. Add::
+#. Add:
 
-    label() {
-        return 'Hello React';
-    }
+   .. code-block:: jsx
+
+        label() {
+            return 'Hello React';
+        }
 
 #. Change <h1> to {this.label()} using autocompletion
 
@@ -70,7 +72,9 @@ Steps
 
 #. Stop debugger, resume normal running
 
-#. Write a test for the label method::
+#. Write a test for the label method:
+
+   .. code-block:: jsx
 
     it('have a label method', () => {
         expect(App.label('React')).toBe('Hello React');
