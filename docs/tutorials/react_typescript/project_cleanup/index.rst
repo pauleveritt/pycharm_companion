@@ -20,21 +20,22 @@ Pre-requisites
 Steps
 =====
 
-#. Open App.tsx
+#. Terminate the ``test`` tool window and close ``App.test.tsx``.
 
-#. Reformat Code
+#. Open ``App.tsx``.
 
-#. Open the TypeScript tool window (and resize)
+#. Run ``Reformat Code``.
 
-#. Edit tsconfig.json, Reformat Code, and (autocomplete) edit "baseUrl": "."
+#. Edit ``tsconfig.json``, ``Reformat Code``, and (autocomplete) to
+   add "baseUrl": "."
 
-#. Restart tool window, error goes away
+#. Restart tool window and the startup error goes away.
 
 #. Edit App.tsx and Reformat Code.
 
 #. Use Emmet to replace <div> with div>h1<enter>Hello React
 
-#. Show TS error, unused import, show ``noUnusedLocals`` in tsconfig that
+#. Show TS error in tool window, unused import, show ``noUnusedLocals`` in tsconfig that
    governs it
 
 #. Remove logo and delete ``logo.svg`` file
