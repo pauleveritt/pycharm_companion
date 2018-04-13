@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>NodeJS for Python and PyCharm Developers</title>
+    
+        <link rel="icon"
+              href="../../../_static/jetbrains_favicon.ico"/>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
+    <script src="../../../_static/kaybee_bulma.bundle.js"></script>
+    <script src="../../../_static/app.bundle.js"></script>
+</head>
+<body>
+
+<section>
+    <nav id="kbb-navbar" class="navbar is-light"
+     role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../../index.html">
+            
+            <img src="../../../_static/PyCharm_Logo.svg.png"
+                 alt="PyCharm Logo Alt">
+        </a>
+        <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                <a class="navbar-item"
+                   href="../../../tips/index.html">
+                    Tips
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../tutorials/index.html">
+                    Tutorials
+                </a>
+            
+                <a class="navbar-item is-active"
+                   href="../../index.html">
+                    Articles
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../blogposts/index.html">
+                    Blog Posts
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../webinars/index.html">
+                    Webinars
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../technologies/index.html">
+                    Technologies
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../topics/index.html">
+                    Topics
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../authors/index.html">
+                    Authors
+                </a>
+            
+
+        </div>
+
+        <div class="navbar-end">
+            
+            
+        </div>
+    </div>
+</nav>
+</section>
+<section
+        class="hero is-light"
+        style="">
+    <div class="hero-head">
+    </div>
+    
+</section>
+
+<section class="section content pcarticle"
+         id="kbb-sphinx-body">
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column sb_body">
+                <div class="title is-1">
+                    NodeJS for Python and PyCharm Developers
+                    
+    <span style="background-color: orange; color: white; font-weight: bold;
+    font-size: x-small; padding: 0.5em; vertical-align: middle;
+    border-radius: 25px">PRO ONLY</span>
+
+                </div>
+
+                <div class="subtitle is-4">Using NodeJS for frontend development with PyCharm</div>
+
+                <div id="kbb-sphinx-body" class="content"><div class="section" id="nodejs-for-python-and-pycharm-developers">
+<h1>NodeJS for Python and PyCharm Developers<a class="headerlink" href="#nodejs-for-python-and-pycharm-developers" title="Permalink to this headline">¶</a></h1>
+<p>If you’re a Python veteran, you probably don’t think too much about
+the Python interpreter itself. Sure, you think about different
+versions and virtual environments. But it isn’t like you won’t
+have one.</p>
+<p>For frontend development, though, it’s quite different. You likely
+think: “Ugh, I have to run my frontend code through a browser.” These
+days, though, JavaScript has escaped the browser via <a class="reference external" href="https://nodejs.org/en/">Node.js</a>, an environment which resembles Python
+in many ways.</p>
+<p>In particular, with Node, you have a command-line program which can
+load and interpret JavaScript and print the result. Equally, with the
+bundled <a class="reference external" href="https://www.npmjs.com">npm</a> as a package manager, the
+world of Node provides a way to do JavaScript development,
+targeting a browser, but without a browser.</p>
+<p>In this article we’ll take a quick look at how
+<a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a>
+works as an
+IDE for JavaScript development.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Run the Node.js interpreter from PyCharm</li>
+<li>Configure interpreter settings and packages</li>
+<li>Discuss Node-style virtual environments</li>
+</ul>
+</div>
+<div class="section" id="running-javascript-code">
+<h2>Running JavaScript Code<a class="headerlink" href="#running-javascript-code" title="Permalink to this headline">¶</a></h2>
+<p>Let’s presume I’ve installed Node via their installer, Homebrew, or
+one of the many other ways. If we have a <code class="docutils literal notranslate"><span class="pre">hello_node.js</span></code> file in
+my project, we can execute it via the Node interpreter exactly the
+same ways we do Python code. For example, this <code class="docutils literal notranslate"><span class="pre">hello_node.js</span></code>
+file:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">hello_node.js</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello Node&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>…can be executed from the command line with the <code class="docutils literal notranslate"><span class="pre">node</span></code> command,
+just like we use for <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ node hello_node.js
+Hello Node
+</pre></div>
+</div>
+<p>In PyCharm we can easily
+<a class="reference external" href="https://www.youtube.com/watch?v=JLfd9LOdu_U&amp;list=PLQ176FUIyIUZ1mwB-uImQE-gmkwzjNLjP&amp;index=4">run Python code</a>
+using an installed Python interpreter. The same is true for JavaScript
+code with an installed Node interpreter:</p>
+<img alt="Running JavaScript Code" src="../../../_images/hello_node_run.gif" />
+<p>In this example, we do a right-click on the tab and choose “Run”. PyCharm
+creates a “Run Configuration” and executes the code in a tool window.
+Except in this case, the run configuration isn’t of <em>Python</em> Run
+Configuration. It is a <em>Node.js</em> Run Configuration:</p>
+<img alt="Run Configuration" src="../../../_images/hello_node_config.gif" />
+</div>
+<div class="section" id="configuring-the-interpreter">
+<h2>Configuring the Interpreter<a class="headerlink" href="#configuring-the-interpreter" title="Permalink to this headline">¶</a></h2>
+<p>Where did PyCharm find the Node executable and what options are there
+for configuring it? In the PyCharm preferences, the <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code>
+panel holds this information:</p>
+<img alt="JavaScript Preferences" src="../../../_images/hello_node_pref.gif" />
+<p>Just like with PyCharm’s “Python Interpreter” settings, you can
+point to the executable on disk for Node. PyCharm gives a visual
+way to manage Python packages, instead of running <code class="docutils literal notranslate"><span class="pre">pip</span></code> from the
+command-line. Same with Node: this window also lets you manage
+packages instead of running <code class="docutils literal notranslate"><span class="pre">npm</span></code> from the command line.</p>
+</div>
+<div class="section" id="javascript-virtual-environments">
+<h2>JavaScript Virtual Environments?<a class="headerlink" href="#javascript-virtual-environments" title="Permalink to this headline">¶</a></h2>
+<p>In Python we are taught to develop in isolation using virtual
+environments. How does that work in Node, and how does PyCharm
+support it?</p>
+<p>First, Node is designed around a two-tier global and project
+<code class="docutils literal notranslate"><span class="pre">node_modules</span></code> directory for packages. In the case where you
+want full isolation, most people use <a class="reference external" href="https://github.com/creationix/nvm">nvm</a> as a way to have multiple,
+isolated versions of Node. Once this is in place, configure
+your PyCharm project to point at the correct executable for the
+nvm-managed Node environment.</p>
+</div>
+<div class="section" id="isn-t-this-like-webstorm">
+<h2>Isn’t This Like WebStorm?<a class="headerlink" href="#isn-t-this-like-webstorm" title="Permalink to this headline">¶</a></h2>
+<p>This is just a brief introduction of Node.js for Python developers,
+showing how it hooks up in PyCharm. We cover much more,
+particularly in the section on <code class="docutils literal notranslate"><span class="pre">package.json</span></code>.</p>
+<p>Many Python developers might ask: should I use
+<a class="reference external" href="https://www.jetbrains.com/webstorm/">WebStorm</a>
+for my frontend development and PyCharm for my backend development?
+While WebStorm does provide a UI more focused on JavaScript development,
+both IDEs share the same
+<a class="reference external" href="https://www.jetbrains.com/idea/">IntelliJ</a>
+foundations and JavaScript
+machinery. As such, you can do your frontend development while
+staying in PyCharm.</p>
+</div>
+<div class="section" id="wrapup">
+<h2>Wrapup<a class="headerlink" href="#wrapup" title="Permalink to this headline">¶</a></h2>
+<p>In this article we showed how the world of JavaScript exists outside
+of the browser, in a command-line interpreter that should be familiar
+to Python developers. JavaScript can be executed by the Node interpreter
+as a first-class part of PyCharm, just like running Python code.</p>
+</div>
+</div>
+</div>
+
+                
+
+                
+                
+            </div>
+
+            <div class="column is-3">
+                <aside id="sidebarCollapseTarget" class="menu kbb-sidenav">
+
+    <div id="kb-sidenav-published-heading">
+    
+
+    
+        <p class="menu-label">
+            Published
+        </p>
+        <ul class="menu-list">
+            <li>
+                Published on
+                2018-02-26
+                at
+                12:00
+                
+                    by:
+                    
+                        <a href="../../../authors/pauleveritt/index.html">
+                            <figure class="image is-rounded is-24x24"
+                                    style="display: inline-block; margin: 0.5rem">
+                                <img src="../../../authors/pauleveritt/paul_headshotx24.jpeg">
+                            </figure>
+                            <span
+                                    style="display: inline-block; vertical-align: super">Paul Everitt</span>
+                        </a>
+                    
+                
+            </li>
+        </ul>
+    
+</div>
+    
+
+    <p class="menu-label">
+        Breadcrumbs
+    </p>
+    <ul class="menu-list">
+            <li>
+                <a href="../../index.html">
+                    
+                        <span class="kb-breadcrumb-separator">></span>
+                    
+                    Articles
+                </a>
+            </li>
+            <li>
+                <a href="../index.html">
+                    
+                        <span class="kb-breadcrumb-separator">></span>
+                    
+                        <span class="kb-breadcrumb-separator">></span>
+                    
+                    Frontend Tooling
+                </a>
+            </li>
+
+    </ul>
+
+    
+    <p class="menu-label">
+        Previous
+    </p>
+    <ul class="menu-list">
+        <a href="../index.html"
+           title="previous chapter">Frontend Tooling</a>
+    </ul>
+
+
+
+    <p class="menu-label">
+        Next
+    </p>
+    <ul class="menu-list">
+        <a href="../package_json/index.html"
+           title="next chapter">JavaScript Packaging with package.json</a>
+    </ul>
+
+
+    
+    
+
+
+
+</aside>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer is-light">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Powered by Kaybee, which uses
+                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
+                <a href="http://bulma.io">Bulma</a>,
+                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
+                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
+                and more.
+            </p>
+            <p id="kb-config-copyright">
+                &copy; 2018, All Rights Reserved
+            </p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+
+</body>
+</html>

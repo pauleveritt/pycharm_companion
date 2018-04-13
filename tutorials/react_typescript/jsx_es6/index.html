@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>JSX and ES6</title>
+    
+        <link rel="icon"
+              href="../../../_static/jetbrains_favicon.ico"/>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
+    <script src="../../../_static/kaybee_bulma.bundle.js"></script>
+    <script src="../../../_static/app.bundle.js"></script>
+</head>
+<body>
+
+<section>
+    <nav id="kbb-navbar" class="navbar is-success"
+     role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../../index.html">
+            
+            <img src="../../../_static/PyCharm_Logo.svg.png"
+                 alt="PyCharm Logo Alt">
+        </a>
+        <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                <a class="navbar-item"
+                   href="../../../tips/index.html">
+                    Tips
+                </a>
+            
+                <a class="navbar-item is-active"
+                   href="../../index.html">
+                    Tutorials
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../articles/index.html">
+                    Articles
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../blogposts/index.html">
+                    Blog Posts
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../webinars/index.html">
+                    Webinars
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../technologies/index.html">
+                    Technologies
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../topics/index.html">
+                    Topics
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../../authors/index.html">
+                    Authors
+                </a>
+            
+
+        </div>
+
+        <div class="navbar-end">
+            
+            
+        </div>
+    </div>
+</nav>
+</section>
+<section
+        class="hero is-success"
+        style="">
+    <div class="hero-head">
+    </div>
+    
+</section>
+
+<section class="section content tutorialstep"
+         id="kbb-sphinx-body">
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column sb_body">
+                <div class="title is-1">
+                    JSX and ES6
+                    
+    <span style="background-color: orange; color: white; font-weight: bold;
+    font-size: x-small; padding: 0.5em; vertical-align: middle;
+    border-radius: 25px">PRO ONLY</span>
+
+                </div>
+
+                <div class="subtitle is-4">Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.</div>
+
+                <div id="kbb-sphinx-body" class="content"><div class="section" id="jsx-and-es6">
+<h1>JSX and ES6<a class="headerlink" href="#jsx-and-es6" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prequisites">
+<h2>Prequisites<a class="headerlink" href="#prequisites" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">ES6</p>
+</li>
+<li><p class="first">JSX</p>
+<blockquote>
+<div><ul class="simple">
+<li>Syntax highlighting, JSX/component/method completion, navigation,
+linting, auto-import, quick-fixes (e.g. missing method)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Testing</p>
+</li>
+</ul>
+</div>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Start by removing some stuff from previous Debugging step:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Remove the last test</li>
+<li>Put the &lt;h1&gt; back to <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">React</span></code></li>
+<li>Remove the static method for label</li>
+<li>Start running the test runner again</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">These are ES6 classes. Let’s make label a “field”, which in TS is a variable
+defined in a class. Add <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'Hello</span> <span class="pre">React';</span></code></p>
+</li>
+<li><p class="first">Write a test to see if it is there:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has a label field&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">({},</span> <span class="p">{});</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">label</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">JSX can insert JS into HTML with brackets. Change to
+<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;{this.label}&lt;/h1&gt;</span></code>. Tests still pass.</p>
+</li>
+<li><p class="first">TS can help flag type errors, even in markup. Make the label uppercase
+and change the value to a number.</p>
+</li>
+<li><p class="first">ES6 arrow functions let you do a lot of work in a small space. Let’s
+uppercase the label. Change the render:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">label</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">label</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The test needs to be fixed.</p>
+</li>
+<li><p class="first">Labels need to be strings. It’s inferred, but we can make it explicit
+with <code class="docutils literal notranslate"><span class="pre">label:</span> <span class="pre">string</span> <span class="pre">=</span> <span class="pre">'Hello</span> <span class="pre">React';</span></code></p>
+</li>
+<li><p class="first">The TypeScript keyword <code class="docutils literal notranslate"><span class="pre">public</span></code> is inferred. Let’s make it private and
+see what happens when the test accesses it. Note that the code still
+compiles and works in the browser.</p>
+</li>
+<li><p class="first">JSX can have onclick handlers that are inline JavaScript. Let’s make an
+alert that shows the label:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">alert</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">label</span><span class="p">)}</span><span class="o">&gt;</span><span class="n">Something</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">As you see with <code class="docutils literal notranslate"><span class="pre">onClick</span></code>, JSX maps some HTML attributes to special
+names to which it applies special handling. <code class="docutils literal notranslate"><span class="pre">className</span></code> is another.
+The IDE can help you autocomplete those (and warn when you forget.
+Show this.)</p>
+</li>
+<li><p class="first">What governs this in the IDE? Languages &amp; Frameworks -&gt; JavaScript sets
+the project to React JSX which implies ES6 and JSX</p>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">.ts</span></code> for files that have no JSX (aka TSX) in it and <code class="docutils literal notranslate"><span class="pre">.tsx</span></code> for
+files with markup.</p>
+</li>
+<li><p class="first">The IDE provides useful navigation. Click on <code class="docutils literal notranslate"><span class="pre">this.label</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> and type Cmd-B to jump to the definition, no matter what project
+file it is located in. Type <code class="docutils literal notranslate"><span class="pre">Alt-F7</span></code> to then go in the reverse direction
+and see all places in the project where that symbol is used.</p>
+</li>
+<li><p class="first">Rename also works. With the cursor on the <code class="docutils literal notranslate"><span class="pre">label</span></code> declaration, type
+<code class="docutils literal notranslate"><span class="pre">Ctrl-T</span></code> and choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code>. Type in <code class="docutils literal notranslate"><span class="pre">heading</span></code>, press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>,
+and choose <code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">Refactor</span></code>. You’ll see the
+field name change not just in the declaration, but also in the JSX and
+even the tests.</p>
+</li>
+<li><p class="first">Multiline JSX generates an error. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">alert</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">heading</span><span class="p">)}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select the <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and type <code class="docutils literal notranslate"><span class="pre">(</span></code>. Presumes SmartQuote setting. Move the
+cursor and press Enter to put <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> on a new line.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="what-happened">
+<h2>What Happened<a class="headerlink" href="#what-happened" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>MS TypeScript pages for ES6 and React/JSX</li>
+</ul>
+</div>
+</div>
+</div>
+
+                
+
+                
+                
+                    <section class="section kbb-listing">
+                        <h2 class="title kbb-listing-heading">This Series</h2>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../project_setup/index.html">Project Setup</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Use PyCharm to create and open the project with all dependencies, then see some of the IDE features in action.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../project_cleanup/index.html">Project Cleanup</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Clean out some unneeded code from the default app, tweak some configuration in the IDE, and tour a few more features.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../styling/index.html">Styling with tslint</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Use the TypeScript linter tslint to manage styling within the IDE, plus helpful hints about limitations.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../testing/index.html">Unit Testing with Jest and Enzyme</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        The Jest test runner integrates productively into PyCharm. Let's put it to work to adopt a test-first approach, including Enzyme for testing convenience.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../nodejs_debugging/index.html">Debugging During Testing With NodeJS</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE under the NodeJS debugger.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../chrome_debugging/index.html">Debugging JSX With Chrome</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Sometimes you need to debug in the browser, such as for JSX rendering and events. Use the IDE to remote control Chrome during debugging.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item kbb-listing-active">
+                                <div class="kb-listing-title">
+                                    <a href="#">JSX and ES6</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../functional_components/index.html">Functional React Components in TypeScript</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        React builds UIs as a tree of components. See how to make stateless functional component correctly with TypeScript.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../props/index.html">Sharing Component Props Using Type Information</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Use type information to make using properties into a productive workflow.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../class_props/index.html">Class Components With Props</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Make a simple class component with a single prop, again with a TypeScript interface describing the props.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../class_state/index.html">Model Class State With TypeScript Interfaces</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Make a very simple class component with local counter state, then make an interface for that state.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../modify_state/index.html">Modify State With Events</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Extend our class component and interface to modify state on click events.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Add event more handling to a stateful class component by writing tests during development.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../presentation_components/index.html">Presentation and Container Components</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        Follow the React pattern of container/presentation components by refactoring the code and tests.
+                                    </div>
+                                
+                            </div>
+                        
+                            
+                            <div class="kbb-listing-item">
+                                <div class="kb-listing-title">
+                                    <a href="../routing/index.html">TypeScript and Routing With Testing</a>
+                                </div>
+                                
+                                    <div class="kb-listing-excerpt">
+                                        React single-page applications use client-side routing. Doing that with TypeScript has been a moving target. Let's show a working example.
+                                    </div>
+                                
+                            </div>
+                        
+                    </section>
+                
+            </div>
+
+            <div class="column is-3">
+                <aside id="sidebarCollapseTarget" class="menu kbb-sidenav">
+
+    <div id="kb-sidenav-published-heading">
+    
+
+    
+        <p class="menu-label">
+            Published
+        </p>
+        <ul class="menu-list">
+            <li>
+                Published on
+                2018-02-26
+                at
+                12:00
+                
+                    by:
+                    
+                        <a href="../../../authors/pauleveritt/index.html">
+                            <figure class="image is-rounded is-24x24"
+                                    style="display: inline-block; margin: 0.5rem">
+                                <img src="../../../authors/pauleveritt/paul_headshotx24.jpeg">
+                            </figure>
+                            <span
+                                    style="display: inline-block; vertical-align: super">Paul Everitt</span>
+                        </a>
+                    
+                
+            </li>
+        </ul>
+    
+</div>
+    
+
+    <p class="menu-label">
+        Breadcrumbs
+    </p>
+    <ul class="menu-list">
+            <li>
+                <a href="../../index.html">
+                    
+                        <span class="kb-breadcrumb-separator">></span>
+                    
+                    Tutorials
+                </a>
+            </li>
+            <li>
+                <a href="../index.html">
+                    
+                        <span class="kb-breadcrumb-separator">></span>
+                    
+                        <span class="kb-breadcrumb-separator">></span>
+                    
+                    React+TypeScript QuickStart
+                </a>
+            </li>
+
+    </ul>
+
+    
+    <p class="menu-label">
+        Previous
+    </p>
+    <ul class="menu-list">
+        <a href="../chrome_debugging/index.html"
+           title="previous chapter">Debugging JSX With Chrome</a>
+    </ul>
+
+
+
+    <p class="menu-label">
+        Next
+    </p>
+    <ul class="menu-list">
+        <a href="../functional_components/index.html"
+           title="next chapter">Functional React Components in TypeScript</a>
+    </ul>
+
+
+    
+    
+
+    
+        <div>
+            <p class="menu-label">
+                <span style="text-transform: uppercase">technology</span>
+            </p>
+            <p>
+                
+                    <a href="../../../technologies/react.html">
+                        <span class="tag">react</span>
+                    </a>
+                
+            </p>
+        </div>
+    
+
+
+
+</aside>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer is-success">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Powered by Kaybee, which uses
+                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
+                <a href="http://bulma.io">Bulma</a>,
+                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
+                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
+                and more.
+            </p>
+            <p id="kb-config-copyright">
+                &copy; 2018, All Rights Reserved
+            </p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+
+</body>
+</html>

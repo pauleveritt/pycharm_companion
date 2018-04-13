@@ -15,7 +15,7 @@ Authors are resources that act as references, just like categories etc.
 
 .. toctree::
 
-    pauleveritt
-    ernsthaagsman
-    dmitryfilippov
-    andreyvlasovskikh
+    pauleveritt/index
+    ernsthaagsman/index
+    dmitryfilippov/index
+    andreyvlasovskikh/index

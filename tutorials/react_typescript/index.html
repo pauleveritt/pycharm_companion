@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>React+TypeScript QuickStart</title>
+    
+        <link rel="icon"
+              href="../../_static/jetbrains_favicon.ico"/>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
+    <script src="../../_static/kaybee_bulma.bundle.js"></script>
+    <script src="../../_static/app.bundle.js"></script>
+</head>
+<body>
+
+<section>
+    <nav id="kbb-navbar" class="navbar is-success"
+     role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../index.html">
+            
+            <img src="../../_static/PyCharm_Logo.svg.png"
+                 alt="PyCharm Logo Alt">
+        </a>
+        <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                <a class="navbar-item"
+                   href="../../tips/index.html">
+                    Tips
+                </a>
+            
+                <a class="navbar-item is-active"
+                   href="../index.html">
+                    Tutorials
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../articles/index.html">
+                    Articles
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../blogposts/index.html">
+                    Blog Posts
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../webinars/index.html">
+                    Webinars
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../technologies/index.html">
+                    Technologies
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../topics/index.html">
+                    Topics
+                </a>
+            
+                <a class="navbar-item"
+                   href="../../authors/index.html">
+                    Authors
+                </a>
+            
+
+        </div>
+
+        <div class="navbar-end">
+            
+            
+        </div>
+    </div>
+</nav>
+</section>
+<section
+        class="hero is-success"
+        style="">
+    <div class="hero-head">
+    </div>
+    
+    <div class="container">
+        <div class="hero-body">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <p class="title">
+                        React+TypeScript QuickStart
+                    </p>
+                    
+                        <p class="subtitle">
+                            Quick introduction to writing React applications in TypeScript, using the features of the IDE
+                        </p>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="section content tutorial"
+         id="kbb-sphinx-body">
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-10 kb-body">
+                <div id="kbb-sphinx-body"><div class="section" id="react-typescript-quickstart">
+<h1>React+TypeScript QuickStart<a class="headerlink" href="#react-typescript-quickstart" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../../technologies/react.html" title="React"><em>React</em></a> is wildly popular and thus wildly supported.
+<a class="reference internal" href="../../technologies/typescript.html" title="TypeScript"><em>TypeScript</em></a> is increasingly popular, and thus increasingly
+supported.</p>
+<p>The two together? Not as much. Given that they both change quickly, its
+hard to find accurate learning materials.</p>
+<p>React+TypeScript, with PyCharm? That three-part combination is the topic
+of this series. We’ll show a little about a lot. Meaning, the key steps
+to getting productive, in PyCharm, for React projects using TypeScript. Along
+the way we’ll show test-driven development and emphasize tips-and-tricks in
+the IDE.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="project_setup/index.html">
+                                            <strong>Project Setup</strong>
+                                        </a>
+                                        <br>
+                                        <span>Use PyCharm to create and open the project with all dependencies, then see some of the IDE features in action.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/nodejs.html">
+                                                            nodejs
+                                                        </a>
+                                                </span>
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/cra.html">
+                                                            cra
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>2m34s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-25
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="project_cleanup/index.html">
+                                            <strong>Project Cleanup</strong>
+                                        </a>
+                                        <br>
+                                        <span>Clean out some unneeded code from the default app, tweak some configuration in the IDE, and tour a few more features.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="styling/index.html">
+                                            <strong>Styling with tslint</strong>
+                                        </a>
+                                        <br>
+                                        <span>Use the TypeScript linter tslint to manage styling within the IDE, plus helpful hints about limitations.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>4m32s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="testing/index.html">
+                                            <strong>Unit Testing with Jest and Enzyme</strong>
+                                        </a>
+                                        <br>
+                                        <span>The Jest test runner integrates productively into PyCharm. Let's put it to work to adopt a test-first approach, including Enzyme for testing convenience.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>2m04s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="nodejs_debugging/index.html">
+                                            <strong>Debugging During Testing With NodeJS</strong>
+                                        </a>
+                                        <br>
+                                        <span>Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE under the NodeJS debugger.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>4m18s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="chrome_debugging/index.html">
+                                            <strong>Debugging JSX With Chrome</strong>
+                                        </a>
+                                        <br>
+                                        <span>Sometimes you need to debug in the browser, such as for JSX rendering and events. Use the IDE to remote control Chrome during debugging.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>4m18s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="jsx_es6/index.html">
+                                            <strong>JSX and ES6</strong>
+                                        </a>
+                                        <br>
+                                        <span>Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>3m24s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="functional_components/index.html">
+                                            <strong>Functional React Components in TypeScript</strong>
+                                        </a>
+                                        <br>
+                                        <span>React builds UIs as a tree of components. See how to make stateless functional component correctly with TypeScript.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>5m04s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="props/index.html">
+                                            <strong>Sharing Component Props Using Type Information</strong>
+                                        </a>
+                                        <br>
+                                        <span>Use type information to make using properties into a productive workflow.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>3m47s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="class_props/index.html">
+                                            <strong>Class Components With Props</strong>
+                                        </a>
+                                        <br>
+                                        <span>Make a simple class component with a single prop, again with a TypeScript interface describing the props.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>3m14s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="class_state/index.html">
+                                            <strong>Model Class State With TypeScript Interfaces</strong>
+                                        </a>
+                                        <br>
+                                        <span>Make a very simple class component with local counter state, then make an interface for that state.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>4m59s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="modify_state/index.html">
+                                            <strong>Modify State With Events</strong>
+                                        </a>
+                                        <br>
+                                        <span>Extend our class component and interface to modify state on click events.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>3m13s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="rich_events_and_testing/index.html">
+                                            <strong>Rich Events and Testing</strong>
+                                        </a>
+                                        <br>
+                                        <span>Add event more handling to a stateful class component by writing tests during development.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>3m17s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="presentation_components/index.html">
+                                            <strong>Presentation and Container Components</strong>
+                                        </a>
+                                        <br>
+                                        <span>Follow the React pattern of container/presentation components by refactoring the code and tests.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                
+                                
+    <figure class="image is-64x64">
+        <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+    </figure>
+
+                                
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="routing/index.html">
+                                            <strong>TypeScript and Routing With Testing</strong>
+                                        </a>
+                                        <br>
+                                        <span>React single-page applications use client-side routing. Doing that with TypeScript has been a moving target. Let's show a working example.</span>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item kbb-author"
+                                           href="../../authors/pauleveritt/index.html">
+                                            <figure class="image is-rounded is-24x24"
+                                                    style="margin: 0">
+                                                <img src="../../authors/pauleveritt/paul_headshotx24.jpeg">
+                                            </figure>
+                                            <span>Paul Everitt</span>
+                                        </a>
+                                        <span class="level-item">
+                                            <div class="tags">
+                                                
+                                                    <span class="tag">
+                                                        <a href="../../technologies/react.html">
+                                                            react
+                                                        </a>
+                                                </span>
+                                                
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="level-right is-size-7 has-text-grey">
+                                        
+                                            <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>4m26s</span>
+                                        </span>
+                                        
+                                        <span class="level-item">
+                                            2018-02-26
+                                        </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer is-success">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Powered by Kaybee, which uses
+                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
+                <a href="http://bulma.io">Bulma</a>,
+                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
+                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
+                and more.
+            </p>
+            <p id="kb-config-copyright">
+                &copy; 2018, All Rights Reserved
+            </p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+
+</body>
+</html>

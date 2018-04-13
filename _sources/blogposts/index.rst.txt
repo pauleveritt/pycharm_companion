@@ -1,5 +1,5 @@
 .. section::
-    style: primary
+    style: link
     subheading: Tutorials on the PyCharm blog
     in_nav: True
     nav_title: Blog Posts
@@ -7,7 +7,7 @@
     published: 2018-01-04 12:23
     acquireds:
         all:
-            style: primary
+            style: link
 
 ==========
 Blog Posts
