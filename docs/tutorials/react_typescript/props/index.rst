@@ -9,11 +9,9 @@
         technology:
             - react
 
-=====
-Props
-=====
-
-- Use TDD for this
+==============================================
+Sharing Component Props Using Type Information
+==============================================
 
 Prerequisites
 =============

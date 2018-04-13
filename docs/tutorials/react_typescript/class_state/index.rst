@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 4m59s
-    excerpt: Make a simple class component with local counter state.
+    excerpt: Make a very simple class component with local counter state, then make an interface for that state.
     is_pro: True
     references:
         author:
@@ -9,9 +9,9 @@
         technology:
             - react
 
-===========
-Class State
-===========
+============================================
+Model Class State With TypeScript Interfaces
+============================================
 
 Prerequisites
 =============

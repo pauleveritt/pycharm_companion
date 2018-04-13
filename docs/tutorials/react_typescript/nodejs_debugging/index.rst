@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 4m18s
-    excerpt: Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE, was well as debugging UIs in Chrome.
+    excerpt: Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE under the NodeJS debugger.
     is_pro: True
     references:
         author:
@@ -9,9 +9,9 @@
         technology:
             - react
 
-=========
-Debugging
-=========
+====================================
+Debugging During Testing With NodeJS
+====================================
 
 Prerequisites
 =============
@@ -80,8 +80,6 @@ Steps
         expect(App.label('React')).toBe('Hello React');
     });
 
-
-
 What Happened
 =============
 
@@ -90,8 +88,3 @@ What Happened
 
 See Also
 ========
-
-TODO
-====
-
-- WebStorm doesn't like setting breakpoints in JSX

@@ -1,7 +1,9 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 2m04s
-    excerpt: The Jest test runner integrates productively into PyCharm. Let's put it to work.
+    excerpt: The Jest test runner integrates productively into PyCharm. Let's
+        put it to work to adopt a test-first approach, including Enzyme for
+        testing convenience.
     is_pro: True
     references:
         author:

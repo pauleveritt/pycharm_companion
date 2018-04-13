@@ -16,103 +16,55 @@ Tutorials
 .. featuretiles::
     name: featuretiles1
     rows:
-        - - heading: Key Features
+        - - heading: Updated
+            style: is-primary
             bullets:
                 - Built on the powerful, mature Sphinx documentation
                   system
-                - Turn pages into resources with YAML embedded into the text
-                - Validate that YAML with custom schemas
-                - Associate templates with resources or individual pages
-                - Inline widgets to query the documents and render output
-                - Extensible references to connect resources
-                - Built-in article system, ready-to-go, out-of-the-box
-            style: is-primary
-            more_href: features
-          - heading: Resources
+          - heading: Visual
             subheading: YAML in pages to make resources
-            bullets:
-                - Use a special Sphinx directive to put some YAML at the top of your
-                  document
-                - Kaybee then records this in a Python document database in your app
-                - Use out-of-the-box directives or write classes to make your own
-                  resources using a simple decorator on a Python class
-                - Access the resource in your Jinja2 template
-                - Your Sphinx folder structure is available as a resource tree
             style: is-info
-            more_href: using/resources
-          - heading: Schemas
+            bullets:
+                - Updated videos, with captions for the transcript
+          - heading: Supported
             subheading: Rich PEP-compliant validation
             style: is-warning
-            more_href: using/schemas
             bullets:
-                - YAML is validated against schemas
-                - Write schemas as PEP-484 Python classes using
-                  pydantic
-                - Associate these schemas with your resource type definitions
-                - Access these as resource "properties" in your Jinja2 templates or
-                  widget queries
-                - Push some properties to parents in the resource tree, to control
-                  whole sections of the site
-        - - heading: Templates
-            subheading: Normal Python Jinja2 templating
+                - Perhaps a forum like Disqus
+        - - heading: Gradual
             style: is-primary
-            more_href: using/templates
             bullets:
-                - Write Jinja2 templates for your resources, widgets, and more
-                - Assign a template to a specific resource via YAML, or a section of
-                  your site, or for all resources in a class
-                - Associate a template with a specific widget on a certain page
-                - Easily customize the data available in a template
-          - heading: Widgets
-            subheading: Report on your data in rich ways
+                - Written instructions for each step
+                - Text with deeper explanation and links to supporting material
+          - heading: Explained
+            subheading: YAML in pages to make resources
             style: is-info
-            more_href: using/widgets
             bullets:
-                - Have a custom, data-driven box in the middle of a document
-                - Use existing widgets or easily register your own, with associated
-                  YAML schema and template
-                - Express a query in YAML which collects resources from the Python
-                  collection and renders in a custom template
-          - heading: References
-            subheading: Organized data with validated connections
-            style: is-warning
-            more_href: using/references
-            bullets:
-                - Use an existing reference system or define your own, such as tags or
-                  authors
-                - Associate documents as entries in that reference system with simple
-                  YAML at the top
-                - Then tag a resource as being in that category using reference-validated
-                  YAML
-                - Easily interate over forward and backwards references in templates
-                - Make inline-linking references in content using the Sphinx syntax
-        - - heading: Articles
-            subheading: Starter kit for common cases
-            style: is-primary
-            more_href: using/articles
-            bullets:
-                - A ready-to-go publishing system with resources, widgets, references,
-                  and more
-                - Articles with publication date filtering
-                - Widgets which query the resources in interesting ways
-          - heading: Extensibility
-            subheading: New kinds of things with simplified API
-            style: is-info
-            more_href: extending/index
-            bullets:
-                - Use Python classes with decorators to make new resources and widgets
-                - Instances are available in templates
-                - Far simpler than the Sphinx extension model
-                - Easy to test
-          - heading: Sphinx
-            subheading: Built atop powerful Sphinx document system
+                - Updated videos, with captions for the transcript
+          - heading: Organized
+            subheading: Rich PEP-compliant validation
             style: is-warning
             bullets:
-                - Built on the mature static-site-generator used for ReadTheDocs and
-                  Python
-                - Sphinx provides rich facilities for organizing and extending your
-                  content
-                - Kaybee is a layer atop Sphinx that provides a simpler extension model
+                - Interlinking, external resources
+                - Useful search
+                - Links to pre-requisite courses, to keep these courses lean-and-mean
+        - - heading: Open
+            style: is-primary
+            bullets:
+                - Written instructions for each step
+                - Text with deeper explanation and links to supporting material
+          - heading: Working Code
+            subheading: YAML in pages to make resources
+            style: is-info
+            bullets:
+                - A repo with working code, where you can ask questions (or file
+                  pull requests for improvements)
+          - heading: IDE
+            subheading: Rich PEP-compliant validation
+            style: is-warning
+            bullets:
+                - Nothing requires the IDE
+                - IDE productivity features sprinkled into each lesson
 
 .. querylist::
     name: ql1

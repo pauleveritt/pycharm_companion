@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 3m13s
-    excerpt: Make a stateful component and model state using an interface.
+    excerpt: Extend our class component and interface to modify state on click events.
     is_pro: True
     references:
         author:
@@ -9,9 +9,9 @@
         technology:
             - react
 
-=====
-State
-=====
+========================
+Modify State With Events
+========================
 
 Prerequisites
 =============

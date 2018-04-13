@@ -1,6 +1,6 @@
 .. tutorialstep::
     published: 2018-02-25 12:00
-    excerpt: Use PyCharm to create and open the project with all dependencies, then see some of the machinery in action.
+    excerpt: Use PyCharm to create and open the project with all dependencies, then see some of the IDE features in action.
     is_pro: True
     duration: 2m34s
     references:
@@ -27,13 +27,13 @@ Steps
 
 #. In the New Project dialog, select React App with:
 
-    - Location
+   - Location
 
-    - Paths to node etc.
+   - Paths to node etc.
 
-    - ``Scripts version:`` react-scripts-ts IMPORTANT
+   - ``Scripts version:`` react-scripts-ts IMPORTANT
 
-    - Open in new window
+   - Open in new window
 
 #. As a note, it will choose yarn if it is installed
 
@@ -71,7 +71,7 @@ Running
 
 #. Open src/App.test.tsx, make a small change adding
    ``expect(1).toBe(2);`` to the last line of the test, ignore the
-   indentation warning, save
+   indentation warning, save`
 
     .. note::
 
@@ -79,17 +79,6 @@ Running
 
 #. see the update, point out that we'll be doing this smarter in (make a
    reference to other lesson)
-
-Cleanup
--------
-
-- baseUrl
-
-- Change markup
-
-- Remove import of logo
-
-- Remove .svg and .css files
 
 IDE Features
 ============
@@ -115,10 +104,3 @@ See Also
 ========
 
 - https://basarat.gitbooks.io/typescript/content/
-
-TODO
-====
-
-- Don't get git init
-- Don't have the package manager chooser in prefs
-- Seem to reformat TS code with double quotes instead of single

@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 4m26s
-    excerpt: React single-page applications use client-side routing. Hook that up in a TypeScript app.
+    excerpt: React single-page applications use client-side routing. Doing that with TypeScript has been a moving target. Let's show a working example.
     is_pro: True
     references:
         author:
@@ -9,9 +9,9 @@
         technology:
             - react
 
-=======
-Routing
-=======
+===================================
+TypeScript and Routing With Testing
+===================================
 
 Prerequisites
 =============
@@ -194,3 +194,7 @@ What Happened
 See Also
 ========
 
+TODO
+====
+
+- Write some tests

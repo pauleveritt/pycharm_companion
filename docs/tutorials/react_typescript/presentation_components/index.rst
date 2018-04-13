@@ -1,6 +1,6 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
-    excerpt: Follow the React pattern of container/presentation components.
+    excerpt: Follow the React pattern of container/presentation components by refactoring the code and tests.
     is_pro: True
     references:
         author:
@@ -8,9 +8,9 @@
         technology:
             - react
 
-=======================
-Presentation Components
-=======================
+=====================================
+Presentation and Container Components
+=====================================
 
 React encourages a separation of concerns. UI components, aka presentation
 components, aka dumb components, are created by the bushel and managed by

@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 4m32s
-    excerpt: Use the TypeScript linter tslint to manage styling with the IDE
+    excerpt: Use the TypeScript linter tslint to manage styling within the IDE, plus helpful hints about limitations.
     is_pro: True
     references:
         author:

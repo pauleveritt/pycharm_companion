@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 3m24s
-    excerpt: Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features.
+    excerpt: Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.
     is_pro: True
     references:
         author:

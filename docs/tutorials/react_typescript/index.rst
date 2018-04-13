@@ -15,64 +15,14 @@ React+TypeScript QuickStart
 :ref:`technology-typescript` is increasingly popular, and thus increasingly
 supported.
 
-The two together? Not as much, and given that they both change quickly, its
+The two together? Not as much. Given that they both change quickly, its
 hard to find accurate learning materials.
 
 React+TypeScript, with PyCharm? That three-part combination is the topic
 of this series. We'll show a little about a lot. Meaning, the key steps
-to getting productive, in PyCharm, for React projects using TypeScript.
-
-
-The material in this series provides:
-
-- Features
-
-    - Updated
-
-    - Visual
-
-        - Updated videos, with captions for the transcript
-
-    - Gradual
-
-        - Mostly standalone
-
-        - Care put into not packing too much into one step
-
-    - Supported
-
-        - Perhaps a forum like Disqus
-
-    - Explained
-
-        - Written instructions for each step
-
-        - Text with deeper explanation and links to supporting material
-
-    - Organized (interlinking, external resources)
-
-        - Useful search
-
-        - Links to pre-requisite courses, to keep these courses lean-and-mean
-
-    - Open
-
-    - Working code
-
-        - A repo with working code, where you can ask questions (or file
-          pull requests for improvements)
-
-    - IDE
-
-        - Nothing requires the IDE
-
-        - IDE productivity features sprinkled into each lesson
-
-- Mention link to source code
-
-- https://basarat.gitbooks.io/typescript/content/
-
-
+to getting productive, in PyCharm, for React projects using TypeScript. Along
+the way we'll show test-driven development and emphasize tips-and-tricks in
+the IDE.
 
 .. toctree::
     :hidden:
@@ -81,13 +31,14 @@ The material in this series provides:
     project_cleanup/index
     styling/index
     testing/index
-    debugging/index
+    nodejs_debugging/index
+    chrome_debugging/index
     jsx_es6/index
     functional_components/index
     props/index
     class_props/index
     class_state/index
-    state/index
-    events/index
+    modify_state/index
+    rich_events_and_testing/index
     presentation_components/index
     routing/index

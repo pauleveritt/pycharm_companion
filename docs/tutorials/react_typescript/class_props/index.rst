@@ -1,6 +1,6 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
-    excerpt: Make a simple class component with a single prop.
+    excerpt: Make a simple class component with a single prop, again with a TypeScript interface describing the props.
     duration: 3m14s
     is_pro: True
     references:
@@ -9,9 +9,9 @@
         technology:
             - react
 
-================
-Class Components
-================
+===========================
+Class Components With Props
+===========================
 
 Prerequisites
 =============

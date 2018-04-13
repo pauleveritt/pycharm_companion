@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 3m17s
-    excerpt: Add event handling to a stateful class component.
+    excerpt: Add event more handling to a stateful class component by writing tests during development.
     is_pro: True
     references:
         author:
@@ -9,9 +9,9 @@
         technology:
             - react
 
-======
-Events
-======
+=======================
+Rich Events and Testing
+=======================
 
 Prerequisites
 =============

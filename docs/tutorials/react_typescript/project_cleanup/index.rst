@@ -1,6 +1,6 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
-    excerpt: Use PyCharm to create and open the project with all dependencies, then see some of the machinery in action.
+    excerpt: Clean out some unneeded code from the default app, tweak some configuration in the IDE, and tour a few more features.
     is_pro: True
     references:
         author:
@@ -30,20 +30,18 @@ Steps
 
 #. Restart tool window, error goes away
 
-#. Edit App.tsx:
+#. Edit App.tsx and Reformat Code.
 
-    - Reformat Code
+#. Use Emmet to replace <div> with div>h1<enter>Hello React
 
-    - Use Emmet to replace <div> with div>h1<enter>Hello React
+#. Show TS error, unused import, show ``noUnusedLocals`` in tsconfig that
+   governs it
 
-    - Show TS error, unused import, show ``noUnusedLocals`` in tsconfig that
-      governs it
+#. Remove logo and delete ``logo.svg`` file
 
-    - Remove logo and delete file
+#. Ditto for App.css
 
-    - Ditto for App.css
-
-    - Save
+#. Save
 
 #. Show not importing React in a file that has JSX, quick fix
 
@@ -62,10 +60,3 @@ See Also
 ========
 
 - https://basarat.gitbooks.io/typescript/content/
-
-TODO
-====
-
-- Don't have the package manager chooser in prefs
-
-- Seem to reformat TS code with double quotes instead of single

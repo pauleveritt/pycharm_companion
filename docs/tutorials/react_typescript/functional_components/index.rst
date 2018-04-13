@@ -9,9 +9,9 @@
         technology:
             - react
 
-=====================
-Functional Components
-=====================
+=========================================
+Functional React Components in TypeScript
+=========================================
 
 Prerequisites
 =============
