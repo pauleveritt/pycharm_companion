@@ -1,7 +1,7 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 4m32s
-    excerpt: Use the TypeScript linter tslint to manage styling within the IDE, plus helpful hints about limitations.
+    excerpt: Use the TypeScript linter TSLint to manage styling within the IDE, plus helpful hints about limitations.
     is_pro: True
     references:
         author:
@@ -10,15 +10,60 @@
             - react
 
 ===================
-Styling with tslint
+Styling with TSLint
 ===================
 
-Steps
-=====
+In the :doc:`previous step <../project_cleanup/index>` we got our project
+in a cleaned-up state. Let's show how to manage our code's style using
+:ref:`technology-tslint`, the linter for TypeScript. TSLint is wired up by
+default in ``react-scripts-ts``. In this step we look at configuring our
+style choices for the project.
 
-#. Start from Project Setup
+Configuring the Configuration
+=============================
 
-#. Pre-requisite: Project Cleanup, linting
+TSLint is driven by an extensible configuration file. This usually
+``tslint.conf`` in the root directory of the project. ``react-scripts-ts``
+generated this for us. Open it up and let's take a look:
+
+.. code-block:: json
+
+    {
+      "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+      "linterOptions": {
+        "exclude": [
+          "config/**/*.js",
+          "node_modules/**/*.ts"
+        ]
+      }
+    }
+
+That looks suspiciously small. Where are all the settings? They're being
+managed by others, in npm packages. Via ``tslint:recommended``,
+``tslint-react``, etc. we are inheriting the style decisions that they
+manage. But we can override them in this file.
+
+Where does PyCharm hook into this? Open ``Preferences`` and type ``tslint``
+to get to the ``Languages | TypeScript | TSLint`` preferences. If PyCharm
+detects the ``tslint`` package package in your project, it will use it,
+along with detecting a conf file.
+
+*Not sure what's going on with PyCharm, bleh.*
+
+In Depth
+========
+
+See Also
+========
+
+- https://www.jetbrains.com/help/webstorm/tslint.html
+
+- https://www.jetbrains.com/help/webstorm/using-tslint-code-quality-tool.html
+
+PyCharm Steps
+=============
+
+#. Start from Project Cleanup
 
 #. Open tslint.conf
 
@@ -52,16 +97,4 @@ Steps
 - Back to App.tsx, use Quick-fix just that occurrence, or all
 
 - Save, compile is fine
-
-
-What Happened
-=============
-
-
-See Also
-========
-
-- https://www.jetbrains.com/help/webstorm/tslint.html
-
-- https://www.jetbrains.com/help/webstorm/using-tslint-code-quality-tool.html
 

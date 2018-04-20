@@ -153,8 +153,8 @@ Oh no, that's not what I wanted! Do I have to do another refactor? Nope. The
 IDE did all those operations in one editor transaction. Just use Undo and
 say ``Ok`` on the dialog.
 
-What Happened
-=============
+In Depth
+========
 
 - Point to pre-requisites: npm, webpack and dev server
 
