@@ -128,9 +128,7 @@ doesn't work until an arrow function saves the day.
 We'll first do an inline click handler that displays a static string. Note
 that JSX (and thus, TSX) map certain HTML attributes into first-class names,
 such as ``onClick`` and ``className``, in its grammar, thus letting us
-assign an expression (with ``{}``) instead of a string:
-
-.. code-block:: jsx
+assign an expression (with ``{}``) instead of a string::
 
     <h1 onClick={alert('Hello World')}>{this.label}</h1>
 
@@ -140,9 +138,7 @@ But this fails. Why? The expression is immediately evaluated, rather than
 run when the event is fired. We need a way to assign something that will be
 executed *later*, when the event is fired.
 
-Arrow functions to the rescue!
-
-.. code-block:: jsx
+Arrow functions to the rescue! Try this instead::
 
     <h1 onClick={() => alert('Hello World')}>{this.label}</h1>
 
@@ -213,9 +209,7 @@ isn't the component instance, it is event. This is a chronic problem in React
 programming, causing the ``.bind`` syntax.
 
 Arrow functions, though, get the correct ``this``. We could change the handler
-to the following:
-
-.. code-block:: jsx
+to the following::
 
     <h1 onClick={() => this.handleClick}>{this.label}</h1>
 
