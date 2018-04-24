@@ -13,7 +13,7 @@
 Debugging JSX With Chrome
 =========================
 
-As discussed in :doc:`../nodejs_debugging/index``, the testing and debugging
+As discussed in :doc:`../nodejs_debugging/index`, the testing and debugging
 under NodeJS is very productive. There are times, though, where you need a
 browser environment. Fortunately, PyCharm Professional can remote-control
 the browser's execution, letting you stay inside the IDE.
