@@ -181,7 +181,7 @@ do so:
     const Heading: React.SFC = () => <h1>Hello React</h1>;
 
 All we did at this point was provide some type information for ``Heading``.
-We'll add much more to this later.
+We'll add much more to this later, starting with the next section.
 
 See Also
 ========
