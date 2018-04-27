@@ -1,0 +1,28 @@
+<aside id="sidebarCollapseTarget" class="menu kbb-sidenav">
+
+    {% include "sn_published.html" %}
+    {% include "sn_breadcrumbs.html" %}
+    {% include "sn_prev_next.html" %}
+    {% include "sn_references.html" %}
+
+    <p class="menu-label">
+        Tutorial Steps
+    </p>
+
+    <ul class="steps is-vertical is-small menu-list">
+        {% set steps = resource.parents(resources)[0].toctree %}
+        {% for step_docname in steps %}
+            {% set step = resources[step_docname] %}
+            {% set is_active = step_docname ==  resource.docname %}
+            {% set marker = 'is-info' if is_active else 'is-primary' %}
+            <li class="steps-segment">
+            <span href="{{ pathto(step_docname) }}"
+                  class="steps-marker {{ marker }}">{{ loop.index }}</span>
+                <div class="steps-content">
+                    <a href="{{ pathto(step_docname) }}">{{ step.title }}</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+</aside>
