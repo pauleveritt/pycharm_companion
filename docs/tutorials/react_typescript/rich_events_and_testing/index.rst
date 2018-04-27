@@ -13,8 +13,47 @@
 Rich Events and Testing
 =======================
 
-Prerequisites
-=============
+Our counter component has local state, but doesn't respond to clicks. We
+need to add event handlers, which we first introduced in
+:doc:`../jsx_es6/index`.
+
+We'll do so, of course, by writing tests first. This requires a small
+addition to our flow of test writing, but once mastered, it's easy and useful.
+
+Like in previous steps, start with the following setup:
+
+- ``Counter.tsx`` and ``Counter.test.tsx`` in side-by-side tabs
+
+- Start the ``Jest`` run configuration
+
+- Stop the ``start`` run configuration
+
+First Failing Test
+==================
+
+Let's start with a failing test that clicks on the div and checks if the
+number is updated. Clone the first test and change it as follows:
+
+.. code-block:: typescript
+
+    it('should increment the count by one', () => {
+        const wrapper = shallow(<Counter/>);
+        expect(wrapper.find('.counter span').text())
+            .toBe('1');
+        wrapper.find('.counter').simulate('click');
+        expect(wrapper.find('.counter span').text())
+            .toBe('2');
+    });
+
+This test makes a component instance, checks its initial value, pretends to
+click, then checks the final value.
+
+It fails. Which is good! What's really good: that was dead simple. In once
+line we automated doing a click and checking the result. Much more
+pleasurable than switching to the browser and clicking everything in your app
+to see if your change works without breaking the universe.
+
+
 
 Steps
 =====
@@ -113,6 +152,8 @@ Steps
         count: this.props.starting!
 
    Now the tests pass.
+
+#. ---- Do a split here
 
 #. Let's add one more feature. If you click with the Shift key pressed, you
    increase by 10. The onClick arrow function actually gets an event passed,
