@@ -3,6 +3,21 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
+                <nav class="breadcrumb has-arrow-separator is-small"
+                     aria-label="breadcrumbs"
+                     style="margin-bottom: 0">
+                    <ul style="margin-left: 0">
+                        {% for parent in resource.parents(resources)[:-1]|reverse %}
+                            <li>
+                                <a href="{{ pathto(parent.docname) }}">{{ parent.title }}</a>
+                            </li>
+                        {% endfor %}
+                        <li class="is-active">
+                            <a href="#"
+                               aria-current="page">{{ resource.title }}</a>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="title is-1">
                     {{ resource.title }}
                     {% include 'pro_only.html' %}
@@ -10,10 +25,7 @@
 
                 <div class="subtitle is-4">{{ resource.props.excerpt }}</div>
 
-                <div id="kbb-sphinx-body" class="content">{{ body }}</div>
-
                 {% if resource.props.full_movie %}
-                    <h2>Full Video</h2>
                     <iframe
                             width="{{ resource.props.full_movie.width }}"
                             height="{{ resource.props.full_movie.height }}"
@@ -21,6 +33,8 @@
                             frameborder="{{ resource.props.full_movie.frameborder }}"
                             allowfullscreen="{{ resource.props.full_movie.allowfullscreen }}"></iframe>
                 {% endif %}
+
+                <div id="kbb-sphinx-body" class="content">{{ body }}</div>
 
                 {% set series = resource.series(resources) %}
                 {% if series %}

@@ -1,5 +1,9 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
+    full_movie:
+        name: v1
+        src: https://www.youtube.com/embed/jFnYQbUZQlA
+        width: 800
     duration: 4m59s
     excerpt: Make a very simple class component with local counter state, then make an interface for that state.
     is_pro: True

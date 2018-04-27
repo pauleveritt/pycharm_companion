@@ -148,6 +148,8 @@ needs no arguments. (It's actually passed an event, which we'll use in later
 steps.) The function body is one line, so we don't need curly braces for a
 block.
 
+.. _bossy-tslint:
+
 This is actually valid TypeScript, and would compile and run, but our picky
 style linter complains. In React, defining functions on the fly is expensive
 (when you're doing hundreds in a loop) and the TSLint community decided to

@@ -1,5 +1,9 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
+    full_movie:
+        name: v1
+        src: https://www.youtube.com/embed/jFnYQbUZQlA
+        width: 800
     duration: 3m17s
     excerpt: Add event more handling to a stateful class component by writing tests during development.
     is_pro: True
@@ -48,29 +52,35 @@ number is updated. Clone the first test and change it as follows:
 This test makes a component instance, checks its initial value, pretends to
 click, then checks the final value.
 
-It fails. Which is good! What's really good: that was dead simple. In once
-line we automated doing a click and checking the result. Much more
-pleasurable than switching to the browser and clicking everything in your app
-to see if your change works without breaking the universe.
+It fails. Which is good!
 
+.. image:: screen1.png
 
+What's really good: that was dead simple. In one line we automated doing a
+click and checking the result. Much more pleasurable than switching to the
+browser and clicking everything in your app to see if your change works
+without breaking the universe.
+
+``onClick`` Handler
+===================
+
+The component doesn't handle clicks. Let's head to ``Counter.tsx`` and add
+a click handler:
+
+.. code-block:: jsx
+
+    <div
+        className="counter"
+        onClick={() => this.setState({count: this.state.count + 1})}>
+        <label>{this.props.label}</label>
+        <span>{this.state.count}</span>
+    </div>
+
+That doesn't work, for the reasons discussed in
+:ref:`the bossy TSLint explanation <bossy-tslint>`.
 
 Steps
 =====
-
-#. Let's start with a failing test that clicks on the div and checks if the
-   number is updated. Clone the first test and change it as follows:
-
-   .. code-block:: typescript
-
-    it('should increment the count by one', () => {
-        const wrapper = shallow(<Counter/>);
-        expect(wrapper.find('.counter span').text())
-            .toBe('1');
-        wrapper.find('.counter').simulate('click');
-        expect(wrapper.find('.counter span').text())
-            .toBe('2');
-    });
 
 #. Add an onClick handler to the div, one attribute per line to keep tslint
    happy::
