@@ -1,7 +1,8 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 3m24s
-    excerpt: Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.
+    excerpt: Using React and TypeScript means good JSX and ES6 support in the
+        IDE. This section shows some useful features from both.
     is_pro: True
     references:
         author:
@@ -13,57 +14,80 @@
 JSX and ES6
 ===========
 
-Prequisites
-===========
+TypeScript is a JavaScript superset with a compiler that enforces the types.
+It's also, though, one of those sexy new JavaScript flavors that implement
+"ES6"...actually, a family of modern JavaScript standards for more
+productive programming. When combined with other tooling, it also supports
+JSX, React's sorta-templating system, but with TypeScript semantics.
 
-- ES6
+We glazed over the ES6 and JSX (that is, TSX) in previous steps. Let's take
+more of a look.
 
-- JSX
+Cleanup
+=======
 
-    - Syntax highlighting, JSX/component/method completion, navigation,
-      linting, auto-import, quick-fixes (e.g. missing method)
+The previous steps added some stuff to show their topics. Let's clean up a
+little bit.
 
-- Testing
+Let's change ``App.test.tsx`` back to two simple tests:
 
-Steps
-=====
+.. code-block:: jsx
 
-#. Start by removing some stuff from previous Debugging step:
+    import { shallow } from 'enzyme';
+    import * as React from 'react';
+    import * as ReactDOM from 'react-dom';
+    import App from './App';
 
-    - Remove the last test
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<App/>, div);
+        ReactDOM.unmountComponentAtNode(div);
+    });
 
-    - Put the <h1> back to ``Hello React``
+    it('renders the heading', () => {
+        const wrapper = shallow(<App/>);
+        expect(wrapper.find('h1').text()).toBe('Hello React');
+    });
 
-    - Remove the static method for label
+Also, our component in ``App.tsx``:
 
-    - Start running the test runner again
+.. code-block:: jsx
 
-#. These are ES6 classes. Let's make label a "field", which in TS is a variable
-   defined in a class. Add ``label = 'Hello React';``
+    import * as React from 'react';
 
-#. Write a test to see if it is there:
+    class App extends React.Component {
+        public render() {
+            return (
+                <div>
+                    <h1>Hello React</h1>
+                </div>
+            );
+        }
+    }
 
-   .. code-block:: javascript
+    export default App;
 
-        it('has a label field', () => {
-            const app = new App({}, {});
-            expect(app.label).toBe('Hello React');
-        });
+Make sure the test runner is still running and watching. You can, though,
+shutdown the ``start`` task. We don't need it regenerating the bundle and
+updating the browser, duplicating what's happening in the Jest process.
 
-#. JSX can insert JS into HTML with brackets. Change to
-   ``<h1>{this.label}</h1>``. Tests still pass.
+Our two tests pass. Let's see some ES6 and TSX.
 
-#. TS can help flag type errors, even in markup. Make the label uppercase
-   and change the value to a number.
+Classes and Fields
+==================
 
-#. ES6 arrow functions let you do a lot of work in a small space. Let's
-   uppercase the label. Change the render:
+As you can see, this component is using React's support for ES6 classes.
+Our ``App`` component extends ``React.Component`` which has a constructor that
+initializes a bunch of stuff. We'll see functional components later.
 
-   .. code-block:: jsx
+Let's do another approach at extracting the hardwired string from the
+``<h1>``. The ``render`` method can, of course, have scope. Let's define the
+label there:
 
+.. code-block:: jsx
 
-    render() {
-        const label = this.label.toUpperCase();
+    public render() {
+        const label = 'Hello React';
         return (
             <div>
                 <h1>{label}</h1>
@@ -71,55 +95,206 @@ Steps
         );
     }
 
-#. The test needs to be fixed.
+The ``const`` is used because we never intend to re-assign the label. Our
+tests pass, so this change worked fine.
 
-#. Labels need to be strings. It's inferred, but we can make it explicit
-   with ``label: string = 'Hello React';``
+We can also move the ``label`` up to the class label as a field:
 
-#. The TypeScript keyword ``public`` is inferred. Let's make it private and
-   see what happens when the test accesses it. Note that the code still
-   compiles and works in the browser.
+.. code-block:: jsx
 
-#. JSX can have onclick handlers that are inline JavaScript. Let's make an
-   alert that shows the label::
+    class App extends React.Component {
+        public label = 'Hello React'
 
-       <h1 onClick={() => alert(this.label)}>Something</h1>
+        public render() {
+            return (
+                <div>
+                    <h1>{this.label}</h1>
+                </div>
+            );
+        }
+    }
 
-#. As you see with ``onClick``, JSX maps some HTML attributes to special
-   names to which it applies special handling. ``className`` is another.
-   The IDE can help you autocomplete those (and warn when you forget.
-   Show this.)
+We had to change the ``<h1>`` to use ``this.label``, to get the value off the
+instance.
 
-#. What governs this in the IDE? Languages & Frameworks -> JavaScript sets
-   the project to React JSX which implies ES6 and JSX
+Arrow Functions
+===============
 
-#. Use ``.ts`` for files that have no JSX (aka TSX) in it and ``.tsx`` for
-   files with markup.
+ES6 introduced small, inline anonymous functions called "arrow functions".
+The are incredibly useful and have come to dominate frontend frameworks. Let's
+see them in action for click handlers. We'll start by showing something that
+doesn't work until an arrow function saves the day.
 
-#. The IDE provides useful navigation. Click on ``this.label`` in the
-   ``<h1>`` and type Cmd-B to jump to the definition, no matter what project
-   file it is located in. Type ``Alt-F7`` to then go in the reverse direction
-   and see all places in the project where that symbol is used.
+We'll first do an inline click handler that displays a static string. Note
+that JSX (and thus, TSX) map certain HTML attributes into first-class names,
+such as ``onClick`` and ``className``, in its grammar, thus letting us
+assign an expression (with ``{}``) instead of a string::
 
-#. Rename also works. With the cursor on the ``label`` declaration, type
-   ``Ctrl-T`` and choose ``Rename``. Type in ``heading``, press ``Enter``,
-   and choose ``Do Refactor``. You'll see the
-   field name change not just in the declaration, but also in the JSX and
-   even the tests.
+    <h1 onClick={alert('Hello World')}>{this.label}</h1>
 
-#. Multiline JSX generates an error. For example::
+Note that the IDE was smart about autocompleting these special attributes.
 
-        return <div>
-            <h1 onClick={() => alert(this.heading)}>{label}</h1>
-        </div>;
+But this fails. Why? The expression is immediately evaluated, rather than
+run when the event is fired. We need a way to assign something that will be
+executed *later*, when the event is fired.
+
+Arrow functions to the rescue! Try this instead::
+
+    <h1 onClick={() => alert('Hello World')}>{this.label}</h1>
+
+What does this change do? It stores a function which is created on the fly
+and stored "anonymously" in that scope. The ``()`` means this arrow function
+needs no arguments. (It's actually passed an event, which we'll use in later
+steps.) The function body is one line, so we don't need curly braces for a
+block.
+
+.. _bossy-tslint:
+
+This is actually valid TypeScript, and would compile and run, but our picky
+style linter complains. In React, defining functions on the fly is expensive
+(when you're doing hundreds in a loop) and the TSLint community decided to
+frown on that by default. We can override the default, though. Edit
+``tslint.json`` to contain:
+
+.. code-block:: json
+
+    {
+      "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+      "linterOptions": {
+        "exclude": [
+          "config/**/*.js",
+          "node_modules/**/*.ts"
+        ]
+      },
+      "rules": {
+        "jsx-no-lambda": false
+      }
+    }
+
+Restart your ``start`` script to get the linter to pick up the change.
+Everything compiles fine and clicking on the ``<h1>`` in the browser produces
+an alert.
+
+Move To a Method
+================
+
+Inline handlers aren't so smart, as they aren't easily testable. Let's move
+the handler to a component method:
+
+.. code-block:: jsx
+
+    class App extends React.Component {
+        public label = 'Hello React'
+
+        public handleClick () {
+            alert('Hello World');
+        }
+
+        public render() {
+            return (
+                <div>
+                    <h1 onClick={this.handleClick}>{this.label}</h1>
+                </div>
+            );
+        }
+    }
+
+Clicking on the heading works well, so let's remove the
+``"jsx-no-lambda": false`` rule from ``tslint.conf`` and restart the
+``start`` script.
+
+Let's have the alert display the label by changing it to
+``alert(this.label);``. Uh-oh. Clicking on the heading produces a mile-long
+traceback in the JavaScript console. The traceback mentions
+``HTMLUnknownElement``. And that's the problem: the ``this`` in the method
+isn't the component instance, it is event. This is a chronic problem in React
+programming, causing the ``.bind`` syntax.
+
+Arrow functions, though, get the correct ``this``. We could change the handler
+to the following::
+
+    <h1 onClick={() => this.handleClick}>{this.label}</h1>
+
+...but we're back to the bossy TSLint complaint. Instead, we can bind the
+arrow function to the component:
+
+.. code-block:: typescript
+
+    public handleClick = () => {
+        alert(this.label);
+    }
+
+Look at that freaky approach! Instead of a method, we are binding a dynamic
+function to a class property. (Discussion below about the downsides.)
+
+JSX
+===
+
+React brought innovation to the concept of templating languages by extending
+JavaScript itself. Your templating is mixed directly into your JavaScript
+file and component. TSX is the TypeScript flavor of JSX, with file extensions
+ending in ``.tsx``.
+
+PyCharm Professional has first-class support for JSX and TSX. What turns
+this on? In the project settings, look for
+``Languages & Frameworks -> JavaScript`` which, for projects generated by
+the React App template, automatically sets the
+``JavaScript Language version:`` to ``React JSX``.
+
+The easiest way to see TSX in action? Go to your ``<h1>`` and try to add
+``class=""``. TypeScript itself has JSX/TSX support in the compiler and
+gives a compiler error::
+
+  Property 'class' does not exist on type
+  'DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>'.
+
+Also, the IDE refuses to autocomplete on ``class``. It does, though,
+autocomplete on ``className``, the JSX/TSX equivalent.
+
+Accepting the autocomplete shows that the IDE fills in ``{}`` for an
+attribute value instead of double-quotes. What's the difference? A
+double-quote contains a regular string, whereas brackets contain JavaScript
+expressions, which we saw above.
+
+In components you frequently navigate around between markup and code. The
+IDE makes this easy. For example, click on ``this.handleClick`` in the
+``onClick`` expression then type ``Cmd-B``. This jumps to the arrow function
+on the class that provides that.
+
+You can go in the reverse direction as well. Click on the ``label`` field
+at the start of the class, then hit ``Alt-F7``. This shows all the locations
+in your project which use that *symbol*, not the string. You can verify this
+semantic interpretation by adding ``const label = 'Nope';`` above your class,
+then clicking on that ``label`` and doing ``Alt-F7``. No usages are found:
+it is a different symbol.
+
+This is useful when you want the change a name through refactoring. Click on
+the ``label`` field again, then do ``Ctrl-T``. Choose ``Rename`` and type
+``heading``. As you type, all the locations change. When you press ``Enter``,
+if there are changes in other files, a window shows you and asks if you want
+to do the refactoring.
+
+The operation is done in one editor transaction. If you want to change your
+mind, ``Undo`` will find all the changes in all files and restore to the
+previous value.
+
+In Depth
+========
+
+Arrow functions look great on classes but behind the scenes they don't
+really do what you think. Purists have pointed out the flaws (mockability,
+subclassing, performance.) And yet, they remain a very popular solution to
+binding in React and similar systems.
 
 #. Select the ``<div>`` and type ``(``. Presumes SmartQuote setting. Move the
    cursor and press Enter to put ``<div>`` on a new line.
 
-What Happened
-=============
 
 See Also
 ========
 
 - MS TypeScript pages for ES6 and React/JSX
+
+- https://reactarmory.com/answers/when-to-use-arrow-functions
+
+- https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1

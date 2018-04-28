@@ -10,27 +10,189 @@
             - pauleveritt
         technology:
             - react
+            - jest
+            - enzyme
 
 =================================
 Unit Testing with Jest and Enzyme
 =================================
 
-Let's take a look at Jest testing in the context of a cra-ts project.
-Meaning, testing React components (stateful, stateless) that are written in
-TypeScript. This lesson doesn't cover everything, just enough to get started.
+We saw in :doc:`../project_setup/index` the test runner. We modified an
+existing test but didn't dive into testing.
 
-- Awesome that it just figures everything out in the config, even ghosting
-  the suggestion for the two args
+In this tutorial step we start the process of test driven development. After
+this step, we'll develop first in our :ref:`technology-jest`
+tests and only at the end, look at the browser.
 
-Prerequisites
+Pretty Jest
+===========
+
+Previously we ran our Jest tests as a generic npm run script, in the IDE's
+npm run tool window. However, PyCharm Professional has a dedicated run
+configuration type for Jest. It's a fantastic way to do development. Let's
+switch to using that.
+
+Select ``Run | Edit Configurations``, click ``+``, and click on ``Jest``.
+Supply a ``Name:`` of something like ``unit tests``. The only real field
+you need to supply is ``Jest options:``. For that, enter
+``--watchAll --env=jsdom``. This tells Jest to re-run tests when files change
+and to use the ``jsdom`` package as a fake browser.
+
+Save that run configuration and run it. Our tests now run in a nice tool
+window which will make test-driven development (TDD) much more productive.
+
+Fail Faster
+===========
+
+Let's see a little testing in action. Open ``src/App.test.tsx``. We're going to
+show the cycle of fail-fix in action. Define two contants, then compare
+them with a simple Jest (actually, Jasmine) assertion:
+
+.. code-block:: typescript
+
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<App/>, div);
+        ReactDOM.unmountComponentAtNode(div);
+        const a = 1;
+        const b = 2;
+        expect(a).toBe(b);
+    });
+
+When you save this, Jest re-runs your tests, and does so quite fast. Our
+tests fail, and the IDE's tool window presents the test results in a very
+convenient manner. For example, you can jump directly to the line of the
+failing test.
+
+Fix the test by changing ``b`` to ``1`` then save. The Jest watcher spots
+the change, re-runs the test, and shows that all tests pass.
+
+TDD Basics
+==========
+
+JavaScript development is usually a bunch of switching between the editor,
+the browser, the browser console, and a terminal window with the build tools
+displaying messages. Let's use a better flow. Let's stay in the IDE and focus
+on our code, and observe our code through tests instead of a browser reload.
+
+First, let's get our code and our tests side-by-side. Press ``Ctrl-Alt-A`` and
+type in ``Split Vertically``. This gives us a left and right side editor. On
+the left, open ``App.tsx``. We can now see ``class App`` alongside our tests.
+
+We often want to jump between our code and our test. The IDE makes this
+easy. ``Cmd-Shift-T`` moves the cursor between code and test.
+
+A Real Test
+===========
+
+We currently have a test which makes a document, tells React to render our
+component-under-test into it, and then...well, nothing really.
+:ref:`technology-cra` generates a test whose only purpose is to see if it
+can render. Let's look inside the rendered result and test its correctness.
+
+To do so, we're going to install :ref:`technology-enzyme`, a utility for
+React that makes testing feel like jQuery assertions. Open the IDE's
+``Terminal`` tool and install Enzyme and its TypeScript typings:
+
+.. code-block:: bash
+
+    $ npm install -D enzyme enzyme-adapter-react-16 react-addons-test-utils \
+      @types/enzyme @types/enzyme-adapter-react-16
+
+We need to tell Jest to use a configured Enzyme. Add this file at
+``src/setupTests.ts``:
+
+.. code-block:: typescript
+
+    import * as Enzyme from 'enzyme'
+    import * as Adapter from 'enzyme-adapter-react-16'
+
+    Enzyme.configure({
+        adapter: new Adapter(),
+    });
+
+Restart the Jest run tool window to pickup this setup file. Then, edit
+``src/App.test.tsx`` to include a second test:
+
+.. code-block:: jsx
+
+    it('renders the heading', () => {
+        const wrapper = shallow(<App/>);
+        expect(wrapper.find('h1').text()).toBe('Hello React');
+    });
+
+You'll see ``shallow`` in red, meaning it is a TypeScript error, because
+``shallow`` hasn't been imported. Click on ``shallow`` and press
+``Alt-Enter``. The IDE automatically generates the correct import.
+
+You can now test the TDD style of development. Try changing the component's
+``<h1>`` to contain different text and save. You'll see the test fail. Change
+it back and save, and the tests pass.
+
+To see real TDD, you write the test first. Add a third test in
+``src/App.test.tsx``:
+
+.. code-block:: jsx
+
+    it('renders the paragraph', () => {
+        const wrapper = shallow(<App/>);
+        expect(wrapper.find('p').text()).toBe('Nice TDD');
+    });
+
+TDD starts with a failing test. You then implement what you expect to pass.
+Change your ``App`` component in ``src/App.tsx`` to have this markup:
+
+.. code-block:: html
+
+    <div>
+        <h1>Hello React</h1>
+        <p>Nice TDD</p>
+    </div>
+
+When you save, the test passes. Not only that...you developed your component
+without looking at a browser.
+
+In Depth
+========
+
+- Benefit of jsdom
+
+- .tsx tests are actual TSX, you can define components and markup in your
+  test
+
+- What is happening on save (the whole build process of TS -> babel)
+
+- Explain the extra args
+
+- What specifically does Enzyme add? When to use pure Jest vs. with Enzyme?
+
+- There's a pile of stuff hidden behind the scenes in cra scripts
+
+- Why not the WS watch?
+
+- Code coverage is not...covered
+
+- Snapshot testing
+
+See Also
+========
+
+- https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html
+
+- https://www.jetbrains.com/help/webstorm/run-debug-configuration-jest.html
+
+- https://blog.jetbrains.com/webstorm/tag/jest/
+
+- https://medium.com/kevin-salters-blog/testing-react-with-enzyme-fbfc30190e70
+
+- https://javascriptplayground.com/introduction-to-react-tests-enzyme/
+
+- https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
+
+- https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter
+
+PyCharm Steps
 =============
-
-- Jest
-
-- Project Setup
-
-Steps
-=====
 
 #. Make a Jest run config with the args
 
@@ -44,11 +206,13 @@ Steps
         const b = 2;
         expect(a).toBe(b);
 
-#. Reformat code, watch the re-run, show red colored gutter icon
+#. Reformat code, watch the re-run
 
 #. I wanted ``e`` (expected) instead of b, use Refactor -> Rename.
 
 #. Fix failure, show test passes.
+
+#. TDD mode step one: source and test side-by-side mode
 
 #. Jump between test and source with Shift-Command-T
 
@@ -82,36 +246,10 @@ Steps
 #. Preferences, search for ES6 import braces (Code Style -> TypeScript ->
    Spaces -> Within -> ES6 import/export braces)
 
-#. TDD mode step one: source and test side-by-side mode
+#. Change the ``<h1>`` contents to experience TDD.
 
-What Happened
-=============
+#. Add a test for a ``<p>``
 
-- Explain the extra args
+#. Fails, add the ``<p>`` in the component, passes
 
-- What specifically does Enzyme add? When to use pure Jest vs. with Enzyme?
-
-- There's a pile of stuff hidden behind the scenes in cra scripts
-
-- Why not the WS watch?
-
-- Code coverage is not...covered
-
-- Snapshot testing
-
-See Also
-========
-
-- https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html
-
-- https://www.jetbrains.com/help/webstorm/run-debug-configuration-jest.html
-
-- https://blog.jetbrains.com/webstorm/tag/jest/
-
-- https://medium.com/kevin-salters-blog/testing-react-with-enzyme-fbfc30190e70
-
-- https://javascriptplayground.com/introduction-to-react-tests-enzyme/
-
-- https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
-
-- https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter
+#. Remove the crud from the first test

@@ -13,76 +13,156 @@
 Sharing Component Props Using Type Information
 ==============================================
 
-Prerequisites
-=============
+Components and subcomponents are the zen of React. Information is shared
+from parent to child using properties, and TypeScript helps us formalize
+that relationship.
 
-Steps
-=====
+In this tutorial step, we make our child component reusable by passing the
+value that should be displayed in the greeting. Along the way, we formalize
+the parent/child component interface with...an interface, of course.
 
-#. Let's have the recipient of the greeting passed in with props. The most
-   obvious:
+We'll start from the ending of
+:doc:`the previous step <../functional_components/index>`. Remember, we're
+doing TDD, so let's have ``Heading.tsx`` and ``Heading.test.tsx`` open
+side-by-side, with the Jest run configuration running.
 
-   .. code-block:: jsx
+Hello Recipient
+===============
 
-        export const Hello = (props) => <h1>Hello {props.recipient}</h1>;
+We're going to change the ``Heading`` component to accept the name of the
+recipient to say hello to. This value will come in as a prop. For example,
+``<Heading recipient={'World'}/>``.
 
-#. ES6 destructuring is nice. It unpacks one or more values from an object:
+As usual, let's start in our tests. Change our wrapper construction to the
+following:
 
-   .. code-block:: jsx
+.. code-block:: typescript
 
-        export const Hello = ({recipient}) => <h1>Hello React</h1>;
+    const wrapper = shallow(<Heading recipient={'World'}/>);
 
-#. TypeScript's compiler settings are, by default, very conservative. Let's
-   relax this in tsconfig.json with ``"noImplicitAny": false"```
+Our tests still pass but the IDE tells us TypeScript doesn't compile::
 
-#. Back in our file, that error now disappears. But we have a new error.
-   ``<Hello>`` doesn't pass a prop, e.g. ``<Hello recipient="React"/>``.
-   Instead of changing the App and the test, let's give a default value and
-   use in the ``<h1>``:
+  Error:(6, 38) TS2559: Type '{ recipient: string; }' has no properties in
+  common with type 'IntrinsicAttributes & { children?: ReactNode; }'.
 
-   .. code-block:: jsx
+Our test provided an object ``{ recipient: string; }`` as props but the
+component's TypeScript definition didn't accept that. Let's change it to
+allow ``recipient`` as a string. In ``Heading.tsx``:
 
-    export const Hello = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
+.. code-block:: jsx
 
-   Note that autocomplete worked for the variable. Our tests now pass again.
+    const Heading: React.SFC<{recipient: string}> = () => <h1>Hello React</h1>;
 
-#. Write a test that provides a non-default value. Notice autocomplete.
+The ``React.SFC`` type is a generic which accepts props as the first
+argument and optional state as the second. We defined the type information
+for our props inline and the error went away: TypeScript now knows that a
+``recipient`` string is a required argument.
 
-#. We still don't have typing and in fact have allowed ``any`` anywhere in
-   the project. Let's change this by using ``React.SFC``:
+Doing type information inline is clunky. Let's use a TypeScript interface
+to define our type information:
 
-   .. code-block:: jsx
+.. code-block:: jsx
 
-     export const Hello: React.SFC<{recipient: string}> = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
+    interface IHeadingProps {
+        recipient: string;
+    }
 
-#. We now have an error in contract between component and usage. Make
-   recipient optional:
+    const Heading: React.SFC<IHeadingProps> = () => <h1>Hello React</h1>;
 
-   .. code-block:: jsx
+One useful tip: the IDE can do the extraction for you. Put the cursor in the
+the ``{recipient: string}`` object and do ``Ctrl-T | Interface`` then type
+in the name (though it fails to generate a mandatory semicolon at the end of
+the field.)
 
-     export const Hello: React.SFC<{recipient?: string}> = ({recipient = 'React'}) => <h1>Hello {recipient}</h1>;
+.. note::
 
-#. Back in our test, we now see that test writing now got more "contract-y".
-   Try passing in a number.
+    The React TypeScript community has gone back and forth on ``I``
+    as a prefix. At the time of this writing, TSLint had added a
+    default rule that warns if an interface name fails to start
+    with an ``I``.
 
-#. That's a long line. Let's extract the property type information to an
-   interface. Use Refactor -> Interface.
+Our component isn't using this prop. The most obvious solution: grab the
+``props``:
 
-#. Still a long line. Put a proper return with ``{}`` instead of a long line.
+.. code-block:: jsx
 
-#. Finally, move the component to its own file ``Hello.tsx`` as a default
-   export.
+    const Heading: React.SFC<IHeadingProps> = (props) => <h1>Hello {props.recipient}</h1>;
 
-#. Notice something? We never looked at our browser. We used TDD the
-   entire time. Let's make sure the browser still works ok.
+Good news, our tests fail, as expected! Let's fix just the test in
+``Heading.test.tsx`` by having it expect the value ``toBe('Hello World')``.
+When that test is updated, that test will pass. We'll get to the failing
+``App.test.tsx`` tests in a moment.
 
-What Happened
-=============
+It can be cumbersome to type ``props.`` in front of every prop. ES6 has some
+called object destructuring which lets you "unpack" an object and bring into
+scope just the value you want. As a side benefit, it makes it clear at the
+entry point what that arrow function wants.
 
-- SFCs are good for leaves, with no state or children (as they re-render a
-  lot)
+Let's switch to object destructuring, and since our line is getting long,
+use a block:
 
-- Destructuring is good, moves the contract enforcement further out
+.. code-block:: jsx
+
+    const Heading: React.SFC<IHeadingProps> = ({recipient}) => {
+        return <h1>Hello {recipient}</h1>;
+    }
+
+Note that, as you were typing inside ``({})``, the IDE knew what were the
+possible completions. This is from the TypeScript interface on the props.
+
+Default Prop
+============
+
+We can shut up the the other tests by having a default recipient. We'll use
+ES6 object destructuring's syntax for setting a value when the destructured
+object doesn't have that key:
+
+.. code-block:: jsx
+
+    const Heading: React.SFC<IHeadingProps> = ({recipient = 'React'}) => {
+        return <h1>Hello {recipient}</h1>;
+    }
+
+Yay, all our tests pass! But if you revisit ``App.tsx`` you'll see that
+TypeScript isn't happy about ``<Heading/>``::
+
+  Type '{}' is not assignable to type 'IHeadingProps'.
+    Property 'recipient' is missing in type '{}'.
+
+That defeats the purpose of a default value. Good news: TypeScript thought of
+that and lets you mark an interface field as optional using a question mark.
+Back in ``Heading.tsx``:
+
+.. code-block:: typescript
+
+    interface IHeadingProps {
+        recipient?: string;
+    }
+
+Our tests pass *and* TypeScript is happy. But we forgot to write a test for
+the default value. Let's add this to ``Heading.test.tsx``:
+
+.. code-block:: typescript
+
+    it('renders the default heading', () => {
+        const wrapper = shallow(<Heading/>);
+        expect(wrapper.find('h1').text()).toBe('Hello React');
+    });
+
+We now have a child component that is passed in an optional value, with a
+default, and an enforceable contract saying it must be a string. We did all
+of this with simple idioms from TypeScript and ES6.
+
+And guess what? We never looked at the browser. If you'd like, first up the
+``start`` run configuration and take a look at the browser to confirm it's
+still working.
+
+.. note::
+
+    The use of SFCs is encouraged, especially for leaf nodes with no
+    state. But beware: putting them in a listing with thousands of items
+    can be a performance killer, as each function is recreated on every
+    render, which might be 60 times per second.
 
 See Also
 ========

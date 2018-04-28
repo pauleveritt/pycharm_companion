@@ -15,6 +15,7 @@
 ./_images/npm_run_lint.png
 ./_images/npm_run_test.png
 ./_images/preferences.png
+./_images/screen1.png
 ./_images/webpack_dev_server.png
 ./_sources/articles/frontend_tooling/chrome_debugging/index.rst.txt
 ./_sources/articles/frontend_tooling/es6_imports/index.rst.txt
@@ -62,6 +63,8 @@
 ./_sources/technologies/cra.rst.txt
 ./_sources/technologies/datagrip.rst.txt
 ./_sources/technologies/docker.rst.txt
+./_sources/technologies/emmet.rst.txt
+./_sources/technologies/enzyme.rst.txt
 ./_sources/technologies/flask.rst.txt
 ./_sources/technologies/flask_restful.rst.txt
 ./_sources/technologies/index.rst.txt
@@ -72,6 +75,7 @@
 ./_sources/technologies/react.rst.txt
 ./_sources/technologies/rest.rst.txt
 ./_sources/technologies/terraform.rst.txt
+./_sources/technologies/tslint.rst.txt
 ./_sources/technologies/typescript.rst.txt
 ./_sources/technologies/vagrant.rst.txt
 ./_sources/technologies/virtualenv.rst.txt
@@ -184,6 +188,8 @@
 ./technologies/cra.html
 ./technologies/datagrip.html
 ./technologies/docker.html
+./technologies/emmet.html
+./technologies/enzyme.html
 ./technologies/flask.html
 ./technologies/flask_restful.html
 ./technologies/index.html
@@ -194,6 +200,7 @@
 ./technologies/react.html
 ./technologies/rest.html
 ./technologies/terraform.html
+./technologies/tslint.html
 ./technologies/typescript.html
 ./technologies/vagrant.html
 ./technologies/virtualenv.html

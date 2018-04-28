@@ -13,78 +13,141 @@
 Debugging During Testing With NodeJS
 ====================================
 
-Prerequisites
-=============
+In the :doc:`previous step <../testing/index>` we used testing as a way to
+develop our component without switching to a browser.
 
-- nodejs debugging
+Sometimes our code has problems that require investigation with a debugger.
+For React, that usually means a trip to the browser to set a breakpoint and
+use the Chrome developer tools. Let's show how the IDE's debugger, combined
+with TDD, can make this investigation far more productive.
 
-- chrome debugging
+Hello Parameter
+===============
 
-- Project Setup
+We will start by using TDD to make our component's greeting a bit more
+dynamic. Start in the side-by-side mode described in the previous section,
+with both ``App.tsx`` and ``App.test.tsx`` open.
 
-- Previous step's run config
+First, add a method to the ``App`` class:
 
-Steps
-=====
+.. code-block:: jsx
 
-#. Let's make the displayed label into something that can be overridden in
-   subclasses (primitive alternative to props)
+    public label() {
+        return 'Hello React';
+    }
 
-#. Add:
+Then, change the ``<h1>`` to use the output of this method, using
+autocompletion for the method name:
 
-   .. code-block:: jsx
+.. code-block:: jsx
 
-        label() {
-            return 'Hello React';
-        }
+    <h1>{this.label()}</h1>
 
-#. Change <h1> to {this.label()} using autocompletion
+We didn't write a test first. That's sort of ok: we didn't change the
+rendering itself. But we also didn't test the method. Let's do that now by
+adding a test in ``App.test.tsx``:
 
-#. Save, works fine, but with a soft warning, quick fix (and note it rewrites
-   ``this.`` to ``App.``)
+.. code-block:: typescript
 
-#. Let's make this parameterize, pass in name, quick-fix the string to be
-   a template string, `Hello ${name}`, then pass in 'React'
-
-#. Tests pass, but TS is mad about missing typing
-
-#. Add ``:number`` and show it breaking when a number is passed, change to
-   string
-
-#. Let's poke at that in the debugger, in a test. First, something easy.
-
-#. Stop the watching test runner
-
-#. Edit the test to have const a = 1, e = 2, expect(a).toEqual(e)...duh,
-   why is this broken? Want to explore interactively
-
-#. Set a breakpoint in the test on const a
-
-#. Run under the debugger
-
-#. Inspect what is going on in the test, step, etc.
-
-#. Clear breakpoint, set a breakpoint in component's render, stop there
-
-#. ``this`` is an App instance
-
-#. Put cursor in ``static label`` and run to cursor
-
-#. Stop debugger, resume normal running
-
-#. Write a test for the label method:
-
-   .. code-block:: jsx
-
-    it('have a label method', () => {
-        expect(App.label('React')).toBe('Hello React');
+    it('generates a label', () => {
+        const a = new App({});
+        expect(a.label()).toBe('Hello React');
     });
 
-What Happened
-=============
+In this test we don't need a component with TSX and a fake DOM etc. Its a
+TypeScript method that returns a string.
+
+Let's make the method slightly dynamic by passing in a name for the label,
+then converting that name to uppercase. First, change our tests to the
+behavior we expect. The ``renders the heading`` test needs to expect
+``Hello REACT``. The test we just wrote needs its its last line changed to:
+
+.. code-block:: typescript
+
+    expect(a.label('React')).toBe('Hello REACT');
+
+Our tests now break so we need to implement this feature. The ``<h1>``, like
+the test, needs to pass in a value:
+
+.. code-block:: jsx
+
+    <h1>{this.label('React')}</h1>
+
+Now it's just a matter of changing the method to accept an argument, then
+uppercasing the return value:
+
+.. code-block:: typescript
+
+    public label(name) {
+        return `Hello ${name.toUpperCase()}`;
+    }
+
+Note that the IDE has a quick fix, via ``Alt-Enter``, to convert the string
+to an ES6 template string (the backticks.)
+
+With that, our tests pass, but the TypeScript compiler is angry: the ``name``
+argument doesn't have a supplied type. Let's fix that:
+
+.. code-block:: typescript
+
+    public label(name: string) {
+        return `Hello ${name.toUpperCase()}`;
+    }
+
+No surprise: the IDE has an ``Alt-Enter`` quick fix for this -- in this
+case, ``Infer parameter types from usage``.
+
+Stop at Breakpoint
+==================
+
+Let's see debugging in action. Imagine we pass in a number and we can't
+figure out why our method is failing.
+
+Let's do so. In the last ``generates a label`` test, change the argument to
+``a.label(42)``.
+
+First, note that TypeScript told our test that the supplied value was not
+assignable to a string. This is the *beauty* of TypeScript. Especially in
+test-writing, it helps you fail faster. Meaning, when paired with a smart
+IDE, it moves the failure directly under your eyeballs, in the most immediate
+location...the place where you typed it. Moreover, it provides very specific
+error messages.
+
+Let's go ahead and debug this. Click in the gutter beside that line to set
+a breakpoint. Then right-click on the test in the tool window and run it
+under the debugger. Execution stops on that line. We can then step into our
+method call.
+
+Execution stops in our method. We can inspect the local values and see that
+``name`` is ``42``. To *interactively* recreate the error:
+
+- Select the expression
+
+- Right-click and choose ``Evaluate Expression``
+
+- In the ``Evaluate`` dialog, click the ``Evaluate`` button
+
+We can now poke and prod our code interactively, in the execution context
+where it fails. This is a very productive development cycle: write tests,
+when stuck, use the debugger. No flailing around with ``console.log`` in a
+browser's dev tools window.
+
+Let's clean up:
+
+- Click the red square to stop the debugger
+
+- Close the Debugger tool tab window
+
+- Click the red circle to clear the breakpoint
+
+- Change the test's label argument from ``42`` back to ``React``
+
+In Depth
+========
 
 - One reason TDD and thus small components is so enticing...debug in Node
   instead of browser
 
 See Also
 ========
+

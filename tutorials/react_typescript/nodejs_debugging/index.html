@@ -98,6 +98,25 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
+                <nav class="breadcrumb has-arrow-separator is-small"
+                     aria-label="breadcrumbs"
+                     style="margin-bottom: 0">
+                    <ul style="margin-left: 0">
+                        
+                            <li>
+                                <a href="../../index.html">Tutorials</a>
+                            </li>
+                        
+                            <li>
+                                <a href="../index.html">React+TypeScript QuickStart</a>
+                            </li>
+                        
+                        <li class="is-active">
+                            <a href="#"
+                               aria-current="page">Debugging During Testing With NodeJS</a>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="title is-1">
                     Debugging During Testing With NodeJS
                     
@@ -109,75 +128,111 @@
 
                 <div class="subtitle is-4">Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE under the NodeJS debugger.</div>
 
+                
+
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="debugging-during-testing-with-nodejs">
 <h1>Debugging During Testing With NodeJS<a class="headerlink" href="#debugging-during-testing-with-nodejs" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>nodejs debugging</li>
-<li>chrome debugging</li>
-<li>Project Setup</li>
-<li>Previous step’s run config</li>
-</ul>
-</div>
-<div class="section" id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">Let’s make the displayed label into something that can be overridden in
-subclasses (primitive alternative to props)</p>
-</li>
-<li><p class="first">Add:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="nx">label</span><span class="p">()</span> <span class="p">{</span>
+<p>In the <a class="reference internal" href="../testing/index.html"><span class="doc">previous step</span></a> we used testing as a way to
+develop our component without switching to a browser.</p>
+<p>Sometimes our code has problems that require investigation with a debugger.
+For React, that usually means a trip to the browser to set a breakpoint and
+use the Chrome developer tools. Let’s show how the IDE’s debugger, combined
+with TDD, can make this investigation far more productive.</p>
+<div class="section" id="hello-parameter">
+<h2>Hello Parameter<a class="headerlink" href="#hello-parameter" title="Permalink to this headline">¶</a></h2>
+<p>We will start by using TDD to make our component’s greeting a bit more
+dynamic. Start in the side-by-side mode described in the previous section,
+with both <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code> and <code class="docutils literal notranslate"><span class="pre">App.test.tsx</span></code> open.</p>
+<p>First, add a method to the <code class="docutils literal notranslate"><span class="pre">App</span></code> class:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">label</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s1">&#39;Hello React&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">Change &lt;h1&gt; to {this.label()} using autocompletion</p>
-</li>
-<li><p class="first">Save, works fine, but with a soft warning, quick fix (and note it rewrites
-<code class="docutils literal notranslate"><span class="pre">this.</span></code> to <code class="docutils literal notranslate"><span class="pre">App.</span></code>)</p>
-</li>
-<li><p class="first">Let’s make this parameterize, pass in name, quick-fix the string to be
-a template string, <cite>Hello ${name}</cite>, then pass in ‘React’</p>
-</li>
-<li><p class="first">Tests pass, but TS is mad about missing typing</p>
-</li>
-<li><p class="first">Add <code class="docutils literal notranslate"><span class="pre">:number</span></code> and show it breaking when a number is passed, change to
-string</p>
-</li>
-<li><p class="first">Let’s poke at that in the debugger, in a test. First, something easy.</p>
-</li>
-<li><p class="first">Stop the watching test runner</p>
-</li>
-<li><p class="first">Edit the test to have const a = 1, e = 2, expect(a).toEqual(e)…duh,
-why is this broken? Want to explore interactively</p>
-</li>
-<li><p class="first">Set a breakpoint in the test on const a</p>
-</li>
-<li><p class="first">Run under the debugger</p>
-</li>
-<li><p class="first">Inspect what is going on in the test, step, etc.</p>
-</li>
-<li><p class="first">Clear breakpoint, set a breakpoint in component’s render, stop there</p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">this</span></code> is an App instance</p>
-</li>
-<li><p class="first">Put cursor in <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">label</span></code> and run to cursor</p>
-</li>
-<li><p class="first">Stop debugger, resume normal running</p>
-</li>
-<li><p class="first">Write a test for the label method:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;have a label method&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">App</span><span class="p">.</span><span class="nx">label</span><span class="p">(</span><span class="s1">&#39;React&#39;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+<p>Then, change the <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> to use the output of this method, using
+autocompletion for the method name:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">()}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>We didn’t write a test first. That’s sort of ok: we didn’t change the
+rendering itself. But we also didn’t test the method. Let’s do that now by
+adding a test in <code class="docutils literal notranslate"><span class="pre">App.test.tsx</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;generates a label&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">({});</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">label</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-</li>
-</ol>
+<p>In this test we don’t need a component with TSX and a fake DOM etc. Its a
+TypeScript method that returns a string.</p>
+<p>Let’s make the method slightly dynamic by passing in a name for the label,
+then converting that name to uppercase. First, change our tests to the
+behavior we expect. The <code class="docutils literal notranslate"><span class="pre">renders</span> <span class="pre">the</span> <span class="pre">heading</span></code> test needs to expect
+<code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">REACT</span></code>. The test we just wrote needs its its last line changed to:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">expect</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">label</span><span class="p">(</span><span class="s1">&#39;React&#39;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello REACT&#39;</span><span class="p">);</span>
+</pre></div>
 </div>
-<div class="section" id="what-happened">
-<h2>What Happened<a class="headerlink" href="#what-happened" title="Permalink to this headline">¶</a></h2>
+<p>Our tests now break so we need to implement this feature. The <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>, like
+the test, needs to pass in a value:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">(</span><span class="s1">&#39;React&#39;</span><span class="p">)}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now it’s just a matter of changing the method to accept an argument, then
+uppercasing the return value:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">label</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that the IDE has a quick fix, via <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code>, to convert the string
+to an ES6 template string (the backticks.)</p>
+<p>With that, our tests pass, but the TypeScript compiler is angry: the <code class="docutils literal notranslate"><span class="pre">name</span></code>
+argument doesn’t have a supplied type. Let’s fix that:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">label</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>No surprise: the IDE has an <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> quick fix for this – in this
+case, <code class="docutils literal notranslate"><span class="pre">Infer</span> <span class="pre">parameter</span> <span class="pre">types</span> <span class="pre">from</span> <span class="pre">usage</span></code>.</p>
+</div>
+<div class="section" id="stop-at-breakpoint">
+<h2>Stop at Breakpoint<a class="headerlink" href="#stop-at-breakpoint" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see debugging in action. Imagine we pass in a number and we can’t
+figure out why our method is failing.</p>
+<p>Let’s do so. In the last <code class="docutils literal notranslate"><span class="pre">generates</span> <span class="pre">a</span> <span class="pre">label</span></code> test, change the argument to
+<code class="docutils literal notranslate"><span class="pre">a.label(42)</span></code>.</p>
+<p>First, note that TypeScript told our test that the supplied value was not
+assignable to a string. This is the <em>beauty</em> of TypeScript. Especially in
+test-writing, it helps you fail faster. Meaning, when paired with a smart
+IDE, it moves the failure directly under your eyeballs, in the most immediate
+location…the place where you typed it. Moreover, it provides very specific
+error messages.</p>
+<p>Let’s go ahead and debug this. Click in the gutter beside that line to set
+a breakpoint. Then right-click on the test in the tool window and run it
+under the debugger. Execution stops on that line. We can then step into our
+method call.</p>
+<p>Execution stops in our method. We can inspect the local values and see that
+<code class="docutils literal notranslate"><span class="pre">name</span></code> is <code class="docutils literal notranslate"><span class="pre">42</span></code>. To <em>interactively</em> recreate the error:</p>
+<ul class="simple">
+<li>Select the expression</li>
+<li>Right-click and choose <code class="docutils literal notranslate"><span class="pre">Evaluate</span> <span class="pre">Expression</span></code></li>
+<li>In the <code class="docutils literal notranslate"><span class="pre">Evaluate</span></code> dialog, click the <code class="docutils literal notranslate"><span class="pre">Evaluate</span></code> button</li>
+</ul>
+<p>We can now poke and prod our code interactively, in the execution context
+where it fails. This is a very productive development cycle: write tests,
+when stuck, use the debugger. No flailing around with <code class="docutils literal notranslate"><span class="pre">console.log</span></code> in a
+browser’s dev tools window.</p>
+<p>Let’s clean up:</p>
+<ul class="simple">
+<li>Click the red square to stop the debugger</li>
+<li>Close the Debugger tool tab window</li>
+<li>Click the red circle to clear the breakpoint</li>
+<li>Change the test’s label argument from <code class="docutils literal notranslate"><span class="pre">42</span></code> back to <code class="docutils literal notranslate"><span class="pre">React</span></code></li>
+</ul>
+</div>
+<div class="section" id="in-depth">
+<h2>In Depth<a class="headerlink" href="#in-depth" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>One reason TDD and thus small components is so enticing…debug in Node
 instead of browser</li>
@@ -188,8 +243,6 @@ instead of browser</li>
 </div>
 </div>
 </div>
-
-                
 
                 
                 
@@ -223,11 +276,11 @@ instead of browser</li>
                             
                             <div class="kbb-listing-item">
                                 <div class="kb-listing-title">
-                                    <a href="../styling/index.html">Styling with tslint</a>
+                                    <a href="../styling/index.html">Styling with TSLint</a>
                                 </div>
                                 
                                     <div class="kb-listing-excerpt">
-                                        Use the TypeScript linter tslint to manage styling within the IDE, plus helpful hints about limitations.
+                                        Use the TypeScript linter TSLint to manage styling within the IDE, plus helpful hints about limitations.
                                     </div>
                                 
                             </div>
@@ -414,33 +467,6 @@ instead of browser</li>
     
 </div>
     
-
-    <p class="menu-label">
-        Breadcrumbs
-    </p>
-    <ul class="menu-list">
-            <li>
-                <a href="../../index.html">
-                    
-                        <span class="kb-breadcrumb-separator">></span>
-                    
-                    Tutorials
-                </a>
-            </li>
-            <li>
-                <a href="../index.html">
-                    
-                        <span class="kb-breadcrumb-separator">></span>
-                    
-                        <span class="kb-breadcrumb-separator">></span>
-                    
-                    React+TypeScript QuickStart
-                </a>
-            </li>
-
-    </ul>
-
-    
     <p class="menu-label">
         Previous
     </p>
@@ -479,6 +505,180 @@ instead of browser</li>
     
 
 
+
+    <p class="menu-label">
+        Tutorial Steps
+    </p>
+
+    <ul class="steps is-vertical is-small menu-list">
+        
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../project_setup/index.html"
+                  class="steps-marker is-primary">1</span>
+                <div class="steps-content">
+                    <a href="../project_setup/index.html">Project Setup</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../project_cleanup/index.html"
+                  class="steps-marker is-primary">2</span>
+                <div class="steps-content">
+                    <a href="../project_cleanup/index.html">Project Cleanup</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../styling/index.html"
+                  class="steps-marker is-primary">3</span>
+                <div class="steps-content">
+                    <a href="../styling/index.html">Styling with TSLint</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../testing/index.html"
+                  class="steps-marker is-primary">4</span>
+                <div class="steps-content">
+                    <a href="../testing/index.html">Unit Testing with Jest and Enzyme</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="#"
+                  class="steps-marker is-info">5</span>
+                <div class="steps-content">
+                    <a href="#">Debugging During Testing With NodeJS</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../chrome_debugging/index.html"
+                  class="steps-marker is-primary">6</span>
+                <div class="steps-content">
+                    <a href="../chrome_debugging/index.html">Debugging JSX With Chrome</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../jsx_es6/index.html"
+                  class="steps-marker is-primary">7</span>
+                <div class="steps-content">
+                    <a href="../jsx_es6/index.html">JSX and ES6</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../functional_components/index.html"
+                  class="steps-marker is-primary">8</span>
+                <div class="steps-content">
+                    <a href="../functional_components/index.html">Functional React Components in TypeScript</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../props/index.html"
+                  class="steps-marker is-primary">9</span>
+                <div class="steps-content">
+                    <a href="../props/index.html">Sharing Component Props Using Type Information</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../class_props/index.html"
+                  class="steps-marker is-primary">10</span>
+                <div class="steps-content">
+                    <a href="../class_props/index.html">Class Components With Props</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../class_state/index.html"
+                  class="steps-marker is-primary">11</span>
+                <div class="steps-content">
+                    <a href="../class_state/index.html">Model Class State With TypeScript Interfaces</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../modify_state/index.html"
+                  class="steps-marker is-primary">12</span>
+                <div class="steps-content">
+                    <a href="../modify_state/index.html">Modify State With Events</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../rich_events_and_testing/index.html"
+                  class="steps-marker is-primary">13</span>
+                <div class="steps-content">
+                    <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../presentation_components/index.html"
+                  class="steps-marker is-primary">14</span>
+                <div class="steps-content">
+                    <a href="../presentation_components/index.html">Presentation and Container Components</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../routing/index.html"
+                  class="steps-marker is-primary">15</span>
+                <div class="steps-content">
+                    <a href="../routing/index.html">TypeScript and Routing With Testing</a>
+                </div>
+            </li>
+        
+    </ul>
 
 </aside>
             </div>

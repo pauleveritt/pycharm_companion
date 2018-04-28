@@ -98,6 +98,25 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
+                <nav class="breadcrumb has-arrow-separator is-small"
+                     aria-label="breadcrumbs"
+                     style="margin-bottom: 0">
+                    <ul style="margin-left: 0">
+                        
+                            <li>
+                                <a href="../../index.html">Tutorials</a>
+                            </li>
+                        
+                            <li>
+                                <a href="../index.html">React+TypeScript QuickStart</a>
+                            </li>
+                        
+                        <li class="is-active">
+                            <a href="#"
+                               aria-current="page">JSX and ES6</a>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="title is-1">
                     JSX and ES6
                     
@@ -109,59 +128,70 @@
 
                 <div class="subtitle is-4">Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.</div>
 
+                
+
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="jsx-and-es6">
 <h1>JSX and ES6<a class="headerlink" href="#jsx-and-es6" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="prequisites">
-<h2>Prequisites<a class="headerlink" href="#prequisites" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">ES6</p>
-</li>
-<li><p class="first">JSX</p>
-<blockquote>
-<div><ul class="simple">
-<li>Syntax highlighting, JSX/component/method completion, navigation,
-linting, auto-import, quick-fixes (e.g. missing method)</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Testing</p>
-</li>
-</ul>
-</div>
-<div class="section" id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">Start by removing some stuff from previous Debugging step:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Remove the last test</li>
-<li>Put the &lt;h1&gt; back to <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">React</span></code></li>
-<li>Remove the static method for label</li>
-<li>Start running the test runner again</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">These are ES6 classes. Let’s make label a “field”, which in TS is a variable
-defined in a class. Add <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">'Hello</span> <span class="pre">React';</span></code></p>
-</li>
-<li><p class="first">Write a test to see if it is there:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has a label field&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">({},</span> <span class="p">{});</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">label</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+<p>TypeScript is a JavaScript superset with a compiler that enforces the types.
+It’s also, though, one of those sexy new JavaScript flavors that implement
+“ES6”…actually, a family of modern JavaScript standards for more
+productive programming. When combined with other tooling, it also supports
+JSX, React’s sorta-templating system, but with TypeScript semantics.</p>
+<p>We glazed over the ES6 and JSX (that is, TSX) in previous steps. Let’s take
+more of a look.</p>
+<div class="section" id="cleanup">
+<h2>Cleanup<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h2>
+<p>The previous steps added some stuff to show their topics. Let’s clean up a
+little bit.</p>
+<p>Let’s change <code class="docutils literal notranslate"><span class="pre">App.test.tsx</span></code> back to two simple tests:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">shallow</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;enzyme&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">&#39;react-dom&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App&#39;</span><span class="p">;</span>
+
+<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders without crashing&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+    <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nt">App</span><span class="p">/&gt;,</span> <span class="nx">div</span><span class="p">);</span>
+    <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">unmountComponentAtNode</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders the heading&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(&lt;</span><span class="nt">App</span><span class="p">/&gt;);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">JSX can insert JS into HTML with brackets. Change to
-<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;{this.label}&lt;/h1&gt;</span></code>. Tests still pass.</p>
-</li>
-<li><p class="first">TS can help flag type errors, even in markup. Make the label uppercase
-and change the value to a number.</p>
-</li>
-<li><p class="first">ES6 arrow functions let you do a lot of work in a small space. Let’s
-uppercase the label. Change the render:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">label</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<p>Also, our component in <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="nx">React</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Make sure the test runner is still running and watching. You can, though,
+shutdown the <code class="docutils literal notranslate"><span class="pre">start</span></code> task. We don’t need it regenerating the bundle and
+updating the browser, duplicating what’s happening in the Jest process.</p>
+<p>Our two tests pass. Let’s see some ES6 and TSX.</p>
+</div>
+<div class="section" id="classes-and-fields">
+<h2>Classes and Fields<a class="headerlink" href="#classes-and-fields" title="Permalink to this headline">¶</a></h2>
+<p>As you can see, this component is using React’s support for ES6 classes.
+Our <code class="docutils literal notranslate"><span class="pre">App</span></code> component extends <code class="docutils literal notranslate"><span class="pre">React.Component</span></code> which has a constructor that
+initializes a bunch of stuff. We’ll see functional components later.</p>
+<p>Let’s do another approach at extracting the hardwired string from the
+<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>. The <code class="docutils literal notranslate"><span class="pre">render</span></code> method can, of course, have scope. Let’s define the
+label there:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">label</span> <span class="o">=</span> <span class="s1">&#39;Hello React&#39;</span><span class="p">;</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">label</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -170,69 +200,183 @@ uppercase the label. Change the render:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">The test needs to be fixed.</p>
-</li>
-<li><p class="first">Labels need to be strings. It’s inferred, but we can make it explicit
-with <code class="docutils literal notranslate"><span class="pre">label:</span> <span class="pre">string</span> <span class="pre">=</span> <span class="pre">'Hello</span> <span class="pre">React';</span></code></p>
-</li>
-<li><p class="first">The TypeScript keyword <code class="docutils literal notranslate"><span class="pre">public</span></code> is inferred. Let’s make it private and
-see what happens when the test accesses it. Note that the code still
-compiles and works in the browser.</p>
-</li>
-<li><p class="first">JSX can have onclick handlers that are inline JavaScript. Let’s make an
-alert that shows the label:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">alert</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">label</span><span class="p">)}</span><span class="o">&gt;</span><span class="n">Something</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">const</span></code> is used because we never intend to re-assign the label. Our
+tests pass, so this change worked fine.</p>
+<p>We can also move the <code class="docutils literal notranslate"><span class="pre">label</span></code> up to the class label as a field:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="nx">label</span> <span class="o">=</span> <span class="s1">&#39;Hello React&#39;</span>
+
+    <span class="kr">public</span> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">As you see with <code class="docutils literal notranslate"><span class="pre">onClick</span></code>, JSX maps some HTML attributes to special
-names to which it applies special handling. <code class="docutils literal notranslate"><span class="pre">className</span></code> is another.
-The IDE can help you autocomplete those (and warn when you forget.
-Show this.)</p>
-</li>
-<li><p class="first">What governs this in the IDE? Languages &amp; Frameworks -&gt; JavaScript sets
-the project to React JSX which implies ES6 and JSX</p>
-</li>
-<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">.ts</span></code> for files that have no JSX (aka TSX) in it and <code class="docutils literal notranslate"><span class="pre">.tsx</span></code> for
-files with markup.</p>
-</li>
-<li><p class="first">The IDE provides useful navigation. Click on <code class="docutils literal notranslate"><span class="pre">this.label</span></code> in the
-<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> and type Cmd-B to jump to the definition, no matter what project
-file it is located in. Type <code class="docutils literal notranslate"><span class="pre">Alt-F7</span></code> to then go in the reverse direction
-and see all places in the project where that symbol is used.</p>
-</li>
-<li><p class="first">Rename also works. With the cursor on the <code class="docutils literal notranslate"><span class="pre">label</span></code> declaration, type
-<code class="docutils literal notranslate"><span class="pre">Ctrl-T</span></code> and choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code>. Type in <code class="docutils literal notranslate"><span class="pre">heading</span></code>, press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>,
-and choose <code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">Refactor</span></code>. You’ll see the
-field name change not just in the declaration, but also in the JSX and
-even the tests.</p>
-</li>
-<li><p class="first">Multiline JSX generates an error. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">alert</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">heading</span><span class="p">)}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="p">;</span>
+<p>We had to change the <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> to use <code class="docutils literal notranslate"><span class="pre">this.label</span></code>, to get the value off the
+instance.</p>
+</div>
+<div class="section" id="arrow-functions">
+<h2>Arrow Functions<a class="headerlink" href="#arrow-functions" title="Permalink to this headline">¶</a></h2>
+<p>ES6 introduced small, inline anonymous functions called “arrow functions”.
+The are incredibly useful and have come to dominate frontend frameworks. Let’s
+see them in action for click handlers. We’ll start by showing something that
+doesn’t work until an arrow function saves the day.</p>
+<p>We’ll first do an inline click handler that displays a static string. Note
+that JSX (and thus, TSX) map certain HTML attributes into first-class names,
+such as <code class="docutils literal notranslate"><span class="pre">onClick</span></code> and <code class="docutils literal notranslate"><span class="pre">className</span></code>, in its grammar, thus letting us
+assign an expression (with <code class="docutils literal notranslate"><span class="pre">{}</span></code>) instead of a string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">alert</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">Select the <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and type <code class="docutils literal notranslate"><span class="pre">(</span></code>. Presumes SmartQuote setting. Move the
-cursor and press Enter to put <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> on a new line.</p>
-</li>
+<p>Note that the IDE was smart about autocompleting these special attributes.</p>
+<p>But this fails. Why? The expression is immediately evaluated, rather than
+run when the event is fired. We need a way to assign something that will be
+executed <em>later</em>, when the event is fired.</p>
+<p>Arrow functions to the rescue! Try this instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">alert</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>What does this change do? It stores a function which is created on the fly
+and stored “anonymously” in that scope. The <code class="docutils literal notranslate"><span class="pre">()</span></code> means this arrow function
+needs no arguments. (It’s actually passed an event, which we’ll use in later
+steps.) The function body is one line, so we don’t need curly braces for a
+block.</p>
+<p id="bossy-tslint">This is actually valid TypeScript, and would compile and run, but our picky
+style linter complains. In React, defining functions on the fly is expensive
+(when you’re doing hundreds in a loop) and the TSLint community decided to
+frown on that by default. We can override the default, though. Edit
+<code class="docutils literal notranslate"><span class="pre">tslint.json</span></code> to contain:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;extends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tslint:recommended&quot;</span><span class="p">,</span> <span class="s2">&quot;tslint-react&quot;</span><span class="p">,</span> <span class="s2">&quot;tslint-config-prettier&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;linterOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;exclude&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;config/**/*.js&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;node_modules/**/*.ts&quot;</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;rules&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;jsx-no-lambda&quot;</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Restart your <code class="docutils literal notranslate"><span class="pre">start</span></code> script to get the linter to pick up the change.
+Everything compiles fine and clicking on the <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> in the browser produces
+an alert.</p>
+</div>
+<div class="section" id="move-to-a-method">
+<h2>Move To a Method<a class="headerlink" href="#move-to-a-method" title="Permalink to this headline">¶</a></h2>
+<p>Inline handlers aren’t so smart, as they aren’t easily testable. Let’s move
+the handler to a component method:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="nx">label</span> <span class="o">=</span> <span class="s1">&#39;Hello React&#39;</span>
+
+    <span class="kr">public</span> <span class="nx">handleClick</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kr">public</span> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">onClick</span><span class="o">=</span><span class="s">{this.handleClick}</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Clicking on the heading works well, so let’s remove the
+<code class="docutils literal notranslate"><span class="pre">&quot;jsx-no-lambda&quot;:</span> <span class="pre">false</span></code> rule from <code class="docutils literal notranslate"><span class="pre">tslint.conf</span></code> and restart the
+<code class="docutils literal notranslate"><span class="pre">start</span></code> script.</p>
+<p>Let’s have the alert display the label by changing it to
+<code class="docutils literal notranslate"><span class="pre">alert(this.label);</span></code>. Uh-oh. Clicking on the heading produces a mile-long
+traceback in the JavaScript console. The traceback mentions
+<code class="docutils literal notranslate"><span class="pre">HTMLUnknownElement</span></code>. And that’s the problem: the <code class="docutils literal notranslate"><span class="pre">this</span></code> in the method
+isn’t the component instance, it is event. This is a chronic problem in React
+programming, causing the <code class="docutils literal notranslate"><span class="pre">.bind</span></code> syntax.</p>
+<p>Arrow functions, though, get the correct <code class="docutils literal notranslate"><span class="pre">this</span></code>. We could change the handler
+to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>…but we’re back to the bossy TSLint complaint. Instead, we can bind the
+arrow function to the component:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">label</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Look at that freaky approach! Instead of a method, we are binding a dynamic
+function to a class property. (Discussion below about the downsides.)</p>
+</div>
+<div class="section" id="jsx">
+<h2>JSX<a class="headerlink" href="#jsx" title="Permalink to this headline">¶</a></h2>
+<p>React brought innovation to the concept of templating languages by extending
+JavaScript itself. Your templating is mixed directly into your JavaScript
+file and component. TSX is the TypeScript flavor of JSX, with file extensions
+ending in <code class="docutils literal notranslate"><span class="pre">.tsx</span></code>.</p>
+<p>PyCharm Professional has first-class support for JSX and TSX. What turns
+this on? In the project settings, look for
+<code class="docutils literal notranslate"><span class="pre">Languages</span> <span class="pre">&amp;</span> <span class="pre">Frameworks</span> <span class="pre">-&gt;</span> <span class="pre">JavaScript</span></code> which, for projects generated by
+the React App template, automatically sets the
+<code class="docutils literal notranslate"><span class="pre">JavaScript</span> <span class="pre">Language</span> <span class="pre">version:</span></code> to <code class="docutils literal notranslate"><span class="pre">React</span> <span class="pre">JSX</span></code>.</p>
+<p>The easiest way to see TSX in action? Go to your <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> and try to add
+<code class="docutils literal notranslate"><span class="pre">class=&quot;&quot;</span></code>. TypeScript itself has JSX/TSX support in the compiler and
+gives a compiler error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Property</span> <span class="s1">&#39;class&#39;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span> <span class="n">on</span> <span class="nb">type</span>
+<span class="s1">&#39;DetailedHTMLProps&lt;HTMLAttributes&lt;HTMLHeadingElement&gt;, HTMLHeadingElement&gt;&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Also, the IDE refuses to autocomplete on <code class="docutils literal notranslate"><span class="pre">class</span></code>. It does, though,
+autocomplete on <code class="docutils literal notranslate"><span class="pre">className</span></code>, the JSX/TSX equivalent.</p>
+<p>Accepting the autocomplete shows that the IDE fills in <code class="docutils literal notranslate"><span class="pre">{}</span></code> for an
+attribute value instead of double-quotes. What’s the difference? A
+double-quote contains a regular string, whereas brackets contain JavaScript
+expressions, which we saw above.</p>
+<p>In components you frequently navigate around between markup and code. The
+IDE makes this easy. For example, click on <code class="docutils literal notranslate"><span class="pre">this.handleClick</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">onClick</span></code> expression then type <code class="docutils literal notranslate"><span class="pre">Cmd-B</span></code>. This jumps to the arrow function
+on the class that provides that.</p>
+<p>You can go in the reverse direction as well. Click on the <code class="docutils literal notranslate"><span class="pre">label</span></code> field
+at the start of the class, then hit <code class="docutils literal notranslate"><span class="pre">Alt-F7</span></code>. This shows all the locations
+in your project which use that <em>symbol</em>, not the string. You can verify this
+semantic interpretation by adding <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">label</span> <span class="pre">=</span> <span class="pre">'Nope';</span></code> above your class,
+then clicking on that <code class="docutils literal notranslate"><span class="pre">label</span></code> and doing <code class="docutils literal notranslate"><span class="pre">Alt-F7</span></code>. No usages are found:
+it is a different symbol.</p>
+<p>This is useful when you want the change a name through refactoring. Click on
+the <code class="docutils literal notranslate"><span class="pre">label</span></code> field again, then do <code class="docutils literal notranslate"><span class="pre">Ctrl-T</span></code>. Choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code> and type
+<code class="docutils literal notranslate"><span class="pre">heading</span></code>. As you type, all the locations change. When you press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>,
+if there are changes in other files, a window shows you and asks if you want
+to do the refactoring.</p>
+<p>The operation is done in one editor transaction. If you want to change your
+mind, <code class="docutils literal notranslate"><span class="pre">Undo</span></code> will find all the changes in all files and restore to the
+previous value.</p>
+</div>
+<div class="section" id="in-depth">
+<h2>In Depth<a class="headerlink" href="#in-depth" title="Permalink to this headline">¶</a></h2>
+<p>Arrow functions look great on classes but behind the scenes they don’t
+really do what you think. Purists have pointed out the flaws (mockability,
+subclassing, performance.) And yet, they remain a very popular solution to
+binding in React and similar systems.</p>
+<ol class="arabic simple">
+<li>Select the <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and type <code class="docutils literal notranslate"><span class="pre">(</span></code>. Presumes SmartQuote setting. Move the
+cursor and press Enter to put <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> on a new line.</li>
 </ol>
-</div>
-<div class="section" id="what-happened">
-<h2>What Happened<a class="headerlink" href="#what-happened" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>MS TypeScript pages for ES6 and React/JSX</li>
+<li><a class="reference external" href="https://reactarmory.com/answers/when-to-use-arrow-functions">https://reactarmory.com/answers/when-to-use-arrow-functions</a></li>
+<li><a class="reference external" href="https://medium.com/&#64;charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1">https://medium.com/&#64;charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1</a></li>
 </ul>
 </div>
 </div>
 </div>
-
-                
 
                 
                 
@@ -266,11 +410,11 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
                             
                             <div class="kbb-listing-item">
                                 <div class="kb-listing-title">
-                                    <a href="../styling/index.html">Styling with tslint</a>
+                                    <a href="../styling/index.html">Styling with TSLint</a>
                                 </div>
                                 
                                     <div class="kb-listing-excerpt">
-                                        Use the TypeScript linter tslint to manage styling within the IDE, plus helpful hints about limitations.
+                                        Use the TypeScript linter TSLint to manage styling within the IDE, plus helpful hints about limitations.
                                     </div>
                                 
                             </div>
@@ -457,33 +601,6 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
     
 </div>
     
-
-    <p class="menu-label">
-        Breadcrumbs
-    </p>
-    <ul class="menu-list">
-            <li>
-                <a href="../../index.html">
-                    
-                        <span class="kb-breadcrumb-separator">></span>
-                    
-                    Tutorials
-                </a>
-            </li>
-            <li>
-                <a href="../index.html">
-                    
-                        <span class="kb-breadcrumb-separator">></span>
-                    
-                        <span class="kb-breadcrumb-separator">></span>
-                    
-                    React+TypeScript QuickStart
-                </a>
-            </li>
-
-    </ul>
-
-    
     <p class="menu-label">
         Previous
     </p>
@@ -522,6 +639,180 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
     
 
 
+
+    <p class="menu-label">
+        Tutorial Steps
+    </p>
+
+    <ul class="steps is-vertical is-small menu-list">
+        
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../project_setup/index.html"
+                  class="steps-marker is-primary">1</span>
+                <div class="steps-content">
+                    <a href="../project_setup/index.html">Project Setup</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../project_cleanup/index.html"
+                  class="steps-marker is-primary">2</span>
+                <div class="steps-content">
+                    <a href="../project_cleanup/index.html">Project Cleanup</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../styling/index.html"
+                  class="steps-marker is-primary">3</span>
+                <div class="steps-content">
+                    <a href="../styling/index.html">Styling with TSLint</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../testing/index.html"
+                  class="steps-marker is-primary">4</span>
+                <div class="steps-content">
+                    <a href="../testing/index.html">Unit Testing with Jest and Enzyme</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../nodejs_debugging/index.html"
+                  class="steps-marker is-primary">5</span>
+                <div class="steps-content">
+                    <a href="../nodejs_debugging/index.html">Debugging During Testing With NodeJS</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../chrome_debugging/index.html"
+                  class="steps-marker is-primary">6</span>
+                <div class="steps-content">
+                    <a href="../chrome_debugging/index.html">Debugging JSX With Chrome</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="#"
+                  class="steps-marker is-info">7</span>
+                <div class="steps-content">
+                    <a href="#">JSX and ES6</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../functional_components/index.html"
+                  class="steps-marker is-primary">8</span>
+                <div class="steps-content">
+                    <a href="../functional_components/index.html">Functional React Components in TypeScript</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../props/index.html"
+                  class="steps-marker is-primary">9</span>
+                <div class="steps-content">
+                    <a href="../props/index.html">Sharing Component Props Using Type Information</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../class_props/index.html"
+                  class="steps-marker is-primary">10</span>
+                <div class="steps-content">
+                    <a href="../class_props/index.html">Class Components With Props</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../class_state/index.html"
+                  class="steps-marker is-primary">11</span>
+                <div class="steps-content">
+                    <a href="../class_state/index.html">Model Class State With TypeScript Interfaces</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../modify_state/index.html"
+                  class="steps-marker is-primary">12</span>
+                <div class="steps-content">
+                    <a href="../modify_state/index.html">Modify State With Events</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../rich_events_and_testing/index.html"
+                  class="steps-marker is-primary">13</span>
+                <div class="steps-content">
+                    <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../presentation_components/index.html"
+                  class="steps-marker is-primary">14</span>
+                <div class="steps-content">
+                    <a href="../presentation_components/index.html">Presentation and Container Components</a>
+                </div>
+            </li>
+        
+            
+            
+            
+            <li class="steps-segment">
+            <span href="../routing/index.html"
+                  class="steps-marker is-primary">15</span>
+                <div class="steps-content">
+                    <a href="../routing/index.html">TypeScript and Routing With Testing</a>
+                </div>
+            </li>
+        
+    </ul>
 
 </aside>
             </div>
