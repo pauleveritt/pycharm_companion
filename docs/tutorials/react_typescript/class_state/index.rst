@@ -30,6 +30,8 @@ This step, though, will be just the minimum: no actual clicking to update
 state, for example. We will stick to introducing component state and
 modeling it in TypeScript.
 
+`Code repository for this step <https://github.com/pauleveritt/pycharm_companion/tree/master/docs/tutorials/react_typescript/class_state>`_
+
 Always Start With a Test
 ========================
 
