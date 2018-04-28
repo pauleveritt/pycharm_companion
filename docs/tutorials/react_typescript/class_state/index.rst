@@ -12,6 +12,8 @@
             - pauleveritt
         technology:
             - react
+            - jest
+            - typescript
 
 ============================================
 Model Class State With TypeScript Interfaces
