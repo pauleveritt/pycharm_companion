@@ -150,16 +150,18 @@ with a name starting with those letters, somewhere in the project? And when
 you accepted the completion, it generated the import? Also, the IDE helped
 on the available props and the types for those props.
 
-All of our tests still pass. Let's change the ``renders the app and the heading``
-test in``App.test.tsx`` to look for the label in the new ``<Counter/>`` child
-component:
+All of our tests still pass. Let's change the
+``renders the app and the heading`` test in``App.test.tsx`` to look for the
+label in the new ``<Counter/>`` child component:
 
 .. code-block:: typescript
 
     it('renders the app and the heading', () => {
         const wrapper = mount(<App/>);
-        expect(wrapper.find('h1').text()).toBe('Hello React');
-        expect(wrapper.find('.counter label').text()).toBe('Current');
+        expect(wrapper.find('h1').text())
+            .toBe('Hello React');
+        expect(wrapper.find('.counter label').text())
+            .toBe('Current');
     });
 
 Let's restart the ``start`` script and look at the UI in the browser. We
