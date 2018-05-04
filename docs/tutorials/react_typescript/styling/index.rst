@@ -48,10 +48,10 @@ to get to the ``Languages | TypeScript | TSLint`` preferences. If PyCharm
 detects the ``tslint`` package package in your project, it will use it,
 along with detecting a conf file.
 
-*Not sure what's going on with PyCharm, bleh.*
+PyCharm will also hand over some (but not all) of its TypeScript style
+setting to TSLint.
 
-In Depth
-========
+*Not sure what's going on with PyCharm, bleh.*
 
 See Also
 ========
@@ -69,14 +69,6 @@ PyCharm Steps
 
 #. Preferences -> tslint
 
-#. Notice that tslint.json itself has some warnings, fix them
-
-    - What caused this? cra-ts is behind on latest version of tslint (common in
-      world of JS)
-
-    - Delete the member-ordering and show the import of rules at the top
-
-    - Emphasize ``no-consecutive-blank-lines``
 
 #. Back to App.tsx, show this in action...add 4 blank lines, show tslint
    error, Reformat Code, still an error...WebStorm reformats to 2
