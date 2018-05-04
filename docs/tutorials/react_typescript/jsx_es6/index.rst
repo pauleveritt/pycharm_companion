@@ -178,8 +178,9 @@ an alert.
 Move To a Method
 ================
 
-Inline handlers aren't so smart, as they aren't easily testable. Let's move
-the handler to a component method:
+Inline handlers aren't so smart, as they aren't easily testable. Plus, bossy
+TSLint doesn't like them (for performance reasons.) Let's move the handler to
+a component method:
 
 .. code-block:: jsx
 
@@ -199,6 +200,9 @@ the handler to a component method:
         }
     }
 
+We referenced ``this.handleClick`` but we didn't call it. React will call it
+later, when we actually click.
+
 Clicking on the heading works well, so let's remove the
 ``"jsx-no-lambda": false`` rule from ``tslint.conf`` and restart the
 ``start`` script.
@@ -206,9 +210,9 @@ Clicking on the heading works well, so let's remove the
 Let's have the alert display the label by changing it to
 ``alert(this.label);``. Uh-oh. Clicking on the heading produces a mile-long
 traceback in the JavaScript console. The traceback mentions
-``HTMLUnknownElement``. And that's the problem: the ``this`` in the method
-isn't the component instance, it is event. This is a chronic problem in React
-programming, causing the ``.bind`` syntax.
+``HTMLUnknownElement``. And that's the problem: the ``this`` in the
+``handleClick`` method isn't the component instance, it is event. This is a
+chronic problem in React programming, causing the ``.bind`` syntax.
 
 Arrow functions, though, get the correct ``this``. We could change the handler
 to the following::
@@ -278,17 +282,13 @@ The operation is done in one editor transaction. If you want to change your
 mind, ``Undo`` will find all the changes in all files and restore to the
 previous value.
 
-In Depth
-========
+Note About Arrow Functions
+==========================
 
 Arrow functions look great on classes but behind the scenes they don't
 really do what you think. Purists have pointed out the flaws (mockability,
 subclassing, performance.) And yet, they remain a very popular solution to
 binding in React and similar systems.
-
-#. Select the ``<div>`` and type ``(``. Presumes SmartQuote setting. Move the
-   cursor and press Enter to put ``<div>`` on a new line.
-
 
 See Also
 ========

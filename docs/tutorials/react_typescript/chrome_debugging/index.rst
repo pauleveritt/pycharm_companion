@@ -61,10 +61,5 @@ object.
 To clean up, click the red button to stop the debugger, close Chrome, and
 clear the breakpoint.
 
-What Happened
-=============
-
-- Explain the Chrome debug protocol
-
 See Also
 ========
