@@ -21,6 +21,24 @@ For React, that usually means a trip to the browser to set a breakpoint and
 use the Chrome developer tools. Let's show how the IDE's debugger, combined
 with TDD, can make this investigation far more productive.
 
+Cleanup
+=======
+
+First, let's remove some unused code from our first test,
+``renders without crashing``. Delete the last 3 lines and leave it as:
+
+.. code-block:: typescript
+
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<App/>, div);
+        ReactDOM.unmountComponentAtNode(div);
+    });
+
+Also, TSLint is complaining about sorting of our imports. Put your cursor
+on the import of ``shallow``, hit ``Alt-Enter``, and tell the IDE to fix the
+error.
+
 Hello Parameter
 ===============
 
@@ -55,16 +73,19 @@ adding a test in ``App.test.tsx``:
     });
 
 In this test we don't need a component with TSX and a fake DOM etc. Its a
-TypeScript method that returns a string.
+TypeScript method that returns a string. To conform to the ``React.Component``
+constructor signature, we pass in an empty object as props. Note how the IDE
+gave us a placeholder reminder.
 
 Let's make the method slightly dynamic by passing in a name for the label,
 then converting that name to uppercase. First, change our tests to the
-behavior we expect. The ``renders the heading`` test needs to expect
-``Hello REACT``. The test we just wrote needs its its last line changed to:
+behavior we expect. The ``generates a label`` test needs its last line
+changed to:
 
 .. code-block:: typescript
 
-    expect(a.label('React')).toBe('Hello REACT');
+    expect(a.label('React'))
+        .toBe('Hello REACT');
 
 Our tests now break so we need to implement this feature. The ``<h1>``, like
 the test, needs to pass in a value:
@@ -108,7 +129,7 @@ Let's do so. In the last ``generates a label`` test, change the argument to
 
 First, note that TypeScript told our test that the supplied value was not
 assignable to a string. This is the *beauty* of TypeScript. Especially in
-test-writing, it helps you fail faster. Meaning, when paired with a smart
+test-writing, it helps you "fail faster". Meaning, when paired with a smart
 IDE, it moves the failure directly under your eyeballs, in the most immediate
 location...the place where you typed it. Moreover, it provides very specific
 error messages.
@@ -119,13 +140,7 @@ under the debugger. Execution stops on that line. We can then step into our
 method call.
 
 Execution stops in our method. We can inspect the local values and see that
-``name`` is ``42``. To *interactively* recreate the error:
-
-- Select the expression
-
-- Right-click and choose ``Evaluate Expression``
-
-- In the ``Evaluate`` dialog, click the ``Evaluate`` button
+``name`` is ``42``.
 
 We can now poke and prod our code interactively, in the execution context
 where it fails. This is a very productive development cycle: write tests,
@@ -142,11 +157,7 @@ Let's clean up:
 
 - Change the test's label argument from ``42`` back to ``React``
 
-In Depth
-========
-
-- One reason TDD and thus small components is so enticing...debug in Node
-  instead of browser
+- Re-open the Run Tool window
 
 See Also
 ========
