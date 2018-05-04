@@ -157,6 +157,9 @@ compiler error explains, this means it can be a ``number`` *or* a
 ``null``. In the component *state*, though, we say it can only be a
 ``number``.
 
+TODO Cmd-Hover to see the type information, before and after. Or, use a
+type guard to avoid using !.
+
 `TypeScript 2.7 <https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html>`_
 provides an elegant fix for this with *definite assignment assertion*.
 Sometimes you know better than the compiler. At the point of assignment,

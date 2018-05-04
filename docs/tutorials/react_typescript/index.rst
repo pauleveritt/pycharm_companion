@@ -38,7 +38,6 @@ the IDE.
     props/index
     class_props/index
     class_state/index
-    modify_state/index
     rich_events_and_testing/index
     presentation_components/index
     routing/index

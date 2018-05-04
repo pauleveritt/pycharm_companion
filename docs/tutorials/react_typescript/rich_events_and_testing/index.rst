@@ -65,9 +65,7 @@ without breaking the universe.
 ===================
 
 The component doesn't handle clicks. Let's head to ``Counter.tsx`` and add
-a click handler:
-
-.. code-block:: jsx
+a click handler::
 
     <div
         className="counter"
@@ -76,192 +74,133 @@ a click handler:
         <span>{this.state.count}</span>
     </div>
 
+
 That doesn't work, for the reasons discussed in
-:ref:`the bossy TSLint explanation <bossy-tslint>`.
+:ref:`the bossy TSLint explanation <bossy-tslint>`. Instead, we'll do the
+correction that section suggests: make a public method and refer to it in
+the handler::
 
-Steps
-=====
+        public handleClick = () => {
+            this.setState({count: this.state.count + 1});
+        }
 
-#. Add an onClick handler to the div, one attribute per line to keep tslint
-   happy::
+        public render() {
+            return (
+                <div
+                    className="counter"
+                    onClick={this.handleClick}>
+                    <label>{this.props.label}</label>
+                    <span>{this.state.count}</span>
+                </div>
+            );
+        }
 
-    <div
-        className="counter"
-        onClick={() => this.setState({count: this.state.count + 1})}
-    >
+With this in place, let's now fix our test to expect starting at zero:
 
-#. The test should now pass. Let's move the logic out of the onClick handler.
-   Add a method:
+.. code-block:: typescript
+    :emphasize-lines: 4, 7
 
-   .. code-block:: typescript
-
-    increment() {
-        this.setState({count: this.state.count + 1};
-    }
-
-#. Then change the click handler::
-
-    onClick={() => this.increment()}
-
-   Confirm that the tests still pass.
-
-#. Counters should allow an optional starting value passed in as a prop.
-   Let's first write a test that fails:
-
-   .. code-block:: typescript
-
-    it('should allow a starting value', () => {
-        const wrapper = shallow(<Counter starting="10"/>);
-        expect(wrapper.find('.counter span').text())
-            .toBe('10');
+    it('should increment the count by one', () => {
+        const wrapper = shallow(<Counter/>);
+            expect(wrapper.find('.counter span').text())
+                .toBe('0');
+            wrapper.find('.counter').simulate('click');
+            expect(wrapper.find('.counter span').text())
+                .toBe('1');
     });
 
-   TypeScript tells us, even before the test runs, that we have an error.
+Awesome, our tests now all pass.
 
-#. We can now add this as an optional prop:
+Advance By Ten with Shift-Click
+===============================
 
-   .. code-block:: typescript
+Let's add one more feature. If you click with the Shift key pressed, you
+increase by 10. Along the way, let's add more type information to better
+benefit from TypeScript.
 
-    interface CounterProps {
-        label?: string;
-        starting?: number;
+The ``handleClick`` handler arrow function actually gets an event passed, which
+we aren't using. Let's add it in:
+
+.. code-block:: typescript
+
+    public handleClick = (event) => {
+        this.setState({count: this.state.count + 1});
     }
 
-#. When saved, TypeScript still complains, but for a different reason. We
-   passed in a string instead of a number. Fix our test:
+This works but TypeScript gives a compiler error. Our ``tsconfig.json``
+disallows implicit ``any``. That's easy enough to solve:
 
-   .. code-block:: typescript
+.. code-block:: typescript
 
-    const wrapper = shallow(<Counter starting={10}/>);
-
-#. Now the compiler is happy, but the test fails. We're not assigning the
-   property to the initial state. Let's fix that, and along the way, set
-   a default value for the property:
-
-   .. code-block:: typescript
-
-    constructor(props: CounterProps) {
-        super(props);
-        this.state = {
-            count: this.props.starting
-        };
+    public handleClick = (event: any) => {
+        this.setState({count: this.state.count + 1});
     }
 
-    static defaultProps = {
-        label: 'Count',
-        starting: 1
-    };
+But that's cheating. What type is that event? It's a ``MouseEvent``. Let's
+put the correct typing on the argument:
 
-#. We're closer, but we have a compiler error. We've said ``starting`` is
-   optional, which means it could be ``undefined``. That's not allowed on
-   ``count``. Could fix it by doing the default a different way, but TS 2.7
-   has "definite assignment assertion" with an exclamation:
+.. code-block:: typescript
 
-   .. code-block:: typescript
+    public handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        this.setState({count: this.state.count + 1});
+    }
 
-        count: this.props.starting!
+Ugh, that's a lot of keystrokes. Is it worth it? Let's show why. First, in
+``handleClick``, let's determine the value to increment by, first as a mistake:
 
-   Now the tests pass.
+.. code-block:: typescript
+    :emphasize-lines: 2, 3
 
-#. ---- Do a split here
-
-#. Let's add one more feature. If you click with the Shift key pressed, you
-   increase by 10. The onClick arrow function actually gets an event passed,
-   which we aren't using. Let's add it in::
-
-    onClick={(event) => this.increment(event)}
-
-#. TypeScript now tells us we have an error. ``increment`` is receiving an
-   argument it didn't expect. Let's add that, with the correct type:
-
-   .. code-block:: typescript
-
-    increment(event: React.MouseEvent<HTMLElement>) {
-
-   Ugh, that's a lot of keystrokes. Is it worth it? Let's show why.
-
-#. In that method, let's determine the value to increment by, first as a
-   mistake:
-
-   .. code-block:: typescript
-
-    increment(event: React.MouseEvent<HTMLElement>) {
+    public handleClick = (event: React.MouseEvent<HTMLElement>) => {
         const inc = 10 ? event.shiftKey : 1;
         this.setState({count: this.state.count + inc});
     }
 
-#. TypeScript told us that we were adding a boolean to a number. Let's make
-   the type of ``inc`` explicity, instead of inferred. Our first fix:
+TypeScript told us that we were adding a boolean to a number. Let's set
+the type of ``inc`` explicitly, instead of inferring it. Our first fix:
 
-   .. code-block:: typescript
+.. code-block:: typescript
 
     const inc: number = 10 ? event.shiftKey : 1;
 
-#. That's closer. TypeScript now moves the error to the correct line. We
-   see that we have to order wrong on the ternary...a frequent, maddening
-   error. Here's the correct version:
+That's closer. TypeScript now moves the error to the correct line. We
+see that we have the order wrong on the ternary...a frequent, maddening
+error. Here's the correct version:
 
-   .. code-block:: typescript
+.. code-block:: typescript
 
     const inc: number = event.shiftKey ? 10 : 1;
 
-#. Our click-handler test now fails, though. It needs ``shiftKey`` in the
-   event. Let's fix that test, then clone to cover the with-shift case:
 
-   .. code-block:: typescript
+Our click-handler test now fails, though. It needs a fake event object passed
+into ``handleClick``, with ``shiftKey`` in the object. Let's fix that test,
+then clone to cover the with-shift case:
+
+.. code-block:: typescript
+    :emphasize-lines: 5, 14
 
     it('should increment the count by one', () => {
         const wrapper = shallow(<Counter/>);
         expect(wrapper.find('.counter span').text())
-            .toBe('1');
+            .toBe('0');
         wrapper.find('.counter').simulate('click', {shiftKey: false});
         expect(wrapper.find('.counter span').text())
-            .toBe('2');
+            .toBe('1');
     });
 
     it('should shift-click increment the count by ten', () => {
         const wrapper = shallow(<Counter/>);
         expect(wrapper.find('.counter span').text())
-            .toBe('1');
+            .toBe('0');
         wrapper.find('.counter').simulate('click', {shiftKey: true});
         expect(wrapper.find('.counter span').text())
-            .toBe('11');
+            .toBe('10');
     });
 
-#. While this works well, it's a shame to expose the ``increment`` method
-   to mouse information. Let's refactor to make the caller determine if
-   shift is pressed. Change ``increment`` first::
+Our tests pass. We have a test to handle the new shift-click implementation.
+Moreover, we have type information to help us when we pass in the wrong data,
+even from a test.
 
-    increment(isShift: boolean) {
-        const inc: number = isShift ? 10 : 1;
-        this.setState({count: this.state.count + inc});
-    }
-
-#. Now make the ``onClick`` handler do the work::
-
-    <div onClick={(event: React.MouseEvent<HTMLElement>) => this.increment(event.shiftKey)}>
-
-#. In fact, with ES6 object destructuring, we can vastly simplify this::
-
-    <div onClick={({shiftKey}) => this.increment(shiftKey)}>
-
-#. The tests still pass, do things still work in the browser? Click and
-   shift-click to see.
-
-What Happened
-=============
-
-- Why is the arrow function needed in the onClick handler?
-
-- Easier to write tests with the final ``increment``...though it requires
-  component lifecycle management
-
-See Also
-========
-
-- Definite assignment assertion in TypeScript 2.7 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html
-
-TODO
-====
-
-- Add a mount-type test for event testing https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
+As we have been doing, give this a try in the browser by firing up the
+``start`` run configuration and clicking, then shift-clicking, in the browser.
+When done, terminate the ``start`` process.
