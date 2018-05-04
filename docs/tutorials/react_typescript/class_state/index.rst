@@ -41,8 +41,8 @@ tab and ``Counter.test.tsx`` in the right-hand tab. Also, stop the
 ``start`` process if it is running and make sure the ``Jest`` run config is
 running.
 
-Here's a test to show that the counter starts at zero, which fails, because
-we have a static ``<span>1</span>``:
+Here's a ``Counter.test.tsx`` test to show that the counter starts at zero,
+which fails, because we have a static ``<span>1</span>``:
 
 .. code-block:: typescript
 
@@ -58,7 +58,7 @@ local state look like? Pretty easy:
 .. code-block:: typescript
 
     interface ICounterState {
-        count: number;
+        count: number
     }
 
 Now the class definition and constructor can setup state, which we'll use
@@ -106,7 +106,8 @@ Starting Value
 ==============
 
 Sometimes we want a counter that starts somewhere besides zero. Let's pass
-in an optional prop for the starting value. First, the test:
+in an optional prop for the starting value. First, the test in
+``Counter.test.tsx``:
 
 .. code-block:: typescript
 
@@ -124,8 +125,8 @@ violated the ``<Counter/>`` contract. We'll fix the interface in
     :emphasize-lines: 3
 
     interface ICounterProps {
-        label?: string;
-        start?: number;
+        label?: string
+        start?: number
     }
 
 Then, add it to the ``defaultProps``:
@@ -156,9 +157,6 @@ property was optional, by putting a ``?`` in the interface field. As the
 compiler error explains, this means it can be a ``number`` *or* a
 ``null``. In the component *state*, though, we say it can only be a
 ``number``.
-
-TODO Cmd-Hover to see the type information, before and after. Or, use a
-type guard to avoid using !.
 
 `TypeScript 2.7 <https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html>`_
 provides an elegant fix for this with *definite assignment assertion*.
@@ -193,9 +191,12 @@ initial counter value:
 
     it('renders the app and the heading', () => {
         const wrapper = mount(<App/>);
-        expect(wrapper.find('h1').text()).toBe('Hello React');
-        expect(wrapper.find('.counter label').text()).toBe('Current');
-        expect(wrapper.find('.counter span').text()).toBe('0');
+        expect(wrapper.find('h1').text())
+            .toBe('Hello React');
+        expect(wrapper.find('.counter label').text())
+            .toBe('Current');
+        expect(wrapper.find('.counter span').text())
+            .toBe('10');
     });
 
 What changes in ``App.tsx``? In this case, nothing. We want to use the default
