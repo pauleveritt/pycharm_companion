@@ -180,5 +180,3 @@ See Also
 ========
 
 - create-react-app and wmonk
-
-- https://basarat.gitbooks.io/typescript/content/
