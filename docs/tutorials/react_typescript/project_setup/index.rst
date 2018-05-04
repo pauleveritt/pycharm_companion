@@ -39,6 +39,22 @@ Code
 The finished code for this tutorial step is
 `on GitHub <https://github.com/pauleveritt/pycharm_companion/tree/master/docs/tutorials/react_typescript/project_setup>`_.
 
+Before Starting
+===============
+
+Before anything can happen, you have to install NodeJS on your system. Then,
+you have to install :ref:`technology-cra` either "globally" or somewhere
+that you can point the IDE to.
+
+PyCharm Professional integrates with :ref:`technology-cra` to generate the
+new project. The IDE lets you pass an argument to the generator for the
+extra script to use. We want to use ``react-scripts-ts``, a mature "fork"
+of :ref:`technology-cra` which changes the output to be React+TypeScript.
+
+If ``yarn`` is installed, :ref:`technology-cra` will choose it as the
+package manager and generate a yarn-oriented project. PyCharm Professional
+will respect that decision.
+
 Project Creation
 ================
 
@@ -76,6 +92,11 @@ HTTP, and helpfully opens your browser:
 .. code-block:: bash
 
     $ npm run-script start
+
+.. note::
+
+    The ``start`` script issues some warnings about ``baseUrl`` when it
+    starts up. We'll handle this in later steps.
 
 This dev server is watching for changes. If you edit a file, it will
 regenerate the universe and tell the page to reload. Open ``src/App.tsx``
@@ -129,16 +150,17 @@ and change the ``test`` script to:
 
     "test": "react-scripts-ts test --env=jsdom --watchAll",
 
-Now run the tests:
+Double-click the ``test`` entry in the ``npm`` tool window to try again:
 
 .. code-block:: bash
 
     $ npm run-script test
 
-The tests auto-run as you edit. To see this in action, open
-``src/App.test.tsx`` and add a line to the test:
+The tests auto-run as you edit, updating much faster once first loaded. To
+see this in action, open ``src/App.test.tsx`` and add a line to the test:
 
 .. code-block:: typescript
+    :emphasize-lines: 5
 
     it('renders without crashing', () => {
       const div = document.createElement('div');
@@ -150,52 +172,9 @@ The tests auto-run as you edit. To see this in action, open
 When you save this, the test runner output tells you about the test failure.
 Change the ``2`` to a ``1`` and save, and the tests pass.
 
-As with the other run scripts, you can double-click to run in an IDE tool
-window in PyCharm Professional. But that's the less-interesting way to do
-it. We'll show in :doc:`../testing/index` the more-PyCharmic way.
-
-In Depth
-========
-
-Before anything can happen, you have to install NodeJS on your system. Then,
-you have to install :ref:`technology-cra` either "globally" or somewhere
-that you can point the IDE to.
-
-PyCharm Professional integrates with :ref:`technology-cra` to generate the
-new project. The IDE lets you pass an argument to the generator for the
-extra script to use. We want to use ``react-scripts-ts``, a mature "fork"
-of :ref:`technology-cra` which changes the output to be React+TypeScript.
-
-If ``yarn`` is installed, :ref:`technology-cra` will choose it as the
-package manager and generate a yarn-oriented project. PyCharm Professional
-will respect that decision.
-
-It takes a while for :ref:`technology-cra` to download all the dependencies
-then generate the file. This will be faster in some subsequent runs, as the
-npm/yarn cache has many of the versions. Also, the IDE needs to index all
-the downloaded software which can also take a number of seconds.
-
-The ``node_modules`` directory is detected as a library root and marked as
-"Excluded". This speeds up indexing by not having those files reindexed as
-your code changes.
-
-#. Note: node_modules is marked as "library root" and is "Excluded"
-
-#. Why the warnings about baseUrl? That's something from stuff
-   that react-scripts-ts generated
-
-#. Explain saving and difference for Jest watcher
-
-- npm run scripts have some common names such as ``start``
-
-- Point to pre-requisites: npm, webpack and dev server
-
-- The cra toolchain
-
-- ``build`` is in the project's ``.gitignore``
-
-- We will be using a real Jest run configuration type instead of running
-  via npm run scripts
+As with the other run scripts, you can double-click to run the npm run scripts
+in an IDE tool window in PyCharm Professional. But that's the less-interesting
+way to do it. We'll show in :doc:`../testing/index` the more-PyCharmic way.
 
 See Also
 ========
@@ -203,51 +182,3 @@ See Also
 - create-react-app and wmonk
 
 - https://basarat.gitbooks.io/typescript/content/
-
-PyCharm Steps
-=============
-
-Here's a listing of steps specific to PyCharm.
-
-#. Make sure NodeJS and create-react-app are installed on your system.
-
-#. Open PyCharm Professional
-
-#. In the New Project dialog, select ``React App`` as the project type.
-
-#. Set ``Location`` set to the directory you'd like the project to be
-   generated in.
-
-#. Expand ``More Settings``.
-
-#. Set ``Scripts version:`` to ``react-scripts-ts``
-
-#. Click ``Create``.
-
-#. In the next dialog, select ``Open in new window`` and click ``Ok``.
-
-#. Wait a few minutes while ``create-react-app`` downloads a bunch of
-   npm dependencies and generates the project.
-
-#. Click the ``npm`` tool window (or open package.json and look at the run
-   icons for scripts).
-
-#. Double-click ``start`` and look in the opened browser window.
-
-#. Open src/App.tsx, save a small change, and see the update in browser.
-
-#. In the npm tool window, double-click ``build``, read output window
-   for bundle size, right-click the new ``build`` directory, and
-   ``Mark Directory As | Excluded``.
-
-#. Edit ``package.json`` and change the ``test`` script to::
-
-    "test": "react-scripts-ts test --env=jsdom --watchAll",
-
-#. In tool window, double-click ``test``
-
-#. Open src/App.test.tsx, make a small change adding
-   ``expect(1).toBe(2);`` to the last line of the test, ignore the
-   indentation warning, save.
-
-#. See the update.
