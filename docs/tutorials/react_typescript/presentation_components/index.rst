@@ -31,9 +31,9 @@ the starting value, so remove ``start`` from the interface:
 .. code-block:: typescript
     :emphasize-lines: 4
 
-    interface CounterProps {
-        label?: string;
-        count: number;
+    interface ICounterProps {
+        label?: string
+        count: number
     }
 
 As soon as we do that, the universe starts breaking. TypeScript yells at us
@@ -81,6 +81,8 @@ Let's fix the first two tests, to see if we are in the ballpark:
             .toBe('Current');
     });
 
+These two tests now pass.
+
 Since the ``<Counter/>`` component no longer controls the starting value,
 you can remove the
 ``should default start at zero`` and
@@ -104,9 +106,9 @@ we need to change ``ICounterProps`` to model it:
 .. code-block:: typescript
 
     interface ICounterProps {
-        label?: string;
-        count: number;
-        onCounterIncrease: (event: React.MouseEvent<HTMLElement>) => void;
+        label?: string
+        count: number
+        onCounterIncrease: (event: React.MouseEvent<HTMLElement>) => void
     }
 
 Now *that's* an interface, baby. It captures quite a bit of the contract.
@@ -133,7 +135,7 @@ Note that the IDE, as you did the unpacking, knew how to autocomplete
 ``onCounterIncrease``.
 
 Our tests, though, are having compiler trouble again. We broke the component
-contract, because ``onCounterIncrease`` is a mandatory prop. It's eash to
+contract, because ``onCounterIncrease`` is a mandatory prop. It's easy to
 shut up this test, because we aren't testing click handling:
 
 .. code-block:: typescript
@@ -191,7 +193,7 @@ Dumb Component Gets a Little Smarter
 But is that strictly true? What if the presentation component took care of
 dissecting HTML event information, extracted the relevant data, and *then*
 called the callback? That's a better division of responsibilities. The
-container would then be truly UI-less.
+container would then be truly UI-less for this functionality.
 
 First, let's change the contract. Our callback will be called *not* with the
 raw event, but with a boolean for the shift information:
@@ -199,9 +201,9 @@ raw event, but with a boolean for the shift information:
 .. code-block:: typescript
 
     interface ICounterProps {
-        label?: string;
-        count: number;
-        onCounterIncrease: (isShift: boolean) => void;
+        label?: string
+        count: number
+        onCounterIncrease: (isShift: boolean) => void
     }
 
 Our SFC gains a local arrow function which does the extraction and calling::
@@ -252,7 +254,7 @@ for it:
 .. code-block:: typescript
 
     interface ICounterState {
-        count: number;
+        count: number
     }
 
 Change the class setup to use this, with a constructor that sets up the
@@ -288,6 +290,26 @@ the method to an arrow function class property:
         this.setState({count: this.state.count + inc});
     }
 
+With this in place, we can now update the ``render`` function:
+
+.. code-block:: jsx
+
+    public render() {
+        return (
+            <div>
+                <Heading/>
+                <Counter
+                    label={'Current'}
+                    count={this.state.count}
+                    onCounterIncrease={this.increment}
+                />
+            </div>
+        );
+    }
+
+State is maintained in the parent which it gives to the child, along with an
+update handler function.
+
 Test the State Updater
 ======================
 
@@ -295,7 +317,7 @@ And with that, our tests pass again. However, we have dropped any testing to
 see whether the state actually updated. The responsibility is spread a bit
 between the two components.
 
-Let's first write tests for the increment function:
+Let's first write tests in ``App.test.tsx`` for the increment function:
 
 .. code-block:: typescript
 
@@ -339,6 +361,20 @@ parent-child connection. For this we'll go back to Enzyme's ``mount``:
 Fantastic, these tests pass. We now have enough confidence to head back
 over to the browser. Fire up the ``start`` run config, reload the browser,
 click and shift click, then shut down ``start``.
+
+Testing Is Cool
+===============
+
+This was a heck of a tutorial step. Let's take a moment and think about how
+development would have gone the "normal" way. How many times would you have
+switched to from IDE->browser->IDE? How many clicks would you have to do to
+each time, checking that your new stuff worked and didn't break your old
+stuff? When you ran into a problem, would the browser give you a convenient
+and accurate notice?
+
+It's hard to make yourself get into TDD for React and TypeScript. Once you
+do, and once you get into the flow, it's a very positive development
+experience.
 
 See Also
 ========
