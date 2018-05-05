@@ -36,7 +36,8 @@ First Failing Test
 ==================
 
 Let's start with a failing test that clicks on the div and checks if the
-number is updated. Clone the first test and change it as follows:
+number is updated. In ``Counter.test.tsx``, clone the first test and change
+it as follows:
 
 .. code-block:: typescript
 
@@ -50,7 +51,7 @@ number is updated. Clone the first test and change it as follows:
     });
 
 This test makes a component instance, checks its initial value, pretends to
-click, then checks the final value.
+click using ``simulate``, then checks the final value.
 
 It fails. Which is good!
 
@@ -69,7 +70,8 @@ a click handler::
 
     <div
         className="counter"
-        onClick={() => this.setState({count: this.state.count + 1})}>
+        onClick={() => this.setState({count: this.state.count + 1})}
+    >
         <label>{this.props.label}</label>
         <span>{this.state.count}</span>
     </div>
@@ -114,11 +116,11 @@ Awesome, our tests now all pass.
 Advance By Ten with Shift-Click
 ===============================
 
-Let's add one more feature. If you click with the Shift key pressed, you
+Let's add one more feature: if you click with the Shift key pressed, you
 increase by 10. Along the way, let's add more type information to better
 benefit from TypeScript.
 
-The ``handleClick`` handler arrow function actually gets an event passed, which
+The ``handleClick`` arrow function actually gets an event passed, which
 we aren't using. Let's add it in:
 
 .. code-block:: typescript
@@ -170,7 +172,6 @@ error. Here's the correct version:
 .. code-block:: typescript
 
     const inc: number = event.shiftKey ? 10 : 1;
-
 
 Our click-handler test now fails, though. It needs a fake event object passed
 into ``handleClick``, with ``shiftKey`` in the object. Let's fix that test,
