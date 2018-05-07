@@ -193,3 +193,14 @@ way to do it. We'll show in :doc:`../testing/index` the more-PyCharmic way.
 .. image:: testing.png
     :width: 800px
     :alt: Running the npm test script while editing a test
+
+Conclusion
+==========
+
+In this first step we used existing tools to generate a working
+React+TypeScript project, with all the tooling configured. We also gave a
+brief tour of driving this in the IDE.
+
+In our next step we'll clean up some of the generated app, fix some of the
+tooling, and take a look a little more at how TypeScript with a smart IDE
+helps your productivity.
