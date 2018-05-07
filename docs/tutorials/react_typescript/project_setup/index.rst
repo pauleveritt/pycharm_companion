@@ -73,7 +73,11 @@ note, the first command will take a while.
 If you're in PyCharm Professional, there's UI integration for this. Create
 a new project, select ``React App`` as the project type, and make sure
 to expand ``More Settings``. There you can supply ``Scripts version:``
-as ``react-scripts-ts``.
+as ``react-scripts-ts``:
+
+.. image:: creating.png
+    :width: 800px
+    :alt: Creating a React+TypeScript project
 
 You now have a working React+TypeScript project, toolchain, and hello-world
 style app. It's actually quite an achievement. Assembling all of this, and
@@ -107,7 +111,12 @@ PyCharm Professional puts a nice UI on this. Click on the ``npm`` tool icon
 (usually on the left) and double click ``start`` in the listing of run
 scripts. You'll get a run window at the bottom with a nice UI for showing
 output and restarting. Alternatively, open ``package.json`` and click the
-green play icon in the gutter by the run scripts.
+green play icon in the gutter by the run scripts:
+
+.. image:: starting.png
+    :width: 800px
+    :alt: Running the npm start script
+
 
 Production Build
 ================
@@ -128,7 +137,12 @@ Running this is easy in PyCharm Professional: just click on ``build`` in the
 npm tool window. As an optimization, right-click on the new ``build``
 directory and ``Mark Directory As | Excluded``. This prevents the IDE from
 indexing the contents of that directory, which you don't need during
-development.
+development:
+
+.. image:: building.png
+    :width: 800px
+    :alt: Generating a production build
+
 
 This Is Only a Test
 ===================
@@ -176,7 +190,6 @@ As with the other run scripts, you can double-click to run the npm run scripts
 in an IDE tool window in PyCharm Professional. But that's the less-interesting
 way to do it. We'll show in :doc:`../testing/index` the more-PyCharmic way.
 
-See Also
-========
-
-- create-react-app and wmonk
+.. image:: testing.png
+    :width: 800px
+    :alt: Running the npm test script while editing a test
