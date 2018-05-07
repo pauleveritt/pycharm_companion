@@ -20,13 +20,11 @@
 Project Setup
 =============
 
-Like all other frontend technologies, it's difficult to get React, TypeScript,
-the tools, and the entire build environment configured in a new project.
-Once you do, everything changes and you have to start over.
-
-Many frameworks have recently built CLI (command-line interpreter) tools that
-make those decisions for you, using best practices. They'll generate a
-project with the right choices then update those choices as things evolve.
+React has become very popular, as has TypeScript. But it can be difficult to
+keep your tools and build configurations up-to-date. Many frameworks have
+recently built CLI (command-line interpreter) tools that make those decisions
+for you, using best practices. They'll generate a project with the right
+choices then update those choices as things evolve.
 
 React's :ref:`technology-cra` takes care of this. And it's extensible
 with scripts such as
@@ -71,15 +69,16 @@ use ``react-scripts-ts``:
     $ cd my-app/
     $ npm start
 
-The ``react-scripts-ts`` has good documentation about this process. As a
-note, the first command will take a while.
+The ``react-scripts-ts`` project has
+`good documentation <https://github.com/wmonk/create-react-app-typescript#tldr>`_
+about this process. As a note, the first command will take a while.
 
 If you're in PyCharm Professional, there's UI integration for this. Create
 a new project, select ``React App`` as the project type, and make sure
 to expand ``More Settings``. There you can supply ``Scripts version:``
 as ``react-scripts-ts``:
 
-.. image:: creating.png
+.. image:: screenshots/creating.png
     :width: 800px
     :alt: Creating a React+TypeScript project
 
@@ -92,7 +91,7 @@ Trust me, it's a big deal.
 Show Me a Page
 ==============
 
-Let's see this React+TypeScript page in our browser. npm run scripts make
+Let's see this React+TypeScript page in our browser. npm scripts make
 it easy to discover commands that are common to a project. The most common?
 Starting the dev server, which compiles the universe, serves a page over
 HTTP, and helpfully opens your browser:
@@ -117,7 +116,7 @@ scripts. You'll get a run window at the bottom with a nice UI for showing
 output and restarting. Alternatively, open ``package.json`` and click the
 green play icon in the gutter by the run scripts:
 
-.. image:: starting.png
+.. image:: screenshots/starting.png
     :width: 800px
     :alt: Running the npm start script
 
@@ -127,7 +126,7 @@ Production Build
 
 That's great for development, but for production, we need files on disk,
 shrunk as small as possible. There's a lot of complexity behind this, but
-:ref:`technology-cra` has hidden it behind an npm run script:
+:ref:`technology-cra` has hidden it behind an npm script:
 
 .. code-block:: bash
 
@@ -143,7 +142,7 @@ directory and ``Mark Directory As | Excluded``. This prevents the IDE from
 indexing the contents of that directory, which you don't need during
 development:
 
-.. image:: building.png
+.. image:: screenshots/building.png
     :width: 800px
     :alt: Generating a production build
 
@@ -161,7 +160,7 @@ but for now, let's run the tests. Unsurprisingly, it's similar to the above:
 
 This uses the :ref:`technology-jest` test runner. At the time of this writing,
 there's an issue with test running when the project isn't under version
-control. Let's fix that by changing the npm run script. Edit ``package.json``
+control. Let's fix that by changing the npm script. Edit ``package.json``
 and change the ``test`` script to:
 
 .. code-block:: bash
@@ -190,11 +189,11 @@ see this in action, open ``src/App.test.tsx`` and add a line to the test:
 When you save this, the test runner output tells you about the test failure.
 Change the ``2`` to a ``1`` and save, and the tests pass.
 
-As with the other run scripts, you can double-click to run the npm run scripts
+As with the other run scripts, you can double-click to run the npm scripts
 in an IDE tool window in PyCharm Professional. But that's the less-interesting
 way to do it. We'll show in :doc:`../testing/index` the more-PyCharmic way.
 
-.. image:: testing.png
+.. image:: screenshots/testing.png
     :width: 800px
     :alt: Running the npm test script while editing a test
 

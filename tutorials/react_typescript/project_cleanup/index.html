@@ -129,6 +129,13 @@
                 <div class="subtitle is-4">Clean out some unneeded code from the default app, tweak some configuration in the IDE, and tour a few more features.</div>
 
                 
+                    <iframe
+                            width="800"
+                            height="360"
+                            src="https://www.youtube.com/embed/-kBF2g4igFE"
+                            frameborder="0"
+                            allowfullscreen="True"></iframe>
+                
 
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="project-cleanup">
 <h1>Project Cleanup<a class="headerlink" href="#project-cleanup" title="Permalink to this headline">¶</a></h1>
@@ -141,6 +148,11 @@ then took a look around.</p>
 <li>Correct some TypeScript compilation issues</li>
 </ul>
 <p>Along the way we’ll show some IDE features in action.</p>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>The finished code for this tutorial step is
+<a class="reference external" href="https://github.com/pauleveritt/pycharm_companion/tree/master/docs/tutorials/react_typescript/project_cleanup">on GitHub</a>.</p>
+</div>
 <div class="section" id="reformatting-code">
 <h2>Reformatting Code<a class="headerlink" href="#reformatting-code" title="Permalink to this headline">¶</a></h2>
 <p>We currently have the test runner script running. If you have it running
@@ -170,7 +182,9 @@ not there. Add it as a new key at the end of <code class="docutils literal notra
 </pre></div>
 </div>
 <p>PyCharm Professional knows the grammar of the file and can autocomplete both
-the keys and the values. In fact, it will generate warnings if you do
+the keys and the values:</p>
+<a class="reference internal image-reference" href="../../../_images/baseUrl_completion.png"><img alt="Autocomplete in JSON files with known grammars" src="../../../_images/baseUrl_completion.png" style="width: 779px;" /></a>
+<p>In fact, it will generate warnings if you do
 something wrong, such as put a number where a string was expected.</p>
 <p>Now restart the <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run-script</span> <span class="pre">start</span></code> in your terminal or in the IDE.
 You’ll no longer see the error about <code class="docutils literal notranslate"><span class="pre">baseUrl</span></code>.</p>
@@ -191,12 +205,15 @@ and replace it:</p>
 </div>
 <p>In PyCharm Professional you can quickly generate markup using
 <a class="reference internal" href="../../../technologies/emmet.html" title="Emmet"><em>Emmet</em></a>. Highlight the markup to replace and enter
-<code class="docutils literal notranslate"><span class="pre">div&gt;h1&lt;enter&gt;Hello</span> <span class="pre">React</span></code>.</p>
-<p>We have a TypeScript compiler error. If we hover over the red squiggly on
-line 4 in the IDE, it shows:</p>
+<code class="docutils literal notranslate"><span class="pre">div&gt;h1&lt;enter&gt;Hello</span> <span class="pre">React</span></code>:</p>
+<a class="reference internal image-reference" href="../../../_images/emmet.png"><img alt="Use Emmet to generate HTML markup" src="../../../_images/emmet.png" style="width: 770px;" /></a>
+<p>We have a TypeScript compiler error:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">TS6133</span><span class="p">:</span> <span class="s1">&#39;logo&#39;</span> <span class="ow">is</span> <span class="n">declared</span> <span class="n">but</span> <span class="n">its</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">never</span> <span class="n">read</span><span class="o">.</span>
 </pre></div>
 </div>
+<p>If we hover over the red squiggly on line 4 in the IDE, it shows the error
+message:</p>
+<a class="reference internal image-reference" href="../../../_images/unused_logo.png"><img alt="Hover over error to see detail" src="../../../_images/unused_logo.png" style="width: 770px;" /></a>
 <p>We can also see this in PyCharm Professional by clicking on the <code class="docutils literal notranslate"><span class="pre">TypeScript</span></code>
 tool icon.</p>
 <p>This error is very informative: not just a specific error message, but the
@@ -206,8 +223,11 @@ line number and even the error code (good for googling.) But why is this a
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;noUnusedLocals&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
 </pre></div>
 </div>
-<p>If you set that to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the error goes away. Set it back to <code class="docutils literal notranslate"><span class="pre">true</span></code>
-and instead, delete the line. When you save, the error no longer appears.</p>
+<p>If you set that to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the error goes away. If you set it to a
+non-boolean, the IDE warns you:</p>
+<a class="reference internal image-reference" href="../../../_images/illegal_value.png"><img alt="Warning when assigning an illegal value in JSON" src="../../../_images/illegal_value.png" style="width: 770px;" /></a>
+<p>Set it back to <code class="docutils literal notranslate"><span class="pre">true</span></code> and instead, delete the line. When you save, the
+error no longer appears.</p>
 <p>While you’re at it:</p>
 <ul class="simple">
 <li>Delete the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">'./App.css';</span></code> line</li>
@@ -216,7 +236,8 @@ and instead, delete the line. When you save, the error no longer appears.</p>
 <p>In PyCharm, when you do a delete, you’re actually doing a “Safe Delete”, with
 the option to look for places in the project where you might have used it.
 Give it a try by starting the delete process on <code class="docutils literal notranslate"><span class="pre">index.css</span></code>. The IDE will
-warn you.</p>
+warn you:</p>
+<a class="reference internal image-reference" href="../../../_images/safe_delete.png"><img alt="Safe Delete looks for usages and warns" src="../../../_images/safe_delete.png" style="width: 604px;" /></a>
 </div>
 <div class="section" id="more-ide-goodies">
 <h2>More IDE Goodies<a class="headerlink" href="#more-ide-goodies" title="Permalink to this headline">¶</a></h2>
@@ -230,8 +251,11 @@ certain way.</p>
 </pre></div>
 </div>
 <p>The IDE tells you about the error, with a red squiggly on the usage of
-<code class="docutils literal notranslate"><span class="pre">React</span></code>. Click on it, then <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> and choose
-<code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Import</span> <span class="pre">Statement</span></code>. PyCharm generates the proper import.</p>
+<code class="docutils literal notranslate"><span class="pre">React</span></code>.</p>
+<a class="reference internal image-reference" href="../../../_images/missing_import.png"><img alt="Get warnings on missing imports" src="../../../_images/missing_import.png" style="width: 770px;" /></a>
+<p>Click on it, then <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> and choose <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Import</span> <span class="pre">Statement</span></code>. PyCharm
+generates the proper import:</p>
+<a class="reference internal image-reference" href="../../../_images/add_import.png"><img alt="Let the IDE generate missing imports" src="../../../_images/add_import.png" style="width: 480px;" /></a>
 <p>Let’s say I wanted to rename <code class="docutils literal notranslate"><span class="pre">App</span></code>. Where is it being used? Right-click
 on it, then choose <code class="docutils literal notranslate"><span class="pre">Find</span> <span class="pre">Usages</span></code>. A window pops up. Turns out it’s being
 used in a lot of places. Double-click on the usage in <code class="docutils literal notranslate"><span class="pre">index.tsx</span></code>. PyCharm
@@ -240,17 +264,14 @@ opens the file, moves to the line, and puts the cursor in the right spot.</p>
 to the definition? Use <code class="docutils literal notranslate"><span class="pre">Cmd-B</span></code> to jump to the class that defines <code class="docutils literal notranslate"><span class="pre">App</span></code>.</p>
 <p>I could now start the process of renaming by visiting all the usages. Bleh.
 Can’t I let the IDE do it for me? Click on <code class="docutils literal notranslate"><span class="pre">App</span></code> in <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">App</span></code> and hit
-<code class="docutils literal notranslate"><span class="pre">Ctrl-T</span></code>, then choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code> to Refactor Rename the class to <code class="docutils literal notranslate"><span class="pre">MyApp</span></code>.
-In the tool window showing you the consequences, choose <code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">Refactor</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">Ctrl-T</span></code>, then choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code> to Refactor Rename the class to <code class="docutils literal notranslate"><span class="pre">MyApp</span></code>:</p>
+<a class="reference internal image-reference" href="../../../_images/refactor_rename.png"><img alt="Let the IDE rename symbols in all usages" src="../../../_images/refactor_rename.png" style="width: 530px;" /></a>
+<p>In the tool window showing you the consequences, choose <code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">Refactor</span></code>.</p>
 <p>Oh no, that’s not what I wanted! Do I have to do another refactor? Nope. The
 IDE did all those operations in one editor transaction. Just use Undo and
 say <code class="docutils literal notranslate"><span class="pre">Ok</span></code> on the dialog.</p>
-</div>
-<div class="section" id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://basarat.gitbooks.io/typescript/content/">https://basarat.gitbooks.io/typescript/content/</a></li>
-</ul>
+<p>Conclusion
+=========-</p>
 </div>
 </div>
 </div>

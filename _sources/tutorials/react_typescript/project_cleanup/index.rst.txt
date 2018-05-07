@@ -1,6 +1,10 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     excerpt: Clean out some unneeded code from the default app, tweak some configuration in the IDE, and tour a few more features.
+    full_movie:
+        name: v1
+        src: https://www.youtube.com/embed/-kBF2g4igFE
+        width: 800
     is_pro: True
     references:
         author:
@@ -25,6 +29,12 @@ We'll use that step as the starting point and do some cleaning up:
 - Correct some TypeScript compilation issues
 
 Along the way we'll show some IDE features in action.
+
+Code
+====
+
+The finished code for this tutorial step is
+`on GitHub <https://github.com/pauleveritt/pycharm_companion/tree/master/docs/tutorials/react_typescript/project_cleanup>`_.
 
 Reformatting Code
 =================
@@ -61,7 +71,13 @@ not there. Add it as a new key at the end of ``compilerOptions``::
     "baseUrl": "src"
 
 PyCharm Professional knows the grammar of the file and can autocomplete both
-the keys and the values. In fact, it will generate warnings if you do
+the keys and the values:
+
+.. image:: screenshots/baseUrl_completion.png
+    :width: 779px
+    :alt: Autocomplete in JSON files with known grammars
+
+In fact, it will generate warnings if you do
 something wrong, such as put a number where a string was expected.
 
 Now restart the ``npm run-script start`` in your terminal or in the IDE.
@@ -86,12 +102,22 @@ and replace it:
 
 In PyCharm Professional you can quickly generate markup using
 :ref:`technology-emmet`. Highlight the markup to replace and enter
-``div>h1<enter>Hello React``.
+``div>h1<enter>Hello React``:
 
-We have a TypeScript compiler error. If we hover over the red squiggly on
-line 4 in the IDE, it shows::
+.. image:: screenshots/emmet.png
+    :width: 770px
+    :alt: Use Emmet to generate HTML markup
+
+We have a TypeScript compiler error::
 
   Error:(4, 1) TS6133: 'logo' is declared but its value is never read.
+
+If we hover over the red squiggly on line 4 in the IDE, it shows the error
+message:
+
+.. image:: screenshots/unused_logo.png
+    :width: 770px
+    :alt: Hover over error to see detail
 
 We can also see this in PyCharm Professional by clicking on the ``TypeScript``
 tool icon.
@@ -104,8 +130,16 @@ The answer: we said so. Open ``tsconfig.json`` again and search for this::
 
     "noUnusedLocals": true,
 
-If you set that to ``false``, the error goes away. Set it back to ``true``
-and instead, delete the line. When you save, the error no longer appears.
+If you set that to ``false``, the error goes away. If you set it to a
+non-boolean, the IDE warns you:
+
+.. image:: screenshots/illegal_value.png
+    :width: 770px
+    :alt: Warning when assigning an illegal value in JSON
+
+
+Set it back to ``true`` and instead, delete the line. When you save, the
+error no longer appears.
 
 While you're at it:
 
@@ -116,7 +150,11 @@ While you're at it:
 In PyCharm, when you do a delete, you're actually doing a "Safe Delete", with
 the option to look for places in the project where you might have used it.
 Give it a try by starting the delete process on ``index.css``. The IDE will
-warn you.
+warn you:
+
+.. image:: screenshots/safe_delete.png
+    :width: 604px
+    :alt: Safe Delete looks for usages and warns
 
 More IDE Goodies
 ================
@@ -135,8 +173,18 @@ Simulate this by deleting the line:
   import * as React from 'react';
 
 The IDE tells you about the error, with a red squiggly on the usage of
-``React``. Click on it, then ``Alt-Enter`` and choose
-``Add Import Statement``. PyCharm generates the proper import.
+``React``.
+
+.. image:: screenshots/missing_import.png
+    :width: 770px
+    :alt: Get warnings on missing imports
+
+Click on it, then ``Alt-Enter`` and choose ``Add Import Statement``. PyCharm
+generates the proper import:
+
+.. image:: screenshots/add_import.png
+    :width: 480px
+    :alt: Let the IDE generate missing imports
 
 Let's say I wanted to rename ``App``. Where is it being used? Right-click
 on it, then choose ``Find Usages``. A window pops up. Turns out it's being
@@ -148,14 +196,18 @@ to the definition? Use ``Cmd-B`` to jump to the class that defines ``App``.
 
 I could now start the process of renaming by visiting all the usages. Bleh.
 Can't I let the IDE do it for me? Click on ``App`` in ``class App`` and hit
-``Ctrl-T``, then choose ``Rename`` to Refactor Rename the class to ``MyApp``.
+``Ctrl-T``, then choose ``Rename`` to Refactor Rename the class to ``MyApp``:
+
+.. image:: screenshots/refactor_rename.png
+    :width: 530px
+    :alt: Let the IDE rename symbols in all usages
+
 In the tool window showing you the consequences, choose ``Do Refactor``.
 
 Oh no, that's not what I wanted! Do I have to do another refactor? Nope. The
 IDE did all those operations in one editor transaction. Just use Undo and
 say ``Ok`` on the dialog.
 
-See Also
-========
+Conclusion
+=========-
 
-- https://basarat.gitbooks.io/typescript/content/

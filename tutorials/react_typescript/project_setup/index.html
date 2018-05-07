@@ -139,12 +139,11 @@
 
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="project-setup">
 <h1>Project Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h1>
-<p>Like all other frontend technologies, it’s difficult to get React, TypeScript,
-the tools, and the entire build environment configured in a new project.
-Once you do, everything changes and you have to start over.</p>
-<p>Many frameworks have recently built CLI (command-line interpreter) tools that
-make those decisions for you, using best practices. They’ll generate a
-project with the right choices then update those choices as things evolve.</p>
+<p>React has become very popular, as has TypeScript. But it can be difficult to
+keep your tools and build configurations up-to-date. Many frameworks have
+recently built CLI (command-line interpreter) tools that make those decisions
+for you, using best practices. They’ll generate a project with the right
+choices then update those choices as things evolve.</p>
 <p>React’s <a class="reference internal" href="../../../technologies/cra.html" title="create-react-app"><em>create-react-app</em></a> takes care of this. And it’s extensible
 with scripts such as
 <a class="reference external" href="https://github.com/wmonk/create-react-app-typescript">react-scripts-ts</a>
@@ -179,8 +178,9 @@ $ <span class="nb">cd</span> my-app/
 $ npm start
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">react-scripts-ts</span></code> has good documentation about this process. As a
-note, the first command will take a while.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">react-scripts-ts</span></code> project has
+<a class="reference external" href="https://github.com/wmonk/create-react-app-typescript#tldr">good documentation</a>
+about this process. As a note, the first command will take a while.</p>
 <p>If you’re in PyCharm Professional, there’s UI integration for this. Create
 a new project, select <code class="docutils literal notranslate"><span class="pre">React</span> <span class="pre">App</span></code> as the project type, and make sure
 to expand <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">Settings</span></code>. There you can supply <code class="docutils literal notranslate"><span class="pre">Scripts</span> <span class="pre">version:</span></code>
@@ -194,7 +194,7 @@ Trust me, it’s a big deal.</p>
 </div>
 <div class="section" id="show-me-a-page">
 <h2>Show Me a Page<a class="headerlink" href="#show-me-a-page" title="Permalink to this headline">¶</a></h2>
-<p>Let’s see this React+TypeScript page in our browser. npm run scripts make
+<p>Let’s see this React+TypeScript page in our browser. npm scripts make
 it easy to discover commands that are common to a project. The most common?
 Starting the dev server, which compiles the universe, serves a page over
 HTTP, and helpfully opens your browser:</p>
@@ -221,7 +221,7 @@ green play icon in the gutter by the run scripts:</p>
 <h2>Production Build<a class="headerlink" href="#production-build" title="Permalink to this headline">¶</a></h2>
 <p>That’s great for development, but for production, we need files on disk,
 shrunk as small as possible. There’s a lot of complexity behind this, but
-<a class="reference internal" href="../../../technologies/cra.html" title="create-react-app"><em>create-react-app</em></a> has hidden it behind an npm run script:</p>
+<a class="reference internal" href="../../../technologies/cra.html" title="create-react-app"><em>create-react-app</em></a> has hidden it behind an npm script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm run-script build
 </pre></div>
 </div>
@@ -245,7 +245,7 @@ but for now, let’s run the tests. Unsurprisingly, it’s similar to the above:
 </div>
 <p>This uses the <a class="reference internal" href="../../../technologies/jest.html" title="Jest"><em>Jest</em></a> test runner. At the time of this writing,
 there’s an issue with test running when the project isn’t under version
-control. Let’s fix that by changing the npm run script. Edit <code class="docutils literal notranslate"><span class="pre">package.json</span></code>
+control. Let’s fix that by changing the npm script. Edit <code class="docutils literal notranslate"><span class="pre">package.json</span></code>
 and change the <code class="docutils literal notranslate"><span class="pre">test</span></code> script to:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;test&quot;</span>: <span class="s2">&quot;react-scripts-ts test --env=jsdom --watchAll&quot;</span>,
 </pre></div>
@@ -266,7 +266,7 @@ see this in action, open <code class="docutils literal notranslate"><span class=
 </div>
 <p>When you save this, the test runner output tells you about the test failure.
 Change the <code class="docutils literal notranslate"><span class="pre">2</span></code> to a <code class="docutils literal notranslate"><span class="pre">1</span></code> and save, and the tests pass.</p>
-<p>As with the other run scripts, you can double-click to run the npm run scripts
+<p>As with the other run scripts, you can double-click to run the npm scripts
 in an IDE tool window in PyCharm Professional. But that’s the less-interesting
 way to do it. We’ll show in <a class="reference internal" href="../testing/index.html"><span class="doc">Unit Testing with Jest and Enzyme</span></a> the more-PyCharmic way.</p>
 <a class="reference internal image-reference" href="../../../_images/testing.png"><img alt="Running the npm test script while editing a test" src="../../../_images/testing.png" style="width: 800px;" /></a>
