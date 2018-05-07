@@ -29,6 +29,12 @@ In this tutorial step we start the process of test driven development. After
 this step, we'll develop first in our Jest tests. Then, only at the end, we
 will look at the app in the browser.
 
+Code
+====
+
+The finished code for this tutorial step is
+`on GitHub <https://github.com/pauleveritt/pycharm_companion/tree/master/docs/tutorials/react_typescript/testing>`_.
+
 Pretty Jest
 ===========
 
