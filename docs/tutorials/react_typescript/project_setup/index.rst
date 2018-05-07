@@ -2,6 +2,10 @@
     published: 2018-02-25 12:00
     excerpt: Use PyCharm to create and open the project with all dependencies,
         then see some of the IDE features in action.
+    full_movie:
+        name: v1
+        src: https://www.youtube.com/embed/9MYw8N5Vn14
+        width: 800
     is_pro: True
     duration: 2m34s
     references:
