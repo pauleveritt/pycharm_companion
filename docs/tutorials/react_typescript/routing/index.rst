@@ -75,6 +75,7 @@ following starting point to ``Home.tsx``:
 
     export default Home;
 
+
 Route Definitions
 =================
 
