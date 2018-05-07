@@ -77,7 +77,6 @@ the keys and the values:
     :width: 779px
     :alt: Autocomplete in JSON files with known grammars
 
-
 In fact, it will generate warnings if you do
 something wrong, such as put a number where a string was expected.
 

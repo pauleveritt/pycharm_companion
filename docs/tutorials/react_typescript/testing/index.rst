@@ -1,6 +1,10 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 2m04s
+    full_movie:
+        name: v1
+        src: https://www.youtube.com/embed/BpyR07t4BfY
+        width: 800
     excerpt: The Jest test runner integrates productively into PyCharm. Let's
         put it to work to adopt a test-first approach, including Enzyme for
         testing convenience.
@@ -39,6 +43,10 @@ you need to supply is ``Jest options:``. For that, enter
 ``--env=jsdom --watchAll``. This tells Jest to re-run tests when files change
 and to use the :ref:`technology-jsdom` package as a fake browser.
 
+.. image:: screenshots/run_config.png
+    :width: 856px
+    :alt: Custom run configuration type for Jest
+
 Save that run configuration and run it. Our tests now run in a nice tool
 window which will make test-driven development (TDD) much more productive.
 
@@ -66,6 +74,10 @@ tests fail, and the IDE's tool window presents the test results in a very
 convenient manner. For example, you can jump directly to the line of the
 failing test.
 
+.. image:: screenshots/failed_test.png
+    :width: 868px
+    :alt: Jest tool window shows which tests fail
+
 Fix the test by changing ``expected`` to ``1`` then save. The Jest watcher
 spots the change, re-runs the test very quickly, and shows that all tests
 pass.
@@ -82,6 +94,10 @@ First, let's get our code and our tests side-by-side. Press ``Ctrl-Alt-A`` and
 type in ``Split Vertically``. This gives us a left and right side editor. On
 the left, open ``App.tsx``. We can now see ``class App`` alongside our tests.
 If you need more room, close the Project tool window.
+
+.. image:: screenshots/side_by_side.png
+    :width: 850px
+    :alt: Component and test side-by-side
 
 We often want to jump between our code and our test. The IDE makes this
 easy. ``Cmd-Shift-T`` moves the cursor between code and test.
