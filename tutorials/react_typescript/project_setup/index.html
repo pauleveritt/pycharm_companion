@@ -129,6 +129,13 @@
                 <div class="subtitle is-4">Use PyCharm to create and open the project with all dependencies, then see some of the IDE features in action.</div>
 
                 
+                    <iframe
+                            width="800"
+                            height="360"
+                            src="https://www.youtube.com/embed/9MYw8N5Vn14"
+                            frameborder="0"
+                            allowfullscreen="True"></iframe>
+                
 
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="project-setup">
 <h1>Project Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h1>
@@ -177,7 +184,8 @@ note, the first command will take a while.</p>
 <p>If you’re in PyCharm Professional, there’s UI integration for this. Create
 a new project, select <code class="docutils literal notranslate"><span class="pre">React</span> <span class="pre">App</span></code> as the project type, and make sure
 to expand <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">Settings</span></code>. There you can supply <code class="docutils literal notranslate"><span class="pre">Scripts</span> <span class="pre">version:</span></code>
-as <code class="docutils literal notranslate"><span class="pre">react-scripts-ts</span></code>.</p>
+as <code class="docutils literal notranslate"><span class="pre">react-scripts-ts</span></code>:</p>
+<a class="reference internal image-reference" href="../../../_images/creating.png"><img alt="Creating a React+TypeScript project" src="../../../_images/creating.png" style="width: 800px;" /></a>
 <p>You now have a working React+TypeScript project, toolchain, and hello-world
 style app. It’s actually quite an achievement. Assembling all of this, and
 <em>keeping</em> it assembled, is an incredible effort. The <code class="docutils literal notranslate"><span class="pre">create-react-app</span></code>
@@ -206,7 +214,8 @@ save. Your terminal shows a recompile and your browser updates.</p>
 (usually on the left) and double click <code class="docutils literal notranslate"><span class="pre">start</span></code> in the listing of run
 scripts. You’ll get a run window at the bottom with a nice UI for showing
 output and restarting. Alternatively, open <code class="docutils literal notranslate"><span class="pre">package.json</span></code> and click the
-green play icon in the gutter by the run scripts.</p>
+green play icon in the gutter by the run scripts:</p>
+<a class="reference internal image-reference" href="../../../_images/starting.png"><img alt="Running the npm start script" src="../../../_images/starting.png" style="width: 800px;" /></a>
 </div>
 <div class="section" id="production-build">
 <h2>Production Build<a class="headerlink" href="#production-build" title="Permalink to this headline">¶</a></h2>
@@ -223,7 +232,8 @@ static hosting site as-is.</p>
 npm tool window. As an optimization, right-click on the new <code class="docutils literal notranslate"><span class="pre">build</span></code>
 directory and <code class="docutils literal notranslate"><span class="pre">Mark</span> <span class="pre">Directory</span> <span class="pre">As</span> <span class="pre">|</span> <span class="pre">Excluded</span></code>. This prevents the IDE from
 indexing the contents of that directory, which you don’t need during
-development.</p>
+development:</p>
+<a class="reference internal image-reference" href="../../../_images/building.png"><img alt="Generating a production build" src="../../../_images/building.png" style="width: 800px;" /></a>
 </div>
 <div class="section" id="this-is-only-a-test">
 <h2>This Is Only a Test<a class="headerlink" href="#this-is-only-a-test" title="Permalink to this headline">¶</a></h2>
@@ -259,191 +269,20 @@ Change the <code class="docutils literal notranslate"><span class="pre">2</span>
 <p>As with the other run scripts, you can double-click to run the npm run scripts
 in an IDE tool window in PyCharm Professional. But that’s the less-interesting
 way to do it. We’ll show in <a class="reference internal" href="../testing/index.html"><span class="doc">Unit Testing with Jest and Enzyme</span></a> the more-PyCharmic way.</p>
+<a class="reference internal image-reference" href="../../../_images/testing.png"><img alt="Running the npm test script while editing a test" src="../../../_images/testing.png" style="width: 800px;" /></a>
 </div>
-<div class="section" id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>create-react-app and wmonk</li>
-</ul>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In this first step we used existing tools to generate a working
+React+TypeScript project, with all the tooling configured. We also gave a
+brief tour of driving this in the IDE.</p>
+<p>In our next step we’ll clean up some of the generated app, fix some of the
+tooling, and take a look a little more at how TypeScript with a smart IDE
+helps your productivity.</p>
 </div>
 </div>
 </div>
 
-                
-                
-                    <section class="section kbb-listing">
-                        <h2 class="title kbb-listing-heading">This Series</h2>
-                        
-                            
-                            <div class="kbb-listing-item kbb-listing-active">
-                                <div class="kb-listing-title">
-                                    <a href="#">Project Setup</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Use PyCharm to create and open the project with all dependencies, then see some of the IDE features in action.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../project_cleanup/index.html">Project Cleanup</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Clean out some unneeded code from the default app, tweak some configuration in the IDE, and tour a few more features.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../styling/index.html">Styling with TSLint</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Use the TypeScript linter TSLint to manage styling within the IDE, plus helpful hints about limitations.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../testing/index.html">Unit Testing with Jest and Enzyme</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        The Jest test runner integrates productively into PyCharm. Let's put it to work to adopt a test-first approach, including Enzyme for testing convenience.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../nodejs_debugging/index.html">Debugging During Testing With NodeJS</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE under the NodeJS debugger.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../chrome_debugging/index.html">Debugging JSX With Chrome</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Sometimes you need to debug in the browser, such as for JSX rendering and events. Use the IDE to remote control Chrome during debugging.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../jsx_es6/index.html">JSX and ES6</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Using React and TypeScript means good JSX and ES6 support in the IDE. This section shows some useful features from both.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../functional_components/index.html">Functional React Components in TypeScript</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        React builds UIs as a tree of components. See how to make stateless functional component correctly with TypeScript.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../props/index.html">Sharing Component Props Using Type Information</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Use type information to make using properties into a productive workflow.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../class_props/index.html">Class Components With Props</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Make a simple class component with a single prop, again with a TypeScript interface describing the props.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../class_state/index.html">Model Class State With TypeScript Interfaces</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Add event more handling to a stateful class component by writing tests during development.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../presentation_components/index.html">Presentation and Container Components</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Follow the React pattern of container/presentation components by refactoring the code and tests.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../routing/index.html">TypeScript and Routing With Testing</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        React single-page applications use client-side routing. Doing that with TypeScript has been a moving target. Let's show a working example.
-                                    </div>
-                                
-                            </div>
-                        
-                    </section>
-                
             </div>
 
             <div class="column is-3">
