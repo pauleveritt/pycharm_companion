@@ -132,40 +132,80 @@
 
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="typescript-and-routing-with-testing">
 <h1>TypeScript and Routing With Testing<a class="headerlink" href="#typescript-and-routing-with-testing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Project Setup</li>
-</ul>
+<p>Single-page apps traditionally have multiple views, using information in the
+URL to switch between “routes”. React doesn’t have routing in the core, but
+<code class="docutils literal notranslate"><span class="pre">react-router</span></code> has become the de facto routing solution.</p>
+<p>As with other things, React and <code class="docutils literal notranslate"><span class="pre">react-router</span> <span class="pre">work</span></code> well together, but mix in
+TypeScript, and things get hard to follow. In this step we introduce routing,
+breaking our app into two views. Along the way we’ll sort through what
+TypeScript means for <code class="docutils literal notranslate"><span class="pre">react-router</span></code>.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>We need to install some software. <code class="docutils literal notranslate"><span class="pre">react-router</span></code> doesn’t ship with
+typings so we need to install both the software and the type definitions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install -S react-router-dom <span class="nb">history</span>
+<span class="c1"># npm install -D @types/react-router-dom @types/history</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="home-page-component">
+<h2>Home Page Component<a class="headerlink" href="#home-page-component" title="Permalink to this headline">¶</a></h2>
+<p>Our app will have two pages/views in it: a home page and a counter page.
+Each of these are components (and we alread have in <code class="docutils literal notranslate"><span class="pre">Counter.tsx</span></code>.) These
+will be “wrapped” in the root component, which is <code class="docutils literal notranslate"><span class="pre">&lt;App/&gt;</span></code>.</p>
+<p>The test and component will be very simple for now. Later we’ll extract
+<code class="docutils literal notranslate"><span class="pre">shoe_size</span></code> from URL information. Let’s start with a test in
+<code class="docutils literal notranslate"><span class="pre">Home.test.tsx</span></code>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">shallow</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;enzyme&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;./Home&#39;</span><span class="p">;</span>
+
+<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should render a home page&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Home</span><span class="o">/&gt;</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Home Page&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Obviously this fails, as we haven’t created the implementation. Add the
+following starting point to <code class="docutils literal notranslate"><span class="pre">Home.tsx</span></code>:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">Home</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="nx">Home</span> <span class="nx">Page</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Home</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="route-definitions">
+<h2>Route Definitions<a class="headerlink" href="#route-definitions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s define our routes. In a nutshell, we are going to setup the router,
+then create some components which define a URL pattern and a component to
+grab when that pattern is matched.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>, the router first needs an object that manages the URL history:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">h</span> <span class="o">=</span> <span class="nx">createBrowserHistory</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Note that, as we start to type <code class="docutils literal notranslate"><span class="pre">createBrowserHistory</span></code>, the autocomplete
+finds it. If we accept the suggestion, the import will be generated. If you
+did cut-and-paste, click on it and use <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> to quick-fix the import.</p>
+<p>We now need the <code class="docutils literal notranslate"><span class="pre">&lt;App/&gt;</span></code> component to setup the routes. This is done in
+JSX treating routes, and the router itself, as components:</p>
+<p>When you type that end, let autocomplete generate the imports for <code class="docutils literal notranslate"><span class="pre">Router</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Switch</span></code>, and <code class="docutils literal notranslate"><span class="pre">Route</span></code>. Alternatively, type in this import statement:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Route</span><span class="p">,</span> <span class="nx">Router</span><span class="p">,</span> <span class="nx">Switch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="steps">
 <h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">npm install -S react-router-dom history -D &#64;types/react-router-dom &#64;types/history</p>
-</li>
-<li><p class="first">Let’s use a smaller starting point:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Delete Counter.tsx and Counter.test.tsx</li>
-<li>Delete Hello.tsx and Hello.test.tsx</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Simplify App.tsx down to:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-
-<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">Hello</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
-</pre></div>
-</div>
-</li>
 <li><p class="first">Each “page” is a component. Let’s make a couple of “stateless functional
 components” (SFCs) for each page:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Home</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
@@ -299,6 +339,10 @@ interface as a contract for the data in the match:</p>
 </div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/testing.md">https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/testing.md</a></li>
+<li><a class="reference external" href="https://medium.com/&#64;antonybudianto/react-router-testing-with-jest-and-enzyme-17294fefd303">https://medium.com/&#64;antonybudianto/react-router-testing-with-jest-and-enzyme-17294fefd303</a></li>
+</ul>
 </div>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
@@ -442,18 +486,6 @@ interface as a contract for the data in the match:</p>
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -703,19 +735,8 @@ interface as a contract for the data in the match:</p>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -726,7 +747,7 @@ interface as a contract for the data in the match:</p>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -737,7 +758,7 @@ interface as a contract for the data in the match:</p>
             
             <li class="steps-segment">
             <span href="#"
-                  class="steps-marker is-info">15</span>
+                  class="steps-marker is-info">14</span>
                 <div class="steps-content">
                     <a href="#">TypeScript and Routing With Testing</a>
                 </div>

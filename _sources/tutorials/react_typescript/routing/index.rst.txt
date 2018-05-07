@@ -1,7 +1,9 @@
 .. tutorialstep::
     published: 2018-02-26 12:00
     duration: 4m26s
-    excerpt: React single-page applications use client-side routing. Doing that with TypeScript has been a moving target. Let's show a working example.
+    excerpt: React single-page applications use client-side routing. Doing
+        that with TypeScript has been a moving target. Let's show a working
+        example.
     is_pro: True
     references:
         author:
@@ -13,37 +15,99 @@
 TypeScript and Routing With Testing
 ===================================
 
-Prerequisites
-=============
+Single-page apps traditionally have multiple views, using information in the
+URL to switch between "routes". React doesn't have routing in the core, but
+``react-router`` has become the de facto routing solution.
 
-- Project Setup
+As with other things, React and ``react-router work`` well together, but mix in
+TypeScript, and things get hard to follow. In this step we introduce routing,
+breaking our app into two views. Along the way we'll sort through what
+TypeScript means for ``react-router``.
 
-Steps
+Setup
 =====
 
-#. npm install -S react-router-dom history -D @types/react-router-dom @types/history
+We need to install some software. ``react-router`` doesn't ship with
+typings so we need to install both the software and the type definitions:
 
-#. Let's use a smaller starting point:
+.. code-block:: bash
 
-    - Delete Counter.tsx and Counter.test.tsx
+    $ npm install -S react-router-dom history
+    # npm install -D @types/react-router-dom @types/history
 
-    - Delete Hello.tsx and Hello.test.tsx
+Home Page Component
+===================
 
-#. Simplify App.tsx down to:
+Our app will have two pages/views in it: a home page and a counter page.
+Each of these are components (and we alread have in ``Counter.tsx``.) These
+will be "wrapped" in the root component, which is ``<App/>``.
 
-   .. code-block:: jsx
+The test and component will be very simple for now. Later we'll extract
+``shoe_size`` from URL information. Let's start with a test in
+``Home.test.tsx``:
+
+.. code-block:: typescript
+
+    import { shallow } from 'enzyme';
+    import * as React from 'react';
+    import Home from './Home';
+
+    it('should render a home page', () => {
+        const wrapper = shallow(<Home/>);
+        expect(wrapper.find('h1').text())
+            .toBe('Home Page');
+    });
+
+Obviously this fails, as we haven't created the implementation. Add the
+following starting point to ``Home.tsx``:
+
+.. code-block:: jsx
 
     import * as React from 'react';
 
-    class App extends React.Component {
-        render() {
-            return (
-                <div>Hello</div>
-            );
-        }
+    const Home: React.SFC = () => {
+        return (
+            <div>
+                <h2>Home Page</h2>
+            </div>
+        )
     }
 
-    export default App;
+    export default Home;
+
+
+Route Definitions
+=================
+
+Let's define our routes. In a nutshell, we are going to setup the router,
+then create some components which define a URL pattern and a component to
+grab when that pattern is matched.
+
+In ``App.tsx``, the router first needs an object that manages the URL history:
+
+.. code-block:: typescript
+
+    const h = createBrowserHistory();
+
+Note that, as we start to type ``createBrowserHistory``, the autocomplete
+finds it. If we accept the suggestion, the import will be generated. If you
+did cut-and-paste, click on it and use ``Alt-Enter`` to quick-fix the import.
+
+We now need the ``<App/>`` component to setup the routes. This is done in
+JSX treating routes, and the router itself, as components:
+
+
+When you type that end, let autocomplete generate the imports for ``Router``,
+``Switch``, and ``Route``. Alternatively, type in this import statement:
+
+.. code-block:: typescript
+
+    import { Route, Router, Switch } from 'react-router';
+
+
+
+Steps
+=====
 
 #. Each "page" is a component. Let's make a couple of "stateless functional
    components" (SFCs) for each page:
@@ -193,6 +257,10 @@ What Happened
 
 See Also
 ========
+
+- https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/testing.md
+
+- https://medium.com/@antonybudianto/react-router-testing-with-jest-and-enzyme-17294fefd303
 
 TODO
 ====

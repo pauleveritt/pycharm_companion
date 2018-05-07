@@ -147,8 +147,8 @@ side-by-side, with the Jest run configuration running.</p>
 <p>We’re going to change the <code class="docutils literal notranslate"><span class="pre">Heading</span></code> component to accept the name of the
 recipient to say hello to. This value will come in as a prop. For example,
 <code class="docutils literal notranslate"><span class="pre">&lt;Heading</span> <span class="pre">recipient={'World'}/&gt;</span></code>.</p>
-<p>As usual, let’s start in our tests. Change our wrapper construction to the
-following:</p>
+<p>As usual, let’s start in our tests. In <code class="docutils literal notranslate"><span class="pre">Heading.test.tsx</span></code>, change our wrapper
+construction to the following:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Heading</span> <span class="nx">recipient</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;World&#39;</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -158,7 +158,7 @@ following:</p>
 </pre></div>
 </div>
 <p>Our test provided an object <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">recipient:</span> <span class="pre">string;</span> <span class="pre">}</span></code> as props but the
-component’s TypeScript definition didn’t accept that. Let’s change it to
+component’s TypeScript definition didn’t accept that. Let’s change the props to
 allow <code class="docutils literal notranslate"><span class="pre">recipient</span></code> as a string. In <code class="docutils literal notranslate"><span class="pre">Heading.tsx</span></code>:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Heading</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span><span class="o">&lt;</span><span class="p">{</span><span class="nx">recipient</span><span class="o">:</span> <span class="nx">string</span><span class="p">}</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="nx">React</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
 </pre></div>
@@ -170,7 +170,7 @@ for our props inline and the error went away: TypeScript now knows that a
 <p>Doing type information inline is clunky. Let’s use a TypeScript interface
 to define our type information:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">IHeadingProps</span> <span class="p">{</span>
-    <span class="nx">recipient</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">recipient</span><span class="o">:</span> <span class="nx">string</span>
 <span class="p">}</span>
 
 <span class="kr">const</span> <span class="nx">Heading</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span><span class="p">&lt;</span><span class="nt">IHeadingProps</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="nx">React</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
@@ -178,8 +178,7 @@ to define our type information:</p>
 </div>
 <p>One useful tip: the IDE can do the extraction for you. Put the cursor in the
 the <code class="docutils literal notranslate"><span class="pre">{recipient:</span> <span class="pre">string}</span></code> object and do <code class="docutils literal notranslate"><span class="pre">Ctrl-T</span> <span class="pre">|</span> <span class="pre">Interface</span></code> then type
-in the name (though it fails to generate a mandatory semicolon at the end of
-the field.)</p>
+in the name.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The React TypeScript community has gone back and forth on <code class="docutils literal notranslate"><span class="pre">I</span></code>
@@ -189,7 +188,8 @@ with an <code class="docutils literal notranslate"><span class="pre">I</span></c
 </div>
 <p>Our component isn’t using this prop. The most obvious solution: grab the
 <code class="docutils literal notranslate"><span class="pre">props</span></code>:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Heading</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span><span class="p">&lt;</span><span class="nt">IHeadingProps</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">recipient</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Heading</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span><span class="p">&lt;</span><span class="nt">IHeadingProps</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">recipient</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
 </pre></div>
 </div>
 <p>Good news, our tests fail, as expected! Let’s fix just the test in
@@ -212,9 +212,9 @@ possible completions. This is from the TypeScript interface on the props.</p>
 </div>
 <div class="section" id="default-prop">
 <h2>Default Prop<a class="headerlink" href="#default-prop" title="Permalink to this headline">¶</a></h2>
-<p>We can shut up the the other tests by having a default recipient. We’ll use
-ES6 object destructuring’s syntax for setting a value when the destructured
-object doesn’t have that key:</p>
+<p>We can shut up the the <code class="docutils literal notranslate"><span class="pre">App.test.tsx</span></code> tests by having a default recipient.
+We’ll use ES6 object destructuring’s syntax for setting a value when the
+destructured object doesn’t have that key:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Heading</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span><span class="p">&lt;</span><span class="nt">IHeadingProps</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">({</span><span class="nx">recipient</span> <span class="o">=</span> <span class="s1">&#39;React&#39;</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="p">{</span><span class="nx">recipient</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
 <span class="p">}</span>
@@ -230,7 +230,7 @@ TypeScript isn’t happy about <code class="docutils literal notranslate"><span 
 that and lets you mark an interface field as optional using a question mark.
 Back in <code class="docutils literal notranslate"><span class="pre">Heading.tsx</span></code>:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">IHeadingProps</span> <span class="p">{</span>
-    <span class="nx">recipient?</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">recipient?</span>: <span class="kt">string</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -238,7 +238,8 @@ Back in <code class="docutils literal notranslate"><span class="pre">Heading.tsx
 the default value. Let’s add this to <code class="docutils literal notranslate"><span class="pre">Heading.test.tsx</span></code>:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders the default heading&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Heading</span><span class="o">/&gt;</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
@@ -247,7 +248,7 @@ default, and an enforceable contract saying it must be a string. We did all
 of this with simple idioms from TypeScript and ES6.</p>
 <p>And guess what? We never looked at the browser. If you’d like, first up the
 <code class="docutils literal notranslate"><span class="pre">start</span></code> run configuration and take a look at the browser to confirm it’s
-still working.</p>
+still working. Make sure to turn off <code class="docutils literal notranslate"><span class="pre">start</span></code> when done.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The use of SFCs is encouraged, especially for leaf nodes with no
@@ -398,18 +399,6 @@ render, which might be 60 times per second.</p>
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -659,19 +648,8 @@ render, which might be 60 times per second.</p>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -682,7 +660,7 @@ render, which might be 60 times per second.</p>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -693,7 +671,7 @@ render, which might be 60 times per second.</p>
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

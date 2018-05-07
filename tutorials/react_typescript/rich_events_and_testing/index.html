@@ -153,7 +153,8 @@ addition to our flow of test writing, but once mastered, it’s easy and useful.
 <div class="section" id="first-failing-test">
 <h2>First Failing Test<a class="headerlink" href="#first-failing-test" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start with a failing test that clicks on the div and checks if the
-number is updated. Clone the first test and change it as follows:</p>
+number is updated. In <code class="docutils literal notranslate"><span class="pre">Counter.test.tsx</span></code>, clone the first test and change
+it as follows:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment the count by one&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span><span class="o">/&gt;</span><span class="p">);</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
@@ -165,7 +166,7 @@ number is updated. Clone the first test and change it as follows:</p>
 </pre></div>
 </div>
 <p>This test makes a component instance, checks its initial value, pretends to
-click, then checks the final value.</p>
+click using <code class="docutils literal notranslate"><span class="pre">simulate</span></code>, then checks the final value.</p>
 <p>It fails. Which is good!</p>
 <img alt="../../../_images/screen1.png" src="../../../_images/screen1.png" />
 <p>What’s really good: that was dead simple. In one line we automated doing a
@@ -177,198 +178,121 @@ without breaking the universe.</p>
 <h2><code class="docutils literal notranslate"><span class="pre">onClick</span></code> Handler<a class="headerlink" href="#onclick-handler" title="Permalink to this headline">¶</a></h2>
 <p>The component doesn’t handle clicks. Let’s head to <code class="docutils literal notranslate"><span class="pre">Counter.tsx</span></code> and add
 a click handler:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>&lt;div
-    className=&quot;counter&quot;
-    onClick={() =&gt; this.setState({count: this.state.count + 1})}&gt;
-    &lt;label&gt;{this.props.label}&lt;/label&gt;
-    &lt;span&gt;{this.state.count}&lt;/span&gt;
-&lt;/div&gt;
-</pre></div>
-</div>
-<p>That doesn’t work, for the reasons discussed in
-<a class="reference internal" href="../jsx_es6/index.html#bossy-tslint"><span class="std std-ref">the bossy TSLint explanation</span></a>.</p>
-</div>
-<div class="section" id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">Add an onClick handler to the div, one attribute per line to keep tslint
-happy:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span>
     <span class="n">className</span><span class="o">=</span><span class="s2">&quot;counter&quot;</span>
     <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">({</span><span class="n">count</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">})}</span>
 <span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">count</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">The test should now pass. Let’s move the logic out of the onClick handler.
-Add a method:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">increment() {</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">count</span>: <span class="kt">this.state.count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">};</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Then change the click handler:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">increment</span><span class="p">()}</span>
-</pre></div>
-</div>
-<p>Confirm that the tests still pass.</p>
-</li>
-<li><p class="first">Counters should allow an optional starting value passed in as a prop.
-Let’s first write a test that fails:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should allow a starting value&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span> <span class="nx">starting</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">/&gt;</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-</div>
-<p>TypeScript tells us, even before the test runs, that we have an error.</p>
-</li>
-<li><p class="first">We can now add this as an optional prop:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">CounterProps</span> <span class="p">{</span>
-    <span class="nx">label?</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="nx">starting?</span>: <span class="kt">number</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">When saved, TypeScript still complains, but for a different reason. We
-passed in a string instead of a number. Fix our test:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span> <span class="nx">starting</span><span class="o">=</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Now the compiler is happy, but the test fails. We’re not assigning the
-property to the initial state. Let’s fix that, and along the way, set
-a default value for the property:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span>: <span class="kt">CounterProps</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">count</span>: <span class="kt">this.props.starting</span>
-    <span class="p">};</span>
+<p>That doesn’t work, for the reasons discussed in
+<a class="reference internal" href="../jsx_es6/index.html#bossy-tslint"><span class="std std-ref">the bossy TSLint explanation</span></a>. Instead, we’ll do the
+correction that section suggests: make a public method and refer to it in
+the handler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">({</span><span class="n">count</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">});</span>
 <span class="p">}</span>
 
-<span class="kr">static</span> <span class="nx">defaultProps</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Count&#39;</span><span class="p">,</span>
-    <span class="nx">starting</span>: <span class="kt">1</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">We’re closer, but we have a compiler error. We’ve said <code class="docutils literal notranslate"><span class="pre">starting</span></code> is
-optional, which means it could be <code class="docutils literal notranslate"><span class="pre">undefined</span></code>. That’s not allowed on
-<code class="docutils literal notranslate"><span class="pre">count</span></code>. Could fix it by doing the default a different way, but TS 2.7
-has “definite assignment assertion” with an exclamation:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">count</span>: <span class="kt">this.props.starting</span><span class="o">!</span>
-</pre></div>
-</div>
-<p>Now the tests pass.</p>
-</li>
-<li><p class="first">—- Do a split here</p>
-</li>
-<li><p class="first">Let’s add one more feature. If you click with the Shift key pressed, you
-increase by 10. The onClick arrow function actually gets an event passed,
-which we aren’t using. Let’s add it in:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onClick</span><span class="o">=</span><span class="p">{(</span><span class="n">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">event</span><span class="p">)}</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">TypeScript now tells us we have an error. <code class="docutils literal notranslate"><span class="pre">increment</span></code> is receiving an
-argument it didn’t expect. Let’s add that, with the correct type:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">increment</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">React.MouseEvent</span><span class="o">&lt;</span><span class="nx">HTMLElement</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-</div>
-<p>Ugh, that’s a lot of keystrokes. Is it worth it? Let’s show why.</p>
-</li>
-<li><p class="first">In that method, let’s determine the value to increment by, first as a
-mistake:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">increment</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">React.MouseEvent</span><span class="o">&lt;</span><span class="nx">HTMLElement</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">inc</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">?</span> <span class="nx">event.shiftKey</span> : <span class="kt">1</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">count</span>: <span class="kt">this.state.count</span> <span class="o">+</span> <span class="nx">inc</span><span class="p">});</span>
+<span class="n">public</span> <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="n">div</span>
+            <span class="n">className</span><span class="o">=</span><span class="s2">&quot;counter&quot;</span>
+            <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">count</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">TypeScript told us that we were adding a boolean to a number. Let’s make
-the type of <code class="docutils literal notranslate"><span class="pre">inc</span></code> explicity, instead of inferred. Our first fix:</p>
+<p>With this in place, let’s now fix our test to expect starting at zero:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment the count by one&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span><span class="o">/&gt;</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+<span class="hll">            <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+</span>        <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter&#39;</span><span class="p">).</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+<span class="hll">            <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>Awesome, our tests now all pass.</p>
+</div>
+<div class="section" id="advance-by-ten-with-shift-click">
+<h2>Advance By Ten with Shift-Click<a class="headerlink" href="#advance-by-ten-with-shift-click" title="Permalink to this headline">¶</a></h2>
+<p>Let’s add one more feature: if you click with the Shift key pressed, you
+increase by 10. Along the way, let’s add more type information to better
+benefit from TypeScript.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">handleClick</span></code> arrow function actually gets an event passed, which
+we aren’t using. Let’s add it in:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">count</span>: <span class="kt">this.state.count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This works but TypeScript gives a compiler error. Our <code class="docutils literal notranslate"><span class="pre">tsconfig.json</span></code>
+disallows implicit <code class="docutils literal notranslate"><span class="pre">any</span></code>. That’s easy enough to solve:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span>: <span class="kt">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">count</span>: <span class="kt">this.state.count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>But that’s cheating. What type is that event? It’s a <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>. Let’s
+put the correct typing on the argument:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span>: <span class="kt">React.MouseEvent</span><span class="o">&lt;</span><span class="nx">HTMLElement</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">count</span>: <span class="kt">this.state.count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ugh, that’s a lot of keystrokes. Is it worth it? Let’s show why. First, in
+<code class="docutils literal notranslate"><span class="pre">handleClick</span></code>, let’s determine the value to increment by, first as a mistake:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span>: <span class="kt">React.MouseEvent</span><span class="o">&lt;</span><span class="nx">HTMLElement</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="hll">    <span class="kr">const</span> <span class="nx">inc</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">?</span> <span class="nx">event.shiftKey</span> : <span class="kt">1</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">count</span>: <span class="kt">this.state.count</span> <span class="o">+</span> <span class="nx">inc</span><span class="p">});</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>TypeScript told us that we were adding a boolean to a number. Let’s set
+the type of <code class="docutils literal notranslate"><span class="pre">inc</span></code> explicitly, instead of inferring it. Our first fix:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">inc</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">?</span> <span class="nx">event.shiftKey</span> : <span class="kt">1</span><span class="p">;</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">That’s closer. TypeScript now moves the error to the correct line. We
-see that we have to order wrong on the ternary…a frequent, maddening
+<p>That’s closer. TypeScript now moves the error to the correct line. We
+see that we have the order wrong on the ternary…a frequent, maddening
 error. Here’s the correct version:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">inc</span>: <span class="kt">number</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span> <span class="o">?</span> <span class="nx">10</span> : <span class="kt">1</span><span class="p">;</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">Our click-handler test now fails, though. It needs <code class="docutils literal notranslate"><span class="pre">shiftKey</span></code> in the
-event. Let’s fix that test, then clone to cover the with-shift case:</p>
+<p>Our click-handler test now fails, though. It needs a fake event object passed
+into <code class="docutils literal notranslate"><span class="pre">handleClick</span></code>, with <code class="docutils literal notranslate"><span class="pre">shiftKey</span></code> in the object. Let’s fix that test,
+then clone to cover the with-shift case:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment the count by one&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span><span class="o">/&gt;</span><span class="p">);</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="hll">    <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter&#39;</span><span class="p">).</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">shiftKey</span>: <span class="kt">false</span><span class="p">});</span>
+</span>    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
         <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
-    <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter&#39;</span><span class="p">).</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">shiftKey</span>: <span class="kt">false</span><span class="p">});</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should shift-click increment the count by ten&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span><span class="o">/&gt;</span><span class="p">);</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
-    <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter&#39;</span><span class="p">).</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">shiftKey</span>: <span class="kt">true</span><span class="p">});</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;11&#39;</span><span class="p">);</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="hll">    <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter&#39;</span><span class="p">).</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">shiftKey</span>: <span class="kt">true</span><span class="p">});</span>
+</span>    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">While this works well, it’s a shame to expose the <code class="docutils literal notranslate"><span class="pre">increment</span></code> method
-to mouse information. Let’s refactor to make the caller determine if
-shift is pressed. Change <code class="docutils literal notranslate"><span class="pre">increment</span></code> first:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>increment(isShift: boolean) {
-    const inc: number = isShift ? 10 : 1;
-    this.setState({count: this.state.count + inc});
-}
-</pre></div>
-</div>
-</li>
-<li><p class="first">Now make the <code class="docutils literal notranslate"><span class="pre">onClick</span></code> handler do the work:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{(</span><span class="n">event</span><span class="p">:</span> <span class="n">React</span><span class="o">.</span><span class="n">MouseEvent</span><span class="o">&lt;</span><span class="n">HTMLElement</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">shiftKey</span><span class="p">)}</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">In fact, with ES6 object destructuring, we can vastly simplify this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{({</span><span class="n">shiftKey</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">shiftKey</span><span class="p">)}</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">The tests still pass, do things still work in the browser? Click and
-shift-click to see.</p>
-</li>
-</ol>
-</div>
-<div class="section" id="what-happened">
-<h2>What Happened<a class="headerlink" href="#what-happened" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Why is the arrow function needed in the onClick handler?</li>
-<li>Easier to write tests with the final <code class="docutils literal notranslate"><span class="pre">increment</span></code>…though it requires
-component lifecycle management</li>
-</ul>
-</div>
-<div class="section" id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Definite assignment assertion in TypeScript 2.7 <a class="reference external" href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html</a></li>
-</ul>
-</div>
-<div class="section" id="todo">
-<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Add a mount-type test for event testing <a class="reference external" href="https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8">https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8</a></li>
-</ul>
+<p>Our tests pass. We have a test to handle the new shift-click implementation.
+Moreover, we have type information to help us when we pass in the wrong data,
+even from a test.</p>
+<p>As we have been doing, give this a try in the browser by firing up the
+<code class="docutils literal notranslate"><span class="pre">start</span></code> run configuration and clicking, then shift-clicking, in the browser.
+When done, terminate the <code class="docutils literal notranslate"><span class="pre">start</span></code> process.</p>
 </div>
 </div>
 </div>
@@ -511,18 +435,6 @@ component lifecycle management</li>
                             </div>
                         
                             
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
-                                    </div>
-                                
-                            </div>
-                        
-                            
                             <div class="kbb-listing-item kbb-listing-active">
                                 <div class="kb-listing-title">
                                     <a href="#">Rich Events and Testing</a>
@@ -600,8 +512,8 @@ component lifecycle management</li>
         Previous
     </p>
     <ul class="menu-list">
-        <a href="../modify_state/index.html"
-           title="previous chapter">Modify State With Events</a>
+        <a href="../class_state/index.html"
+           title="previous chapter">Model Class State With TypeScript Interfaces</a>
     </ul>
 
 
@@ -767,19 +679,8 @@ component lifecycle management</li>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="#"
-                  class="steps-marker is-info">13</span>
+                  class="steps-marker is-info">12</span>
                 <div class="steps-content">
                     <a href="#">Rich Events and Testing</a>
                 </div>
@@ -790,7 +691,7 @@ component lifecycle management</li>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -801,7 +702,7 @@ component lifecycle management</li>
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

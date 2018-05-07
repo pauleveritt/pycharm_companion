@@ -165,7 +165,7 @@ and handlers, which will gradually add back in:</p>
 </div>
 <div class="section" id="tiny-heading-component">
 <h2>Tiny Heading Component<a class="headerlink" href="#tiny-heading-component" title="Permalink to this headline">¶</a></h2>
-<p>Our heading is more than just text on a screen. It has:</p>
+<p>Our heading was more than just text on a screen. It had:</p>
 <ul class="simple">
 <li>A dynamically-driven value</li>
 <li>An event handler</li>
@@ -177,7 +177,8 @@ refactoring in this step.</p>
 component:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders the heading&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Heading</span><span class="o">/&gt;</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
@@ -203,10 +204,13 @@ For that, let’s use Enzyme’s
 full rendering including children. Add a new test:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders the app and the heading&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">mount</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">mount</span></code> isn’t imported. Click on it, then use <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> to generate the
+import.</p>
 <p>We can now change our <code class="docutils literal notranslate"><span class="pre">App</span></code> component to use the <code class="docutils literal notranslate"><span class="pre">Heading</span></code> component:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
     <span class="kr">public</span> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
@@ -219,6 +223,8 @@ full rendering including children. Add a new test:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Our tests still run because the new child component emitted the same result
+as the previous inline <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>.</p>
 </div>
 <div class="section" id="single-responsibility-principle">
 <h2>Single Responsibility Principle<a class="headerlink" href="#single-responsibility-principle" title="Permalink to this headline">¶</a></h2>
@@ -250,9 +256,13 @@ default export, which is the current pattern for ES6 module structuring.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
+<p>Remember to use <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> to clean up missing imports, including the
+missing <code class="docutils literal notranslate"><span class="pre">React</span></code> import.</p>
 <p>Back in <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code> we have an error on <code class="docutils literal notranslate"><span class="pre">&lt;Heading/&gt;</span></code>. It’s no longer
 locally defined. We need to import it. Click on the symbol and use
 <code class="docutils literal notranslate"><span class="pre">Alt-Enter</span></code> to let the IDE generate the import for you.</p>
+<p>Finally, <code class="docutils literal notranslate"><span class="pre">App.test.tsx</span></code> had an unused – and broken – import of
+<code class="docutils literal notranslate"><span class="pre">Heading</span></code> from <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>. Let’s remove it.</p>
 <p>Our three tests across 2 test files pass again. We’ve successfully extracted
 our component.</p>
 </div>
@@ -263,8 +273,8 @@ that returns some JSX.</p>
 <p>But later it’s going to get complex: properties that get passed in, a block
 which has some logic, and more. TypeScript can help us formalize this
 child components relationship with its parent. For SFCs, React ships with a
-type that you can put on the component to say “this is a React SFC”. Let’s
-do so:</p>
+type that you can put on the component to say “this is a React SFC”.</p>
+<p>Let’s do so. Back in <code class="docutils literal notranslate"><span class="pre">Heading.tsx</span></code>:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Heading</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">SFC</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="nx">React</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
 </pre></div>
 </div>
@@ -413,18 +423,6 @@ We’ll add much more to this later, starting with the next section.</p>
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -674,19 +672,8 @@ We’ll add much more to this later, starting with the next section.</p>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -697,7 +684,7 @@ We’ll add much more to this later, starting with the next section.</p>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -708,7 +695,7 @@ We’ll add much more to this later, starting with the next section.</p>
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

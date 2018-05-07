@@ -147,6 +147,7 @@ component that has a count of clicks.</p>
 <p>This step, though, will be just the minimum: no actual clicking to update
 state, for example. We will stick to introducing component state and
 modeling it in TypeScript.</p>
+<p><a class="reference external" href="https://github.com/pauleveritt/pycharm_companion/tree/master/docs/tutorials/react_typescript/class_state">Code repository for this step</a></p>
 <div class="section" id="always-start-with-a-test">
 <h2>Always Start With a Test<a class="headerlink" href="#always-start-with-a-test" title="Permalink to this headline">¶</a></h2>
 <p>It’s becoming our pattern: we write a failing test first, then implement,
@@ -154,8 +155,8 @@ then wire into the parent. To begin, have <code class="docutils literal notransl
 tab and <code class="docutils literal notranslate"><span class="pre">Counter.test.tsx</span></code> in the right-hand tab. Also, stop the
 <code class="docutils literal notranslate"><span class="pre">start</span></code> process if it is running and make sure the <code class="docutils literal notranslate"><span class="pre">Jest</span></code> run config is
 running.</p>
-<p>Here’s a test to show that the counter starts at zero, which fails, because
-we have a static <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;1&lt;/span&gt;</span></code>:</p>
+<p>Here’s a <code class="docutils literal notranslate"><span class="pre">Counter.test.tsx</span></code> test to show that the counter starts at zero,
+which fails, because we have a static <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;1&lt;/span&gt;</span></code>:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should default start at zero&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span> <span class="nx">label</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Current&#39;</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
@@ -166,7 +167,7 @@ we have a static <code class="docutils literal notranslate"><span class="pre">&l
 <p>Over in <code class="docutils literal notranslate"><span class="pre">Counter.tsx</span></code>, let’s write our interface first. What does the
 local state look like? Pretty easy:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">ICounterState</span> <span class="p">{</span>
-    <span class="nx">count</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="nx">count</span>: <span class="kt">number</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -210,7 +211,8 @@ static methods</li>
 <div class="section" id="starting-value">
 <h2>Starting Value<a class="headerlink" href="#starting-value" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes we want a counter that starts somewhere besides zero. Let’s pass
-in an optional prop for the starting value. First, the test:</p>
+in an optional prop for the starting value. First, the test in
+<code class="docutils literal notranslate"><span class="pre">Counter.test.tsx</span></code>:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should custom start at another value&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span> <span class="nx">label</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Current&#39;</span><span class="p">}</span> <span class="nx">start</span><span class="o">=</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
@@ -222,8 +224,8 @@ in an optional prop for the starting value. First, the test:</p>
 violated the <code class="docutils literal notranslate"><span class="pre">&lt;Counter/&gt;</span></code> contract. We’ll fix the interface in
 <code class="docutils literal notranslate"><span class="pre">Counter.tsx</span></code>:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">ICounterProps</span> <span class="p">{</span>
-    <span class="nx">label?</span>: <span class="kt">string</span><span class="p">;</span>
-<span class="hll">    <span class="nx">start?</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="nx">label?</span>: <span class="kt">string</span>
+<span class="hll">    <span class="nx">start?</span>: <span class="kt">number</span>
 </span><span class="p">}</span>
 </pre></div>
 </div>
@@ -274,10 +276,13 @@ First up, we open <code class="docutils literal notranslate"><span class="pre">A
 initial counter value:</p>
 <div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders the app and the heading&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">mount</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter label&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Current&#39;</span><span class="p">);</span>
-<span class="hll">    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">);</span>
-</span><span class="p">});</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
+<span class="hll">    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter label&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+</span>        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Current&#39;</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.counter span&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 <p>What changes in <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>? In this case, nothing. We want to use the default
@@ -435,18 +440,6 @@ browser, so make sure everything still looks good. When done, terminate the
                             
                             <div class="kbb-listing-item">
                                 <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
                                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                                 </div>
                                 
@@ -532,8 +525,8 @@ browser, so make sure everything still looks good. When done, terminate the
         Next
     </p>
     <ul class="menu-list">
-        <a href="../modify_state/index.html"
-           title="next chapter">Modify State With Events</a>
+        <a href="../rich_events_and_testing/index.html"
+           title="next chapter">Rich Events and Testing</a>
     </ul>
 
 
@@ -697,19 +690,8 @@ browser, so make sure everything still looks good. When done, terminate the
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -720,7 +702,7 @@ browser, so make sure everything still looks good. When done, terminate the
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -731,7 +713,7 @@ browser, so make sure everything still looks good. When done, terminate the
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

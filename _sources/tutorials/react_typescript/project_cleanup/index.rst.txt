@@ -88,8 +88,8 @@ In PyCharm Professional you can quickly generate markup using
 :ref:`technology-emmet`. Highlight the markup to replace and enter
 ``div>h1<enter>Hello React``.
 
-We have a TypeScript compiler error. If we hover over it in the IDE, it
-shows::
+We have a TypeScript compiler error. If we hover over the red squiggly on
+line 4 in the IDE, it shows::
 
   Error:(4, 1) TS6133: 'logo' is declared but its value is never read.
 
@@ -115,6 +115,8 @@ While you're at it:
 
 In PyCharm, when you do a delete, you're actually doing a "Safe Delete", with
 the option to look for places in the project where you might have used it.
+Give it a try by starting the delete process on ``index.css``. The IDE will
+warn you.
 
 More IDE Goodies
 ================
@@ -153,52 +155,7 @@ Oh no, that's not what I wanted! Do I have to do another refactor? Nope. The
 IDE did all those operations in one editor transaction. Just use Undo and
 say ``Ok`` on the dialog.
 
-In Depth
-========
-
-- Point to pre-requisites: npm, webpack and dev server
-
-- The cra toolchain
-
 See Also
 ========
 
 - https://basarat.gitbooks.io/typescript/content/
-
-PyCharm Steps
-=============
-
-#. Terminate the npm run-script for test
-
-#. Terminate the ``test`` tool window and close ``App.test.tsx``.
-
-#. Open ``App.tsx``.
-
-#. Run ``Reformat Code``.
-
-#. Edit ``tsconfig.json``, ``Reformat Code``, and (autocomplete) to
-   add "baseUrl": "."
-
-#. Restart tool window and the startup error goes away.
-
-#. Edit App.tsx and Reformat Code.
-
-#. Use Emmet to replace <div> with div>h1<enter>Hello React
-
-#. Show TS error in tool window, unused import, show ``noUnusedLocals`` in tsconfig that
-   governs it
-
-#. Remove logo and delete ``logo.svg`` file
-
-#. Ditto for App.css
-
-#. Save
-
-#. Show not importing React in a file that has JSX, quick fix
-
-#. Navigation: Find Usages on App, go to index.tsx, then Cmd-B to jump back
-
-#. Refactor-Rename App.
-
-#. Undo to revert all the changes.
-

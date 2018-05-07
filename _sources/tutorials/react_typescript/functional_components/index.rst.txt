@@ -53,7 +53,7 @@ and handlers, which will gradually add back in:
 Tiny Heading Component
 ======================
 
-Our heading is more than just text on a screen. It has:
+Our heading was more than just text on a screen. It had:
 
 - A dynamically-driven value
 
@@ -70,7 +70,8 @@ component:
 
     it('renders the heading', () => {
         const wrapper = shallow(<Heading/>);
-        expect(wrapper.find('h1').text()).toBe('Hello React');
+        expect(wrapper.find('h1').text())
+            .toBe('Hello React');
     });
 
 Your test now fails, saying that the component doesn't exist. Let's write it.
@@ -103,8 +104,12 @@ full rendering including children. Add a new test:
 
     it('renders the app and the heading', () => {
         const wrapper = mount(<App/>);
-        expect(wrapper.find('h1').text()).toBe('Hello React');
+        expect(wrapper.find('h1').text())
+            .toBe('Hello React');
     });
+
+``mount`` isn't imported. Click on it, then use ``Alt-Enter`` to generate the
+import.
 
 We can now change our ``App`` component to use the ``Heading`` component:
 
@@ -119,6 +124,9 @@ We can now change our ``App`` component to use the ``Heading`` component:
             );
         }
     }
+
+Our tests still run because the new child component emitted the same result
+as the previous inline ``<h1>``.
 
 Single Responsibility Principle
 ===============================
@@ -157,9 +165,15 @@ Let's extract the ``renders the heading`` test into ``Heading.test.tsx``:
         expect(wrapper.find('h1').text()).toBe('Hello React');
     });
 
+Remember to use ``Alt-Enter`` to clean up missing imports, including the
+missing ``React`` import.
+
 Back in ``App.tsx`` we have an error on ``<Heading/>``. It's no longer
 locally defined. We need to import it. Click on the symbol and use
 ``Alt-Enter`` to let the IDE generate the import for you.
+
+Finally, ``App.test.tsx`` had an unused -- and broken -- import of
+``Heading`` from ``App.tsx``. Let's remove it.
 
 Our three tests across 2 test files pass again. We've successfully extracted
 our component.
@@ -173,8 +187,9 @@ that returns some JSX.
 But later it's going to get complex: properties that get passed in, a block
 which has some logic, and more. TypeScript can help us formalize this
 child components relationship with its parent. For SFCs, React ships with a
-type that you can put on the component to say "this is a React SFC". Let's
-do so:
+type that you can put on the component to say "this is a React SFC".
+
+Let's do so. Back in ``Heading.tsx``:
 
 .. code-block:: jsx
 

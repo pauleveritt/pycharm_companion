@@ -161,10 +161,9 @@ manage. But we can override them in this file.</p>
 to get to the <code class="docutils literal notranslate"><span class="pre">Languages</span> <span class="pre">|</span> <span class="pre">TypeScript</span> <span class="pre">|</span> <span class="pre">TSLint</span></code> preferences. If PyCharm
 detects the <code class="docutils literal notranslate"><span class="pre">tslint</span></code> package package in your project, it will use it,
 along with detecting a conf file.</p>
+<p>PyCharm will also hand over some (but not all) of its TypeScript style
+setting to TSLint.</p>
 <p><em>Not sure what’s going on with PyCharm, bleh.</em></p>
-</div>
-<div class="section" id="in-depth">
-<h2>In Depth<a class="headerlink" href="#in-depth" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -175,30 +174,14 @@ along with detecting a conf file.</p>
 </div>
 <div class="section" id="pycharm-steps">
 <h2>PyCharm Steps<a class="headerlink" href="#pycharm-steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">Start from Project Cleanup</p>
-</li>
-<li><p class="first">Open tslint.conf</p>
-</li>
-<li><p class="first">Preferences -&gt; tslint</p>
-</li>
-<li><p class="first">Notice that tslint.json itself has some warnings, fix them</p>
-<blockquote>
-<div><ul class="simple">
-<li>What caused this? cra-ts is behind on latest version of tslint (common in
-world of JS)</li>
-<li>Delete the member-ordering and show the import of rules at the top</li>
-<li>Emphasize <code class="docutils literal notranslate"><span class="pre">no-consecutive-blank-lines</span></code></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Back to App.tsx, show this in action…add 4 blank lines, show tslint
-error, Reformat Code, still an error…WebStorm reformats to 2</p>
-</li>
-<li><p class="first">Back to tslint.json, change to the variant [true, 1]</p>
-</li>
-<li><p class="first">Show adding blank lines, reformat, works</p>
-</li>
+<ol class="arabic simple">
+<li>Start from Project Cleanup</li>
+<li>Open tslint.conf</li>
+<li>Preferences -&gt; tslint</li>
+<li>Back to App.tsx, show this in action…add 4 blank lines, show tslint
+error, Reformat Code, still an error…WebStorm reformats to 2</li>
+<li>Back to tslint.json, change to the variant [true, 1]</li>
+<li>Show adding blank lines, reformat, works</li>
 </ol>
 <ul class="simple">
 <li>In App.tsx, quick-fix the import to be “react”, show error, save, see
@@ -346,18 +329,6 @@ webpack complain</li>
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -607,19 +578,8 @@ webpack complain</li>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -630,7 +590,7 @@ webpack complain</li>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -641,7 +601,7 @@ webpack complain</li>
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

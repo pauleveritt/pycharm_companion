@@ -70,6 +70,7 @@
 ./_sources/technologies/index.rst.txt
 ./_sources/technologies/ipython.rst.txt
 ./_sources/technologies/jest.rst.txt
+./_sources/technologies/jsdom.rst.txt
 ./_sources/technologies/nodejs.rst.txt
 ./_sources/technologies/postgresql.rst.txt
 ./_sources/technologies/react.rst.txt
@@ -109,7 +110,6 @@
 ./_sources/tutorials/react_typescript/functional_components/index.rst.txt
 ./_sources/tutorials/react_typescript/index.rst.txt
 ./_sources/tutorials/react_typescript/jsx_es6/index.rst.txt
-./_sources/tutorials/react_typescript/modify_state/index.rst.txt
 ./_sources/tutorials/react_typescript/nodejs_debugging/index.rst.txt
 ./_sources/tutorials/react_typescript/presentation_components/index.rst.txt
 ./_sources/tutorials/react_typescript/project_cleanup/index.rst.txt
@@ -195,6 +195,7 @@
 ./technologies/index.html
 ./technologies/ipython.html
 ./technologies/jest.html
+./technologies/jsdom.html
 ./technologies/nodejs.html
 ./technologies/postgresql.html
 ./technologies/react.html
@@ -243,7 +244,6 @@
 ./tutorials/react_typescript/functional_components/index.html
 ./tutorials/react_typescript/index.html
 ./tutorials/react_typescript/jsx_es6/index.html
-./tutorials/react_typescript/modify_state/index.html
 ./tutorials/react_typescript/nodejs_debugging/index.html
 ./tutorials/react_typescript/presentation_components/index.html
 ./tutorials/react_typescript/project_cleanup/index.html

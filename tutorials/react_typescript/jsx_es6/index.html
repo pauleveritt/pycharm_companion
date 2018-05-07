@@ -270,8 +270,9 @@ an alert.</p>
 </div>
 <div class="section" id="move-to-a-method">
 <h2>Move To a Method<a class="headerlink" href="#move-to-a-method" title="Permalink to this headline">¶</a></h2>
-<p>Inline handlers aren’t so smart, as they aren’t easily testable. Let’s move
-the handler to a component method:</p>
+<p>Inline handlers aren’t so smart, as they aren’t easily testable. Plus, bossy
+TSLint doesn’t like them (for performance reasons.) Let’s move the handler to
+a component method:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
     <span class="kr">public</span> <span class="nx">label</span> <span class="o">=</span> <span class="s1">&#39;Hello React&#39;</span>
 
@@ -289,15 +290,17 @@ the handler to a component method:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>We referenced <code class="docutils literal notranslate"><span class="pre">this.handleClick</span></code> but we didn’t call it. React will call it
+later, when we actually click.</p>
 <p>Clicking on the heading works well, so let’s remove the
 <code class="docutils literal notranslate"><span class="pre">&quot;jsx-no-lambda&quot;:</span> <span class="pre">false</span></code> rule from <code class="docutils literal notranslate"><span class="pre">tslint.conf</span></code> and restart the
 <code class="docutils literal notranslate"><span class="pre">start</span></code> script.</p>
 <p>Let’s have the alert display the label by changing it to
 <code class="docutils literal notranslate"><span class="pre">alert(this.label);</span></code>. Uh-oh. Clicking on the heading produces a mile-long
 traceback in the JavaScript console. The traceback mentions
-<code class="docutils literal notranslate"><span class="pre">HTMLUnknownElement</span></code>. And that’s the problem: the <code class="docutils literal notranslate"><span class="pre">this</span></code> in the method
-isn’t the component instance, it is event. This is a chronic problem in React
-programming, causing the <code class="docutils literal notranslate"><span class="pre">.bind</span></code> syntax.</p>
+<code class="docutils literal notranslate"><span class="pre">HTMLUnknownElement</span></code>. And that’s the problem: the <code class="docutils literal notranslate"><span class="pre">this</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">handleClick</span></code> method isn’t the component instance, it is event. This is a
+chronic problem in React programming, causing the <code class="docutils literal notranslate"><span class="pre">.bind</span></code> syntax.</p>
 <p>Arrow functions, though, get the correct <code class="docutils literal notranslate"><span class="pre">this</span></code>. We could change the handler
 to the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">label</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
@@ -356,16 +359,12 @@ to do the refactoring.</p>
 mind, <code class="docutils literal notranslate"><span class="pre">Undo</span></code> will find all the changes in all files and restore to the
 previous value.</p>
 </div>
-<div class="section" id="in-depth">
-<h2>In Depth<a class="headerlink" href="#in-depth" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="note-about-arrow-functions">
+<h2>Note About Arrow Functions<a class="headerlink" href="#note-about-arrow-functions" title="Permalink to this headline">¶</a></h2>
 <p>Arrow functions look great on classes but behind the scenes they don’t
 really do what you think. Purists have pointed out the flaws (mockability,
 subclassing, performance.) And yet, they remain a very popular solution to
 binding in React and similar systems.</p>
-<ol class="arabic simple">
-<li>Select the <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and type <code class="docutils literal notranslate"><span class="pre">(</span></code>. Presumes SmartQuote setting. Move the
-cursor and press Enter to put <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> on a new line.</li>
-</ol>
 </div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -511,18 +510,6 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -772,19 +759,8 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -795,7 +771,7 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -806,7 +782,7 @@ cursor and press Enter to put <code class="docutils literal notranslate"><span c
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

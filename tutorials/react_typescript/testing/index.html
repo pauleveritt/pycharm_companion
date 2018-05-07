@@ -132,11 +132,12 @@
 
                 <div id="kbb-sphinx-body" class="content"><div class="section" id="unit-testing-with-jest-and-enzyme">
 <h1>Unit Testing with Jest and Enzyme<a class="headerlink" href="#unit-testing-with-jest-and-enzyme" title="Permalink to this headline">¶</a></h1>
-<p>We saw in <a class="reference internal" href="../project_setup/index.html"><span class="doc">Project Setup</span></a> the test runner. We modified an
-existing test but didn’t dive into testing.</p>
+<p>We saw the <a class="reference internal" href="../../../technologies/jest.html" title="Jest"><em>Jest</em></a> test runner in
+<a class="reference internal" href="../project_setup/index.html"><span class="doc">Project Setup</span></a>. We modified an existing test but didn’t dive
+into testing.</p>
 <p>In this tutorial step we start the process of test driven development. After
-this step, we’ll develop first in our <a class="reference internal" href="../../../technologies/jest.html" title="Jest"><em>Jest</em></a>
-tests and only at the end, look at the browser.</p>
+this step, we’ll develop first in our Jest tests. Then, only at the end, we
+will look at the app in the browser.</p>
 <div class="section" id="pretty-jest">
 <h2>Pretty Jest<a class="headerlink" href="#pretty-jest" title="Permalink to this headline">¶</a></h2>
 <p>Previously we ran our Jest tests as a generic npm run script, in the IDE’s
@@ -146,8 +147,8 @@ switch to using that.</p>
 <p>Select <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">|</span> <span class="pre">Edit</span> <span class="pre">Configurations</span></code>, click <code class="docutils literal notranslate"><span class="pre">+</span></code>, and click on <code class="docutils literal notranslate"><span class="pre">Jest</span></code>.
 Supply a <code class="docutils literal notranslate"><span class="pre">Name:</span></code> of something like <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">tests</span></code>. The only real field
 you need to supply is <code class="docutils literal notranslate"><span class="pre">Jest</span> <span class="pre">options:</span></code>. For that, enter
-<code class="docutils literal notranslate"><span class="pre">--watchAll</span> <span class="pre">--env=jsdom</span></code>. This tells Jest to re-run tests when files change
-and to use the <code class="docutils literal notranslate"><span class="pre">jsdom</span></code> package as a fake browser.</p>
+<code class="docutils literal notranslate"><span class="pre">--env=jsdom</span> <span class="pre">--watchAll</span></code>. This tells Jest to re-run tests when files change
+and to use the <a class="reference internal" href="../../../technologies/jsdom.html" title="jsdom"><em>jsdom</em></a> package as a fake browser.</p>
 <p>Save that run configuration and run it. Our tests now run in a nice tool
 window which will make test-driven development (TDD) much more productive.</p>
 </div>
@@ -160,18 +161,19 @@ them with a simple Jest (actually, Jasmine) assertion:</p>
     <span class="kr">const</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
     <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span><span class="p">,</span> <span class="nx">div</span><span class="p">);</span>
     <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">unmountComponentAtNode</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
-    <span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">a</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="hll">    <span class="kr">const</span> <span class="nx">actual</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="hll">    <span class="kr">const</span> <span class="nx">expected</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class="hll">    <span class="nx">expect</span><span class="p">(</span><span class="nx">actual</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">expected</span><span class="p">);</span>
+</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>When you save this, Jest re-runs your tests, and does so quite fast. Our
 tests fail, and the IDE’s tool window presents the test results in a very
 convenient manner. For example, you can jump directly to the line of the
 failing test.</p>
-<p>Fix the test by changing <code class="docutils literal notranslate"><span class="pre">b</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> then save. The Jest watcher spots
-the change, re-runs the test, and shows that all tests pass.</p>
+<p>Fix the test by changing <code class="docutils literal notranslate"><span class="pre">expected</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> then save. The Jest watcher
+spots the change, re-runs the test very quickly, and shows that all tests
+pass.</p>
 </div>
 <div class="section" id="tdd-basics">
 <h2>TDD Basics<a class="headerlink" href="#tdd-basics" title="Permalink to this headline">¶</a></h2>
@@ -181,7 +183,8 @@ displaying messages. Let’s use a better flow. Let’s stay in the IDE and focu
 on our code, and observe our code through tests instead of a browser reload.</p>
 <p>First, let’s get our code and our tests side-by-side. Press <code class="docutils literal notranslate"><span class="pre">Ctrl-Alt-A</span></code> and
 type in <code class="docutils literal notranslate"><span class="pre">Split</span> <span class="pre">Vertically</span></code>. This gives us a left and right side editor. On
-the left, open <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>. We can now see <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">App</span></code> alongside our tests.</p>
+the left, open <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>. We can now see <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">App</span></code> alongside our tests.
+If you need more room, close the Project tool window.</p>
 <p>We often want to jump between our code and our test. The IDE makes this
 easy. <code class="docutils literal notranslate"><span class="pre">Cmd-Shift-T</span></code> moves the cursor between code and test.</p>
 </div>
@@ -230,31 +233,17 @@ it back and save, and the tests pass.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>TDD starts with a failing test. You then implement what you expect to pass.
-Change your <code class="docutils literal notranslate"><span class="pre">App</span></code> component in <code class="docutils literal notranslate"><span class="pre">src/App.tsx</span></code> to have this markup:</p>
+<p>Good news, it fails! TDD starts with a failing test. You then implement what
+you expect to pass. Change your <code class="docutils literal notranslate"><span class="pre">App</span></code> component in <code class="docutils literal notranslate"><span class="pre">src/App.tsx</span></code> to have
+this markup:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello React<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Nice TDD<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>When you save, the test passes. Not only that…you developed your component
+<p>When you save, the test passes. Not only that…you extended your component
 without looking at a browser.</p>
-</div>
-<div class="section" id="in-depth">
-<h2>In Depth<a class="headerlink" href="#in-depth" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Benefit of jsdom</li>
-<li>.tsx tests are actual TSX, you can define components and markup in your
-test</li>
-<li>What is happening on save (the whole build process of TS -&gt; babel)</li>
-<li>Explain the extra args</li>
-<li>What specifically does Enzyme add? When to use pure Jest vs. with Enzyme?</li>
-<li>There’s a pile of stuff hidden behind the scenes in cra scripts</li>
-<li>Why not the WS watch?</li>
-<li>Code coverage is not…covered</li>
-<li>Snapshot testing</li>
-</ul>
 </div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -267,68 +256,6 @@ test</li>
 <li><a class="reference external" href="https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8">https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8</a></li>
 <li><a class="reference external" href="https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter">https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter</a></li>
 </ul>
-</div>
-<div class="section" id="pycharm-steps">
-<h2>PyCharm Steps<a class="headerlink" href="#pycharm-steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">Make a Jest run config with the args</p>
-</li>
-<li><p class="first">Run tests, single, etc.</p>
-</li>
-<li><p class="first">Add to the code:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">a</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Reformat code, watch the re-run</p>
-</li>
-<li><p class="first">I wanted <code class="docutils literal notranslate"><span class="pre">e</span></code> (expected) instead of b, use Refactor -&gt; Rename.</p>
-</li>
-<li><p class="first">Fix failure, show test passes.</p>
-</li>
-<li><p class="first">TDD mode step one: source and test side-by-side mode</p>
-</li>
-<li><p class="first">Jump between test and source with Shift-Command-T</p>
-</li>
-<li><p class="first">Terminal</p>
-</li>
-<li><p class="first">Install Enzyme npm install -D enzyme enzyme-adapter-react-16
-react-addons-test-utils &#64;types/enzyme &#64;types/enzyme-adapter-react-16</p>
-</li>
-<li><p class="first">Add a bootstrap file for Enzyme at src/setupTests.js:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Enzyme</span> <span class="nx">from</span> <span class="s1">&#39;enzyme&#39;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Adapter</span> <span class="nx">from</span> <span class="s1">&#39;enzyme-adapter-react-16&#39;</span>
-
-<span class="nx">Enzyme</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
-  <span class="nx">adapter</span><span class="o">:</span> <span class="k">new</span> <span class="nx">Adapter</span><span class="p">(),</span>
-<span class="p">})</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Add a test:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders the provided text&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(&lt;</span><span class="nt">App</span><span class="p">/&gt;);</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello React&#39;</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Let the IDE generate the shallow import, but with missing spacing</p>
-</li>
-<li><p class="first">Preferences, search for ES6 import braces (Code Style -&gt; TypeScript -&gt;
-Spaces -&gt; Within -&gt; ES6 import/export braces)</p>
-</li>
-<li><p class="first">Change the <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> contents to experience TDD.</p>
-</li>
-<li><p class="first">Add a test for a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code></p>
-</li>
-<li><p class="first">Fails, add the <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> in the component, passes</p>
-</li>
-<li><p class="first">Remove the crud from the first test</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -466,18 +393,6 @@ Spaces -&gt; Within -&gt; ES6 import/export braces)</p>
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -735,19 +650,8 @@ Spaces -&gt; Within -&gt; ES6 import/export braces)</p>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -758,7 +662,7 @@ Spaces -&gt; Within -&gt; ES6 import/export braces)</p>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -769,7 +673,7 @@ Spaces -&gt; Within -&gt; ES6 import/export braces)</p>
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>

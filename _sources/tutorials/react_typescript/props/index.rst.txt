@@ -33,8 +33,8 @@ We're going to change the ``Heading`` component to accept the name of the
 recipient to say hello to. This value will come in as a prop. For example,
 ``<Heading recipient={'World'}/>``.
 
-As usual, let's start in our tests. Change our wrapper construction to the
-following:
+As usual, let's start in our tests. In ``Heading.test.tsx``, change our wrapper
+construction to the following:
 
 .. code-block:: typescript
 
@@ -46,7 +46,7 @@ Our tests still pass but the IDE tells us TypeScript doesn't compile::
   common with type 'IntrinsicAttributes & { children?: ReactNode; }'.
 
 Our test provided an object ``{ recipient: string; }`` as props but the
-component's TypeScript definition didn't accept that. Let's change it to
+component's TypeScript definition didn't accept that. Let's change the props to
 allow ``recipient`` as a string. In ``Heading.tsx``:
 
 .. code-block:: jsx
@@ -64,15 +64,14 @@ to define our type information:
 .. code-block:: jsx
 
     interface IHeadingProps {
-        recipient: string;
+        recipient: string
     }
 
     const Heading: React.SFC<IHeadingProps> = () => <h1>Hello React</h1>;
 
 One useful tip: the IDE can do the extraction for you. Put the cursor in the
 the ``{recipient: string}`` object and do ``Ctrl-T | Interface`` then type
-in the name (though it fails to generate a mandatory semicolon at the end of
-the field.)
+in the name.
 
 .. note::
 
@@ -86,7 +85,8 @@ Our component isn't using this prop. The most obvious solution: grab the
 
 .. code-block:: jsx
 
-    const Heading: React.SFC<IHeadingProps> = (props) => <h1>Hello {props.recipient}</h1>;
+    const Heading: React.SFC<IHeadingProps> = (props) =>
+        <h1>Hello {props.recipient}</h1>;
 
 Good news, our tests fail, as expected! Let's fix just the test in
 ``Heading.test.tsx`` by having it expect the value ``toBe('Hello World')``.
@@ -113,9 +113,9 @@ possible completions. This is from the TypeScript interface on the props.
 Default Prop
 ============
 
-We can shut up the the other tests by having a default recipient. We'll use
-ES6 object destructuring's syntax for setting a value when the destructured
-object doesn't have that key:
+We can shut up the the ``App.test.tsx`` tests by having a default recipient.
+We'll use ES6 object destructuring's syntax for setting a value when the
+destructured object doesn't have that key:
 
 .. code-block:: jsx
 
@@ -136,7 +136,7 @@ Back in ``Heading.tsx``:
 .. code-block:: typescript
 
     interface IHeadingProps {
-        recipient?: string;
+        recipient?: string
     }
 
 Our tests pass *and* TypeScript is happy. But we forgot to write a test for
@@ -146,7 +146,8 @@ the default value. Let's add this to ``Heading.test.tsx``:
 
     it('renders the default heading', () => {
         const wrapper = shallow(<Heading/>);
-        expect(wrapper.find('h1').text()).toBe('Hello React');
+        expect(wrapper.find('h1').text())
+            .toBe('Hello React');
     });
 
 We now have a child component that is passed in an optional value, with a
@@ -155,7 +156,7 @@ of this with simple idioms from TypeScript and ES6.
 
 And guess what? We never looked at the browser. If you'd like, first up the
 ``start`` run configuration and take a look at the browser to confirm it's
-still working.
+still working. Make sure to turn off ``start`` when done.
 
 .. note::
 

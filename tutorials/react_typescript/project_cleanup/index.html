@@ -192,8 +192,8 @@ and replace it:</p>
 <p>In PyCharm Professional you can quickly generate markup using
 <a class="reference internal" href="../../../technologies/emmet.html" title="Emmet"><em>Emmet</em></a>. Highlight the markup to replace and enter
 <code class="docutils literal notranslate"><span class="pre">div&gt;h1&lt;enter&gt;Hello</span> <span class="pre">React</span></code>.</p>
-<p>We have a TypeScript compiler error. If we hover over it in the IDE, it
-shows:</p>
+<p>We have a TypeScript compiler error. If we hover over the red squiggly on
+line 4 in the IDE, it shows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">TS6133</span><span class="p">:</span> <span class="s1">&#39;logo&#39;</span> <span class="ow">is</span> <span class="n">declared</span> <span class="n">but</span> <span class="n">its</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">never</span> <span class="n">read</span><span class="o">.</span>
 </pre></div>
 </div>
@@ -214,7 +214,9 @@ and instead, delete the line. When you save, the error no longer appears.</p>
 <li>Delete the <code class="docutils literal notranslate"><span class="pre">logo.svg</span></code> and <code class="docutils literal notranslate"><span class="pre">App.css</span></code> files</li>
 </ul>
 <p>In PyCharm, when you do a delete, you’re actually doing a “Safe Delete”, with
-the option to look for places in the project where you might have used it.</p>
+the option to look for places in the project where you might have used it.
+Give it a try by starting the delete process on <code class="docutils literal notranslate"><span class="pre">index.css</span></code>. The IDE will
+warn you.</p>
 </div>
 <div class="section" id="more-ide-goodies">
 <h2>More IDE Goodies<a class="headerlink" href="#more-ide-goodies" title="Permalink to this headline">¶</a></h2>
@@ -244,41 +246,11 @@ In the tool window showing you the consequences, choose <code class="docutils li
 IDE did all those operations in one editor transaction. Just use Undo and
 say <code class="docutils literal notranslate"><span class="pre">Ok</span></code> on the dialog.</p>
 </div>
-<div class="section" id="in-depth">
-<h2>In Depth<a class="headerlink" href="#in-depth" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Point to pre-requisites: npm, webpack and dev server</li>
-<li>The cra toolchain</li>
-</ul>
-</div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://basarat.gitbooks.io/typescript/content/">https://basarat.gitbooks.io/typescript/content/</a></li>
 </ul>
-</div>
-<div class="section" id="pycharm-steps">
-<h2>PyCharm Steps<a class="headerlink" href="#pycharm-steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Terminate the npm run-script for test</li>
-<li>Terminate the <code class="docutils literal notranslate"><span class="pre">test</span></code> tool window and close <code class="docutils literal notranslate"><span class="pre">App.test.tsx</span></code>.</li>
-<li>Open <code class="docutils literal notranslate"><span class="pre">App.tsx</span></code>.</li>
-<li>Run <code class="docutils literal notranslate"><span class="pre">Reformat</span> <span class="pre">Code</span></code>.</li>
-<li>Edit <code class="docutils literal notranslate"><span class="pre">tsconfig.json</span></code>, <code class="docutils literal notranslate"><span class="pre">Reformat</span> <span class="pre">Code</span></code>, and (autocomplete) to
-add “baseUrl”: “.”</li>
-<li>Restart tool window and the startup error goes away.</li>
-<li>Edit App.tsx and Reformat Code.</li>
-<li>Use Emmet to replace &lt;div&gt; with div&gt;h1&lt;enter&gt;Hello React</li>
-<li>Show TS error in tool window, unused import, show <code class="docutils literal notranslate"><span class="pre">noUnusedLocals</span></code> in tsconfig that
-governs it</li>
-<li>Remove logo and delete <code class="docutils literal notranslate"><span class="pre">logo.svg</span></code> file</li>
-<li>Ditto for App.css</li>
-<li>Save</li>
-<li>Show not importing React in a file that has JSX, quick fix</li>
-<li>Navigation: Find Usages on App, go to index.tsx, then Cmd-B to jump back</li>
-<li>Refactor-Rename App.</li>
-<li>Undo to revert all the changes.</li>
-</ol>
 </div>
 </div>
 </div>
@@ -416,18 +388,6 @@ governs it</li>
                                 
                                     <div class="kb-listing-excerpt">
                                         Make a very simple class component with local counter state, then make an interface for that state.
-                                    </div>
-                                
-                            </div>
-                        
-                            
-                            <div class="kbb-listing-item">
-                                <div class="kb-listing-title">
-                                    <a href="../modify_state/index.html">Modify State With Events</a>
-                                </div>
-                                
-                                    <div class="kb-listing-excerpt">
-                                        Extend our class component and interface to modify state on click events.
                                     </div>
                                 
                             </div>
@@ -681,19 +641,8 @@ governs it</li>
             
             
             <li class="steps-segment">
-            <span href="../modify_state/index.html"
-                  class="steps-marker is-primary">12</span>
-                <div class="steps-content">
-                    <a href="../modify_state/index.html">Modify State With Events</a>
-                </div>
-            </li>
-        
-            
-            
-            
-            <li class="steps-segment">
             <span href="../rich_events_and_testing/index.html"
-                  class="steps-marker is-primary">13</span>
+                  class="steps-marker is-primary">12</span>
                 <div class="steps-content">
                     <a href="../rich_events_and_testing/index.html">Rich Events and Testing</a>
                 </div>
@@ -704,7 +653,7 @@ governs it</li>
             
             <li class="steps-segment">
             <span href="../presentation_components/index.html"
-                  class="steps-marker is-primary">14</span>
+                  class="steps-marker is-primary">13</span>
                 <div class="steps-content">
                     <a href="../presentation_components/index.html">Presentation and Container Components</a>
                 </div>
@@ -715,7 +664,7 @@ governs it</li>
             
             <li class="steps-segment">
             <span href="../routing/index.html"
-                  class="steps-marker is-primary">15</span>
+                  class="steps-marker is-primary">14</span>
                 <div class="steps-content">
                     <a href="../routing/index.html">TypeScript and Routing With Testing</a>
                 </div>
