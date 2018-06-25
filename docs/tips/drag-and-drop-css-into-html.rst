@@ -10,9 +10,9 @@
         width: 900
     twitter_dates:
         - tweet_id: 928702488437501953
-          date: 2017-11-09 12:00
+          date: 2017-11-09
         - tweet_id: 862276039162179585
-          date: 2017-01-19 12:00
+          date: 2017-01-19
     is_pro: True
     references:
         topic:
