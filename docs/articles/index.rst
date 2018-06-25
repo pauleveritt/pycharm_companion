@@ -35,11 +35,6 @@ articles are both standalone and in series.
                     value: True
               limit: 5
 
-
-.. filteredlisting::
-    name: fl1
-    filename: ../catalog.json
-
 .. toctree::
     :glob:
     :hidden:

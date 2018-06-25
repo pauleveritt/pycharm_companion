@@ -21,6 +21,11 @@ PyCharm Companion
     videos, tip tweets, articles, and more -- from inside and outside of
     JetBrains, into a convenient, interlinked guide.
 
+
+.. filteredlisting::
+    name: fl1
+    filename: catalog.json
+
 .. toctree::
     :hidden:
 
