@@ -3,9 +3,9 @@
     excerpt: Stop "sometimes" with conditional breakpoints.
     twitter_dates:
         - tweet_id: 929064877154623490
-          date: 2017-11-10
+          date: 2017-11-10 12:00
         - tweet_id: 855442383202287616
-          date: 2017-04-21
+          date: 2017-04-21 12:00
     images:
         - usage: tweet_movie
           filename: conditional_breakpoints.gif

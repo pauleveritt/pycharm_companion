@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 from typing import List
 
 from kaybee.app import kb
@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 class TwitterDateModel(BaseModel):
     tweet_id: str
-    date: date
+    date: datetime
 
 
 class TipModel(BaseArticleModel):

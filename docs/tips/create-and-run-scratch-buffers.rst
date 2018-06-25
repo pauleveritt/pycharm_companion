@@ -10,9 +10,9 @@
         width: 900
     twitter_dates:
         - tweet_id: 928970506782507009
-          date: 2017-11-10
+          date: 2017-11-10 12:00
         - tweet_id: 862276039162179585
-          date: 2017-05-10
+          date: 2017-05-10 12:00
     references:
         topic:
             - scratches

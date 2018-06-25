@@ -1,5 +1,6 @@
 .. section::
     style: info
+    template: tip_section
     subheading: Bite-sized information to better your PyCharm skills
     in_nav: True
     nav_title: Tips
@@ -37,13 +38,8 @@ related resources, and arranging a number of tips into a series.
               limit: 5
 
 .. toctree::
+    :hidden:
+    :glob:
 
     intro_debugging/index
-    use_recent_files_to_quickly_jump
-    create-and-run-scratch-buffers
-    drag-and-drop-css-into-html
-    use-ipython-for-your-python-console
-    open-python-console-during-run
-    use-evaluate-expression-to-figure
-    automatically-pause-at-errors
-    use-the-navigation-bar-to-open
+    *
