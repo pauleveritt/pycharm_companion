@@ -22,10 +22,6 @@ PyCharm Companion
     JetBrains, into a convenient, interlinked guide.
 
 
-.. filteredlisting::
-    name: fl1
-    filename: catalog.json
-
 .. toctree::
     :hidden:
 
