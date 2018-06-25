@@ -37,5 +37,6 @@ articles are both standalone and in series.
 
 .. toctree::
     :glob:
+    :hidden:
 
     frontend_tooling/index

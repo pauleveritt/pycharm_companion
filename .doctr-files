@@ -137,11 +137,10 @@
 ./_sources/webinars/index.rst.txt
 ./_sources/webinars/productive-pytest.rst.txt
 ./_static/PyCharm_Logo.svg.png
-./_static/app.bundle.js
-./_static/basic.css
 ./_static/jetbrains_favicon.ico
-./_static/kaybee_bulma.bundle.js
 ./_static/kaybee_bulma.css
+./_static/kaybee_bulma.js
+./_static/kaybee_bulma.map
 ./_static/kaybee_logo.png
 ./_static/kaybee_logo.svg
 ./_static/pygments.css
@@ -193,6 +192,7 @@
 ./blogposts/upgrade-your-testing-with-bdd.html
 ./blogposts/using-docker-compose-on-windows.html
 ./blogposts/using-sets-to-compare-keymaps.html
+./catalog.json
 ./genindex.html
 ./index.html
 ./objects.inv

@@ -10,9 +10,9 @@
         width: 900
     twitter_dates:
         - tweet_id: 948996207271178240
-          date: 2018-01-04
+          date: 2018-01-04 12:00
         - tweet_id: 824512951457579009
-          date: 2017-01-25
+          date: 2017-01-25 12:00
     references:
         topic:
             - navigation

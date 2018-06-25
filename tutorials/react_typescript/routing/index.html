@@ -9,10 +9,9 @@
         <link rel="icon"
               href="../../../_static/jetbrains_favicon.ico"/>
     
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
-          rel="stylesheet">
-    <script src="../../../_static/kaybee_bulma.bundle.js"></script>
-    <script src="../../../_static/app.bundle.js"></script>
+    <link rel="stylesheet" href="../../../_static/kaybee_bulma.css"/>
+    <script defer src="../../../_static/kaybee_bulma.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
 
@@ -223,10 +222,10 @@ import.</p>
 <li><p class="first">Now comes the magic. Change the <code class="docutils literal notranslate"><span class="pre">render</span></code> to use routes:</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="p">&lt;</span><span class="nt">Router</span> <span class="na">history</span><span class="o">=</span><span class="s">{h}</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">Router</span> <span class="na">history</span><span class="o">=</span><span class="p">{</span><span class="nx">h</span><span class="p">}&gt;</span>
             <span class="p">&lt;</span><span class="nt">Switch</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span><span class="o">=</span><span class="s">{true}</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/about&quot;</span> <span class="na">component</span><span class="o">=</span><span class="s">{About}/</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span><span class="o">=</span><span class="s">{true}</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span> <span class="na">component</span><span class="o">=</span><span class="s">{Home}/</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/about&quot;</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">About</span><span class="p">}/&gt;</span>
+                <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}/&gt;</span>
             <span class="p">&lt;/</span><span class="nt">Switch</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">Router</span><span class="p">&gt;</span>
     <span class="p">);</span>
@@ -300,7 +299,7 @@ etc. That’s called <code class="docutils literal notranslate"><span class="pre
 <code class="docutils literal notranslate"><span class="pre">shoe_size</span></code>.</p>
 </li>
 <li><p class="first">First, we change the route definition to have the <code class="docutils literal notranslate"><span class="pre">shoe_size</span></code> parameter:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span><span class="o">=</span><span class="s">{true}</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/about/:shoe_size&quot;</span> <span class="na">component</span><span class="o">=</span><span class="s">{About}/</span><span class="p">&gt;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/about/:shoe_size&quot;</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">About</span><span class="p">}/&gt;</span>
 </pre></div>
 </div>
 </li>
