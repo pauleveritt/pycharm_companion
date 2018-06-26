@@ -6,6 +6,7 @@
         src: https://www.youtube.com/embed/-kBF2g4igFE
         width: 800
     is_pro: True
+    primary_reference: technologies/react
     references:
         author:
             - pauleveritt

@@ -3,6 +3,7 @@
     excerpt: A JavaScript library for building user interfaces
     published: 2018-01-02 12:01
     website: https://reactjs.org
+    logo: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
 
 =====
 React

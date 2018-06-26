@@ -37,6 +37,11 @@ related resources, and arranging a number of tips into a series.
                     value: True
               limit: 5
 
+.. filteredlisting::
+    name: fl1
+    filename: ../catalog.json
+    parent_docname: tips/index
+
 .. toctree::
     :hidden:
     :glob:

@@ -81,6 +81,11 @@ Tutorials
               rtype: tutorialstep
               limit: 5
 
+.. filteredlisting::
+    name: fl1
+    filename: ../catalog.json
+    parent_docname: tutorials/index
+
 .. toctree::
     :hidden:
 

@@ -3,6 +3,7 @@
     duration: 5m04s
     excerpt: React builds UIs as a tree of components. See how to make stateless functional component correctly with TypeScript.
     is_pro: True
+    primary_reference: technologies/typescript
     references:
         author:
             - pauleveritt

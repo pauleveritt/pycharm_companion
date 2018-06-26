@@ -3,11 +3,13 @@
     duration: 4m32s
     excerpt: Use the TypeScript linter TSLint to manage styling within the IDE, plus helpful hints about limitations.
     is_pro: True
+    primary_reference: technologies/typescript
     references:
         author:
             - pauleveritt
         technology:
             - react
+            - typescript
 
 ===================
 Styling with TSLint

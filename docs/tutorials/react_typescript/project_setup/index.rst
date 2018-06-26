@@ -8,6 +8,7 @@
         width: 800
     is_pro: True
     duration: 2m34s
+    primary_reference: technologies/react
     references:
         author:
             - pauleveritt

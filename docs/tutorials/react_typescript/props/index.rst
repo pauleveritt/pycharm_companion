@@ -3,11 +3,13 @@
     duration: 3m47s
     excerpt: Use type information to make using properties into a productive workflow.
     is_pro: True
+    primary_reference: technologies/typescript
     references:
         author:
             - pauleveritt
         technology:
             - react
+            - typescript
 
 ==============================================
 Sharing Component Props Using Type Information

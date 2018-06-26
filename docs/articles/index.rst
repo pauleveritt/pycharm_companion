@@ -38,6 +38,7 @@ articles are both standalone and in series.
 .. filteredlisting::
     name: fl1
     filename: ../catalog.json
+    parent_docname: articles/index
 
 .. toctree::
     :glob:
