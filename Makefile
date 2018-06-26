@@ -18,7 +18,7 @@ deploy:
 	set -e
 	pipenv install doctr
 	cd docs
-	sphinx-build -E -b html . _build
+	pipenv run -- sphinx-build -E -b html . _build
 	cd ..
 	pipenv run -- doctr deploy . --built-docs docs/_build/html
 
