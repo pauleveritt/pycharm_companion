@@ -13,7 +13,7 @@
 Topics
 ======
 
-PyCharm Companion resources organized by the PyCharm topic they relate to:
+PyCharm Guide resources organized by the PyCharm topic they relate to:
 debugging, imports, etc.
 
 .. toctree::

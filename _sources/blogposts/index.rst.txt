@@ -14,7 +14,7 @@ Blog Posts
 ==========
 
 Bite-sized information to better your PyCharm skills, usually delivered
-as tweets. The PyCharm Companion adds extra information beyond the
+as tweets. The PyCharm Guide adds extra information beyond the
 tweet: background information, a full narrated video, links to other
 related resources, and arranging a number of tips into a series.
 
