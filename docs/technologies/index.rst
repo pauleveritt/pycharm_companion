@@ -13,7 +13,7 @@
 Technologies
 ============
 
-PyCharm Companion resources organized by the the ever-growing world of
+PyCharm Guide resources organized by the the ever-growing world of
 technologies in Python, web, data science, and more.
 
 .. toctree::

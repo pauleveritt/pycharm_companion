@@ -1,12 +1,12 @@
 .. homepage::
     published: 2018-02-02 12:23
-    heading: PyCharm Companion
+    heading: PyCharm Guide
     subheading: Guide to Resource for Mastering PyCharm
     style: primary
 
 
 =================
-PyCharm Companion
+PyCharm Guide
 =================
 
 .. sectionbox::
@@ -14,10 +14,10 @@ PyCharm Companion
     style: splash
 
     PyCharm is a powerful, productive environment for Python development.
-    It can help in lots of ways. How? Let the PyCharm Companion be your
+    It can help in lots of ways. How? Let the PyCharm Guide be your
     guide to resources for mastering PyCharm.
 
-    The PyCharm Companion collects lots of PyCharm resources -- blog posts,
+    The PyCharm Guide collects lots of PyCharm resources -- blog posts,
     videos, tip tweets, articles, and more -- from inside and outside of
     JetBrains, into a convenient, interlinked guide.
 

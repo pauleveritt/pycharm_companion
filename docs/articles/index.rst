@@ -13,7 +13,7 @@
 Articles
 ========
 
-The PyCharm Companion organizes learning resources wherever they may lie.
+The PyCharm Guide organizes learning resources wherever they may lie.
 But it also includes articles with working code in a repository. These
 articles are both standalone and in series.
 
