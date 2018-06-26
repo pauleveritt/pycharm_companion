@@ -10,15 +10,16 @@ setup:
 	pip install pipenv
 	pipenv install --dev --three
 
+
 activate:
 	pipenv shell -c
 
 deploy:
-    set -e
-    pipenv install doctr
-    cd docs
-    make html
-    cd ..
-    pipenv run -- doctr deploy . --built-docs docs/_build/html
+	set -e
+	pipenv install doctr
+	cd docs
+	make html
+	cd ..
+	pipenv run -- doctr deploy . --built-docs docs/_build/html
 
 .PHONY: help activate deploy
