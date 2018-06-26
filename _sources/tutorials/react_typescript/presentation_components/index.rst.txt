@@ -7,6 +7,8 @@
             - pauleveritt
         technology:
             - react
+            - typescript
+            - jest
 
 =====================================
 Presentation and Container Components

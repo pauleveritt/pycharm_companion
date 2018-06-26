@@ -3,9 +3,18 @@
         using the features of the IDE
     published: 2018-01-04 12:23
     is_series: True
+    primary_reference: technologies/typescript
     acquireds:
         all:
             is_pro: True
+    references:
+        author:
+            - pauleveritt
+        technology:
+            - react
+            - typescript
+            - jest
+            - enzyme
 
 ===========================
 React+TypeScript QuickStart

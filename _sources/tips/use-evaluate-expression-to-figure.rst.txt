@@ -11,9 +11,9 @@
         width: 900
     twitter_dates:
         - tweet_id: 948633819762102272
-          date: 2018-01-03 12:00
+          date: 2018-01-03
         - tweet_id: 871698125701865472
-          date: 2017-06-05 12:00
+          date: 2017-06-05
     references:
         author:
             - pauleveritt

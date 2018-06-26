@@ -9,6 +9,7 @@
         put it to work to adopt a test-first approach, including Enzyme for
         testing convenience.
     is_pro: True
+    primary_reference: technologies/jest
     references:
         author:
             - pauleveritt

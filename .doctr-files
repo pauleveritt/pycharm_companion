@@ -73,6 +73,7 @@
 ./_sources/blogposts/using-docker-compose-on-windows.rst.txt
 ./_sources/blogposts/using-sets-to-compare-keymaps.rst.txt
 ./_sources/index.rst.txt
+./_sources/technologies/angular.rst.txt
 ./_sources/technologies/ansible.rst.txt
 ./_sources/technologies/aws.rst.txt
 ./_sources/technologies/cra.rst.txt
@@ -198,6 +199,7 @@
 ./objects.inv
 ./search.html
 ./searchindex.js
+./technologies/angular.html
 ./technologies/ansible.html
 ./technologies/aws.html
 ./technologies/cra.html

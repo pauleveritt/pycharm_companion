@@ -3,6 +3,7 @@
     excerpt: Fast, productive testing courtesy of the React project.
     published: 2018-01-02 12:01
     website: https://facebook.github.io/jest/
+    logo: https://cdn.worldvectorlogo.com/logos/jest.svg
 
 ====
 Jest

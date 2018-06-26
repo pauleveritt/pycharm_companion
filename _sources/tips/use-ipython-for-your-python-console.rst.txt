@@ -10,9 +10,9 @@
         width: 900
     twitter_dates:
         - tweet_id: 928608120863186944
-          date: 2017-11-09 12:00
+          date: 2017-11-09
         - tweet_id: 823628880565170179
-          date: 2017-01-23 12:00
+          date: 2017-01-23
     references:
         topic:
             - python_console

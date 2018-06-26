@@ -3,6 +3,7 @@
     excerpt: JavaScript outside of the browser, on the command-line or server-side.
     published: 2018-01-02 12:01
     website: https://nodejs.org/en/
+    logo: https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg
 
 ======
 NodeJS

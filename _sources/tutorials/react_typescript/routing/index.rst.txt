@@ -5,11 +5,14 @@
         that with TypeScript has been a moving target. Let's show a working
         example.
     is_pro: True
+    primary_reference: technologies/typescript
     references:
         author:
             - pauleveritt
         technology:
             - react
+            - typescript
+            - jest
 
 ===================================
 TypeScript and Routing With Testing

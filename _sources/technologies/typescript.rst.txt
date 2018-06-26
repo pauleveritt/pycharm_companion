@@ -3,6 +3,7 @@
     excerpt: A typed superset of JavaScript which compiles to plain JavaScript
     published: 2018-01-02 12:01
     website: https://www.typescriptlang.org
+    logo: http://konpa.github.io/devicon/devicon.git/icons/typescript/typescript-original.svg
 
 ==========
 TypeScript
