@@ -17,9 +17,7 @@ activate:
 deploy:
 	set -e
 	pipenv install doctr
-	cd docs
-	pipenv run -- sphinx-build -E -b html . _build
-	cd ..
+	pipenv run -- sphinx-build -E -b html docs docs/_build
 	pipenv run -- doctr deploy . --built-docs docs/_build/html
 
 .PHONY: help activate deploy
