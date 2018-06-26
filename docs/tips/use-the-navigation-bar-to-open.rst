@@ -15,8 +15,8 @@
         author:
             - pauleveritt
 
-========================================================
-Automatically Pause At Errors With Exception Breakpoints
-========================================================
+=====================================
+Use The Navigation Bar to Open A File
+=====================================
 
 TODO Can't find the video for this!!!
