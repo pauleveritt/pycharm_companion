@@ -11,7 +11,10 @@
 Authors
 =======
 
-Authors are resources that act as references, just like categories etc.
+.. leadin::
+    name: l1
+
+    Authors are resources that act as references, just like categories etc.
 
 .. toctree::
 

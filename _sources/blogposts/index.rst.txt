@@ -1,6 +1,6 @@
 .. section::
     style: link
-    subheading: Tutorials on the PyCharm blog
+    subheading: Blog tutorials on the PyCharm blog
     in_nav: True
     nav_title: Blog Posts
     weight: 20
@@ -13,10 +13,18 @@
 Blog Posts
 ==========
 
-Bite-sized information to better your PyCharm skills, usually delivered
-as tweets. The PyCharm Guide adds extra information beyond the
-tweet: background information, a full narrated video, links to other
-related resources, and arranging a number of tips into a series.
+.. leadin::
+    name: l1
+
+    Bite-sized information to better your PyCharm skills, usually delivered
+    as tweets. The PyCharm Guide adds extra information beyond the
+    tweet: background information, a full narrated video, links to other
+    related resources, and arranging a number of tips into a series.
+
+.. filteredlisting::
+    name: fl1
+    filename: ../catalog.json
+    parent_docname: blogposts/index
 
 .. querylist::
     name: ql1
@@ -37,6 +45,7 @@ related resources, and arranging a number of tips into a series.
               limit: 5
 
 .. toctree::
+    :hidden:
 
     developing-cloud-applications/index
     analyzing-data-in-amazon-redshift

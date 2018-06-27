@@ -13,8 +13,11 @@
 Technologies
 ============
 
-PyCharm Guide resources organized by the the ever-growing world of
-technologies in Python, web, data science, and more.
+.. leadin::
+    name: l1
+
+    PyCharm Guide resources organized by the the ever-growing world of
+    technologies in Python, web, data science, and more.
 
 .. toctree::
     :glob:

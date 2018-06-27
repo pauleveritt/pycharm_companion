@@ -13,9 +13,18 @@
 Articles
 ========
 
-The PyCharm Guide organizes learning resources wherever they may lie.
-But it also includes articles with working code in a repository. These
-articles are both standalone and in series.
+.. leadin::
+    name: l1
+
+    The PyCharm Guide organizes learning resources wherever they may lie.
+    But it also includes articles with working code in a repository. These
+    articles are both standalone and in series.
+
+
+.. filteredlisting::
+    name: fl1
+    filename: ../catalog.json
+    parent_docname: articles/index
 
 .. querylist::
     name: ql1
@@ -34,11 +43,6 @@ articles are both standalone and in series.
                   - key: is_pro
                     value: True
               limit: 5
-
-.. filteredlisting::
-    name: fl1
-    filename: ../catalog.json
-    parent_docname: articles/index
 
 .. toctree::
     :glob:
