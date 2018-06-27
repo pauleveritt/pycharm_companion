@@ -13,8 +13,11 @@
 Topics
 ======
 
-PyCharm Guide resources organized by the PyCharm topic they relate to:
-debugging, imports, etc.
+.. leadin::
+    name: l1
+
+    PyCharm Guide resources organized by the PyCharm topic they relate to:
+    debugging, imports, etc.
 
 .. toctree::
     :glob:

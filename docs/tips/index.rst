@@ -14,10 +14,13 @@
 Tips
 ====
 
-Bite-sized information to better your PyCharm skills, usually delivered
-as tweets. The PyCharm Guide adds extra information beyond the
-tweet: background information, a full narrated video, links to other
-related resources, and arranging a number of tips into a series.
+.. leadin::
+    name: l1
+
+    Bite-sized information to better your PyCharm skills, usually delivered
+    as tweets. The PyCharm Guide adds extra information beyond the
+    tweet: background information, a full narrated video, links to other
+    related resources, and arranging a number of tips into a series.
 
 .. filteredlisting::
     name: fl1

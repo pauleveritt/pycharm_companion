@@ -11,6 +11,7 @@ livereload = "*"
 travis-encrypt = "*"
 jsx-lexer = "*"
 Sphinx = "*"
+packaging = "==17.1"
 
 [dev-packages]
 

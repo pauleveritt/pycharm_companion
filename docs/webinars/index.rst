@@ -13,13 +13,16 @@
 Webinars
 ========
 
-PyCharm hosts webinars, usually on a monthly basis, where we cover some
-topic of interest to our Python developer audience. This usually means
-inviting an expert to present and fielding questions from the audience
-during the webinar.
+.. leadin::
+    name: l1
 
-We record these and make them available on YouTube. Here is a compendium of
-our webinars.
+    PyCharm hosts webinars, usually on a monthly basis, where we cover some
+    topic of interest to our Python developer audience. This usually means
+    inviting an expert to present and fielding questions from the audience
+    during the webinar.
+
+    We record these and make them available on YouTube. Here is a compendium of
+    our webinars.
 
 .. querylist::
     name: ql1

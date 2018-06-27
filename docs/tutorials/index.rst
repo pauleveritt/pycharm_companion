@@ -12,6 +12,10 @@
 Tutorials
 =========
 
+.. filteredlisting::
+    name: fl1
+    filename: ../catalog.json
+    parent_docname: tutorials/index
 
 .. featuretiles::
     name: featuretiles1
@@ -80,12 +84,6 @@ Tutorials
           query:
               rtype: tutorialstep
               limit: 5
-
-.. filteredlisting::
-    name: fl1
-    filename: ../catalog.json
-    parent_docname: tutorials/index
-
 .. toctree::
     :hidden:
 
