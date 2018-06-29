@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 doctr = "*"
-kaybee-bulma = {editable = true, git = "git://github.com/pauleveritt/kaybee_bulma.git"}
-kaybee = {editable = true, git = "git://github.com/pauleveritt/kaybee.git"}
+kaybee-bulma = "*"
+kaybee = "*"
 livereload = "*"
 travis-encrypt = "*"
 jsx-lexer = "*"
