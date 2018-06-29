@@ -10,7 +10,7 @@
 
 - Put some Rect Tips etc. querylist tiles on home page
 
-- Add icon/badge for Pro-only
+- Add icon/badge for Pro-only or some other technique
 
 - https://worldvectorlogo.com/search/pycharm
 
