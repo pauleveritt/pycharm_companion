@@ -190,8 +190,8 @@
         },
         "kaybee-bulma": {
             "hashes": [
-                "sha256:17e1727f09c65ff7bac3b89c2e7c6566803311468e0249fbfc537f10b0c6c254",
-                "sha256:f9a955463ba633a68034331d1fe3cc47fd99022e646437b93ad47a5baef7f18d"
+                "sha256:37cdf0156d4391dd16df1ed0b8a857f43719fed08924e74d542cd4dce48c5399",
+                "sha256:56f840ee17d439202a2c2ea4b548929f6b50fda307556df77e175cac28429f94"
             ],
             "index": "pypi",
             "version": "==0.2.25"
@@ -229,6 +229,7 @@
                 "sha256:11f54fbd7d2ca38e1ee2fab4c856e71e01bfe4d8d5950a2c356c3cb05566ff13",
                 "sha256:80d4abb0132984ef15d84739f3ca9801db8968de626c82412d605a0166cbe138"
             ],
+            "markers": "python_version >= '3.6'",
             "version": "==0.11"
         },
         "pydash": {
