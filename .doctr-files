@@ -89,6 +89,7 @@
 ./_sources/technologies/jsdom.rst.txt
 ./_sources/technologies/nodejs.rst.txt
 ./_sources/technologies/postgresql.rst.txt
+./_sources/technologies/python.rst.txt
 ./_sources/technologies/react.rst.txt
 ./_sources/technologies/rest.rst.txt
 ./_sources/technologies/terraform.rst.txt
@@ -215,6 +216,7 @@
 ./technologies/jsdom.html
 ./technologies/nodejs.html
 ./technologies/postgresql.html
+./technologies/python.html
 ./technologies/react.html
 ./technologies/rest.html
 ./technologies/terraform.html
