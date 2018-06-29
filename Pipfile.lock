@@ -194,7 +194,7 @@
                 "sha256:f9a955463ba633a68034331d1fe3cc47fd99022e646437b93ad47a5baef7f18d"
             ],
             "index": "pypi",
-            "version": "==0.2.24"
+            "version": "==0.2.25"
         },
         "livereload": {
             "hashes": [
