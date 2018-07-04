@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 doctr = "*"
-kaybee-bulma = "*"
+kaybee-bulma = "==0.2.28"
 kaybee = "*"
 livereload = "*"
 travis-encrypt = "*"

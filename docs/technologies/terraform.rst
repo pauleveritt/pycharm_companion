@@ -2,6 +2,7 @@
     label: terraform
     excerpt: Write, plan, and create infrastructure as code
     published: 2018-01-02 12:01
+    logo: https://cdn.worldvectorlogo.com/logos/terraform-enterprise.svg
     website: https://www.terraform.io
 
 =========

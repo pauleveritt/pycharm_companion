@@ -3,6 +3,7 @@
     excerpt: Software automation
     published: 2018-01-02 12:01
     website: https://www.ansible.com
+    logo: https://cdn.worldvectorlogo.com/logos/ansible.svg
 
 =======
 Ansible

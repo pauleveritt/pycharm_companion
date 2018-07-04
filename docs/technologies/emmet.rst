@@ -3,6 +3,7 @@
     published: 2018-01-02 12:01
     excerpt: Shorthand system for HTML and CSS generation
     website: https://emmet.io
+    logo: https://cdn.worldvectorlogo.com/logos/emmet.svg
 
 =====
 Emmet

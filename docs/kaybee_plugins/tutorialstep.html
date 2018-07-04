@@ -3,21 +3,7 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
-                <nav class="breadcrumb has-arrow-separator is-small"
-                     aria-label="breadcrumbs"
-                     style="margin-bottom: 0">
-                    <ul style="margin-left: 0">
-                        {% for parent in resource.parents(resources)[:-1]|reverse %}
-                            <li>
-                                <a href="{{ pathto(parent.docname) }}">{{ parent.title }}</a>
-                            </li>
-                        {% endfor %}
-                        <li class="is-active">
-                            <a href="#"
-                               aria-current="page">{{ resource.title }}</a>
-                        </li>
-                    </ul>
-                </nav>
+                {% include "breadcrumbs.html" %}
                 <div class="title is-1">
                     {{ resource.title }}
                     {% include 'pro_only.html' %}

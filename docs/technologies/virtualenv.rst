@@ -3,6 +3,7 @@
     excerpt: Python system for project isolation
     published: 2018-01-02 12:01
     website: https://docs.python.org/3/library/venv.html
+    logo: https://cdn.worldvectorlogo.com/logos/python-5.svg
 
 ==========
 virtualenv

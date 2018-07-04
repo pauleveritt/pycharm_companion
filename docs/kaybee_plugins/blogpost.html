@@ -4,6 +4,7 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
+                {% include "breadcrumbs.html" %}
                 <div class="title is-1">
                     {% if resource.props.is_pro %}
                         <em>(Pro Only)</em>
@@ -14,7 +15,8 @@
 
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
-                <p><a href="{{ wp_prefix + resource.props.wp_url }}">Read this article
+                <p><a href="{{ wp_prefix + resource.props.wp_url }}">Read this
+                    article
                     on the PyCharm Blog</a></p>
 
                 {% set series = resource.series(resources) %}

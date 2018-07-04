@@ -3,6 +3,7 @@
     excerpt: Lightweight containers for virtualization
     published: 2018-01-02 12:01
     website: https://www.docker.com
+    logo: https://cdn.worldvectorlogo.com/logos/docker.svg
 
 ======
 Docker

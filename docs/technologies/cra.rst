@@ -3,6 +3,7 @@
     excerpt: Project scaffolding for React
     published: 2018-01-02 12:01
     website: https://github.com/facebook/create-react-app
+    logo: https://cdn.worldvectorlogo.com/logos/react-1.svg
 
 ================
 create-react-app
