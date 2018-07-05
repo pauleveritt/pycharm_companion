@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cfd86cb6d3dbfc7e717fe89e8f8aead4ee6166090dc3e772f14e0a2617d6eae6"
+            "sha256": "5c7ac8c6201efd7ea9480848c2fe88e6a69d9b4b046346d25615ccd38a72daf4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -187,11 +187,11 @@
         },
         "kaybee-bulma": {
             "hashes": [
-                "sha256:162421bcfc072189f0f266d1bcecdf323d763b7cb2490fd03a828cb8cf7ccc9b",
-                "sha256:9ca45de019daff00bb416b7f90449dffec272b68f889792e3be876c07735d02e"
+                "sha256:88a3a3c9fd1bfc9f3ca67b7917425f2c0bd1d4b93ce6fc30f6e19e179c058441",
+                "sha256:be5855b488e78b6695f0690c57a8fc61bbf6c022c7c1ba97d6c760bbde842b32"
             ],
             "index": "pypi",
-            "version": "==0.2.29"
+            "version": "==0.2.31"
         },
         "livereload": {
             "hashes": [
