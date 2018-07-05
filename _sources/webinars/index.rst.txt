@@ -24,23 +24,6 @@ Webinars
     We record these and make them available on YouTube. Here is a compendium of
     our webinars.
 
-.. querylist::
-    name: ql1
-    template: querylist
-    queries:
-        - label: Recent Webinars
-          style: primary
-          query:
-              rtype: webinar
-              limit: 5
-        - label: Pro-Only
-          style: info
-          query:
-              rtype: webinar
-              props:
-                  - key: is_pro
-                    value: True
-              limit: 5
 
 .. toctree::
     :glob:

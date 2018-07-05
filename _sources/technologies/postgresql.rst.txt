@@ -3,8 +3,7 @@
     excerpt: Leading open source RDBMS
     published: 2018-01-02 12:01
     website: https://postgresql.org
-    references:
-        technology: [postgresql, ]
+    logo: https://cdn.worldvectorlogo.com/logos/postgresql.svg
 
 ==========
 PostgreSQL

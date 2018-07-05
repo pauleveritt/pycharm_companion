@@ -3,6 +3,7 @@
     excerpt: JavaScript testing utilities for React.
     published: 2018-01-02 12:01
     website: https://github.com/airbnb/enzyme
+    logo: https://cdn.worldvectorlogo.com/logos/jest.svg
 
 ======
 Enzyme

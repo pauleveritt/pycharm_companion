@@ -3,6 +3,7 @@
     excerpt: Architectural pattern for data services on the web
     published: 2018-01-02 12:01
     website: https://en.wikipedia.org/wiki/Representational_state_transfer
+    logo: https://cdn.worldvectorlogo.com/logos/rest.svg
     references:
         topic: [http_client, ]
 

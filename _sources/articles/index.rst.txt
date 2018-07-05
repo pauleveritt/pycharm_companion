@@ -3,7 +3,7 @@
     subheading: Webinar recordings for technologies in Python
     in_nav: True
     nav_title: Articles
-    weight: 15
+    weight: 5
     published: 2018-01-04 12:23
     acquireds:
         all:

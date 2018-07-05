@@ -89,6 +89,7 @@
 ./_sources/technologies/jsdom.rst.txt
 ./_sources/technologies/nodejs.rst.txt
 ./_sources/technologies/postgresql.rst.txt
+./_sources/technologies/pycharm.rst.txt
 ./_sources/technologies/python.rst.txt
 ./_sources/technologies/react.rst.txt
 ./_sources/technologies/rest.rst.txt
@@ -157,15 +158,15 @@
 ./articles/frontend_tooling/package_json/index.html
 ./articles/frontend_tooling/webpack/index.html
 ./articles/index.html
+./authors/andreyvlasovskikh/andrey-128x128.jpg
+./authors/andreyvlasovskikh/andrey-24x24.jpg
 ./authors/andreyvlasovskikh/index.html
-./authors/andreyvlasovskikh/paul_headshotx128.jpeg
-./authors/andreyvlasovskikh/paul_headshotx24.jpeg
+./authors/dmitryfilippov/dmitry-128x128.jpg
+./authors/dmitryfilippov/dmitry-24x24.jpg
 ./authors/dmitryfilippov/index.html
-./authors/dmitryfilippov/paul_headshotx128.jpeg
-./authors/dmitryfilippov/paul_headshotx24.jpeg
+./authors/ernsthaagsman/ernst-128x128.jpg
+./authors/ernsthaagsman/ernst-24x24.jpg
 ./authors/ernsthaagsman/index.html
-./authors/ernsthaagsman/paul_headshotx128.jpeg
-./authors/ernsthaagsman/paul_headshotx24.jpeg
 ./authors/index.html
 ./authors/pauleveritt/index.html
 ./authors/pauleveritt/paul_headshotx128.jpeg
@@ -216,6 +217,7 @@
 ./technologies/jsdom.html
 ./technologies/nodejs.html
 ./technologies/postgresql.html
+./technologies/pycharm.html
 ./technologies/python.html
 ./technologies/react.html
 ./technologies/rest.html
