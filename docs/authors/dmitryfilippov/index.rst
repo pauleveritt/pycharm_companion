@@ -3,9 +3,9 @@
     published: 2018-01-02 12:01
     images:
         - usage: icon_24
-          filename: paul_headshotx24.jpeg
+          filename: dmitry-24x24.jpg
         - usage: icon_128
-          filename: paul_headshotx128.jpeg
+          filename: dmitry-128x128.jpg
 
 ===============
 Dmitry Filippov

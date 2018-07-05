@@ -3,14 +3,28 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
-                <h1 class="title is-1">
-                    <span style="text-transform: capitalize">{{ resource.rtype }}</span>:
-                    {{ resource.title }}</h1>
-                {% if resource.props.excerpt %}
-                    <div class="subtitle">{{ resource.props.excerpt }}</div>
-                {% endif %}
 
-                <p><a href="{{ resource.props.website }}">Website</a></p>
+                <article class="media">
+                    {% if resource.props.logo %}
+                        <figure class="media-left">
+                            <p class="image is-128x128">
+                                <img src="{{ resource.props.logo }}">
+                            </p>
+                        </figure>
+                    {% endif %}
+                    <div class="media-content">
+                        <div class="content">
+                            <div class="is-size-3">
+                                {{ resource.title }}
+                            </div>
+                            <p> {{ resource.excerpt }}</p>
+                            <p>
+                                <a href="{{ resource.props.website }}">Website</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
 
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
