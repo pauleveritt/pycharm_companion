@@ -9,11 +9,11 @@
         put it to work to adopt a test-first approach, including Enzyme for
         testing convenience.
     is_pro: True
-    primary_reference: technologies/jest
+    primary_reference: learn/technologies/jest
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - jest
             - enzyme
@@ -22,7 +22,7 @@
 Unit Testing with Jest and Enzyme
 =================================
 
-We saw the :ref:`technology-jest` test runner in
+We saw the :ref:`kbbtechnology-jest` test runner in
 :doc:`../project_setup/index`. We modified an existing test but didn't dive
 into testing.
 
@@ -48,7 +48,7 @@ Select ``Run | Edit Configurations``, click ``+``, and click on ``Jest``.
 Supply a ``Name:`` of something like ``unit tests``. The only real field
 you need to supply is ``Jest options:``. For that, enter
 ``--env=jsdom --watchAll``. This tells Jest to re-run tests when files change
-and to use the :ref:`technology-jsdom` package as a fake browser.
+and to use the :ref:`kbbtechnology-jsdom` package as a fake browser.
 
 .. image:: screenshots/run_config.png
     :width: 856px
@@ -114,10 +114,10 @@ A Real Test
 
 We currently have a test which makes a document, tells React to render our
 component-under-test into it, and then...well, nothing really.
-:ref:`technology-cra` generates a test whose only purpose is to see if it
+:ref:`kbbtechnology-cra` generates a test whose only purpose is to see if it
 can render. Let's look inside the rendered result and test its correctness.
 
-To do so, we're going to install :ref:`technology-enzyme`, a utility for
+To do so, we're going to install :ref:`kbbtechnology-enzyme`, a utility for
 React that makes testing feel like jQuery assertions. Open the IDE's
 ``Terminal`` tool and install Enzyme and its TypeScript typings:
 

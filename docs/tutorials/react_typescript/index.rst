@@ -1,16 +1,16 @@
-.. tutorial::
-    subheading: Quick introduction to writing React applications in TypeScript,
+.. kbbsection::
+    excerpt: Quick introduction to writing React applications in TypeScript,
         using the features of the IDE
     published: 2018-01-04 12:23
     is_series: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     acquireds:
         all:
             is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - typescript
             - jest
@@ -20,8 +20,8 @@
 React+TypeScript QuickStart
 ===========================
 
-:ref:`technology-react` is wildly popular and thus wildly supported.
-:ref:`technology-typescript` is increasingly popular, and thus increasingly
+:ref:`kbbtechnology-react` is wildly popular and thus wildly supported.
+:ref:`kbbtechnology-typescript` is increasingly popular, and thus increasingly
 supported.
 
 The two together? Not as much. Given that they both change quickly, its

@@ -4,13 +4,13 @@
     is_pro: True
     wp_url: 2017/12/creating-a-development-environment-on-amazon-ec2/
     references:
-        technology:
+        kbbtechnology:
             - aws
             - terraform
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ===============================================

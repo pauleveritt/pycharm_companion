@@ -1,6 +1,6 @@
 .. section::
     published: 2017-07-12 12:00
-    excerpt: Two-part series on using PyCharm with a Raspberry Pi
+    subheading: Two-part series on using PyCharm with a Raspberry Pi
 
 ============
 Raspberry Pi

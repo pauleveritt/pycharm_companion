@@ -5,11 +5,11 @@
         that with TypeScript has been a moving target. Let's show a working
         example.
     is_pro: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - typescript
             - jest

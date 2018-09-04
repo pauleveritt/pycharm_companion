@@ -15,9 +15,9 @@
           date: 2017-01-19
     is_pro: True
     references:
-        topic:
+        kbbtopic:
             - web
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==================================================

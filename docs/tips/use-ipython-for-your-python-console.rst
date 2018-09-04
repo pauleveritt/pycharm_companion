@@ -14,11 +14,11 @@
         - tweet_id: 823628880565170179
           date: 2017-01-23
     references:
-        topic:
+        kbbtopic:
             - python_console
-        technology:
+        kbbtechnology:
             - ipython
-        author:
+        kbbauthor:
             - pauleveritt
 
 ===============

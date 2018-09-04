@@ -3,10 +3,10 @@
     excerpt: Pandas Dataframes, Amazon Redshift, and PyCharm
     wp_url: 2017/08/analyzing-data-in-amazon-redshift-with-pandas/
     references:
-        technology:
+        kbbtechnology:
             - aws
             - rest
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 =============================================

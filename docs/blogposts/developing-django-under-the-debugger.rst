@@ -5,10 +5,10 @@
     is_pro: True
     wp_url: 2017/08/develop-django-under-the-debugger/
     references:
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
-        author:
+        kbbauthor:
             - pauleveritt
 
 =================================

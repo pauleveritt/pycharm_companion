@@ -33,12 +33,12 @@ Articles
         - label: Recent Articles
           style: primary
           query:
-              rtype: pcarticle
+              rtype: kbbarticle
               limit: 5
         - label: Pro-Only
           style: info
           query:
-              rtype: pcarticle
+              rtype: kbbarticle
               props:
                   - key: is_pro
                     value: True

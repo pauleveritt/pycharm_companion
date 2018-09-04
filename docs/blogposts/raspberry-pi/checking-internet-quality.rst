@@ -5,15 +5,15 @@
     wp_url: 2017/07/raspberry-ping-1/
     is_pro: True
     references:
-        technology:
+        kbbtechnology:
             - flask
             - flask_restful
             - postgresql
             - rest
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ======================================================================

@@ -7,11 +7,11 @@
     duration: 4m59s
     excerpt: Make a very simple class component with local counter state, then make an interface for that state.
     is_pro: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - jest
             - typescript

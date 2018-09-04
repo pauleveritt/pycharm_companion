@@ -4,7 +4,7 @@
         community-developed plugin
     wp_url: 2018/01/micropython-plugin-for-pycharm/
     references:
-        author:
+        kbbauthor:
             - andreyvlasovskikh
 
 =============================================

@@ -1,0 +1,7 @@
+doctr
+sphinx
+# -e git+git://github.com/pauleveritt/kaybee_bulma.git#egg=kaybee_bulma
+# -e git+git://github.com/pauleveritt/kaybee.git#egg=kaybee
+livereload
+travis-encrypt
+jsx-lexer

@@ -7,11 +7,11 @@
     duration: 3m17s
     excerpt: Add event more handling to a stateful class component by writing tests during development.
     is_pro: True
-    primary_reference: technologies/jest
+    primary_reference: learn/technologies/jest
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - jest
 

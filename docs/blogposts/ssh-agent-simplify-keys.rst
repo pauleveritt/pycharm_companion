@@ -3,7 +3,7 @@
     excerpt: Setting up SSH keys in PyCharm on Windows, macOS, and Linux
     wp_url: 2017/08/ssh-agent-simplify-ssh-keys/
     references:
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ============================

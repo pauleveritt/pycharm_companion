@@ -5,9 +5,9 @@
     is_pro: True
     wp_url: 2017/12/building-an-api-using-flask-restful-and-using-the-pycharm-http-client/
     references:
-        technology:
+        kbbtechnology:
             - postgresql
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 =================================================================

@@ -3,11 +3,11 @@
     duration: 4m18s
     excerpt: Work smart by developing with a visual debugger. This lesson shows debugging tests directly in the IDE under the NodeJS debugger.
     is_pro: True
-    primary_reference: technologies/nodejs
+    primary_reference: learn/technologies/nodejs
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - nodejs
 
 ====================================

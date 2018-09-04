@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Unit testing JavaScript from PyCharm with the Jest test running
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 =================

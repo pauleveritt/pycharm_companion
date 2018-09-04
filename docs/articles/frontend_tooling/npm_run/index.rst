@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Using the IDE to browse and execute small scripts in package.json
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ===============================

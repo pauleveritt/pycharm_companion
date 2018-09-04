@@ -8,11 +8,11 @@
         width: 800
     is_pro: True
     duration: 2m34s
-    primary_reference: technologies/react
+    primary_reference: learn/technologies/react
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - nodejs
             - cra
@@ -27,10 +27,10 @@ recently built CLI (command-line interpreter) tools that make those decisions
 for you, using best practices. They'll generate a project with the right
 choices then update those choices as things evolve.
 
-React's :ref:`technology-cra` takes care of this. And it's extensible
+React's :ref:`kbbtechnology-cra` takes care of this. And it's extensible
 with scripts such as
 `react-scripts-ts <https://github.com/wmonk/create-react-app-typescript>`_
-which provides a :ref:`technology-typescript` version of the generated
+which provides a :ref:`kbbtechnology-typescript` version of the generated
 project.
 
 In this tutorial step, we use the IDE to generate the project, then look at
@@ -46,15 +46,15 @@ Before Starting
 ===============
 
 Before anything can happen, you have to install NodeJS on your system. Then,
-you have to install :ref:`technology-cra` either "globally" or somewhere
+you have to install :ref:`kbbtechnology-cra` either "globally" or somewhere
 that you can point the IDE to.
 
-PyCharm Professional integrates with :ref:`technology-cra` to generate the
+PyCharm Professional integrates with :ref:`kbbtechnology-cra` to generate the
 new project. The IDE lets you pass an argument to the generator for the
 extra script to use. We want to use ``react-scripts-ts``, a mature "fork"
-of :ref:`technology-cra` which changes the output to be React+TypeScript.
+of :ref:`kbbtechnology-cra` which changes the output to be React+TypeScript.
 
-If ``yarn`` is installed, :ref:`technology-cra` will choose it as the
+If ``yarn`` is installed, :ref:`kbbtechnology-cra` will choose it as the
 package manager and generate a yarn-oriented project. PyCharm Professional
 will respect that decision.
 
@@ -127,7 +127,7 @@ Production Build
 
 That's great for development, but for production, we need files on disk,
 shrunk as small as possible. There's a lot of complexity behind this, but
-:ref:`technology-cra` has hidden it behind an npm script:
+:ref:`kbbtechnology-cra` has hidden it behind an npm script:
 
 .. code-block:: bash
 
@@ -151,7 +151,7 @@ development:
 This Is Only a Test
 ===================
 
-Projects generated from :ref:`technology-cra` are also wired for testing:
+Projects generated from :ref:`kbbtechnology-cra` are also wired for testing:
 dependencies, configuration files, and sample tests. We'll see more later,
 but for now, let's run the tests. Unsurprisingly, it's similar to the above:
 
@@ -159,7 +159,7 @@ but for now, let's run the tests. Unsurprisingly, it's similar to the above:
 
     $ npm run-script test
 
-This uses the :ref:`technology-jest` test runner. At the time of this writing,
+This uses the :ref:`kbbtechnology-jest` test runner. At the time of this writing,
 there's an issue with test running when the project isn't under version
 control. Let's fix that by changing the npm script. Edit ``package.json``
 and change the ``test`` script to:

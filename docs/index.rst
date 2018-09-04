@@ -1,8 +1,6 @@
-.. homepage::
+.. kbbhomepage::
     published: 2018-02-02 12:23
-    heading: PyCharm Guide
-    subheading: Resources For Mastering PyCharm
-    style: primary
+    default_navpage: learn/index
 
 
 =================
@@ -31,8 +29,6 @@ PyCharm Guide
     tips/index
     tutorials/index
     blogposts/index
-    topics/index
-    technologies/index
-    authors/index
     webinars/index
     articles/index
+    learn/index

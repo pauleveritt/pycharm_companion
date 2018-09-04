@@ -3,11 +3,11 @@
     duration: 3m47s
     excerpt: Use type information to make using properties into a productive workflow.
     is_pro: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - typescript
 

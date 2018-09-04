@@ -5,12 +5,12 @@
     is_pro: True
     wp_url: 2017/03/docker-compose-getting-flask-up-and-running/
     references:
-        technology:
+        kbbtechnology:
             - docker
             - flask
-        topic:
+        kbbtopic:
             - remote_interpreter
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ============================================

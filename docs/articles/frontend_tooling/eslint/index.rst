@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Validating JavaScript style with ESLint
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ===================

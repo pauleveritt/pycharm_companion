@@ -3,9 +3,9 @@
     excerpt: Follow the React pattern of container/presentation components by refactoring the code and tests.
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - typescript
             - jest
@@ -145,7 +145,7 @@ shut up this test, because we aren't testing click handling:
     const handler = jest.fn();
     const wrapper = shallow(<Counter count={1} onCounterIncrease={handler}/>);
 
-We used :ref:`technology-jest` mock functions to create a disposable arrow
+We used :ref:`kbbtechnology-jest` mock functions to create a disposable arrow
 function which we passed in as a prop.
 
 Do this for both tests:

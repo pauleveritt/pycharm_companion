@@ -5,7 +5,7 @@
     is_pro: True
     wp_url: 2017/06/upgrade-your-testing-with-behavior-driven-development/
     references:
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 =====================================================

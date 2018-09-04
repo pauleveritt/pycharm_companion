@@ -1,10 +1,10 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Reproducible environments and automation in NodeJS with
              package.json
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ======================================

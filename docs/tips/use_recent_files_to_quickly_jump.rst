@@ -14,9 +14,9 @@
         - tweet_id: 824512951457579009
           date: 2017-01-25
     references:
-        topic:
+        kbbtopic:
             - navigation
-        author:
+        kbbauthor:
             - pauleveritt
 
 =================================

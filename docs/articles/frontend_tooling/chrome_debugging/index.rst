@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Debugging JavaScript in the browser, controlled by the IDE
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==============================

@@ -1,6 +1,6 @@
-.. section::
+.. kbbsection::
     style: success
-    subheading: Multi-step tutorials with videos, explanation, and working code.
+    excerpt: Multi-step tutorials with videos, explanation, and working code.
     in_nav: True
     weight: 12
     published: 2018-01-01 12:23

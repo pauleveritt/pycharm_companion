@@ -3,7 +3,7 @@
     excerpt: Write a small app, package it, and share it by publishing on PyPI
     wp_url: 2017/05/how-to-publish-your-package-on-pypi/
     references:
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ===================================

@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Testing JavaScript outside of browsers using a fake DOM
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==================

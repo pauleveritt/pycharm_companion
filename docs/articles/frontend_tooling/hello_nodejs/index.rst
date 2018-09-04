@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Using NodeJS for frontend development with PyCharm
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ========================================

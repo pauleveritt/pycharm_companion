@@ -14,10 +14,10 @@
         - tweet_id: 822431236387991555
           date: 2017-01-20
     references:
-        topic:
+        kbbtopic:
             - python_console
             - run_configuration
-        author:
+        kbbauthor:
             - pauleveritt
 
 ===============================

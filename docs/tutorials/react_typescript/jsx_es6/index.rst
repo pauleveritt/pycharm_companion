@@ -4,11 +4,11 @@
     excerpt: Using React and TypeScript means good JSX and ES6 support in the
         IDE. This section shows some useful features from both.
     is_pro: True
-    primary_reference: technologies/react
+    primary_reference: learn/technologies/react
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
 
 ===========

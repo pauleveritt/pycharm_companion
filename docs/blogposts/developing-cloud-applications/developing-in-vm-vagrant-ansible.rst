@@ -4,15 +4,15 @@
     is_pro: True
     wp_url: 2017/12/developing-in-a-vm-with-vagrant-and-ansible/
     references:
-        technology:
+        kbbtechnology:
             - vagrant
             - ansible
             - flask
             - virtualenv
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ===========================================

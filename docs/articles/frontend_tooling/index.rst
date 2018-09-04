@@ -1,5 +1,5 @@
 .. section::
-    subheading: Individual articles introducing frontend tools
+    excerpt: Individual articles introducing frontend tools
     published: 2018-01-04 12:23
     acquireds:
         all:

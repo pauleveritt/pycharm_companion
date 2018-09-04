@@ -9,7 +9,7 @@
         src: https://www.youtube.com/embed/yzC2TwhER0c
         width: 900
     references:
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
 

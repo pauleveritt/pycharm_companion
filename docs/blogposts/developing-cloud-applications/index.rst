@@ -1,6 +1,6 @@
 .. section::
     published: 2017-12-17 12:23
-    excerpt: Using PyCharm with Vagrant, EC2, and Ansible for Flask API
+    subheading: Using PyCharm with Vagrant, EC2, and Ansible for Flask API
     is_series: True
 
 ==============================

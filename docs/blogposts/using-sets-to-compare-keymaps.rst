@@ -4,7 +4,7 @@
             keymap
     wp_url: 2017/05/python-basics-using-sets-to-compare-keymaps/
     references:
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ============================================

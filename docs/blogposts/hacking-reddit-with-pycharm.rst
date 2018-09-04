@@ -4,13 +4,13 @@
     is_pro: True
     wp_url: 2017/09/hacking-reddit-with-pycharm/
     references:
-        technology:
+        kbbtechnology:
             - postgresql
             - rest
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ===========================

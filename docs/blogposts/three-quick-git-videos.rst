@@ -3,9 +3,9 @@
     excerpt: Three videos from our IDE family showing the use of Git
     wp_url: 2017/02/3-quick-git-show-me-videos-from-our-ide-family/
     references:
-        topic:
+        kbbtopic:
             - vcs
-        author:
+        kbbauthor:
             - pauleveritt
 
 ================================================

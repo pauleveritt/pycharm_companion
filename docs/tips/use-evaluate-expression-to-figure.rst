@@ -15,7 +15,7 @@
         - tweet_id: 871698125701865472
           date: 2017-06-05
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ====================================

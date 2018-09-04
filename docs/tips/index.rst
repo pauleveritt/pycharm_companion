@@ -1,7 +1,7 @@
-.. section::
+.. kbbsection::
     style: info
     template: tip_section
-    subheading: Bite-sized information to better your PyCharm skills
+    excerpt: Bite-sized information to better your PyCharm skills
     in_nav: True
     nav_title: Tips
     weight: 10

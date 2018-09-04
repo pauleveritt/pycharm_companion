@@ -4,12 +4,12 @@
     is_pro: True
     wp_url: 2017/06/template-debugging/
     references:
-        technology:
+        kbbtechnology:
             - flask
-        topic:
+        kbbtopic:
             - debugging
             - breakpoints
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==================

@@ -5,12 +5,12 @@
     is_pro: True
     wp_url: 2017/04/docker-compose-adding-a-database-service/
     references:
-        technology:
+        kbbtechnology:
             - docker
             - postgresql
-        topic:
+        kbbtopic:
             - remote_interpreter
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 =========================================

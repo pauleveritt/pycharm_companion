@@ -7,7 +7,7 @@
         src: https://www.youtube.com/embed/ixqeebhUa-w
         width: 900
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==============================

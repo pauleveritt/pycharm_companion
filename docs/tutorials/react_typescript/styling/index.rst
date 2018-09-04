@@ -3,11 +3,11 @@
     duration: 4m32s
     excerpt: Use the TypeScript linter TSLint to manage styling within the IDE, plus helpful hints about limitations.
     is_pro: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - typescript
 
@@ -17,7 +17,7 @@ Styling with TSLint
 
 In the :doc:`previous step <../project_cleanup/index>` we got our project
 in a cleaned-up state. Let's show how to manage our code's style using
-:ref:`technology-tslint`, the linter for TypeScript. TSLint is wired up by
+:ref:`kbbtechnology-tslint`, the linter for TypeScript. TSLint is wired up by
 default in ``react-scripts-ts``. In this step we look at configuring our
 style choices for the project.
 

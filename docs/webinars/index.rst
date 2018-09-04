@@ -1,6 +1,6 @@
-.. section::
+.. kbbsection::
     style: danger
-    subheading: Webinar recordings for technologies in Python
+    excerpt: Webinar recordings for technologies in Python
     in_nav: True
     nav_title: Webinars
     weight: 25

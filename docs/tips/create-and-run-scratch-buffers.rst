@@ -14,9 +14,9 @@
         - tweet_id: 862276039162179585
           date: 2017-05-10
     references:
-        topic:
+        kbbtopic:
             - scratches
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==============================
@@ -24,5 +24,5 @@ Create and Run Scratch Buffers
 ==============================
 
 Sometimes you just want to do some quick typing and not commit to saving
-the result in your project. PyCharm's :ref:`topic-scratches` serve just
+the result in your project. PyCharm's :ref:`kbbtopic-scratches` serve just
 this purpose.

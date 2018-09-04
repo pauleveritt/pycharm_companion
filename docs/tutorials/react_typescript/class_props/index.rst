@@ -3,11 +3,11 @@
     excerpt: Make a simple class component with a single prop, again with a TypeScript interface describing the props.
     duration: 3m14s
     is_pro: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - typescript
 

@@ -4,7 +4,7 @@
        and going (semi-) mouseless
     wp_url: 2017/01/life-without-the-project-explorer/
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 =================================

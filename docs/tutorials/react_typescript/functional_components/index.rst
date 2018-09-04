@@ -3,11 +3,11 @@
     duration: 5m04s
     excerpt: React builds UIs as a tree of components. See how to make stateless functional component correctly with TypeScript.
     is_pro: True
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
 
 =========================================
@@ -15,7 +15,7 @@ Functional React Components in TypeScript
 =========================================
 
 Functional programming has become quite popular, with React being one of
-the leaders in the web development space. :ref:`technology-cra` generates
+the leaders in the web development space. :ref:`kbbtechnology-cra` generates
 a *class* component for our ``App``, because classes allow the full range of
 React capabilities (local state, lifecycle methods, etc.). But React
 encourages
@@ -30,7 +30,7 @@ Since we're not using the browser until the end, stop the ``start`` process
 if it is still running. This is optional, but prevents your computer from
 doing compiling/transpiling/bundling work that's unneeded.
 
-Then, make sure you run your :ref:`technology-jest` run configuration if it
+Then, make sure you run your :ref:`kbbtechnology-jest` run configuration if it
 wasn't already running.
 
 Next, have ``App.tsx`` and ``App.test.tsx`` open side-by-side, as discussed

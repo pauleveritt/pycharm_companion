@@ -1,9 +1,9 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Bundling resources for web delivery with webpack
     is_pro: True
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 =============================

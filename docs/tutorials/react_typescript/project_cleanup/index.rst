@@ -6,11 +6,11 @@
         src: https://www.youtube.com/embed/-kBF2g4igFE
         width: 800
     is_pro: True
-    primary_reference: technologies/react
+    primary_reference: learn/technologies/react
     references:
-        author:
+        kbbauthor:
             - pauleveritt
-        technology:
+        kbbtechnology:
             - react
             - emmet
 
@@ -102,7 +102,7 @@ and replace it:
   }
 
 In PyCharm Professional you can quickly generate markup using
-:ref:`technology-emmet`. Highlight the markup to replace and enter
+:ref:`kbbtechnology-emmet`. Highlight the markup to replace and enter
 ``div>h1<enter>Hello React``:
 
 .. image:: screenshots/emmet.png

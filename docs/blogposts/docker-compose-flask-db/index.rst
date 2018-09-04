@@ -1,10 +1,10 @@
 .. section::
     published: 2017-04-13 12:00
-    excerpt: Two-part series on using Docker Compose for a Flask+Database
+    subheading: Two-part series on using Docker Compose for a Flask+Database
         application under PyCharm
     is_series: True
     references:
-        technology:
+        kbbtechnology:
             - docker
 
 ==============

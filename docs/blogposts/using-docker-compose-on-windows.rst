@@ -5,11 +5,11 @@
     is_pro: True
     wp_url: 2017/08/using-docker-compose-on-windows-in-pycharm/
     references:
-        technology:
+        kbbtechnology:
             - docker
-        topic:
+        kbbtopic:
             - remote_interpreter
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 ==========================================

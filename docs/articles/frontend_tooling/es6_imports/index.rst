@@ -1,8 +1,8 @@
-.. pcarticle::
+.. kbbarticle::
     published: 2018-02-26 12:00
     excerpt: Importing JavaScript modules using the ES6 import syntax
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ======================

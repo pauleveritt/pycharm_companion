@@ -4,7 +4,7 @@
             dense code
     wp_url: 2017/01/make-sense-of-your-variables-at-a-glance-with-semantic-highlighting/
     references:
-        author:
+        kbbauthor:
             - pauleveritt
 
 ===================================================================
