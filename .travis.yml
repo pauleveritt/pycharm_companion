@@ -1,21 +1,21 @@
-# Doctr requires python >=3.5
-language: python
-python:
-  - 3.6
-
-# This gives Doctr the key we've generated
-sudo: false
-
-install: make setup
-
-# This is the script to build the docs on travis, then deploy
-script: make deploy
-
-env:
-  global:
-    - PIPENV_VENV_IN_PROJECT=1
-    - PIPENV_IGNORE_VIRTUALENVS=1
-    # Doctr deploy key for pauleveritt/pycharm_guide
-    - secure: "ERehbQyoXehDsTWvxpr3XWjhOXKO6ez4yg+D706vZl5fAiEYLPTjnLIMk/5mnS99H5UZW/E5epfiTZ7NqB7AXgw4Rza0nPAVrZidPxOjKZVzCa9RILGCO+C9U5KjgYoszmZR6cuwpYibjygmwu1eOcvvUcuMvWUfHpH1tOti5AShukITjY3xkZRYqs2tFMCnWLjXD6f+n0c3sOeiIIJzACF+smci4vv44YrcvdzJwgp1KQirmue2KcRDo28COJlZ3f9LhcgqfmtJuYAHORKqN5P1/ykyqQIbG1/kX1dxpkWN7UWnaEXDbIplPZGaUG2zU4MBz8bzIihd83K2khUATwULNeHIW1IVd9tN8Aqrjjpwv3nbendnd1arcO3N7iM40M/wqmpPcjVClJf+XER/q/bELogbyv6essvYKI4mdO7faZYsP+Xd/ygBLdO9OUKZtOLOu3Z6wB6Ht8i4JX5F5K1LJdUk8rvuki08Amh9rhsHNMdLmLxEwEuobhkaLVsP0OYK4ABUhk9fhJgD7R9IjXZ2SfmQ+8TKRz5DycXRxL2gQsnoqwSpd8ZPrQxkGogEk9RZIvgnpowMKhzfdTIExOicXdApBvA3B/mxHvcEGhqlKccHO1hUlKHJq5gm4FDaWKJJlJ9SWqJyqgcJoNWuVc7nrFeNSgW/xgeUfRLS+PU="
-
-
+## Doctr requires python >=3.5
+#language: python
+#python:
+#  - 3.6
+#
+## This gives Doctr the key we've generated
+#sudo: false
+#
+#install: make setup
+#
+## This is the script to build the docs on travis, then deploy
+#script: make deploy
+#
+#env:
+#  global:
+#    - PIPENV_VENV_IN_PROJECT=1
+#    - PIPENV_IGNORE_VIRTUALENVS=1
+#    # Doctr deploy key for pauleveritt/pycharm_guide
+#    - secure: "ERehbQyoXehDsTWvxpr3XWjhOXKO6ez4yg+D706vZl5fAiEYLPTjnLIMk/5mnS99H5UZW/E5epfiTZ7NqB7AXgw4Rza0nPAVrZidPxOjKZVzCa9RILGCO+C9U5KjgYoszmZR6cuwpYibjygmwu1eOcvvUcuMvWUfHpH1tOti5AShukITjY3xkZRYqs2tFMCnWLjXD6f+n0c3sOeiIIJzACF+smci4vv44YrcvdzJwgp1KQirmue2KcRDo28COJlZ3f9LhcgqfmtJuYAHORKqN5P1/ykyqQIbG1/kX1dxpkWN7UWnaEXDbIplPZGaUG2zU4MBz8bzIihd83K2khUATwULNeHIW1IVd9tN8Aqrjjpwv3nbendnd1arcO3N7iM40M/wqmpPcjVClJf+XER/q/bELogbyv6essvYKI4mdO7faZYsP+Xd/ygBLdO9OUKZtOLOu3Z6wB6Ht8i4JX5F5K1LJdUk8rvuki08Amh9rhsHNMdLmLxEwEuobhkaLVsP0OYK4ABUhk9fhJgD7R9IjXZ2SfmQ+8TKRz5DycXRxL2gQsnoqwSpd8ZPrQxkGogEk9RZIvgnpowMKhzfdTIExOicXdApBvA3B/mxHvcEGhqlKccHO1hUlKHJq5gm4FDaWKJJlJ9SWqJyqgcJoNWuVc7nrFeNSgW/xgeUfRLS+PU="
+#
+#
